@@ -4,7 +4,7 @@
 
 Tujuannya satu: menghasilkan episode animasi anak 2.5D yang **konsisten** (dunia, karakter, gerakan, suara) dan **dapat diproduksi ulang** dari data, bukan dari kerja manual per episode.
 
-> Status saat ini: **P0 + P1 selesai dan teruji.** Renderer video dan GUI casting belum dibangun. Engine TTS produksi belum dapat dijalankan di sandbox ini — lihat [`docs/AUDIT-2026-11-08.md`](docs/AUDIT-2026-11-08.md).
+> Status saat ini: **P0, P1, dan P4 (renderer) selesai dan teruji** — episode `ep-001` sudah dirender menjadi MP4 34,75 s (H.264/AAC, 1280×720). GUI casting dan engine TTS produksi belum ada: engine TTS produksi tidak dapat dijalankan di sandbox ini, lihat [`docs/AUDIT-2026-11-08.md`](docs/AUDIT-2026-11-08.md) dan [`docs/RENDERER.md`](docs/RENDERER.md).
 
 ---
 
@@ -43,6 +43,8 @@ npm run validate
 | `npm run voice:generate` | hasilkan dialog dari voice registry yang disetujui | ✅ jalan |
 | `npm run voice:validate` | validasi registry suara | ✅ jalan |
 | `npm run episode:validate` | validasi episode + scene + voice gate | ✅ jalan |
+| `npm run episode:render` | render episode → MP4 (H.264/AAC) | ✅ jalan |
+| `npm run render:preview` | satu frame PNG untuk cek komposisi (detik, bukan menit) | ✅ jalan |
 | `npm test` | unit test | ✅ 10 test |
 
 Tidak ada script kosong di daftar ini, dan tidak ada perintah yang mengaku sukses tanpa melakukan pekerjaan.
@@ -59,11 +61,13 @@ Tidak ada script kosong di daftar ini, dan tidak ada perintah yang mengaku sukse
 - Asset manifest dengan checksum SHA-256 dan penanda `storage: git|drive`.
 - Timing otomatis: `--reflow` menyusun dialog berurutan, memperbarui subtitle, dan memperpanjang scene bila audio tidak muat.
 - 3 karakter + 1 dunia (Bobby Forest, 5 lokasi, 6 prop, 9 animasi, 4 preset kamera) + 2 scene episode contoh.
+- **Renderer 2.5D**: scene JSON → SVG → frame → MP4, kamera multi-keyframe, rig karakter beranimasi (idle/walk/run/jump/talk/wave/laugh/cry/surprise), subtitle berjangka waktu, mix audio dialog + ambience dengan normalisasi −16 LUFS, concat antar-scene. Terukur: **RTF ≈ 5** di 2 vCPU.
+- 21 unit test (parser WAV, schema, voice gate, kamera, determinisme frame).
 
 **Belum ada (jangan diasumsikan ada)**
 
-- Renderer video (Remotion) — P4.
 - GUI casting/audition internal — P3.
+- Remotion sebagai backend renderer — **terblokir** di sandbox ini (3 shared library hilang); lihat `docs/RENDERER.md`.
 - Engine TTS produksi yang benar-benar berjalan — bobot model tidak dapat diunduh di sini (P2).
 - Upload otomatis ke Drive / GitHub Actions render — P7.
 
@@ -72,12 +76,13 @@ Tidak ada script kosong di daftar ini, dan tidak ada perintah yang mengaku sukse
 ## Struktur
 
 ```text
+apps/renderer/        scene-svg, rigs, audio-mix, render (SVG → MP4)
 audio/engines/      definisi engine + adapter (espeak, http-remote, voxcpm, xtts, openvoice, rvc)
 audio/voices/       registry.json — identitas suara permanen (versioned)
 audio/voices/history/  snapshot registry per perubahan approval
 audio/manifests/    metadata tiap baris dialog yang dihasilkan
 config/             studio.config.json (kebijakan voice, format audio)
-docs/               audit, pipeline suara, persistence, roadmap
+docs/               audit, pipeline suara, renderer, persistence, roadmap
 library/            characters, worlds (sumber kebenaran aset)
 manifests/          assets.json (checksum) + environment.json
 projects/ep-001/    episode.json + scenes/*.json

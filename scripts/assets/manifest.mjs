@@ -17,11 +17,21 @@ import { P, ROOT, rel, exists, ensureDir } from '../lib/paths.mjs';
 import { log, run } from '../lib/log.mjs';
 import { readJson, writeJson, sha256File } from '../lib/json.mjs';
 
+// Images up to ~4 MB stay in git: they are small, needed for every render, and keeping
+// them in the repo means a fresh clone can render without any Drive credential.
+const GIT_IMAGE_LIMIT = 4_000_000;
 const LARGE_FILE_BYTES = 1_000_000;
 // audio/generated is deliberately excluded: dialogue WAVs are derived artefacts that are
 // reproduced by `npm run voice:generate` and tracked by audio/manifests/dialogue-<episode>.json.
 const SCAN_DIRS = ['library', 'projects', 'audio/samples', 'renders'];
 const BINARY_EXT = new Set(['.png', '.jpg', '.jpeg', '.webp', '.wav', '.mp3', '.mp4', '.ogg', '.pth', '.onnx', '.bin']);
+
+function shouldUseDrive(relPath, bytes) {
+  const ext = path.extname(relPath).toLowerCase();
+  if (!BINARY_EXT.has(ext)) return false; // text/JSON always belongs in git
+  const isImage = ['.png', '.jpg', '.jpeg', '.webp'].includes(ext);
+  return bytes > (isImage ? GIT_IMAGE_LIMIT : LARGE_FILE_BYTES);
+}
 
 function classify(relPath) {
   if (relPath.startsWith('library/characters/')) return 'character-image';
@@ -109,7 +119,7 @@ async function main() {
         id,
         kind,
         path: relPath,
-        storage: stat.size > LARGE_FILE_BYTES && BINARY_EXT.has(path.extname(relPath).toLowerCase()) ? 'drive' : 'git',
+        storage: shouldUseDrive(relPath, stat.size) ? 'drive' : 'git',
         bytes: stat.size,
         sha256,
         drive: prior?.drive ?? null,

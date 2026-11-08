@@ -18,13 +18,17 @@
     "voice:generate": "node scripts/voice/generate.mjs",
     "voice:validate": "node scripts/voice/validate.mjs",
     "episode:validate": "node scripts/episode/validate.mjs",
+    "episode:render": "node scripts/episode/render.mjs",
+    "render:preview": "node scripts/episode/preview.mjs",
     "validate": "npm run assets:validate && npm run voice:validate && npm run episode:validate",
     "test": "node --test"
   },
   "dependencies": {
     "@ffmpeg-installer/ffmpeg": "^1.1.0",
     "@ffprobe-installer/ffprobe": "^2.1.2",
+    "@resvg/resvg-js": "^2.6.2",
     "ajv": "^8.17.1",
-    "ajv-formats": "^3.0.1"
+    "ajv-formats": "^3.0.1",
+    "dejavu-fonts-ttf": "^2.37.3"
   }
 }

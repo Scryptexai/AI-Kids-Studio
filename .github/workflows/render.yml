@@ -1,0 +1,72 @@
+name: render
+
+# Manual only: rendering is expensive (RTF ~5 on 2 vCPU) and produces an artefact,
+# not a side effect of every push.
+#
+# NOTE: this workflow has NOT been executed in the development sandbox (no Actions
+# runtime there). It is written against the same commands that are verified locally:
+#   npm run bootstrap → voice:generate (smoke) → episode:render
+# Treat the first run as a test, not as a proven pipeline.
+
+on:
+  workflow_dispatch:
+    inputs:
+      episode:
+        description: 'Episode id (directory under projects/)'
+        required: true
+        default: 'ep-001'
+      allow_smoke:
+        description: 'Allow rendering with placeholder (non-production) voice audio'
+        type: boolean
+        default: true
+      scene:
+        description: 'Optional single scene id (leave empty for the whole episode)'
+        required: false
+        default: ''
+
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Bootstrap (includes the eSpeak NG smoke-test engine)
+        run: npm run bootstrap
+
+      - name: Validate before spending render time
+        run: npm run validate
+
+      # A real production render must use approved voices and would skip this step,
+      # having already populated audio/ from the approved registry.
+      - name: Generate dialogue (smoke test engine)
+        if: ${{ inputs.allow_smoke }}
+        run: |
+          npm run voice:generate -- --episode "${{ inputs.episode }}" \
+            --engine espeak --allow-unapproved --speaker "id+m3" --reflow
+
+      - name: Render episode
+        run: |
+          ARGS=(--episode "${{ inputs.episode }}")
+          if [ -n "${{ inputs.scene }}" ]; then ARGS+=(--scene "${{ inputs.scene }}"); fi
+          if [ "${{ inputs.allow_smoke }}" = "true" ]; then ARGS+=(--allow-smoke); fi
+          npm run episode:render -- "${ARGS[@]}"
+
+      - name: Upload video + render manifest
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: render-${{ inputs.episode }}
+          path: |
+            renders/${{ inputs.episode }}/*.mp4
+            renders/${{ inputs.episode }}/render-manifest.json
+          if-no-files-found: warn
+          retention-days: 14

@@ -4,20 +4,34 @@
   "worldId": "bobby-forest",
   "episodeId": "ep-001",
   "location": "river-bend",
-  "durationSec": 9,
+  "durationSec": 16.31,
   "fps": 24,
   "camera": {
     "preset": "medium-push-in",
     "keyframes": [
-      { "t": 0, "x": 0.5, "y": 0.52, "zoom": 1.0 },
-      { "t": 9, "x": 0.5, "y": 0.5, "zoom": 1.18 }
+      {
+        "t": 0,
+        "x": 0.5,
+        "y": 0.52,
+        "zoom": 1
+      },
+      {
+        "t": 16.31,
+        "x": 0.5,
+        "y": 0.5,
+        "zoom": 1.18
+      }
     ]
   },
   "characters": [
     {
       "characterId": "bobby",
-      "position": { "x": 0.42, "y": 0.74, "z": 2 },
-      "scale": 1.0,
+      "position": {
+        "x": 0.42,
+        "y": 0.845,
+        "z": 2
+      },
+      "scale": 1,
       "facing": "left",
       "expression": "happy",
       "animation": "talk",
@@ -25,7 +39,11 @@
     },
     {
       "characterId": "coco",
-      "position": { "x": 0.6, "y": 0.76, "z": 2 },
+      "position": {
+        "x": 0.6,
+        "y": 0.845,
+        "z": 2
+      },
       "scale": 1.05,
       "facing": "right",
       "expression": "happy",
@@ -33,7 +51,14 @@
       "entranceAt": 0
     }
   ],
-  "props": [{ "propId": "bench-wood", "x": 0.7, "y": 0.8, "scale": 1.0 }],
+  "props": [
+    {
+      "propId": "bench-wood",
+      "x": 0.7,
+      "y": 0.8,
+      "scale": 1
+    }
+  ],
   "dialogue": [
     {
       "id": "sc-002-d01",
@@ -41,24 +66,37 @@
       "text": "Coco, terima kasih sudah berbagi cerita. Bunganya jadi makin terang!",
       "startSec": 0.8,
       "emotion": "happy",
-      "audioAsset": null,
-      "durationSec": null
+      "audioAsset": "audio/generated/ep-001/sc-002/sc-002-d01.wav",
+      "durationSec": 6.68
     },
     {
       "id": "sc-002-d02",
       "characterId": "coco",
       "text": "Itulah kekuatan berbagi. Besok kita bagikan ceritanya kepada teman-teman yang lain, ya.",
-      "startSec": 4.6,
+      "startSec": 7.83,
       "emotion": "neutral",
-      "audioAsset": null,
-      "durationSec": null
+      "audioAsset": "audio/generated/ep-001/sc-002/sc-002-d02.wav",
+      "durationSec": 8.078
     }
   ],
   "subtitles": [
-    { "startSec": 0.8, "endSec": 4.5, "text": "Coco, terima kasih sudah berbagi cerita. Bunganya jadi makin terang!" },
-    { "startSec": 4.6, "endSec": 8.8, "text": "Itulah kekuatan berbagi. Besok kita bagikan ceritanya kepada teman-teman yang lain, ya." }
+    {
+      "startSec": 0.8,
+      "endSec": 7.48,
+      "text": "Coco, terima kasih sudah berbagi cerita. Bunganya jadi makin terang!"
+    },
+    {
+      "startSec": 7.83,
+      "endSec": 15.908,
+      "text": "Itulah kekuatan berbagi. Besok kita bagikan ceritanya kepada teman-teman yang lain, ya."
+    }
   ],
   "audioTracks": [
-    { "id": "amb-river", "kind": "ambience", "asset": "library/audio/ambience/river-flow.wav", "gainDb": -20 }
+    {
+      "id": "amb-river",
+      "kind": "ambience",
+      "asset": "library/audio/ambience/river-flow.wav",
+      "gainDb": -20
+    }
   ]
 }

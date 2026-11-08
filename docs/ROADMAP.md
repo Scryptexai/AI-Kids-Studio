@@ -8,9 +8,9 @@ Status per 2026-11-08. Tahap diselesaikan berurutan; tidak ada tahap yang ditand
 | **P1** | Asset manifest, schema, validasi, klien Drive | ✅ selesai (klien Drive belum diuji live) |
 | **P2** | Audit & benchmark 4 engine TTS | 🟡 audit selesai; **benchmark inference terblokir** (bobot tidak dapat diunduh) |
 | **P3** | Voice adapter, registry, GUI audition, approval | 🟡 registry + adapter + gate selesai; **GUI belum** |
-| **P4** | Renderer 2.5D (Remotion + @sparticuz/chromium) | ⬜ belum |
-| **P5** | Sinkronisasi audio ↔ timeline, subtitle | 🟡 retiming & subtitle derivasi selesai; mux audio belum |
-| **P6** | Pipeline episode lengkap → MP4 | ⬜ belum |
+| **P4** | Renderer 2.5D | ✅ selesai dengan backend **SVG+resvg**; Remotion terblokir (3 shared library hilang) — lihat `docs/RENDERER.md` |
+| **P5** | Sinkronisasi audio ↔ timeline, subtitle | ✅ retiming, subtitle, mux audio + loudnorm −16 LUFS |
+| **P6** | Pipeline episode lengkap → MP4 | 🟡 episode → MP4 berjalan (34,75 s); storyboard/script otomatis belum |
 | **P7** | GitHub Actions render + backup + publishing | 🟡 workflow validate ada; render/publish belum |
 
 ---
@@ -27,16 +27,15 @@ Pilih salah satu:
 
 Tanpa salah satu dari ini, P2/P3 tidak bisa maju ke kualitas produksi.
 
-### 2. Renderer spike (P4) — risiko yang harus diuji dulu
+### 2. Renderer (P4) — selesai, dengan temuan
 
-Sebelum menulis banyak kode render:
+Spike dijalankan dan hasilnya: **Remotion tidak bisa dipakai di sandbox ini.** Chromium gagal start
+karena `libnss3`, `libnspr4`, `libnssutil3` tidak ada; apt, deb.debian.org, autotools, dan CDN browser
+semuanya tertutup. Backend pengganti **SVG + resvg + ffmpeg** dibangun dan terbukti: episode 34,75 s
+dirender dalam ~3 menit (RTF ≈ 5 di 2 vCPU). Detail benchmark dan batasannya di `docs/RENDERER.md`.
 
-1. Pasang `remotion` + `@remotion/cli` (npm, diperbolehkan).
-2. **Jangan** biarkan Remotion mengunduh browser (host unduhannya diblokir) — arahkan ke binary `@sparticuz/chromium` lewat `--browser-executable`.
-3. Render 1 komposisi 3 detik 1280×720 dari `library/worlds/bobby-forest.world.json`.
-4. Ukur waktu render & RAM di 2 vCPU. Jika > 3× durasi video, putuskan: turunkan resolusi/fps, atau render di CI mesin lebih besar.
-
-Jika langkah 3 gagal, jangan lanjut menulis scene engine — cari renderer lain lebih dulu.
+Berikutnya untuk renderer: art karakter final (rig sudah siap menerima layer gambar), prop final,
+dan — bila mesin dengan library lengkap tersedia — backend Remotion sebagai pembanding.
 
 ### 3. Aset visual (paralel, tidak memblokir)
 

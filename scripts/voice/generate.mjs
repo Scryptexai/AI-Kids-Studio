@@ -229,11 +229,6 @@ async function main() {
     }
   }
 
-  // write updated scenes
-  for (const [sceneId, scene] of touchedScenes) {
-    const file = path.join(P.projects, args.episode, 'scenes', `${sceneId}.json`);
-    await writeJson(file, scene);
-  }
 
   // ---- timeline: either report conflicts, or reflow dialogue sequentially ----
   for (const [sceneId, scene] of touchedScenes) {
@@ -272,6 +267,12 @@ async function main() {
         i > 0 && (arr[i - 1].startSec + (arr[i - 1].durationSec ?? 0)) > d.startSec);
       if (overlapping.length) log.warn(`${sceneId}: ${overlapping.length} dialogue line(s) overlap the previous line — dialogue should not collide`);
     }
+  }
+
+  // write updated scenes
+  for (const [sceneId, scene] of touchedScenes) {
+    const file = path.join(P.projects, args.episode, 'scenes', `${sceneId}.json`);
+    await writeJson(file, scene);
   }
 
   const manifestPath = `${P.audioManifests}/dialogue-${args.episode}.json`;

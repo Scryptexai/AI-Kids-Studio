@@ -83,7 +83,17 @@ async function main() {
       const scene = await readJson(path.join(scenesDir, f));
       for (const t of scene.audioTracks ?? []) checkRef(t.asset, `scene ${scene.id} audio track ${t.id}`);
       for (const d of scene.dialogue ?? []) {
-        if (d.audioAsset) checkRef(d.audioAsset, `scene ${scene.id} dialogue ${d.id}`);
+        if (!d.audioAsset) continue;
+        // Generated dialogue is a derived artefact (gitignored, tracked by
+        // audio/manifests/dialogue-*.json), so it must exist on disk but is not a
+        // manifest asset. Everything else must be declared in the manifest.
+        if (d.audioAsset.startsWith('audio/generated/')) {
+          if (!(await exists(path.join(ROOT, d.audioAsset)))) {
+            warnings.push(`scene ${scene.id} dialogue ${d.id}: audio missing (derived — rerun npm run voice:generate)`);
+          }
+          continue;
+        }
+        checkRef(d.audioAsset, `scene ${scene.id} dialogue ${d.id}`);
       }
     }
   }
