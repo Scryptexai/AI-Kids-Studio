@@ -176,3 +176,15 @@ npm run voice:generate -- --episode ep-001
 | setiap approval suara | snapshot `audio/voices/history/registry.r<N>.json` + commit |
 | setiap render selesai | upload MP4 ke Drive, catat fileId di manifest |
 | mingguan | `doctor` → simpan `manifests/environment.json` untuk diff environment |
+
+## Current build in `video ready`
+
+| Created | File | Drive id | Commit |
+| --- | --- | --- | --- |
+| 15:13 | `ep-002-…15-13-37-lipsync` | `1XNtYcm84lmTSr9X5hg2RUryo1bMf-4xv` | `f25b613` |
+| 14:32 | `ep-002-…14-32-02-acting` | `1tXQoZbmz552Sege6hXxB3EAsqogBX7xh` | `4ce4330` |
+| 13:41 | `ep-002-…13-41-32-timing` | `1MJDWqcAHXoufPViQ76_hAi0qUUsWvzZU` | `6dcc1e7` |
+
+The 13:32 (rig v2) and 10:30 renders were trashed on 2026-11-09 — they are superseded, and five
+near-identical build files in one folder is how the wrong one gets published. Nothing is deleted:
+they sit in Drive's trash and can be restored for 30 days.
