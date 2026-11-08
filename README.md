@@ -66,7 +66,7 @@ Tidak ada script kosong di daftar ini, dan tidak ada perintah yang mengaku sukse
 
 **Belum ada (jangan diasumsikan ada)**
 
-- GUI casting/audition internal — P3.
+- GUI casting/audition internal — P3 ✅ (`npm run studio` → http://0.0.0.0:4173)
 - Remotion sebagai backend renderer — **terblokir** di sandbox ini (3 shared library hilang); lihat `docs/RENDERER.md`.
 - Engine TTS produksi yang benar-benar berjalan — bobot model tidak dapat diunduh di sini (P2).
 - Upload otomatis ke Drive / GitHub Actions render — P7.

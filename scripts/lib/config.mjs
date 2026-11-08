@@ -32,7 +32,7 @@ const DEFAULTS = {
   },
 };
 
-function deepMerge(base, override) {
+export function deepMerge(base, override) {
   if (Array.isArray(base) || Array.isArray(override)) return override ?? base;
   if (typeof base !== 'object' || base === null) return override ?? base;
   if (typeof override !== 'object' || override === null) return base;

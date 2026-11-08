@@ -7,7 +7,7 @@ Status per 2026-11-08. Tahap diselesaikan berurutan; tidak ada tahap yang ditand
 | **P0** | Bootstrap, doctor, dependency manifest, recovery | ✅ selesai & teruji |
 | **P1** | Asset manifest, schema, validasi, klien Drive | ✅ selesai (klien Drive belum diuji live) |
 | **P2** | Audit & benchmark 4 engine TTS | 🟡 audit selesai; **benchmark inference terblokir** (bobot tidak dapat diunduh) |
-| **P3** | Voice adapter, registry, GUI audition, approval | 🟡 registry + adapter + gate selesai; **GUI belum** |
+| **P3** | Voice adapter, registry, GUI audition, approval | ✅ `npm run studio` — casting console, approval/migration gates, 11 tests (produksi menunggu engine) |
 | **P4** | Renderer 2.5D | ✅ selesai dengan backend **SVG+resvg**; Remotion terblokir (3 shared library hilang) — lihat `docs/RENDERER.md` |
 | **P5** | Sinkronisasi audio ↔ timeline, subtitle | ✅ retiming, subtitle, mux audio + loudnorm −16 LUFS |
 | **P6** | Pipeline episode lengkap → MP4 | 🟡 episode → MP4 berjalan (34,75 s); storyboard/script otomatis belum |
@@ -41,9 +41,16 @@ dan — bila mesin dengan library lengkap tersedia — backend Remotion sebagai 
 
 19 aset visual masih "pending art" di manifest: 5 background, 3 karakter base, 6 props, 5 ambience. Semua sudah punya slot, ID, dan path. Begitu file ada di path yang benar, `npm run assets:manifest && npm run validate` otomatis mengubahnya dari warning jadi checksum tracked.
 
-### 4. GUI casting internal (P3)
+### 4. GUI casting internal (P3) — selesai
 
-Halaman minimum: Character Library, Voice Library, Voice Audition (pilih karakter → engine → teks → generate → play/compare → approve). Server internal, bind `0.0.0.0`, tanpa autentikasi publik yang longgar. Gunakan API yang sama dengan script (`scripts/lib/*`), jangan menduplikasi logika gate.
+`npm run studio` → `http://0.0.0.0:4173`. Character Library, Voice Library, engine probe langsung,
+audition (teks identik untuk semua kandidat), approve/reject, history append-only. Server
+mengimpor `scripts/lib/*` sehingga gate tidak diduplikasi. Detail + batasan di
+`docs/STUDIO-GUI.md`.
+
+Sisa P3 (tidak memblokir): pemutar A/B berdampingan, layar migrasi engine, autentikasi internal.
+Yang benar-benar memblokir produksi bukan GUI-nya, melainkan belum adanya engine produksi yang
+lolos audit — lihat `docs/AUDIT-2026-11-08.md`.
 
 ### 5. Sinkronisasi audio (P5)
 

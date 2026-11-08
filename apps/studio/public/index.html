@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Kids AI Studio — Voice Casting</title>
+  <link rel="stylesheet" href="/style.css" />
+  <link rel="icon" href="data:," />
+</head>
+<body>
+  <header>
+    <div class="brand">
+      <span class="mark">▶</span>
+      <div>
+        <strong>Kids AI Studio</strong>
+        <small>internal production dashboard — voice casting</small>
+      </div>
+    </div>
+    <div class="meta">
+      <span id="revision" class="pill">registry r0</span>
+      <span id="conn" class="pill ok">online</span>
+    </div>
+  </header>
+
+  <main>
+    <aside id="characters" aria-label="Character library">
+      <h2>Character Library</h2>
+      <div id="character-list" class="list"></div>
+      <h2 style="margin-top:20px">Engines</h2>
+      <div id="engine-list" class="list small"></div>
+    </aside>
+
+    <section id="workspace">
+      <div id="empty" class="empty">
+        <h1>Pick a character</h1>
+        <p>Choose a character on the left to audition voices, compare candidates and approve a profile.</p>
+      </div>
+
+      <div id="detail" hidden>
+        <div class="card head">
+          <div class="avatar" id="avatar"></div>
+          <div class="headtext">
+            <h1 id="char-name">—</h1>
+            <p id="char-sub" class="muted"></p>
+            <div class="badges" id="char-badges"></div>
+          </div>
+        </div>
+
+        <div class="card">
+          <h2>Voice Profile</h2>
+          <div id="profile" class="profile"></div>
+        </div>
+
+        <div class="card">
+          <h2>Audition</h2>
+          <div class="row">
+            <label>Engine
+              <select id="engine-select"></select>
+            </label>
+            <label>Speaker ID
+              <input id="speaker-input" value="id" spellcheck="false" />
+            </label>
+            <label class="grow">Text
+              <input id="text-input" spellcheck="false" />
+            </label>
+            <button id="generate" class="primary">Generate 3 variants</button>
+          </div>
+          <p class="muted small" id="audition-note">Same text for every candidate — comparison is only fair if the words are identical.</p>
+          <div id="candidates" class="candidates"></div>
+        </div>
+
+        <div class="card">
+          <h2>Approval</h2>
+          <div class="row">
+            <label>Approved by
+              <input id="approver" placeholder="your name" spellcheck="false" />
+            </label>
+            <label class="grow">Note
+              <input id="approve-note" placeholder="why this candidate" spellcheck="false" />
+            </label>
+            <button id="approve" class="primary" disabled>Approve selected</button>
+            <button id="reject">Reject draft</button>
+          </div>
+          <p class="muted small">Approval requires a production-eligible engine and passes the audio quality gate. Approved profiles are immutable — engine changes go through migration, which keeps the alias.</p>
+        </div>
+
+        <div class="card">
+          <h2>History</h2>
+          <div id="history" class="history"></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="toast" class="toast" hidden></div>
+  <script src="/app.js"></script>
+</body>
+</html>

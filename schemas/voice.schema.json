@@ -5,60 +5,262 @@
   "description": "Character ID -> Voice Alias -> Engine -> Model -> Voice Profile -> Generation Parameters. Append-only history; approved profiles are immutable without a new version.",
   "type": "object",
   "additionalProperties": false,
-  "required": ["schemaVersion", "revision", "updatedAt", "profiles"],
+  "required": [
+    "schemaVersion",
+    "revision",
+    "updatedAt",
+    "profiles"
+  ],
   "properties": {
-    "schemaVersion": { "const": 1 },
-    "revision": { "type": "integer", "minimum": 0 },
-    "updatedAt": { "type": "string", "format": "date-time" },
-    "profiles": { "type": "array", "items": { "$ref": "#/$defs/profile" } }
+    "schemaVersion": {
+      "const": 1
+    },
+    "revision": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "updatedAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "profiles": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/profile"
+      }
+    }
   },
   "$defs": {
     "profile": {
       "type": "object",
       "additionalProperties": false,
       "required": [
-        "characterId", "voiceAlias", "version", "engine", "engineVersion", "model",
-        "speakerId", "language", "status", "params", "createdAt", "updatedAt", "history"
+        "characterId",
+        "voiceAlias",
+        "version",
+        "engine",
+        "engineVersion",
+        "model",
+        "speakerId",
+        "language",
+        "status",
+        "params",
+        "createdAt",
+        "updatedAt",
+        "history"
       ],
       "properties": {
-        "characterId": { "type": "string" },
-        "voiceAlias": { "type": "string", "pattern": "^[a-z0-9_]+$", "description": "Internal alias kept stable across engine migration." },
-        "version": { "type": "integer", "minimum": 1 },
-        "engine": { "type": "string" },
-        "engineVersion": { "type": "string" },
-        "model": { "type": "string" },
-        "modelVersion": { "type": "string" },
-        "speakerId": { "type": "string", "description": "Speaker/voice descriptor understood by the engine adapter." },
-        "voiceDescription": { "type": "string" },
-        "referenceAudio": { "type": ["string", "null"] },
-        "referenceTranscript": { "type": ["string", "null"] },
-        "language": { "type": "string" },
-        "pitchProfile": { "type": ["object", "null"] },
-        "speakingRate": { "type": ["number", "null"] },
-        "timbreDescription": { "type": ["string", "null"] },
-        "accentProfile": { "type": ["string", "null"] },
-        "emotionDefaults": { "type": "object" },
-        "params": { "type": "object", "description": "Engine generation parameters; changing these requires a new version." },
-        "status": { "enum": ["draft", "auditioning", "approved", "rejected", "migrated", "retired"] },
-        "approvedBy": { "type": ["string", "null"] },
-        "approvedAt": { "type": ["string", "null"], "format": "date-time" },
-        "sampleAudio": { "type": ["string", "null"] },
-        "sampleChecksum": { "type": ["string", "null"] },
-        "quality": { "type": ["object", "null"] },
-        "createdAt": { "type": "string", "format": "date-time" },
-        "updatedAt": { "type": "string", "format": "date-time" },
+        "characterId": {
+          "type": "string"
+        },
+        "voiceAlias": {
+          "type": "string",
+          "pattern": "^[a-z0-9_]+$",
+          "description": "Internal alias kept stable across engine migration."
+        },
+        "version": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "engine": {
+          "type": "string"
+        },
+        "engineVersion": {
+          "type": "string"
+        },
+        "model": {
+          "type": "string"
+        },
+        "modelVersion": {
+          "type": "string"
+        },
+        "speakerId": {
+          "type": "string",
+          "description": "Speaker/voice descriptor understood by the engine adapter."
+        },
+        "voiceDescription": {
+          "type": "string"
+        },
+        "referenceAudio": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "referenceTranscript": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "language": {
+          "type": "string"
+        },
+        "pitchProfile": {
+          "type": [
+            "object",
+            "null"
+          ]
+        },
+        "speakingRate": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "timbreDescription": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "accentProfile": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "emotionDefaults": {
+          "type": "object"
+        },
+        "params": {
+          "type": "object",
+          "description": "Engine generation parameters; changing these requires a new version."
+        },
+        "status": {
+          "enum": [
+            "draft",
+            "auditioning",
+            "approved",
+            "rejected",
+            "migrated",
+            "retired"
+          ]
+        },
+        "approvedBy": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "approvedAt": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date-time"
+        },
+        "sampleAudio": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "sampleChecksum": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "quality": {
+          "type": [
+            "object",
+            "null"
+          ]
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time"
+        },
         "history": {
           "type": "array",
           "items": {
             "type": "object",
             "additionalProperties": false,
-            "required": ["at", "event"],
+            "required": [
+              "at",
+              "event"
+            ],
             "properties": {
-              "at": { "type": "string", "format": "date-time" },
-              "event": { "type": "string" },
-              "actor": { "type": "string" },
-              "note": { "type": "string" },
-              "revision": { "type": "integer" }
+              "at": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "event": {
+                "type": "string"
+              },
+              "actor": {
+                "type": "string"
+              },
+              "note": {
+                "type": "string"
+              },
+              "revision": {
+                "type": "integer"
+              },
+              "sampleChecksum": {
+                "type": "string",
+                "pattern": "^[0-9a-f]{64}$",
+                "description": "SHA-256 of the audio this event refers to."
+              },
+              "from": {
+                "type": "object",
+                "description": "State before a migration, so the A/B comparison stays auditable.",
+                "properties": {
+                  "version": {
+                    "type": "integer"
+                  },
+                  "engine": {
+                    "type": "string"
+                  },
+                  "model": {
+                    "type": "string"
+                  },
+                  "speakerId": {
+                    "type": "string"
+                  },
+                  "params": {
+                    "type": "object"
+                  },
+                  "sampleAudio": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "sampleChecksum": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  }
+                }
+              },
+              "to": {
+                "type": "object",
+                "description": "State after a migration: the other side of the A/B.",
+                "properties": {
+                  "engine": {
+                    "type": "string"
+                  },
+                  "model": {
+                    "type": "string"
+                  },
+                  "speakerId": {
+                    "type": "string"
+                  },
+                  "sampleChecksum": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  }
+                }
+              }
             }
           }
         }
