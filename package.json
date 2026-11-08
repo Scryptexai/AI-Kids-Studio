@@ -22,7 +22,9 @@
     "render:preview": "node scripts/episode/preview.mjs",
     "validate": "npm run assets:validate && npm run voice:validate && npm run episode:validate",
     "test": "node --test",
-    "renderer:bench": "node scripts/bench/renderer.mjs"
+    "renderer:bench": "node scripts/bench/renderer.mjs",
+    "pkg:inspect": "node scripts/tools/inspect-package.mjs",
+    "blender:probe": "node scripts/tools/probe-blender.mjs"
   },
   "dependencies": {
     "@ffmpeg-installer/ffmpeg": "^1.1.0",
@@ -32,6 +34,7 @@
     "@remotion/renderer": "^4.0.541",
     "@resvg/resvg-js": "^2.6.2",
     "@sparticuz/chromium": "^153.0.0",
+    "@volter/blender-engine": "^0.1.149",
     "ajv": "^8.17.1",
     "ajv-formats": "^3.0.1",
     "dejavu-fonts-ttf": "^2.37.3",
