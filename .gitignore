@@ -1,0 +1,38 @@
+# dependencies
+node_modules/
+
+# build outputs / ephemeral sandbox state
+.tools/
+.venv/
+dist/
+build/
+.cache/
+
+# generated media: large binaries never belong in git (see docs/PERSISTENCE.md)
+audio/generated/
+# provenance manifests travel with the audio files they describe (Drive, not git)
+audio/manifests/dialogue-*.json
+audio/manifests/auditions-*.json
+renders/
+*.mp4
+*.pth
+*.onnx
+*.bin
+
+# credential material — must never be committed
+.env
+.env.*
+!.env.example
+config/studio.local.json
+service-account*.json
+*.pem
+*token*.json
+
+# editor / OS
+.DS_Store
+.idea/
+.vscode/
+
+# generated manifests that are environment-specific
+manifests/environment.json
+audio/manifests/engine-status.json

@@ -1,0 +1,115 @@
+{
+  "schemaVersion": 1,
+  "revision": 0,
+  "updatedAt": "2026-11-08T00:00:00.000Z",
+  "profiles": [
+    {
+      "characterId": "bobby",
+      "voiceAlias": "bobby_warm_01",
+      "version": 1,
+      "engine": "unassigned",
+      "engineVersion": "n/a",
+      "model": "unassigned",
+      "modelVersion": "n/a",
+      "speakerId": "unassigned",
+      "voiceDescription": "Mid-high male child voice, bright timbre, playful and clear.",
+      "referenceAudio": null,
+      "referenceTranscript": null,
+      "language": "id",
+      "pitchProfile": null,
+      "speakingRate": null,
+      "timbreDescription": null,
+      "accentProfile": null,
+      "emotionDefaults": {},
+      "params": {},
+      "status": "draft",
+      "approvedBy": null,
+      "approvedAt": null,
+      "sampleAudio": null,
+      "sampleChecksum": null,
+      "quality": null,
+      "createdAt": "2026-11-08T00:00:00.000Z",
+      "updatedAt": "2026-11-08T00:00:00.000Z",
+      "history": [
+        {
+          "at": "2026-11-08T00:00:00.000Z",
+          "event": "profile.created",
+          "actor": "bootstrap",
+          "note": "Placeholder profile. No production TTS engine has passed CPU/Indonesian evaluation yet; see docs/AUDIT-2026-11-08.md."
+        }
+      ]
+    },
+    {
+      "characterId": "pip",
+      "voiceAlias": "pip_spark_01",
+      "version": 1,
+      "engine": "unassigned",
+      "engineVersion": "n/a",
+      "model": "unassigned",
+      "modelVersion": "n/a",
+      "speakerId": "unassigned",
+      "voiceDescription": "High, quick, sparkly voice with short breath pauses.",
+      "referenceAudio": null,
+      "referenceTranscript": null,
+      "language": "id",
+      "pitchProfile": null,
+      "speakingRate": null,
+      "timbreDescription": null,
+      "accentProfile": null,
+      "emotionDefaults": {},
+      "params": {},
+      "status": "draft",
+      "approvedBy": null,
+      "approvedAt": null,
+      "sampleAudio": null,
+      "sampleChecksum": null,
+      "quality": null,
+      "createdAt": "2026-11-08T00:00:00.000Z",
+      "updatedAt": "2026-11-08T00:00:00.000Z",
+      "history": [
+        {
+          "at": "2026-11-08T00:00:00.000Z",
+          "event": "profile.created",
+          "actor": "bootstrap",
+          "note": "Placeholder profile. Awaiting engine assignment after audit."
+        }
+      ]
+    },
+    {
+      "characterId": "coco",
+      "voiceAlias": "coco_soft_01",
+      "version": 1,
+      "engine": "unassigned",
+      "engineVersion": "n/a",
+      "model": "unassigned",
+      "modelVersion": "n/a",
+      "speakerId": "unassigned",
+      "voiceDescription": "Soft lower-pitched voice, slower speaking rate, warm and reassuring.",
+      "referenceAudio": null,
+      "referenceTranscript": null,
+      "language": "id",
+      "pitchProfile": null,
+      "speakingRate": null,
+      "timbreDescription": null,
+      "accentProfile": null,
+      "emotionDefaults": {},
+      "params": {},
+      "status": "draft",
+      "approvedBy": null,
+      "approvedAt": null,
+      "sampleAudio": null,
+      "sampleChecksum": null,
+      "quality": null,
+      "createdAt": "2026-11-08T00:00:00.000Z",
+      "updatedAt": "2026-11-08T00:00:00.000Z",
+      "history": [
+        {
+          "at": "2026-11-08T00:00:00.000Z",
+          "event": "profile.created",
+          "actor": "bootstrap",
+          "note": "Placeholder profile. Awaiting engine assignment after audit."
+        }
+      ]
+    }
+  ]
+}

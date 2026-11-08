@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "id": "coco",
+  "displayName": "Coco",
+  "worldId": "bobby-forest",
+  "description": "A gentle older-sister rabbit who explains things slowly and calmly, giving the episode its emotional anchor.",
+  "ageGroup": "early-reader",
+  "visual": {
+    "baseImage": "library/characters/coco/base.png",
+    "palette": { "primary": "#bb6bd9", "secondary": "#f2f2f2", "accent": "#6fcf97" },
+    "bodyProportions": { "headScale": 1.25, "heightUnits": 5.0 }
+  },
+  "rig": {
+    "rigId": "coco-rig-v1",
+    "skeletonVersion": 1,
+    "expressions": ["neutral", "happy", "sad", "surprised", "curious"],
+    "poses": ["idle", "walk", "talk", "wave", "cry", "surprise"]
+  },
+  "voice": {
+    "voiceAlias": "coco_soft_01",
+    "notes": "Soft lower-pitched voice, slower speaking rate, warm and reassuring."
+  },
+  "status": "in-production",
+  "tags": ["mentor", "calm"]
+}

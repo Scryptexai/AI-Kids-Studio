@@ -1,0 +1,67 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://studio.local/schemas/character.schema.json",
+  "title": "Character",
+  "description": "A reusable cast member of the animation world. Visual identity only; voice identity lives in audio/voices/registry.json.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "id", "displayName", "worldId", "description", "visual", "rig", "status"],
+  "properties": {
+    "schemaVersion": { "const": 1 },
+    "id": { "type": "string", "pattern": "^[a-z][a-z0-9-]{1,40}$" },
+    "displayName": { "type": "string", "minLength": 1, "maxLength": 40 },
+    "worldId": { "type": "string" },
+    "description": { "type": "string", "minLength": 10 },
+    "ageGroup": { "enum": ["preschool", "early-reader", "family"] },
+    "visual": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["baseImage", "palette", "bodyProportions"],
+      "properties": {
+        "baseImage": { "type": "string", "description": "Repo-relative asset path, tracked in manifests/assets.json." },
+        "palette": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["primary", "secondary", "accent"],
+          "properties": {
+            "primary": { "type": "string", "pattern": "^#[0-9a-fA-F]{6}$" },
+            "secondary": { "type": "string", "pattern": "^#[0-9a-fA-F]{6}$" },
+            "accent": { "type": "string", "pattern": "^#[0-9a-fA-F]{6}$" }
+          }
+        },
+        "bodyProportions": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["headScale", "heightUnits"],
+          "properties": {
+            "headScale": { "type": "number", "exclusiveMinimum": 0, "maximum": 3 },
+            "heightUnits": { "type": "number", "exclusiveMinimum": 0 }
+          }
+        }
+      }
+    },
+    "rig": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["rigId", "skeletonVersion", "expressions", "poses"],
+      "properties": {
+        "rigId": { "type": "string" },
+        "skeletonVersion": { "type": "integer", "minimum": 1 },
+        "expressions": { "type": "array", "items": { "type": "string" }, "minItems": 3, "uniqueItems": true },
+        "poses": { "type": "array", "items": { "type": "string" }, "minItems": 1, "uniqueItems": true }
+      }
+    },
+    "voice": {
+      "type": "object",
+      "additionalProperties": false,
+      "description": "Pointer into the voice registry. Never a free-text speaker name.",
+      "required": ["voiceAlias"],
+      "properties": {
+        "voiceAlias": { "type": "string", "pattern": "^[a-z0-9_]+$" },
+        "notes": { "type": "string" }
+      }
+    },
+    "status": { "enum": ["draft", "in-production", "approved", "retired"] },
+    "tags": { "type": "array", "items": { "type": "string" } }
+  }
+}

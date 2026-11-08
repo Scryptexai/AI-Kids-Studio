@@ -1,0 +1,53 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://studio.local/schemas/episode.schema.json",
+  "title": "Episode",
+  "description": "One production unit: concept, script beats, ordered scene list, target output spec.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "id", "title", "worldId", "status", "concept", "scenes", "output"],
+  "properties": {
+    "schemaVersion": { "const": 1 },
+    "id": { "type": "string", "pattern": "^[a-z0-9-]+$" },
+    "title": { "type": "string", "minLength": 3 },
+    "worldId": { "type": "string" },
+    "status": { "enum": ["concept", "scripted", "storyboarded", "voiced", "animated", "rendered", "published"] },
+    "concept": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["logline", "moral", "targetAge", "durationTargetSec"],
+      "properties": {
+        "logline": { "type": "string", "minLength": 10 },
+        "moral": { "type": "string", "minLength": 5 },
+        "targetAge": { "enum": ["2-4", "4-6", "6-8"] },
+        "durationTargetSec": { "type": "number", "exclusiveMinimum": 0 }
+      }
+    },
+    "scenes": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["sceneId", "file"],
+        "properties": {
+          "sceneId": { "type": "string" },
+          "file": { "type": "string", "description": "Repo-relative scene JSON path." }
+        }
+      }
+    },
+    "output": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["width", "height", "fps", "container"],
+      "properties": {
+        "width": { "type": "integer", "minimum": 320 },
+        "height": { "type": "integer", "minimum": 240 },
+        "fps": { "type": "integer", "minimum": 12, "maximum": 60 },
+        "container": { "const": "mp4" },
+        "videoCodec": { "enum": ["h264"] },
+        "audioCodec": { "enum": ["aac"] }
+      }
+    }
+  }
+}

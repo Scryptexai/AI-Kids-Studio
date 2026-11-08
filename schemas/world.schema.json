@@ -1,0 +1,89 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://studio.local/schemas/world.schema.json",
+  "title": "World",
+  "description": "Reusable animation world: locations, props, animation catalogue and camera presets shared by all episodes.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "id", "displayName", "artDirection", "locations", "propCatalog", "animationCatalog", "cameraPresets"],
+  "properties": {
+    "schemaVersion": { "const": 1 },
+    "id": { "type": "string", "pattern": "^[a-z][a-z0-9-]{1,40}$" },
+    "displayName": { "type": "string" },
+    "artDirection": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["style", "lineWeight", "palette"],
+      "properties": {
+        "style": { "type": "string" },
+        "lineWeight": { "type": "number", "exclusiveMinimum": 0 },
+        "palette": { "type": "object", "additionalProperties": { "type": "string", "pattern": "^#[0-9a-fA-F]{6}$" } }
+      }
+    },
+    "locations": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "displayName", "background", "groundLineY", "depthLayers"],
+        "properties": {
+          "id": { "type": "string" },
+          "displayName": { "type": "string" },
+          "background": { "type": "string", "description": "Repo-relative image path." },
+          "groundLineY": { "type": "number", "minimum": 0, "maximum": 1, "description": "Normalised y of walking surface (0 top, 1 bottom)." },
+          "depthLayers": { "type": "integer", "minimum": 1, "maximum": 5 },
+          "ambientAudio": { "type": ["string", "null"] },
+          "lightingPreset": { "enum": ["day", "golden-hour", "night", "indoor"] }
+        }
+      }
+    },
+    "propCatalog": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "displayName", "asset", "anchor"],
+        "properties": {
+          "id": { "type": "string" },
+          "displayName": { "type": "string" },
+          "asset": { "type": "string" },
+          "anchor": { "enum": ["ground", "wall", "sky", "hand"] },
+          "scaleUnits": { "type": "number", "exclusiveMinimum": 0 }
+        }
+      }
+    },
+    "animationCatalog": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "fps", "durationFrames", "loop", "appliesTo"],
+        "properties": {
+          "id": { "type": "string" },
+          "fps": { "type": "integer", "minimum": 1, "maximum": 60 },
+          "durationFrames": { "type": "integer", "minimum": 1 },
+          "loop": { "type": "boolean" },
+          "appliesTo": { "type": "array", "items": { "type": "string" }, "minItems": 1 }
+        }
+      }
+    },
+    "cameraPresets": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "shot", "focalLength", "yaw", "pitch", "height"],
+        "properties": {
+          "id": { "type": "string" },
+          "shot": { "enum": ["wide", "medium", "close-up", "over-shoulder", "establishing"] },
+          "focalLength": { "type": "number", "exclusiveMinimum": 0 },
+          "yaw": { "type": "number" },
+          "pitch": { "type": "number" },
+          "height": { "type": "number" },
+          "motion": { "enum": ["static", "pan-left", "pan-right", "push-in", "pull-out", "truck"] }
+        }
+      }
+    }
+  }
+}

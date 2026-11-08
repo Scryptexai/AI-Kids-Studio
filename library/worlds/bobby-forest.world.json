@@ -1,0 +1,90 @@
+{
+  "schemaVersion": 1,
+  "id": "bobby-forest",
+  "displayName": "Bobby Forest",
+  "artDirection": {
+    "style": "flat-vector 2.5D, soft rounded shapes, thick friendly outlines, no harsh shadows",
+    "lineWeight": 6,
+    "palette": {
+      "sky": "#a8d8f0",
+      "foliage": "#4f9d52",
+      "foliageDeep": "#2f6b39",
+      "earth": "#c8a06a",
+      "river": "#5aa9d6",
+      "sun": "#ffd166",
+      "highlight": "#fff3c4"
+    }
+  },
+  "locations": [
+    {
+      "id": "forest-clearing",
+      "displayName": "Forest Clearing",
+      "background": "library/backgrounds/forest-clearing.png",
+      "groundLineY": 0.78,
+      "depthLayers": 3,
+      "ambientAudio": "library/audio/ambience/forest-birds.wav",
+      "lightingPreset": "day"
+    },
+    {
+      "id": "village-square",
+      "displayName": "Village Square",
+      "background": "library/backgrounds/village-square.png",
+      "groundLineY": 0.8,
+      "depthLayers": 3,
+      "ambientAudio": "library/audio/ambience/village-market.wav",
+      "lightingPreset": "day"
+    },
+    {
+      "id": "river-bend",
+      "displayName": "River Bend",
+      "background": "library/backgrounds/river-bend.png",
+      "groundLineY": 0.74,
+      "depthLayers": 2,
+      "ambientAudio": "library/audio/ambience/river-flow.wav",
+      "lightingPreset": "golden-hour"
+    },
+    {
+      "id": "playground",
+      "displayName": "Playground",
+      "background": "library/backgrounds/playground.png",
+      "groundLineY": 0.82,
+      "depthLayers": 2,
+      "ambientAudio": "library/audio/ambience/playground-kids.wav",
+      "lightingPreset": "day"
+    },
+    {
+      "id": "mountain-view",
+      "displayName": "Mountain View",
+      "background": "library/backgrounds/mountain-view.png",
+      "groundLineY": 0.85,
+      "depthLayers": 3,
+      "ambientAudio": "library/audio/ambience/wind-high.wav",
+      "lightingPreset": "day"
+    }
+  ],
+  "propCatalog": [
+    { "id": "tree-round", "displayName": "Round Tree", "asset": "library/props/tree-round.png", "anchor": "ground", "scaleUnits": 1.0 },
+    { "id": "rock-small", "displayName": "Small Rock", "asset": "library/props/rock-small.png", "anchor": "ground", "scaleUnits": 0.35 },
+    { "id": "house-cottage", "displayName": "Cottage", "asset": "library/props/house-cottage.png", "anchor": "ground", "scaleUnits": 1.6 },
+    { "id": "flower-patch", "displayName": "Flower Patch", "asset": "library/props/flower-patch.png", "anchor": "ground", "scaleUnits": 0.3 },
+    { "id": "bench-wood", "displayName": "Wooden Bench", "asset": "library/props/bench-wood.png", "anchor": "ground", "scaleUnits": 0.8 },
+    { "id": "toy-ball", "displayName": "Ball", "asset": "library/props/toy-ball.png", "anchor": "ground", "scaleUnits": 0.2 }
+  ],
+  "animationCatalog": [
+    { "id": "idle", "fps": 24, "durationFrames": 48, "loop": true, "appliesTo": ["bobby", "pip", "coco"] },
+    { "id": "walk", "fps": 24, "durationFrames": 24, "loop": true, "appliesTo": ["bobby", "pip", "coco"] },
+    { "id": "run", "fps": 24, "durationFrames": 16, "loop": true, "appliesTo": ["bobby", "pip", "coco"] },
+    { "id": "jump", "fps": 24, "durationFrames": 30, "loop": false, "appliesTo": ["bobby", "pip", "coco"] },
+    { "id": "talk", "fps": 24, "durationFrames": 32, "loop": true, "appliesTo": ["bobby", "pip", "coco"] },
+    { "id": "wave", "fps": 24, "durationFrames": 36, "loop": false, "appliesTo": ["bobby", "pip", "coco"] },
+    { "id": "laugh", "fps": 24, "durationFrames": 40, "loop": false, "appliesTo": ["bobby", "pip", "coco"] },
+    { "id": "cry", "fps": 24, "durationFrames": 48, "loop": true, "appliesTo": ["pip", "coco"] },
+    { "id": "surprise", "fps": 24, "durationFrames": 20, "loop": false, "appliesTo": ["bobby", "pip", "coco"] }
+  ],
+  "cameraPresets": [
+    { "id": "wide-static", "shot": "wide", "focalLength": 24, "yaw": 0, "pitch": -2, "height": 1.2, "motion": "static" },
+    { "id": "medium-push-in", "shot": "medium", "focalLength": 35, "yaw": 0, "pitch": 0, "height": 1.0, "motion": "push-in" },
+    { "id": "close-up-static", "shot": "close-up", "focalLength": 50, "yaw": 0, "pitch": 0, "height": 1.0, "motion": "static" },
+    { "id": "establishing-pan", "shot": "establishing", "focalLength": 20, "yaw": 0, "pitch": -4, "height": 2.0, "motion": "pan-right" }
+  ]
+}

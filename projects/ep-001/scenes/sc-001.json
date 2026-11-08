@@ -1,0 +1,87 @@
+{
+  "schemaVersion": 1,
+  "id": "sc-001",
+  "worldId": "bobby-forest",
+  "episodeId": "ep-001",
+  "location": "forest-clearing",
+  "durationSec": 12,
+  "fps": 24,
+  "camera": {
+    "preset": "establishing-pan",
+    "keyframes": [
+      { "t": 0, "x": 0.5, "y": 0.5, "zoom": 1.0 },
+      { "t": 12, "x": 0.52, "y": 0.48, "zoom": 1.06 }
+    ]
+  },
+  "characters": [
+    {
+      "characterId": "bobby",
+      "position": { "x": 0.38, "y": 0.78, "z": 2 },
+      "scale": 1.0,
+      "facing": "right",
+      "expression": "curious",
+      "animation": "walk",
+      "entranceAt": 0
+    },
+    {
+      "characterId": "pip",
+      "position": { "x": 0.58, "y": 0.74, "z": 2 },
+      "scale": 0.75,
+      "facing": "left",
+      "expression": "happy",
+      "animation": "idle",
+      "entranceAt": 0
+    },
+    {
+      "characterId": "coco",
+      "position": { "x": 0.72, "y": 0.8, "z": 1 },
+      "scale": 1.05,
+      "facing": "left",
+      "expression": "neutral",
+      "animation": "talk",
+      "entranceAt": 3.5
+    }
+  ],
+  "props": [
+    { "propId": "tree-round", "x": 0.15, "y": 0.78, "scale": 1.2 },
+    { "propId": "flower-patch", "x": 0.45, "y": 0.82, "scale": 1.0 },
+    { "propId": "rock-small", "x": 0.85, "y": 0.8, "scale": 1.0 }
+  ],
+  "dialogue": [
+    {
+      "id": "sc-001-d01",
+      "characterId": "bobby",
+      "text": "Wah, lihat itu! Bunganya berkelip seperti bintang kecil!",
+      "startSec": 1.0,
+      "emotion": "excited",
+      "audioAsset": null,
+      "durationSec": null
+    },
+    {
+      "id": "sc-001-d02",
+      "characterId": "pip",
+      "text": "Ayo kita dekati, Bobby! Aku penasaran sekali!",
+      "startSec": 4.2,
+      "emotion": "happy",
+      "audioAsset": null,
+      "durationSec": null
+    },
+    {
+      "id": "sc-001-d03",
+      "characterId": "coco",
+      "text": "Pelan-pelan saja. Bunga itu bersinar kalau kita berbagi cerita.",
+      "startSec": 7.6,
+      "emotion": "neutral",
+      "audioAsset": null,
+      "durationSec": null
+    }
+  ],
+  "subtitles": [
+    { "startSec": 1.0, "endSec": 4.1, "text": "Wah, lihat itu! Bunganya berkelip seperti bintang kecil!" },
+    { "startSec": 4.2, "endSec": 7.5, "text": "Ayo kita dekati, Bobby! Aku penasaran sekali!" },
+    { "startSec": 7.6, "endSec": 11.8, "text": "Pelan-pelan saja. Bunga itu bersinar kalau kita berbagi cerita." }
+  ],
+  "audioTracks": [
+    { "id": "amb-forest", "kind": "ambience", "asset": "library/audio/ambience/forest-birds.wav", "gainDb": -18 }
+  ]
+}

@@ -1,0 +1,286 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-11-08T04:49:33.026Z",
+  "generator": "scripts/assets/manifest.mjs",
+  "assets": [
+    {
+      "id": "library-audio-ambience-forest-birds",
+      "kind": "audio-ambience",
+      "path": "library/audio/ambience/forest-birds.wav",
+      "storage": "drive",
+      "bytes": null,
+      "sha256": null,
+      "drive": null,
+      "required": false,
+      "description": "bobby-forest/forest-clearing ambience — not produced yet"
+    },
+    {
+      "id": "library-audio-ambience-playground-kids",
+      "kind": "audio-ambience",
+      "path": "library/audio/ambience/playground-kids.wav",
+      "storage": "drive",
+      "bytes": null,
+      "sha256": null,
+      "drive": null,
+      "required": false,
+      "description": "bobby-forest/playground ambience — not produced yet"
+    },
+    {
+      "id": "library-audio-ambience-river-flow",
+      "kind": "audio-ambience",
+      "path": "library/audio/ambience/river-flow.wav",
+      "storage": "drive",
+      "bytes": null,
+      "sha256": null,
+      "drive": null,
+      "required": false,
+      "description": "bobby-forest/river-bend ambience — not produced yet"
+    },
+    {
+      "id": "library-audio-ambience-village-market",
+      "kind": "audio-ambience",
+      "path": "library/audio/ambience/village-market.wav",
+      "storage": "drive",
+      "bytes": null,
+      "sha256": null,
+      "drive": null,
+      "required": false,
+      "description": "bobby-forest/village-square ambience — not produced yet"
+    },
+    {
+      "id": "library-audio-ambience-wind-high",
+      "kind": "audio-ambience",
+      "path": "library/audio/ambience/wind-high.wav",
+      "storage": "drive",
+      "bytes": null,
+      "sha256": null,
+      "drive": null,
+      "required": false,
+      "description": "bobby-forest/mountain-view ambience — not produced yet"
+    },
+    {
+      "id": "library-backgrounds-forest-clearing",
+      "kind": "background",
+      "path": "library/backgrounds/forest-clearing.png",
+      "storage": "drive",
+      "bytes": null,
+      "sha256": null,
+      "drive": null,
+      "required": false,
+      "description": "bobby-forest/forest-clearing background — not produced yet"
+    },
+    {
+      "id": "library-backgrounds-mountain-view",
+      "kind": "background",
+      "path": "library/backgrounds/mountain-view.png",
+      "storage": "drive",
+      "bytes": null,
+      "sha256": null,
+      "drive": null,
+      "required": false,
+      "description": "bobby-forest/mountain-view background — not produced yet"
+    },
+    {
+      "id": "library-backgrounds-playground",
+      "kind": "background",
+      "path": "library/backgrounds/playground.png",
+      "storage": "drive",
+      "bytes": null,
+      "sha256": null,
+      "drive": null,
+      "required": false,
+      "description": "bobby-forest/playground background — not produced yet"
+    },
+    {
+      "id": "library-backgrounds-river-bend",
+      "kind": "background",
+      "path": "library/backgrounds/river-bend.png",
+      "storage": "drive",
+      "bytes": null,
+      "sha256": null,
+      "drive": null,
+      "required": false,
+      "description": "bobby-forest/river-bend background — not produced yet"
+    },
+    {
+      "id": "library-backgrounds-village-square",
+      "kind": "background",
+      "path": "library/backgrounds/village-square.png",
+      "storage": "drive",
+      "bytes": null,
+      "sha256": null,
+      "drive": null,
+      "required": false,
+      "description": "bobby-forest/village-square background — not produced yet"
+    },
+    {
+      "id": "library-characters-bobby-base",
+      "kind": "character-image",
+      "path": "library/characters/bobby/base.png",
+      "storage": "drive",
+      "bytes": null,
+      "sha256": null,
+      "drive": null,
+      "required": false,
+      "description": "bobby base image — not produced yet"
+    },
+    {
+      "id": "library-characters-bobby-character",
+      "kind": "character-image",
+      "path": "library/characters/bobby.character.json",
+      "storage": "git",
+      "bytes": 932,
+      "sha256": "2bfa8f6293bb57c965f14f1ad6aaaa19dfbd8e8ed957eeae40d1ebfc59aae7b9",
+      "drive": null,
+      "required": true
+    },
+    {
+      "id": "library-characters-coco-base",
+      "kind": "character-image",
+      "path": "library/characters/coco/base.png",
+      "storage": "drive",
+      "bytes": null,
+      "sha256": null,
+      "drive": null,
+      "required": false,
+      "description": "coco base image — not produced yet"
+    },
+    {
+      "id": "library-characters-coco-character",
+      "kind": "character-image",
+      "path": "library/characters/coco.character.json",
+      "storage": "git",
+      "bytes": 879,
+      "sha256": "36661c3dae674e721118555d1ce04aef87a4e273a821a448300e471c8021954e",
+      "drive": null,
+      "required": true
+    },
+    {
+      "id": "library-characters-pip-base",
+      "kind": "character-image",
+      "path": "library/characters/pip/base.png",
+      "storage": "drive",
+      "bytes": null,
+      "sha256": null,
+      "drive": null,
+      "required": false,
+      "description": "pip base image — not produced yet"
+    },
+    {
+      "id": "library-characters-pip-character",
+      "kind": "character-image",
+      "path": "library/characters/pip.character.json",
+      "storage": "git",
+      "bytes": 931,
+      "sha256": "843f5da38cfe8110e8787a207f2939629f0edd61823e8c9eeaa09e936a1a97af",
+      "drive": null,
+      "required": true
+    },
+    {
+      "id": "library-props-bench-wood",
+      "kind": "prop",
+      "path": "library/props/bench-wood.png",
+      "storage": "drive",
+      "bytes": null,
+      "sha256": null,
+      "drive": null,
+      "required": false,
+      "description": "bobby-forest prop bench-wood — not produced yet"
+    },
+    {
+      "id": "library-props-flower-patch",
+      "kind": "prop",
+      "path": "library/props/flower-patch.png",
+      "storage": "drive",
+      "bytes": null,
+      "sha256": null,
+      "drive": null,
+      "required": false,
+      "description": "bobby-forest prop flower-patch — not produced yet"
+    },
+    {
+      "id": "library-props-house-cottage",
+      "kind": "prop",
+      "path": "library/props/house-cottage.png",
+      "storage": "drive",
+      "bytes": null,
+      "sha256": null,
+      "drive": null,
+      "required": false,
+      "description": "bobby-forest prop house-cottage — not produced yet"
+    },
+    {
+      "id": "library-props-rock-small",
+      "kind": "prop",
+      "path": "library/props/rock-small.png",
+      "storage": "drive",
+      "bytes": null,
+      "sha256": null,
+      "drive": null,
+      "required": false,
+      "description": "bobby-forest prop rock-small — not produced yet"
+    },
+    {
+      "id": "library-props-toy-ball",
+      "kind": "prop",
+      "path": "library/props/toy-ball.png",
+      "storage": "drive",
+      "bytes": null,
+      "sha256": null,
+      "drive": null,
+      "required": false,
+      "description": "bobby-forest prop toy-ball — not produced yet"
+    },
+    {
+      "id": "library-props-tree-round",
+      "kind": "prop",
+      "path": "library/props/tree-round.png",
+      "storage": "drive",
+      "bytes": null,
+      "sha256": null,
+      "drive": null,
+      "required": false,
+      "description": "bobby-forest prop tree-round — not produced yet"
+    },
+    {
+      "id": "library-worlds-bobby-forest-world",
+      "kind": "scene-manifest",
+      "path": "library/worlds/bobby-forest.world.json",
+      "storage": "git",
+      "bytes": 4277,
+      "sha256": "611ba22f01d1d26ece501958a3dd0f7535f93ee67de2f3a7420c673fb7a2e4b2",
+      "drive": null,
+      "required": true
+    },
+    {
+      "id": "projects-ep-001-episode",
+      "kind": "scene-manifest",
+      "path": "projects/ep-001/episode.json",
+      "storage": "git",
+      "bytes": 718,
+      "sha256": "69d76c545c8730231430cdfc80617a70ed43b7285535044cc2cb462991a0b149",
+      "drive": null,
+      "required": true
+    },
+    {
+      "id": "projects-ep-001-scenes-sc-001",
+      "kind": "scene-manifest",
+      "path": "projects/ep-001/scenes/sc-001.json",
+      "storage": "git",
+      "bytes": 2476,
+      "sha256": "adc8a41edfb90065b809f8eeb680994811d636ef55d053f67a69db2664ccf3f2",
+      "drive": null,
+      "required": true
+    },
+    {
+      "id": "projects-ep-001-scenes-sc-002",
+      "kind": "scene-manifest",
+      "path": "projects/ep-001/scenes/sc-002.json",
+      "storage": "git",
+      "bytes": 1835,
+      "sha256": "cc8e034cd1d11a9574b8484cea3d60f378dbd75fb89bf7993bf7d9c16a71830d",
+      "drive": null,
+      "required": true
+    }
+  ]
+}

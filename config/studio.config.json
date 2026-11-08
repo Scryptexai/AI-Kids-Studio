@@ -1,0 +1,27 @@
+{
+  "studio": {
+    "name": "Kids AI Studio",
+    "schemaVersion": 1
+  },
+  "pipeline": {
+    "primaryLanguage": "id-ID",
+    "ttsLanguage": "id",
+    "masterAudio": { "format": "wav", "sampleRate": 22050, "channels": 1 },
+    "previewAudio": { "format": "mp3", "bitrate": "128k" }
+  },
+  "voicePolicy": {
+    "requireApprovedProfile": true,
+    "forbidSilentFallback": true,
+    "productionEngines": ["voxcpm", "http-remote"]
+  },
+  "quality": {
+    "minDurationSec": 0.25,
+    "maxDurationSec": 60,
+    "maxSilenceRatio": 0.9,
+    "minRms": 0.005
+  },
+  "storage": {
+    "largeAssetProvider": "drive",
+    "driveFolderId": null
+  }
+}

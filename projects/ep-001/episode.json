@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "id": "ep-001",
+  "title": "Bobby dan Bunga yang Bersinar",
+  "worldId": "bobby-forest",
+  "status": "storyboarded",
+  "concept": {
+    "logline": "Bobby finds a flower that only glows when someone shares it, and learns that kindness grows when it is passed on.",
+    "moral": "Berbagi membuat kebahagiaan bertambah.",
+    "targetAge": "4-6",
+    "durationTargetSec": 120
+  },
+  "scenes": [
+    { "sceneId": "sc-001", "file": "projects/ep-001/scenes/sc-001.json" },
+    { "sceneId": "sc-002", "file": "projects/ep-001/scenes/sc-002.json" }
+  ],
+  "output": {
+    "width": 1280,
+    "height": 720,
+    "fps": 24,
+    "container": "mp4",
+    "videoCodec": "h264",
+    "audioCodec": "aac"
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "name": "kids-ai-studio",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Internal production studio for AI-generated kids animation video series. Not a game, not an end-user app.",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "bootstrap": "node scripts/bootstrap.mjs",
+    "doctor": "node scripts/doctor.mjs",
+    "assets:manifest": "node scripts/assets/manifest.mjs",
+    "assets:validate": "node scripts/assets/validate.mjs",
+    "assets:restore": "node scripts/assets/restore.mjs",
+    "voice:engines": "node scripts/voice/engines.mjs",
+    "voice:audition": "node scripts/voice/audition.mjs",
+    "voice:generate": "node scripts/voice/generate.mjs",
+    "voice:validate": "node scripts/voice/validate.mjs",
+    "episode:validate": "node scripts/episode/validate.mjs",
+    "validate": "npm run assets:validate && npm run voice:validate && npm run episode:validate",
+    "test": "node --test"
+  },
+  "dependencies": {
+    "@ffmpeg-installer/ffmpeg": "^1.1.0",
+    "@ffprobe-installer/ffprobe": "^2.1.2",
+    "ajv": "^8.17.1",
+    "ajv-formats": "^3.0.1"
+  }
+}

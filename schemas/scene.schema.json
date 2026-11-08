@@ -1,0 +1,126 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://studio.local/schemas/scene.schema.json",
+  "title": "Scene",
+  "description": "Data-driven 2.5D scene: background, camera, character instances, props, dialogue, subtitle and audio tracks. Renderer-agnostic on purpose so it can move from Remotion to another engine.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "id", "worldId", "episodeId", "location", "durationSec", "fps", "camera", "characters", "props", "dialogue", "subtitles"],
+  "properties": {
+    "schemaVersion": { "const": 1 },
+    "id": { "type": "string", "pattern": "^[a-z0-9-]+$" },
+    "worldId": { "type": "string" },
+    "episodeId": { "type": "string" },
+    "location": { "type": "string", "description": "Must exist in the world's locations[]." },
+    "durationSec": { "type": "number", "exclusiveMinimum": 0 },
+    "fps": { "type": "integer", "minimum": 12, "maximum": 60 },
+    "camera": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["preset", "keyframes"],
+      "properties": {
+        "preset": { "type": "string" },
+        "keyframes": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["t", "x", "y", "zoom"],
+            "properties": {
+              "t": { "type": "number", "minimum": 0 },
+              "x": { "type": "number" },
+              "y": { "type": "number" },
+              "zoom": { "type": "number", "exclusiveMinimum": 0 }
+            }
+          }
+        }
+      }
+    },
+    "characters": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["characterId", "position", "scale", "facing", "expression", "animation"],
+        "properties": {
+          "characterId": { "type": "string" },
+          "position": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["x", "y", "z"],
+            "properties": {
+              "x": { "type": "number", "minimum": 0, "maximum": 1 },
+              "y": { "type": "number", "minimum": 0, "maximum": 1 },
+              "z": { "type": "integer", "minimum": 0, "maximum": 10 }
+            }
+          },
+          "scale": { "type": "number", "exclusiveMinimum": 0, "maximum": 3 },
+          "facing": { "enum": ["left", "right", "front", "back"] },
+          "expression": { "type": "string" },
+          "animation": { "type": "string", "description": "Must exist in the world's animationCatalog." },
+          "entranceAt": { "type": "number", "minimum": 0 }
+        }
+      }
+    },
+    "props": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["propId", "x", "y", "scale"],
+        "properties": {
+          "propId": { "type": "string" },
+          "x": { "type": "number", "minimum": 0, "maximum": 1 },
+          "y": { "type": "number", "minimum": 0, "maximum": 1 },
+          "scale": { "type": "number", "exclusiveMinimum": 0 }
+        }
+      }
+    },
+    "dialogue": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "characterId", "text", "startSec", "emotion"],
+        "properties": {
+          "id": { "type": "string" },
+          "characterId": { "type": "string" },
+          "text": { "type": "string", "minLength": 1 },
+          "startSec": { "type": "number", "minimum": 0 },
+          "emotion": { "enum": ["neutral", "happy", "excited", "sad", "surprised", "curious", "laughing"] },
+          "audioAsset": { "type": ["string", "null"], "description": "Filled by the voice pipeline; WAV master path." },
+          "durationSec": { "type": ["number", "null"] }
+        }
+      }
+    },
+    "subtitles": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["startSec", "endSec", "text"],
+        "properties": {
+          "startSec": { "type": "number", "minimum": 0 },
+          "endSec": { "type": "number", "minimum": 0 },
+          "text": { "type": "string" }
+        }
+      }
+    },
+    "audioTracks": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "kind", "asset", "gainDb"],
+        "properties": {
+          "id": { "type": "string" },
+          "kind": { "enum": ["ambience", "music", "sfx"] },
+          "asset": { "type": "string" },
+          "gainDb": { "type": "number", "maximum": 0, "minimum": -60 }
+        }
+      }
+    }
+  }
+}

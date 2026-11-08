@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "id": "pip",
+  "displayName": "Pip",
+  "worldId": "bobby-forest",
+  "description": "A tiny energetic bird sidekick who narrates discoveries with fast, sparkly delivery and never stops moving.",
+  "ageGroup": "preschool",
+  "visual": {
+    "baseImage": "library/characters/pip/base.png",
+    "palette": { "primary": "#56ccf2", "secondary": "#ffffff", "accent": "#f2c94c" },
+    "bodyProportions": { "headScale": 1.6, "heightUnits": 2.0 }
+  },
+  "rig": {
+    "rigId": "pip-rig-v1",
+    "skeletonVersion": 1,
+    "expressions": ["neutral", "happy", "excited", "surprised", "curious"],
+    "poses": ["idle", "walk", "run", "jump", "talk", "wave", "laugh", "surprise", "cry"]
+  },
+  "voice": {
+    "voiceAlias": "pip_spark_01",
+    "notes": "High, quick, sparkly voice with short breath pauses; must stay intelligible at 1.05x speed."
+  },
+  "status": "in-production",
+  "tags": ["sidekick", "comic-relief"]
+}
