@@ -154,6 +154,15 @@
           },
           "notes": {
             "type": "string"
+          },
+          "interact": {
+            "enum": [
+              "none",
+              "hold",
+              "touch"
+            ],
+            "default": "touch",
+            "description": "How the actor treats the beat's prop. hold = picks it up and carries it; touch = interacts but it stays put; none = the prop is scenery for this beat."
           }
         }
       }

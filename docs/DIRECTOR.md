@@ -136,12 +136,45 @@ feet above the subtitle band, no blank canvas at the edges, different framing pe
 | subtitle covering the characters' feet | ground line at 0.845 vs band at 0.975 | lanes raised to 0.78/0.82/0.86, band tightened |
 | scene shorter than its own line | text estimate vs real audio | `--measure` adopts measured durations |
 
-## 7. Limits (do not claim otherwise)
+## 7. Motion and prop interaction (implemented)
 
-* **No character travel inside a scene.** Movement is an entry walk plus a camera move; a
-  character does not cross the frame mid-beat. The rig has no per-frame position track.
-* **No prop interaction.** A beat can reference a prop and face it, but nothing is picked up,
-  opened, thrown or animated. Props are scenery with marks.
+A scene used to hold one static position per character, so `walk` meant walking in place.
+Scenes now carry a **motion track** — a timed path sampled every frame:
+
+```json
+"motion": {
+  "path": [{ "t": 0, "x": 0.18, "y": 0.82 }, { "t": 1.2, "x": 0.56, "y": 0.82 }, { "t": 7.4, "x": 0.56, "y": 0.82 }],
+  "ease": "ease-in-out"
+}
+```
+
+* `apps/renderer/motion.mjs` samples it; **both backends import the same sampler**, so SVG and
+  Remotion move identically.
+* While travelling, the rig blends in the walk cycle (legs and arms swing) even if the beat's
+  pose is something else, and facing follows the direction of travel.
+* `y` is optional: a level walk only needs `x`.
+
+**Prop interaction.** A beat may attach a prop to a character for a window of the scene:
+
+```json
+"interactions": [{ "propId": "toy-ball", "characterId": "bobby",
+                   "fromSec": 1.0, "toSec": 6.9, "attach": "hands" }]
+```
+
+The prop is then drawn at the character's hands instead of its staged ground position, with a
+small lift at pickup/release. In the script, a beat opts in with `interact: "hold"`
+(picked up and carried), `"touch"` (default, interacts but stays put) or `"none"`.
+
+Verified on ep-002: Coco enters from x = −154 px and walks to 736 px over 1.4 s in
+`sc-004-b04-coco`; Bobby travels 410 → 717 px in `sc-001-b01-play` while carrying the ball.
+
+## 8. Limits (do not claim otherwise)
+
+* **No inverse kinematics.** Arms swing on a fixed rotation; a character does not reach for a
+  specific point on an object. Prop attachment is "at the hands", not "gripping the handle".
+* **No object physics.** A carried prop follows the hand; nothing rolls, bounces or is thrown.
+* **Travel is horizontal.** `y` exists in the schema and the sampler, but the director only
+  emits level paths — walking "into depth" is not solved yet.
 * **No lip sync.** `talk` opens the mouth on a sine wave, not on phonemes.
 * **One line per beat.** Real conversations with overlap need multiple dialogue entries and
   audio mixing per line, which the scene schema allows but the director does not yet emit.

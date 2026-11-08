@@ -61,7 +61,28 @@
       "facing": "right",
       "expression": "happy",
       "animation": "walk",
-      "entranceAt": 0
+      "entranceAt": 0,
+      "motion": {
+        "path": [
+          {
+            "t": 0,
+            "x": 0.32,
+            "y": 0.82
+          },
+          {
+            "t": 1.2,
+            "x": 0.56,
+            "y": 0.82
+          },
+          {
+            "t": 7.485,
+            "x": 0.56,
+            "y": 0.82
+          }
+        ],
+        "ease": "ease-in-out",
+        "durationSec": 1.2
+      }
     },
     {
       "characterId": "pip",
@@ -118,6 +139,16 @@
       "startSec": 6.377,
       "endSec": 6.985,
       "text": "segar."
+    }
+  ],
+  "interactions": [
+    {
+      "propId": "toy-ball",
+      "characterId": "bobby",
+      "fromSec": 1,
+      "toSec": 6.985,
+      "attach": "hands",
+      "note": "explore: bobby carries toy-ball"
     }
   ],
   "audioTracks": [

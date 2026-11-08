@@ -61,7 +61,28 @@
       "facing": "right",
       "expression": "excited",
       "animation": "walk",
-      "entranceAt": 0
+      "entranceAt": 0,
+      "motion": {
+        "path": [
+          {
+            "t": 0,
+            "x": 0.32,
+            "y": 0.82
+          },
+          {
+            "t": 1.2,
+            "x": 0.56,
+            "y": 0.82
+          },
+          {
+            "t": 6.006,
+            "x": 0.56,
+            "y": 0.82
+          }
+        ],
+        "ease": "ease-in-out",
+        "durationSec": 1.2
+      }
     },
     {
       "characterId": "pip",

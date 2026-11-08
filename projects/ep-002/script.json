@@ -37,7 +37,8 @@
       "target": "pip",
       "prop": "toy-ball",
       "line": "Ayo kita main bola di taman! Lihat, rumputnya masih hijau segar.",
-      "notes": "Establishing beat: place the audience in the playground before anything goes wrong."
+      "notes": "Establishing beat: place the audience in the playground before anything goes wrong.",
+      "interact": "hold"
     },
     {
       "id": "b02-miss",
@@ -71,7 +72,8 @@
       "actor": "coco",
       "target": "bobby",
       "line": "Aku tadi melihat bola berwarna merah menggelinding ke arah sungai.",
-      "notes": "Coco walks in carrying information \u2014 a new cast member changes the shot."
+      "notes": "Coco walks in carrying information \u2014 a new cast member changes the shot.",
+      "interact": "none"
     },
     {
       "id": "b05-go",
@@ -82,7 +84,8 @@
       "actor": "bobby",
       "target": "coco",
       "line": "Kalau begitu kita ke sungai! Ayo, ikuti aku!",
-      "notes": "Transition beat. Location changes on the next scene."
+      "notes": "Transition beat. Location changes on the next scene.",
+      "interact": "none"
     },
     {
       "id": "b06-river",
@@ -94,7 +97,8 @@
       "target": "pip",
       "prop": "flower-patch",
       "line": "Ada di sini! Bolanya tersangkut di antara bunga-bunga ini.",
-      "notes": "Payoff of the search. New location means the director establishes before the line."
+      "notes": "Payoff of the search. New location means the director establishes before the line.",
+      "interact": "none"
     },
     {
       "id": "b07-thanks",

@@ -5,7 +5,8 @@
 //
 // Layer order (back to front): background -> far props -> characters (by z) -> near props
 // -> subtitle -> frame furniture. Camera keyframes transform the whole world group.
-import { renderCharacter, renderProp, esc, lerp } from './rigs.mjs';
+import { renderCharacter, renderProp, esc, lerp, bodyHeightPx } from './rigs.mjs';
+import { propInteractionAt, sampleMotion, interactionProgress } from './motion.mjs';
 
 const CAMERA_OVERSCAN = 1.12;
 
@@ -125,7 +126,40 @@ export function buildSceneSvg({
     ? `<image href="${backgroundDataUri}" x="0" y="0" width="${width}" height="${height}" preserveAspectRatio="xMidYMid slice" image-rendering="${backgroundSampling === 'fast' ? 'optimizeSpeed' : 'optimizeQuality'}"/>`
     : `<rect x="0" y="0" width="${width}" height="${height}" fill="${palette.sky ?? '#a8d8f0'}"/>`;
 
-  const props = (scene.props ?? []).map((p) => ({ ...p, svg: renderProp({ ...p, compositionHeight: height, compositionWidth: width }) }));
+  // Props: a prop attached to a character is drawn at that character's hands for the window
+  // of the interaction, so it reads as picked up and carried rather than glued to the ground.
+  const characterById = new Map((scene.characters ?? []).map((c) => [c.characterId, c]));
+  const props = (scene.props ?? []).map((p) => {
+    const interaction = propInteractionAt(scene.interactions, p.propId, t);
+    if (interaction) {
+      const holder = characterById.get(interaction.characterId);
+      if (holder) {
+        const motion = sampleMotion(holder.motion, t, holder.position);
+        const holderH = bodyHeightPx(holder, characters.get(interaction.characterId));
+        // Carry height: hands sit at roughly a third of body height above the ground line.
+        const carryY = interaction.attach === 'head'
+          ? motion.y - holderH * 0.92 / height
+          : motion.y - holderH * 0.34 / height;
+        const progress = interactionProgress(interaction, t);
+        // Small lift at pickup/release so the object does not snap between marks.
+        const blend = Math.sin(Math.PI * Math.min(1, progress * 2)) * 0.12;
+        return {
+          ...p,
+          x: Number((motion.x + 0.06).toFixed(4)),
+          y: Number((carryY + blend / height).toFixed(4)),
+          attachedTo: interaction.characterId,
+          svg: renderProp({
+            ...p,
+            x: motion.x + 0.06,
+            y: carryY + blend / height,
+            compositionHeight: height,
+            compositionWidth: width,
+          }),
+        };
+      }
+    }
+    return { ...p, svg: renderProp({ ...p, compositionHeight: height, compositionWidth: width }) };
+  });
 
   // Characters ordered back-to-front so nearer instances overlap farther ones.
   const ordered = [...scene.characters]

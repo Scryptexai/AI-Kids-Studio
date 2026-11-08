@@ -12,27 +12,27 @@
     "keyframes": [
       {
         "t": 0,
-        "x": 0.165,
+        "x": 0.23,
         "y": 0.532,
-        "zoom": 1.2596
+        "zoom": 1.1963
       },
       {
         "t": 1.6,
-        "x": 0.2,
+        "x": 0.265,
         "y": 0.52,
-        "zoom": 1.34
+        "zoom": 1.2727
       },
       {
         "t": 5.0537,
-        "x": 0.22,
+        "x": 0.285,
         "y": 0.514,
-        "zoom": 1.3601
+        "zoom": 1.2918
       },
       {
         "t": 6.163,
-        "x": 0.22,
+        "x": 0.285,
         "y": 0.514,
-        "zoom": 1.3601
+        "zoom": 1.2918
       }
     ]
   },
@@ -53,7 +53,7 @@
     {
       "characterId": "pip",
       "position": {
-        "x": 0.3,
+        "x": 0.43,
         "y": 0.798,
         "z": 2
       },
@@ -66,7 +66,7 @@
     {
       "characterId": "coco",
       "position": {
-        "x": 0.43,
+        "x": 0.56,
         "y": 0.798,
         "z": 2
       },
@@ -130,8 +130,8 @@
     "target": "pip",
     "prop": null,
     "shot": "medium",
-    "focusX": 0.2,
-    "widenedForSpread": false,
+    "focusX": 0.265,
+    "widenedForSpread": true,
     "entry": "still",
     "lineEstimated": false,
     "transition": "cut"

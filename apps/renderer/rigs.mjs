@@ -1,3 +1,5 @@
+import { sampleMotion, travelDirection } from './motion.mjs';
+
 // Placeholder character rig drawn as flat vector parts.
 //
 // This is deliberately a *rig*, not a sprite: head, body, limbs and face are separate
@@ -17,6 +19,15 @@ const clamp = (v, lo, hi) => Math.min(hi, Math.max(lo, v));
 function noise(seed) {
   const x = Math.sin(seed * 127.1 + 311.7) * 43758.5453;
   return x - Math.floor(x);
+}
+
+/**
+ * Rendered body height in pixels for a character instance. Shared by the rig and by prop
+ * attachment so a carried object lands in the hands rather than at the feet.
+ */
+export function bodyHeightPx(instance, character) {
+  const heightUnits = character?.visual?.bodyProportions?.heightUnits ?? 4.2;
+  return 205 * (heightUnits / 4.2) * (instance?.scale ?? 1);
 }
 
 /**
@@ -108,17 +119,35 @@ const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replac
  * Coordinates are in composition pixels; the caller has already applied camera transform.
  */
 export function renderCharacter({ character, instance, tSec, compositionHeight, compositionWidth }) {
-  const st = animationState(instance.animation, tSec, character.id);
   const palette = character.visual.palette;
-  const groundY = instance.position.y * compositionHeight;
+
+  // A motion track overrides the static position: this is what lets a character actually
+  // travel across the frame instead of walking in place. Sampling is shared with the Remotion
+  // backend so both move identically.
+  const motion = sampleMotion(instance.motion, tSec, instance.position);
+  const travelling = motion.moving && instance.motion;
+  const st = animationState(instance.animation, tSec, character.id);
+
+  // While travelling the legs and arms must swing even if the scene's pose is something else
+  // (a character can walk while "talking"). Blend the walk cycle in on top of the pose.
+  if (travelling) {
+    const phase = (tSec * 1.1 + 0.25) * Math.PI * 2;
+    st.legSwing = Math.sin(phase * 1.6) * 0.55;
+    st.armSwing = -Math.sin(phase * 1.6) * 0.4;
+    st.bobY = Math.abs(Math.sin(phase * 1.6)) * -3;
+  }
+
+  const groundY = motion.y * compositionHeight;
   const baseHeight = 205 * (character.visual.bodyProportions.heightUnits / 4.2);
   const h = baseHeight * instance.scale;
   const headR = h * 0.16 * character.visual.bodyProportions.headScale;
   const bodyW = h * 0.24;
   const bodyH = h * 0.34;
-  const facing = instance.facing === 'left' ? -1 : 1;
+  const travelDir = travelling ? travelDirection(instance.motion, tSec) : null;
+  const effectiveFacing = travelDir ?? instance.facing;
+  const facing = effectiveFacing === 'left' ? -1 : 1;
 
-  const cx = instance.position.x * compositionWidth;
+  const cx = motion.x * compositionWidth;
   const footY = groundY + st.hopY;
   const squash = 1 + st.squash;
 

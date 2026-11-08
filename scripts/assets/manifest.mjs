@@ -31,6 +31,8 @@ const EXCLUDE = [
   /^renders\/.+\/preview\//,
   /^renders\/bench\//,
   /^renders\/.+\/work\//,
+  // render-manifest.json is rewritten on every render, so its size/checksum is never stable.
+  /^renders\/.+\/render-manifest\.json$/,
 ];
 const BINARY_EXT = new Set(['.png', '.jpg', '.jpeg', '.webp', '.wav', '.mp3', '.mp4', '.ogg', '.pth', '.onnx', '.bin']);
 

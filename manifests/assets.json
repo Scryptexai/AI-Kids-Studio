@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-08T08:40:38.164Z",
+  "generatedAt": "2026-11-08T09:09:15.915Z",
   "generator": "scripts/assets/manifest.mjs",
   "assets": [
     {
@@ -287,8 +287,8 @@
       "kind": "scene-manifest",
       "path": "projects/ep-002/direction-report.json",
       "storage": "git",
-      "bytes": 1209,
-      "sha256": "472244840b0ed265ed279f4f0b298dad98c8f86def4aed7e9e049d96b070e89f",
+      "bytes": 1249,
+      "sha256": "4252b0dba542dcd5eea4602ba05ede3f78c55c3312f2bd566d11ecef1ac12bc3",
       "drive": null,
       "required": true
     },
@@ -317,8 +317,8 @@
       "kind": "scene-manifest",
       "path": "projects/ep-002/scenes/sc-001-b01-play.json",
       "storage": "git",
-      "bytes": 2744,
-      "sha256": "a43ae6a192acb20f795f495685ac50e4697afeb7f4270e0c997b58dc55bdba09",
+      "bytes": 3343,
+      "sha256": "1f645fbc72dbe8208d0f42197ece9d15d53116323be36020dbae92d5e94ac2d8",
       "drive": null,
       "required": true
     },
@@ -337,8 +337,8 @@
       "kind": "scene-manifest",
       "path": "projects/ep-002/scenes/sc-003-b03-look.json",
       "storage": "git",
-      "bytes": 2630,
-      "sha256": "97d0eeb6a16f238101039f4b60661b7e1fe8e8bf19b649f5df24e47910df2f09",
+      "bytes": 2637,
+      "sha256": "60ce4345ac90554ef97b0025c2ab3d8c60c6b55812b3adcf3eab8f0c3595c4d7",
       "drive": null,
       "required": true
     },
@@ -347,8 +347,8 @@
       "kind": "scene-manifest",
       "path": "projects/ep-002/scenes/sc-004-b04-coco.json",
       "storage": "git",
-      "bytes": 2749,
-      "sha256": "d4e6443c5c510a1a956a141b33f2501069f3d6b8414ba90269bcf3caa095e429",
+      "bytes": 3141,
+      "sha256": "4d7af577592a57dfa6dab20d661280f2e93c60f1fd551d21338b226729100882",
       "drive": null,
       "required": true
     },
@@ -357,8 +357,8 @@
       "kind": "scene-manifest",
       "path": "projects/ep-002/scenes/sc-005-b05-go.json",
       "storage": "git",
-      "bytes": 2618,
-      "sha256": "1d948a64487ccc99280dfad1b5210c1e6312ba5f3776f7b8ee4cfe0527ea8942",
+      "bytes": 3007,
+      "sha256": "41b786c36783ff0e1ced9ddf3e5cd53fa53af2c71b4282e849cdb31826141e34",
       "drive": null,
       "required": true
     },
@@ -397,8 +397,8 @@
       "kind": "scene-manifest",
       "path": "projects/ep-002/script.json",
       "storage": "git",
-      "bytes": 3706,
-      "sha256": "d6807967ac6edec3f0e5b18c3c5614fa879d44fc18b4f4b4c936611493183281",
+      "bytes": 3810,
+      "sha256": "14d8afc8056b69f9003774a336c67492be21b141e1ddc94f4f86ffac7bb5f543",
       "drive": null,
       "required": true
     },
@@ -433,16 +433,6 @@
       "required": true
     },
     {
-      "id": "renders-ep-001-render-manifest",
-      "kind": "video",
-      "path": "renders/ep-001/render-manifest.json",
-      "storage": "git",
-      "bytes": 1824,
-      "sha256": "f880adaa4b8a3feefe97f01b67e9610126386b911d97909646dded6cac27b740",
-      "drive": null,
-      "required": true
-    },
-    {
       "id": "renders-ep-002-ep-002-2026-11-08t08-38-00",
       "kind": "video",
       "path": "renders/ep-002/ep-002-2026-11-08T08-38-00.mp4",
@@ -453,12 +443,32 @@
       "required": true
     },
     {
+      "id": "renders-ep-002-ep-002-2026-11-08t09-06-38",
+      "kind": "video",
+      "path": "renders/ep-002/ep-002-2026-11-08T09-06-38.mp4",
+      "storage": "drive",
+      "bytes": 12165928,
+      "sha256": "1e538bd1782ae18aecbe0231fd1fce86786b214cb5d0dddf46cfc9a2cdaa9389",
+      "drive": null,
+      "required": true
+    },
+    {
+      "id": "renders-ep-002-ep-002-2026-11-08t09-08-00",
+      "kind": "video",
+      "path": "renders/ep-002/ep-002-2026-11-08T09-08-00.mp4",
+      "storage": "drive",
+      "bytes": 12171779,
+      "sha256": "53a2a1e4a2ccfe7c6bdcf8d5c24b4ba4780052001fc3b7ab924843197e6c6f05",
+      "drive": null,
+      "required": true
+    },
+    {
       "id": "renders-ep-002-ep-002-sc-001-b01-play",
       "kind": "video",
       "path": "renders/ep-002/ep-002-sc-001-b01-play.mp4",
       "storage": "git",
-      "bytes": 975606,
-      "sha256": "c35b603335c89614078dcb86b638d7419314f2a6bf33ed11fd338eecc042cb80",
+      "bytes": 990481,
+      "sha256": "4e23e1ec6a2a788e446782fe2fe4b8ca706941e154c52f3714e14f9600d385b8",
       "drive": null,
       "required": true
     },
@@ -477,8 +487,8 @@
       "kind": "video",
       "path": "renders/ep-002/ep-002-sc-003-b03-look.mp4",
       "storage": "drive",
-      "bytes": 1309993,
-      "sha256": "b794f77fc7dd032f263d2629d589fffc6936b54e532ceb1f8093490acfdd2553",
+      "bytes": 1260251,
+      "sha256": "e9bfb2899a49051c5121dc2fc72cc7474d1fedea062a4bae6f792a686668166f",
       "drive": null,
       "required": true
     },
@@ -487,8 +497,8 @@
       "kind": "video",
       "path": "renders/ep-002/ep-002-sc-004-b04-coco.mp4",
       "storage": "drive",
-      "bytes": 1096484,
-      "sha256": "394afef783691979e03d0ec036bd569f04905e36b7ad029806a100a59a6fa89e",
+      "bytes": 1118949,
+      "sha256": "158b4bc0897906d77fafb6cc1beee8f37f661b5a28ee075be0676680e470455c",
       "drive": null,
       "required": true
     },
@@ -497,8 +507,8 @@
       "kind": "video",
       "path": "renders/ep-002/ep-002-sc-005-b05-go.mp4",
       "storage": "drive",
-      "bytes": 1072602,
-      "sha256": "dec4af11a358efabc3d3f54f6da21fab5b3ae909368795eac8323f17427a2165",
+      "bytes": 1086165,
+      "sha256": "e1914437f4b77f811ca450f364334a67bf76d96bee1a838aeba33d816a7130a3",
       "drive": null,
       "required": true
     },
@@ -529,16 +539,6 @@
       "storage": "drive",
       "bytes": 1645453,
       "sha256": "376181bdd1e88bf3dd29435d5a5864a5732143cb87f6fa25b471a62df3af35f2",
-      "drive": null,
-      "required": true
-    },
-    {
-      "id": "renders-ep-002-render-manifest",
-      "kind": "video",
-      "path": "renders/ep-002/render-manifest.json",
-      "storage": "git",
-      "bytes": 4389,
-      "sha256": "1bb7809f7009aef698428bc45823b6b7d2cfb549dd07020b42d5bc55ad407ddc",
       "drive": null,
       "required": true
     }

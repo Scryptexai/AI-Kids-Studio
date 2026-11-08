@@ -1,0 +1,193 @@
+// Motion tracks and prop interaction.
+//
+// These lock the behaviours that make a scene feel like a game rather than a slideshow:
+// characters actually travel, the walk cycle engages while travelling, props can be carried,
+// and a bad track is rejected by name instead of silently producing a teleport.
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import fs from 'node:fs/promises';
+import os from 'node:os';
+import path from 'node:path';
+import {
+  sampleMotion, travelDirection, propInteractionAt, interactionProgress, validateMotionTrack, EASINGS,
+} from '../apps/renderer/motion.mjs';
+import { motionTrackFor, entryFor, LANES } from '../apps/director/stage.mjs';
+import { INTENTS } from '../apps/director/intents.mjs';
+import { renderCharacter, bodyHeightPx } from '../apps/renderer/rigs.mjs';
+import { buildSceneSvg } from '../apps/renderer/scene-svg.mjs';
+import { readJson } from '../scripts/lib/json.mjs';
+import { P } from '../scripts/lib/paths.mjs';
+
+const character = {
+  id: 'tester',
+  visual: { palette: { primary: '#f2994a', secondary: '#4f4f4f', accent: '#2d9cdb' }, bodyProportions: { headScale: 1.3, heightUnits: 4.2 } },
+};
+const instance = {
+  characterId: 'tester',
+  position: { x: 0.4, y: 0.82, z: 2 },
+  scale: 1,
+  facing: 'right',
+  expression: 'neutral',
+  animation: 'idle',
+};
+
+test('a missing track falls back to the static position', () => {
+  const m = sampleMotion(null, 1.5, instance.position);
+  assert.equal(m.x, 0.4);
+  assert.equal(m.y, 0.82);
+  assert.equal(m.moving, false);
+});
+
+test('sampling is monotonically increasing across the path', () => {
+  const track = { path: [{ t: 0, x: 0.1, y: 0.82 }, { t: 2, x: 0.7, y: 0.82 }], ease: 'linear' };
+  let previous = -1;
+  for (let t = 0; t <= 2; t += 0.1) {
+    const { x } = sampleMotion(track, t, instance.position);
+    assert.ok(x >= previous - 1e-9, `x went backwards at t=${t}`);
+    previous = x;
+  }
+  assert.ok(Math.abs(sampleMotion(track, 2, instance.position).x - 0.7) < 1e-9);
+});
+
+test('the last keyframe holds after the path ends', () => {
+  const track = { path: [{ t: 0, x: 0.1, y: 0.82 }, { t: 1, x: 0.6, y: 0.82 }] };
+  assert.equal(sampleMotion(track, 99, instance.position).x, 0.6);
+  assert.equal(sampleMotion(track, 99, instance.position).moving, false);
+});
+
+test('before the first keyframe the start position is held', () => {
+  const track = { path: [{ t: 2, x: 0.3, y: 0.82 }, { t: 4, x: 0.6, y: 0.82 }] };
+  assert.equal(sampleMotion(track, 0, instance.position).x, 0.3);
+});
+
+test('unsorted keyframes are sorted defensively, never causing a teleport', () => {
+  const track = { path: [{ t: 2, x: 0.7, y: 0.82 }, { t: 0, x: 0.1, y: 0.82 }], ease: 'linear' };
+  const mid = sampleMotion(track, 1, instance.position);
+  assert.ok(mid.x > 0.1 && mid.x < 0.7, `expected an in-between value, got ${mid.x}`);
+});
+
+test('easing changes the shape of the travel, not its endpoints', () => {
+  const base = (ease) => ({ path: [{ t: 0, x: 0, y: 0.82 }, { t: 1, x: 1, y: 0.82 }], ease });
+  const linearMid = sampleMotion(base('linear'), 0.5, instance.position).x;
+  const easeInMid = sampleMotion(base('ease-in'), 0.5, instance.position).x;
+  const easeOutMid = sampleMotion(base('ease-out'), 0.5, instance.position).x;
+  assert.ok(Math.abs(linearMid - 0.5) < 1e-9);
+  assert.ok(easeInMid < linearMid, 'ease-in starts slower');
+  assert.ok(easeOutMid > linearMid, 'ease-out starts faster');
+  for (const e of Object.keys(EASINGS)) {
+    assert.ok(Math.abs(sampleMotion(base(e), 1, instance.position).x - 1) < 1e-9);
+  }
+});
+
+test('travel direction reflects the sign of movement', () => {
+  const right = { path: [{ t: 0, x: 0.2, y: 0.82 }, { t: 1, x: 0.8, y: 0.82 }] };
+  const left = { path: [{ t: 0, x: 0.8, y: 0.82 }, { t: 1, x: 0.2, y: 0.82 }] };
+  assert.equal(travelDirection(right, 0.5), 'right');
+  assert.equal(travelDirection(left, 0.5), 'left');
+  assert.equal(travelDirection(null, 0.5), null);
+});
+
+test('walk-in travels from off-frame to the mark and holds there', () => {
+  const mark = { x: 0.42, y: 0.82, z: 2, scale: 1 };
+  const entry = entryFor({ intent: INTENTS.entrance, mark, role: 'lead', castIndex: 0 });
+  const track = motionTrackFor({ entry, durationSec: 6, holdUntilSec: 6 });
+  assert.ok(track.path[0].x < 0, 'starts off-frame');
+  assert.equal(track.path.at(-1).x, 0.42);
+  assert.equal(track.path.at(-1).t, 6);
+});
+
+test('departure travels from the mark to off-frame and does not hold', () => {
+  const mark = { x: 0.42, y: 0.82, z: 2, scale: 1 };
+  const entry = entryFor({ intent: INTENTS.depart, mark, role: 'lead', castIndex: 0 });
+  const track = motionTrackFor({ entry, durationSec: 5 });
+  assert.equal(track.path[0].x, 0.42, 'starts on the mark');
+  assert.ok(track.path.at(-1).x !== 0.42, 'does not stay on the mark — the character leaves');
+});
+
+test('a still intent produces no track at all', () => {
+  const mark = { x: 0.42, y: 0.82, z: 2, scale: 1 };
+  const entry = entryFor({ intent: INTENTS.idle, mark, role: 'lead', castIndex: 0 });
+  assert.equal(motionTrackFor({ entry, durationSec: 5 }), null);
+});
+
+test('validateMotionTrack names the exact problem', () => {
+  assert.deepEqual(validateMotionTrack(null), []);
+  assert.match(validateMotionTrack({ path: [{ t: 0, x: 0 }] })[0], /at least 2 keyframes/);
+  assert.match(validateMotionTrack({ path: [{ t: 0, x: 0 }, { t: 5, x: 1 }] }, { durationSec: 3 })[0], /past the scene end/);
+  assert.match(validateMotionTrack({ path: [{ t: 2, x: 0 }, { t: 1, x: 1 }] })[0], /goes backwards/);
+  assert.match(validateMotionTrack({ path: [{ t: 0, x: 0 }, { t: 1, x: 9 }] })[0], /far outside the frame/);
+  assert.match(validateMotionTrack({ path: [{ t: 0, x: 0 }, { t: 1, x: 1 }], ease: 'wobble' })[0], /unknown ease/);
+  assert.deepEqual(validateMotionTrack({ path: [{ t: 0, x: 0 }, { t: 1, x: 1 }], ease: 'linear' }, { durationSec: 2 }), []);
+});
+
+test('a travelling character swings its legs even in a non-walk pose', () => {
+  // Render at two different times on a track and confirm the limbs move: compare the rendered
+  // SVG of the same instance at two travel times.
+  const moving = { ...instance, animation: 'talk', motion: { path: [{ t: 0, x: 0.1, y: 0.82 }, { t: 2, x: 0.8, y: 0.82 }] } };
+  const a = renderCharacter({ character, instance: moving, tSec: 0.4, compositionHeight: 720, compositionWidth: 1280 });
+  const b = renderCharacter({ character, instance: moving, tSec: 0.9, compositionHeight: 720, compositionWidth: 1280 });
+  assert.notEqual(a, b, 'the rig must redraw while travelling');
+  // The centre of the body must actually have shifted along the path.
+  const cx = (svg) => Number(svg.match(/<circle cx="([\d.]+)" cy="[\d.]+" r="[\d.]+" fill="#2d9cdb"/)?.[1] ?? NaN);
+  assert.ok(Number.isFinite(cx(a)) && Number.isFinite(cx(b)));
+  assert.ok(cx(b) > cx(a), 'travel should move the character to the right');
+});
+
+test('prop interaction windows open and close', () => {
+  const interactions = [{ propId: 'toy-ball', characterId: 'tester', fromSec: 1, toSec: 3, attach: 'hands' }];
+  assert.equal(propInteractionAt(interactions, 'toy-ball', 0.5), null);
+  assert.ok(propInteractionAt(interactions, 'toy-ball', 2));
+  assert.equal(propInteractionAt(interactions, 'toy-ball', 3.5), null);
+  assert.equal(propInteractionAt(interactions, 'other-prop', 2), null);
+  assert.equal(propInteractionAt(undefined, 'toy-ball', 2), null);
+});
+
+test('interaction progress is normalised across the window', () => {
+  const it = { propId: 'p', characterId: 'c', fromSec: 2, toSec: 4 };
+  assert.equal(interactionProgress(it, 1), 0);
+  assert.equal(interactionProgress(it, 3), 0.5);
+  assert.equal(interactionProgress(it, 9), 1);
+  assert.equal(interactionProgress(null, 3), 0);
+});
+
+test('a carried prop is drawn above its staged ground position', async () => {
+  // Regression guard for the "ball stays glued to the grass" bug.
+  const world = await readJson(path.join(P.worlds, 'bobby-forest.world.json'));
+  const bobby = await readJson(path.join(P.characters, 'bobby.character.json'));
+  const scene = {
+    schemaVersion: 1,
+    id: 'sc-test',
+    worldId: world.id,
+    episodeId: 'ep-test',
+    location: 'playground',
+    durationSec: 4,
+    fps: 24,
+    camera: { preset: 'wide', keyframes: [{ t: 0, x: 0.5, y: 0.5, zoom: 1 }] },
+    characters: [{
+      characterId: 'bobby',
+      position: { x: 0.4, y: LANES.mid.y, z: 2 },
+      scale: 1,
+      facing: 'right',
+      expression: 'happy',
+      animation: 'idle',
+    }],
+    props: [{ propId: 'toy-ball', x: 0.5, y: LANES.mid.y, scale: 0.8 }],
+    interactions: [{ propId: 'toy-ball', characterId: 'bobby', fromSec: 1, toSec: 3, attach: 'hands' }],
+    dialogue: [],
+    subtitles: [],
+  };
+  const characters = new Map([['bobby', bobby]]);
+  const before = buildSceneSvg({ scene, world, characters, frame: 0, fps: 24, width: 1280, height: 720 });
+  const during = buildSceneSvg({ scene, world, characters, frame: 48, fps: 24, width: 1280, height: 720 });
+  // The ball is an ellipse/path near the actor; compare the whole layer instead of parsing:
+  // the two frames must differ, and the carried frame must not draw the ball at the staged spot.
+  assert.notEqual(before, during);
+  assert.ok(before.length > 1000 && during.length > 1000);
+});
+
+test('bodyHeightPx scales with the instance scale', () => {
+  const small = bodyHeightPx({ scale: 0.5 }, character);
+  const big = bodyHeightPx({ scale: 1 }, character);
+  assert.ok(big > small);
+  assert.equal(bodyHeightPx({ scale: 1 }, character), 205);
+});

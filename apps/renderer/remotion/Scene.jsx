@@ -6,13 +6,24 @@
 import React from 'react';
 import { useCurrentFrame, useVideoConfig, interpolate } from 'remotion';
 import { animationState } from '../rigs.mjs';
+import { sampleMotion, travelDirection, propInteractionAt, interactionProgress } from '../motion.mjs';
+import { bodyHeightPx } from '../rigs.mjs';
 import { cameraAt } from '../scene-svg.mjs';
 
 const CAMERA_OVERSCAN = 1.12;
 
 function Character({ character, instance, t }) {
   if (!character) return null;
+  // Same sampler the SVG backend uses, so both backends move identically.
+  const motion = sampleMotion(instance.motion, t, instance.position);
+  const travelling = motion.moving && instance.motion;
   const st = animationState(instance.animation, t, character.id);
+  if (travelling) {
+    const phase = (t * 1.1 + 0.25) * Math.PI * 2;
+    st.legSwing = Math.sin(phase * 1.6) * 0.55;
+    st.armSwing = -Math.sin(phase * 1.6) * 0.4;
+    st.bobY = Math.abs(Math.sin(phase * 1.6)) * -3;
+  }
   const { palette } = character.visual;
   const h = 205 * (character.visual.bodyProportions.heightUnits / 4.2) * instance.scale;
   const headR = h * 0.16 * character.visual.bodyProportions.headScale;
@@ -20,8 +31,9 @@ function Character({ character, instance, t }) {
   const bodyH = h * 0.34;
   const legLen = h * 0.26;
 
-  const cx = instance.cx;
-  const footY = instance.groundY + st.hopY;
+  const cx = motion.x * (instance.compositionWidth ?? 1280);
+  const groundY = motion.y * (instance.compositionHeight ?? 720);
+  const footY = groundY + st.hopY;
   const bodyTop = footY - legLen - bodyH;
   const headCy = bodyTop - headR * 0.9;
   const squash = 1 + st.squash;
@@ -29,7 +41,7 @@ function Character({ character, instance, t }) {
 
   return (
     <g>
-      <ellipse cx={cx} cy={instance.groundY + 2} rx={bodyW * 1.15} ry={bodyW * 0.24} fill="#000" opacity={0.16} />
+      <ellipse cx={cx} cy={groundY + 2} rx={bodyW * 1.15} ry={bodyW * 0.24} fill="#000" opacity={0.16} />
       {[-1, 1].map((dir) => {
         const swing = dir === 1 ? st.legSwing : -st.legSwing;
         const hipX = cx + dir * bodyW * 0.26;
@@ -61,7 +73,7 @@ function Character({ character, instance, t }) {
       })}
       <g transform={`rotate(${st.tilt * 40} ${cx} ${headCy + headR})`}>
         <circle cx={cx} cy={headCy} r={headR} fill={palette.accent} {...stroke} />
-        <Face cx={cx} headCy={headCy} headR={headR} facing={instance.facing === 'left' ? -1 : 1} st={st} palette={palette} />
+        <Face cx={cx} headCy={headCy} headR={headR} facing={(travelling ? (travelDirection(instance.motion, t) ?? instance.facing) : instance.facing) === 'left' ? -1 : 1} st={st} palette={palette} />
       </g>
     </g>
   );
@@ -210,8 +222,8 @@ export const SceneComposition = ({ scene, world, characters, backgroundDataUri, 
     .sort((a, b) => a.position.z - b.position.z)
     .map((inst) => ({
       ...inst,
-      cx: inst.position.x * width,
-      groundY: inst.position.y * height,
+      compositionWidth: width,
+      compositionHeight: height,
     }));
 
   const sub = (scene.subtitles ?? []).find((s) => t >= s.startSec && t < s.endSec) ?? null;

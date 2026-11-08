@@ -13,7 +13,7 @@ import { P, rel, ensureDir, exists } from '../../scripts/lib/paths.mjs';
 import { readJson, writeJson } from '../../scripts/lib/json.mjs';
 import { StudioError } from '../../scripts/lib/log.mjs';
 import { intentFor, estimateLineDuration, EMOTION_POSE } from './intents.mjs';
-import { blockBeat, posesFor, castIndex, LANES } from './stage.mjs';
+import { blockBeat, posesFor, castIndex, LANES, motionTrackFor } from './stage.mjs';
 import { frameBeat, shotForTransition } from './camera.mjs';
 
 const ROOT_PAD = 0.6; // seconds of silence at the head of a scene
@@ -134,14 +134,27 @@ export function directBeat({ beat, index, script, world, cast, characters, leadI
       if (!character) {
         throw new StudioError(`beat '${beat.id}' uses '${pos.characterId}', which is not in the character library`);
       }
+      // Real travel: an entry path becomes a motion track the renderer samples per frame.
+      const motion = motionTrackFor({
+        entry: pos.entry,
+        durationSec,
+        holdUntilSec: durationSec,
+      });
+
+      // If the character travels, the pose must be a walk cycle, otherwise legs slide.
+      const animation = motion && (motion.path[0].x < -0.01 || motion.path[0].x > 1.01)
+        ? 'walk'
+        : pose.animation;
+
       return {
         characterId: pos.characterId,
         position: { x: pos.x, y: pos.y, z: pos.z },
         scale: Number(pos.scale.toFixed(3)),
         facing: pos.facing,
         expression: pose.expression,
-        animation: pose.animation,
+        animation,
         entranceAt: 0,
+        ...(motion ? { motion } : {}),
       };
     });
 
@@ -163,6 +176,26 @@ export function directBeat({ beat, index, script, world, cast, characters, leadI
   const subtitles = beat.line
     ? subtitleCues({ line: beat.line, startSec: lineStart, endSec: lineEnd })
     : [];
+
+  // Prop interaction: if the beat is about a prop and the actor reaches it, the prop is
+  // attached to them for the middle of the scene (picked up, carried). "ground" means it is
+  // touched but stays put. A beat can opt out with `interact: "none"`.
+  const interactions = [];
+  if (prop && beat.interact !== 'none') {
+    const attach = beat.interact === 'hold' ? 'hands' : null;
+    if (attach) {
+      const fromSec = Number((ROOT_PAD + 0.4).toFixed(3));
+      const toSec = Number(Math.max(fromSec + 0.6, durationSec - TAIL_PAD).toFixed(3));
+      interactions.push({
+        propId: prop.propId,
+        characterId: block.actorId,
+        fromSec,
+        toSec,
+        attach,
+        note: `${beat.action}: ${block.actorId} carries ${prop.propId}`,
+      });
+    }
+  }
 
   const scene = {
     schemaVersion: 1,
@@ -186,6 +219,7 @@ export function directBeat({ beat, index, script, world, cast, characters, leadI
     })),
     dialogue,
     subtitles,
+    ...(interactions.length ? { interactions } : {}),
     audioTracks: (world.locations.find((l) => l.id === location)?.ambientAudio
       ? [{
           id: `${beat.id}-ambience`,
@@ -291,6 +325,8 @@ export async function directScript({ script, world, characters }) {
     locationsUsed: [...new Set(scenes.map((s) => s.location))],
     estimatedLines: timings.filter((t) => t.lineDurationSec > 0).length,
     shots: scenes.map((s) => ({ sceneId: s.id, shot: s.camera.preset, seconds: s.durationSec })),
+    travelling: scenes.reduce((n, s) => n + s.characters.filter((c) => c.motion).length, 0),
+    interactions: scenes.reduce((n, s) => n + (s.interactions?.length ?? 0), 0),
     warnings: buildWarnings({ scenes, script, world }),
   };
   return { scenes, episode, report };

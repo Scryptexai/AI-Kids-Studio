@@ -123,6 +123,37 @@ export function facingFor({ intent, markX, targetX, propX, travelDirection }) {
  * Entry path: where the actor starts before walking to their mark.
  * A walk-in starts just off frame; anything else starts on the mark (no movement).
  */
+/**
+ * Convert an entry description into a motion track the renderer samples per frame.
+ * This is what turns "walk in" from a pose into actual travel across the frame.
+ * @returns {{path:Array<{t:number,x:number,y:number}>, ease:string, durationSec:number}|null}
+ */
+export function motionTrackFor({ entry, durationSec, holdUntilSec = null }) {
+  if (!entry || entry.kind === 'still') return null;
+  const walkSec = Math.min(entry.durationSec, Math.max(0.8, durationSec * 0.45));
+  // walk-in travels from the entry point to the mark; walk-out travels the other way and
+  // must NOT be pinned to the mark at the end (it leaves the frame).
+  const path = entry.kind === 'walk-out'
+    ? [
+        { t: 0, x: num(entry.from.x), y: num(entry.from.y) },
+        { t: num(walkSec), x: num(entry.to.x), y: num(entry.to.y) },
+      ]
+    : [
+        { t: 0, x: num(entry.from.x), y: num(entry.from.y) },
+        { t: num(walkSec), x: num(entry.to.x), y: num(entry.to.y) },
+      ];
+
+  // Hold the final position until the scene ends so the last frame is stable.
+  // A departure holds nothing: the character is gone.
+  if (entry.kind !== 'walk-out' && holdUntilSec != null && holdUntilSec > walkSec) {
+    const last = path[path.length - 1];
+    path.push({ t: num(holdUntilSec), x: last.x, y: last.y });
+  }
+  return { path, ease: 'ease-in-out', durationSec: num(walkSec) };
+}
+
+const num = (v) => Number(v.toFixed(4));
+
 export function entryFor({ intent, mark, role, castIndex }) {
   if (intent.walkIn) {
     const fromLeft = castIndex % 2 === 0;
@@ -144,11 +175,13 @@ export function entryFor({ intent, mark, role, castIndex }) {
     };
   }
   if (intent.stance === 'walk-to') {
+    // Explore/celebrate beats should cover visible ground, not shuffle: start a quarter of
+    // the frame back and walk in over 1.2s so the travel reads on screen.
     return {
       kind: 'walk-to',
-      from: { x: round(mark.x - 0.14), y: mark.y, z: mark.z },
+      from: { x: round(Math.max(SAFE_MIN, mark.x - 0.24)), y: mark.y, z: mark.z },
       to: mark,
-      durationSec: 1.0,
+      durationSec: 1.2,
       travelDirection: 'right',
     };
   }

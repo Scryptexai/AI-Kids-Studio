@@ -156,6 +156,62 @@
           "entranceAt": {
             "type": "number",
             "minimum": 0
+          },
+          "motion": {
+            "type": [
+              "object",
+              "null"
+            ],
+            "description": "Per-frame travel path. Without it the character holds one static position for the whole scene.",
+            "additionalProperties": false,
+            "required": [
+              "path"
+            ],
+            "properties": {
+              "path": {
+                "type": "array",
+                "minItems": 2,
+                "items": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "t",
+                    "x"
+                  ],
+                  "properties": {
+                    "t": {
+                      "type": "number",
+                      "minimum": 0
+                    },
+                    "x": {
+                      "type": "number",
+                      "minimum": -0.4,
+                      "maximum": 1.4
+                    },
+                    "y": {
+                      "type": "number",
+                      "minimum": -0.4,
+                      "maximum": 1.4
+                    }
+                  }
+                }
+              },
+              "ease": {
+                "enum": [
+                  "linear",
+                  "ease-in",
+                  "ease-out",
+                  "ease-in-out"
+                ]
+              },
+              "note": {
+                "type": "string"
+              },
+              "durationSec": {
+                "type": "number",
+                "description": "How long the travel leg takes. Informational; sampling uses the path times."
+              }
+            }
           }
         }
       }
@@ -354,6 +410,47 @@
         },
         "transition": {
           "type": "string"
+        }
+      }
+    },
+    "interactions": {
+      "type": "array",
+      "description": "Props attached to a character for a window of the scene (picked up, carried, put down).",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "propId",
+          "characterId",
+          "fromSec",
+          "toSec"
+        ],
+        "properties": {
+          "propId": {
+            "type": "string"
+          },
+          "characterId": {
+            "type": "string"
+          },
+          "fromSec": {
+            "type": "number",
+            "minimum": 0
+          },
+          "toSec": {
+            "type": "number",
+            "minimum": 0
+          },
+          "attach": {
+            "enum": [
+              "hands",
+              "head",
+              "ground"
+            ],
+            "description": "Where the prop is drawn while attached."
+          },
+          "note": {
+            "type": "string"
+          }
         }
       }
     }
