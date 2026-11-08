@@ -26,12 +26,15 @@ const LARGE_FILE_BYTES = 1_000_000;
 // `renders` is included so finished MP4s get checksummed, but ephemeral review output
 // (preview frames, benchmark clips, per-scene intermediates) is excluded — it changes on every
 // run and would make asset validation fail for no reason.
-const SCAN_DIRS = ['library', 'projects', 'audio/samples', 'renders'];
+// renders/ is deliberately NOT scanned: mp4s are build output, and a new timestamped file per
+// run makes the manifest churn. Renders enter the manifest only when explicitly recorded in
+// Drive via `assets:record-drive`; after that they survive regeneration through step 3 below.
+const SCAN_DIRS = ['library', 'projects', 'audio/samples'];
+// Ephemeral review output: preview frames and benchmark clips change on every run.
 const EXCLUDE = [
-  // Everything under renders/ is regenerated output: every run writes a new timestamped mp4,
-  // a new per-scene file and a new manifest. Tracking its size or checksum guarantees a
-  // validation failure after any render, so none of it belongs in the asset manifest.
-  /^renders\//,
+  /^renders\/.+\/preview\//,
+  /^renders\/bench\//,
+  /^renders\/.+\/work\//,
 ];
 const BINARY_EXT = new Set(['.png', '.jpg', '.jpeg', '.webp', '.wav', '.mp3', '.mp4', '.ogg', '.pth', '.onnx', '.bin']);
 
@@ -52,13 +55,28 @@ function classify(relPath) {
   if (/\/sfx\//.test(relPath)) return 'audio-sfx';
   if (relPath.startsWith('audio/samples/')) return 'audio-sample';
   if (relPath.startsWith('audio/generated/')) return 'audio-dialogue';
-  if (EXCLUDE.some((re) => re.test(relPath))) return null;
+  // Renders are a special case: they are never scanned wholesale (see SCAN_DIRS — every render
+  // writes new files, so tracking them guarantees a validation failure), but a render that has
+  // been explicitly recorded in Drive must still be classified, or the manifest cannot describe
+  // what it just recorded.
   if (relPath.startsWith('renders/')) return 'video';
+  if (EXCLUDE.some((re) => re.test(relPath))) return null;
   if (relPath.endsWith('.json')) return 'scene-manifest';
   return null;
 }
 
 /** Stable ID: relative path without extension, non-alphanumerics collapsed to dashes. */
+/**
+ * Descriptions are rewritten by this script when a Drive-backed file goes missing, so they must
+ * be cleaned before being carried forward — otherwise a stale "restorable from Drive" note
+ * sticks to a file that is sitting right there on disk.
+ */
+function cleanDescription(desc) {
+  return (desc ?? '')
+    .replace(/\((?:missing locally|local copy removed|also present locally)[^)]*\)/g, '')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
 function assetId(relPath) {
   return relPath
     .replace(/\.[^.]+$/, '')
@@ -134,7 +152,7 @@ async function main() {
         sha256,
         drive: prior?.drive ?? null,
         required: true,
-        ...(prior?.description ? { description: prior.description } : {}),
+        ...(prior?.description ? { description: cleanDescription(prior.description) } : {}),
         ...(prior?.tags ? { tags: prior.tags } : {}),
       });
     }
@@ -166,7 +184,19 @@ async function main() {
   for (const [id, prior] of previousById) {
     if (entries.has(id)) continue;
     if (prior.drive?.fileId) {
-      entries.set(id, { ...prior, required: false, description: `${prior.description ?? ''} (missing locally, restorable from Drive)`.trim() });
+      // Ask the disk, do not assume. Step 1 no longer scans renders/, so a recorded render is
+      // never in `entries` above — but it may well still be sitting on disk, and claiming
+      // otherwise in the manifest is a lie the next reader would act on.
+      const full = path.join(ROOT, prior.path);
+      const present = await exists(full);
+      const base = cleanDescription(prior.description) || 'recorded in Drive';
+      const note = present ? '(also present locally)' : '(missing locally, restorable from Drive)';
+      entries.set(id, {
+        ...prior,
+        ...(present ? { bytes: (await fs.stat(full)).size, sha256: await sha256File(full) } : {}),
+        required: false,
+        description: `${base} ${note}`.trim(),
+      });
     } else {
       dropped.push(id);
     }

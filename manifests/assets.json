@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-08T10:32:33.784Z",
+  "generatedAt": "2026-11-08T12:07:02.817Z",
   "generator": "scripts/assets/manifest.mjs",
   "assets": [
     {
@@ -401,6 +401,21 @@
       "sha256": "1d4d8cc094fe9699442478f29502acbc88111d481ded6999a7028b07a988abba",
       "drive": null,
       "required": true
+    },
+    {
+      "id": "renders-ep-002-ep-002-2026-11-08t10-30-32",
+      "kind": "video",
+      "path": "renders/ep-002/ep-002-2026-11-08T10-30-32.mp4",
+      "storage": "drive",
+      "bytes": 12209306,
+      "sha256": "15bba670b3691537a118fbe35768f40de8700cb0dcfb10bf6a8c5407f045b1db",
+      "drive": {
+        "fileId": "1lcFTFQSIwxlgxjb-ugQ2vx9yyrhDxmMd",
+        "name": "ep-002-2026-11-08T10-30-32-PLACEHOLDER-VOICE.mp4",
+        "uploadedAt": "2026-11-08T12:05:28.491Z"
+      },
+      "required": false,
+      "description": "recorded in Drive; local copy may be removed (also present locally)"
     }
   ]
 }

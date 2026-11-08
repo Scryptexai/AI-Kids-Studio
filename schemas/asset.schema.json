@@ -5,42 +5,130 @@
   "description": "Maps every production asset id to a repository path, checksum and durable storage location. Small text/hand-authored assets live in git; large binaries live in Google Drive and are restored by `npm run assets:restore`.",
   "type": "object",
   "additionalProperties": false,
-  "required": ["schemaVersion", "generatedAt", "generator", "assets"],
+  "required": [
+    "schemaVersion",
+    "generatedAt",
+    "generator",
+    "assets"
+  ],
   "properties": {
-    "schemaVersion": { "const": 1 },
-    "generatedAt": { "type": "string", "format": "date-time" },
-    "generator": { "type": "string" },
+    "schemaVersion": {
+      "const": 1
+    },
+    "generatedAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "generator": {
+      "type": "string"
+    },
     "assets": {
       "type": "array",
       "items": {
         "type": "object",
         "additionalProperties": false,
-        "required": ["id", "kind", "path", "storage"],
+        "required": [
+          "id",
+          "kind",
+          "path",
+          "storage"
+        ],
         "properties": {
-          "id": { "type": "string", "pattern": "^[a-z0-9][a-z0-9._-]*$" },
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z0-9][a-z0-9._-]*$"
+          },
           "kind": {
             "enum": [
-              "character-image", "background", "prop", "animation", "audio-dialogue",
-              "audio-sample", "audio-ambience", "audio-music", "audio-sfx", "reference-audio",
-              "voice-model", "video", "scene-manifest", "subtitle"
+              "character-image",
+              "background",
+              "prop",
+              "animation",
+              "audio-dialogue",
+              "audio-sample",
+              "audio-ambience",
+              "audio-music",
+              "audio-sfx",
+              "reference-audio",
+              "voice-model",
+              "video",
+              "scene-manifest",
+              "subtitle"
             ]
           },
-          "path": { "type": "string" },
-          "storage": { "enum": ["git", "drive"] },
-          "bytes": { "type": ["integer", "null"] },
-          "sha256": { "type": ["string", "null"], "pattern": "^[a-f0-9]{64}$" },
+          "path": {
+            "type": "string"
+          },
+          "storage": {
+            "enum": [
+              "git",
+              "drive"
+            ]
+          },
+          "bytes": {
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "sha256": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "pattern": "^[a-f0-9]{64}$"
+          },
           "drive": {
-            "type": ["object", "null"],
+            "type": [
+              "object",
+              "null"
+            ],
             "additionalProperties": false,
             "properties": {
-              "fileId": { "type": "string" },
-              "folderId": { "type": ["string", "null"] },
-              "mimeType": { "type": ["string", "null"] }
+              "fileId": {
+                "type": "string"
+              },
+              "folderId": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "mimeType": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "name": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "description": "Name the file was uploaded under, if it differs from the local path (e.g. a deploy suffix)."
+              },
+              "uploadedAt": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "description": "When the recorded copy was uploaded (ISO 8601)."
+              }
             }
           },
-          "required": { "type": "boolean", "description": "If true, validation fails when the file is missing." },
-          "description": { "type": "string" },
-          "tags": { "type": "array", "items": { "type": "string" } }
+          "required": {
+            "type": "boolean",
+            "description": "If true, validation fails when the file is missing."
+          },
+          "description": {
+            "type": "string"
+          },
+          "tags": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
         }
       }
     }

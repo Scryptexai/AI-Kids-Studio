@@ -11,6 +11,8 @@
     "bootstrap": "node scripts/bootstrap.mjs",
     "doctor": "node scripts/doctor.mjs",
     "assets:manifest": "node scripts/assets/manifest.mjs",
+    "assets:record-drive": "node scripts/assets/record-drive.mjs",
+    "assets:verify-drive": "node scripts/assets/verify-drive.mjs",
     "assets:validate": "node scripts/assets/validate.mjs",
     "assets:restore": "node scripts/assets/restore.mjs",
     "voice:engines": "node scripts/voice/engines.mjs",
