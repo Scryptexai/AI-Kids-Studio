@@ -48,7 +48,18 @@
       "facing": "right",
       "expression": "curious",
       "animation": "talk",
-      "entranceAt": 0
+      "restAnimation": "curious",
+      "entranceAt": 0,
+      "poseTrack": [
+        {
+          "atSec": 0,
+          "animation": "talk"
+        },
+        {
+          "atSec": 3.575,
+          "animation": "idle"
+        }
+      ]
     },
     {
       "characterId": "pip",
@@ -61,6 +72,7 @@
       "facing": "left",
       "expression": "curious",
       "animation": "idle",
+      "restAnimation": "idle",
       "entranceAt": 0
     },
     {
@@ -74,6 +86,7 @@
       "facing": "left",
       "expression": "curious",
       "animation": "idle",
+      "restAnimation": "idle",
       "entranceAt": 0
     }
   ],
@@ -104,7 +117,7 @@
       "text": "Coba kita pikirkan. Ke mana bola itu menggelinding?",
       "startSec": 0.6,
       "emotion": "curious",
-      "audioAsset": "audio/generated/ep-002/sc-003-b03-look/b03-look-d01.wav",
+      "audioAsset": "audio/generated/ep-002/b03-look/b03-look-d01.wav",
       "durationSec": 5.063
     }
   ],

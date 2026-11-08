@@ -37,6 +37,76 @@ export function bodyHeightPx(instance, character) {
  *            elbowBend:number, kneeBend:number, mouthOpen:number, blink:boolean, hopY:number,
  *            tears:boolean, armRaise:number, raiseSide:number, headBob:number}}
  */
+/** Numeric fields of a pose state, in the order a blend should treat them. */
+export const POSE_FIELDS = [
+  'bobY', 'squash', 'tilt', 'armSwing', 'legSwing', 'elbowBend', 'kneeBend',
+  'headBob', 'lean', 'armRaise', 'raiseSide', 'mouthOpen', 'hopY',
+];
+
+/**
+ * Blend two pose states.
+ *
+ * Booleans (blink, tears) are not interpolated — a half-closed eye is a different expression,
+ * not a blend of two — so the follower wins them at its own weight crossing 0.5. This keeps
+ * `tears` from flickering in for two frames as a pose passes through a sad beat.
+ */
+export function blendState(from, to, k) {
+  const t = clamp(k, 0, 1);
+  const out = { ...to };
+  for (const field of POSE_FIELDS) {
+    const a = from[field] ?? 0;
+    const b = to[field] ?? 0;
+    out[field] = a + (b - a) * t;
+  }
+  out.blink = t >= 0.5 ? Boolean(to.blink) : Boolean(from.blink);
+  out.tears = t >= 0.5 ? Boolean(to.tears) : Boolean(from.tears);
+  return out;
+}
+
+/**
+ * Pose at a time, honouring director-authored keyframes when a scene supplies them.
+ *
+ * A `poseTrack` is a list of `{ atSec, animation }`: the performance the director wants, on a
+ * timeline. Between two keys the *states* are blended, not the animation ids — you cannot
+ * interpolate the string 'idle', but you can interpolate every number it produces. That single
+ * distinction is what turns a set of poses into acting, and it is why the blend lives here
+ * rather than in the rig.
+ *
+ * Before the first key the first pose holds; after the last, the last holds.
+ */
+export function poseStateAt({ animation, poseTrack, tSec, characterId }) {
+  const track = Array.isArray(poseTrack) && poseTrack.length
+    ? [...poseTrack].filter((k) => k && k.animation).sort((a, b) => a.atSec - b.atSec)
+    : null;
+  if (!track || track.length < 2) {
+    return animationState(track?.[0]?.animation ?? animation, tSec, characterId);
+  }
+
+  if (tSec <= track[0].atSec) return animationState(track[0].animation, tSec, characterId);
+  const last = track.at(-1);
+  if (tSec >= last.atSec) return animationState(last.animation, tSec, characterId);
+
+  for (let i = 1; i < track.length; i++) {
+    const a = track[i - 1];
+    const b = track[i];
+    if (tSec <= b.atSec) {
+      const span = b.atSec - a.atSec;
+      const raw = span <= 0 ? 1 : (tSec - a.atSec) / span;
+      // A fast transition partly into the window, so a pose change reads as a change rather than
+      // a slow dissolve: overlap the last ~0.24 s of the gap, not the whole gap.
+      const blendStart = Math.max(0, 1 - Math.min(1, 0.24 / Math.max(span, 1e-6)));
+      const k = raw <= blendStart ? 0 : (raw - blendStart) / Math.max(1e-6, 1 - blendStart);
+      const ease = k * k * (3 - 2 * k);
+      return blendState(
+        animationState(a.animation, tSec, characterId),
+        animationState(b.animation, tSec, characterId),
+        ease,
+      );
+    }
+  }
+  return animationState(last.animation, tSec, characterId);
+}
+
 export function animationState(animationId, tSec, characterId) {
   const seed = [...characterId].reduce((a, c) => a + c.charCodeAt(0), 0);
   const phase = TAU * (tSec * 1.1 + noise(seed) * 0.5);

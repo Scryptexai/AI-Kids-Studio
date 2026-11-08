@@ -48,7 +48,18 @@
       "facing": "right",
       "expression": "happy",
       "animation": "laugh",
-      "entranceAt": 0
+      "restAnimation": "idle",
+      "entranceAt": 0,
+      "poseTrack": [
+        {
+          "atSec": 0,
+          "animation": "idle"
+        },
+        {
+          "atSec": 3.664,
+          "animation": "laugh"
+        }
+      ]
     },
     {
       "characterId": "coco",
@@ -61,7 +72,18 @@
       "facing": "left",
       "expression": "happy",
       "animation": "talk",
-      "entranceAt": 0
+      "restAnimation": "talk",
+      "entranceAt": 0,
+      "poseTrack": [
+        {
+          "atSec": 0,
+          "animation": "talk"
+        },
+        {
+          "atSec": 5.059,
+          "animation": "laugh"
+        }
+      ]
     },
     {
       "characterId": "pip",
@@ -74,7 +96,18 @@
       "facing": "left",
       "expression": "happy",
       "animation": "laugh",
-      "entranceAt": 0
+      "restAnimation": "idle",
+      "entranceAt": 0,
+      "poseTrack": [
+        {
+          "atSec": 0,
+          "animation": "idle"
+        },
+        {
+          "atSec": 3.664,
+          "animation": "laugh"
+        }
+      ]
     }
   ],
   "props": [
@@ -110,7 +143,7 @@
       "text": "Terima kasih sudah mencari bersama. Kalau sendiri, aku pasti belum menemukannya.",
       "startSec": 0.6,
       "emotion": "happy",
-      "audioAsset": "audio/generated/ep-002/sc-007-b07-thanks/b07-thanks-d01.wav",
+      "audioAsset": "audio/generated/ep-002/b07-thanks/b07-thanks-d01.wav",
       "durationSec": 7.623
     }
   ],

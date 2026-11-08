@@ -153,6 +153,32 @@
             "type": "string",
             "description": "Must exist in the world's animationCatalog."
           },
+          "restAnimation": {
+            "type": "string",
+            "description": "Pose to fall back to when a locomotion pose (walk/run) is applied but the character is not moving."
+          },
+          "poseTrack": {
+            "type": "array",
+            "minItems": 2,
+            "description": "Director-authored performance: which pose plays when. Between keys the rig blends the pose states, not the animation ids.",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "atSec",
+                "animation"
+              ],
+              "properties": {
+                "atSec": {
+                  "type": "number",
+                  "minimum": 0
+                },
+                "animation": {
+                  "type": "string"
+                }
+              }
+            }
+          },
           "entranceAt": {
             "type": "number",
             "minimum": 0

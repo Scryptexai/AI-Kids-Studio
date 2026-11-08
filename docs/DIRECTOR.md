@@ -297,14 +297,50 @@ the beat includes travel, so a character kept marching on the spot after it arri
 cycling, no ground covered. The rig now falls back to `idle` once travel ends (overridable per
 instance with `restAnimation`).
 
+### 7.5 Acting inside a beat (implemented)
+
+A beat used to produce exactly **one** pose for its whole duration. A character surprised at
+second one was still wearing the same expression at second six — six seconds of nothing
+happening. Beats now carry a **pose track**: which pose plays, and when.
+
+```json
+"poseTrack": [
+  { "atSec": 0,     "animation": "curious" },
+  { "atSec": 1.891, "animation": "surprise" },
+  { "atSec": 3.656, "animation": "curious" }
+]
+```
+
+The writer still supplies intent only. `apps/director/performance.mjs` derives the timing:
+
+* **The actor reacts late on purpose.** The reaction lands at ~30% into the beat (never earlier
+  than 0.7 s), then settles back. A character already surprised before anything happens has
+  nothing to react to.
+* **A reactor reacts later than the actor** — ~42% in, so the two are never in lockstep.
+* **No track when nothing changes.** A `walk` beat has travel (which overrides the performance),
+  and an `entrance` beat is walking, so both get no track at all rather than a redundant one.
+
+`apps/renderer/state.mjs#poseStateAt` samples the track. The important part is that **states are
+blended, not animation ids** — you cannot interpolate the string `'idle'`, but you can interpolate
+every number it produces. Booleans are *chosen* at the halfway point rather than averaged: a
+half-closed blink is a different expression, not a blend of two. Transitions overlap only the last
+~0.24 s of a gap, so a pose change reads as a change rather than a slow dissolve.
+
+Verified on ep-002 `sc-002-b02-miss`: Pip holds `curious` until 1.891 s, snaps to `surprise`, and
+returns to `curious` at 3.656 s; Bobby and Coco react 0.756 s later, which is what makes it read
+as one character noticing and the others following.
+
 ## 8. Limits (do not claim otherwise)
 
 * **No inverse kinematics.** Limb joints follow the animation state, not a target; an arm does not
   reach for a specific point. Prop attachment uses the drawn hand, but the hand is not solved to
   the prop.
-* **No keyframed phrasing.** Poses are still procedural functions of time, now with anticipation,
-  landing compression and overshoot layered on. There is no pose-to-pose interpolation between
-  authored keys, so a performance cannot be timed like hand-drawn animation.
+* **Poses are chosen, not drawn.** A pose track places existing rig poses on a timeline; it cannot
+  invent a pose the rig does not have. Ten animations cover the vocabulary, so a beat that needs
+  something new ("picks up the ball with both hands") requires a new pose in the rig first.
+* **One pose per character at a time.** Two characters never share a pose, and a character cannot
+  be walking and gesturing simultaneously — travel overrides the performance, so a beat must
+  choose between the two.
 * **Arms swing on a fixed rotation; a character does not reach for a
   specific point on an object. Prop attachment is "at the hands", not "gripping the handle".
 * **No object physics.** Thrown props follow a scripted parabola — they do not bounce, roll,

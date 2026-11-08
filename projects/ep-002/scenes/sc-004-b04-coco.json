@@ -12,25 +12,25 @@
     "keyframes": [
       {
         "t": 0,
-        "x": 0.285,
+        "x": 0.259,
         "y": 0.512,
         "zoom": 0.9456
       },
       {
         "t": 1.6,
-        "x": 0.32,
+        "x": 0.294,
         "y": 0.5,
         "zoom": 1.006
       },
       {
         "t": 5.4177,
-        "x": 0.34,
+        "x": 0.314,
         "y": 0.494,
         "zoom": 1.0211
       },
       {
         "t": 6.607,
-        "x": 0.34,
+        "x": 0.314,
         "y": 0.494,
         "zoom": 1.0211
       }
@@ -48,12 +48,23 @@
       "facing": "right",
       "expression": "happy",
       "animation": "laugh",
-      "entranceAt": 0
+      "restAnimation": "idle",
+      "entranceAt": 0,
+      "poseTrack": [
+        {
+          "atSec": 0,
+          "animation": "idle"
+        },
+        {
+          "atSec": 2.775,
+          "animation": "laugh"
+        }
+      ]
     },
     {
       "characterId": "coco",
       "position": {
-        "x": 0.22,
+        "x": 0.194,
         "y": 0.82,
         "z": 2
       },
@@ -61,6 +72,7 @@
       "facing": "right",
       "expression": "happy",
       "animation": "walk",
+      "restAnimation": "idle",
       "entranceAt": 0,
       "motion": {
         "path": [
@@ -71,12 +83,12 @@
           },
           {
             "t": 1.4,
-            "x": 0.22,
+            "x": 0.194,
             "y": 0.82
           },
           {
             "t": 6.607,
-            "x": 0.22,
+            "x": 0.194,
             "y": 0.82
           }
         ],
@@ -87,7 +99,7 @@
     {
       "characterId": "bobby",
       "position": {
-        "x": 0.42,
+        "x": 0.394,
         "y": 0.798,
         "z": 2
       },
@@ -95,7 +107,18 @@
       "facing": "left",
       "expression": "happy",
       "animation": "laugh",
-      "entranceAt": 0
+      "restAnimation": "idle",
+      "entranceAt": 0,
+      "poseTrack": [
+        {
+          "atSec": 0,
+          "animation": "idle"
+        },
+        {
+          "atSec": 2.775,
+          "animation": "laugh"
+        }
+      ]
     }
   ],
   "props": [
@@ -125,7 +148,7 @@
       "text": "Aku tadi melihat bola berwarna merah menggelinding ke arah sungai.",
       "startSec": 0.6,
       "emotion": "happy",
-      "audioAsset": "audio/generated/ep-002/sc-004-b04-coco/b04-coco-d01.wav",
+      "audioAsset": "audio/generated/ep-002/b04-coco/b04-coco-d01.wav",
       "durationSec": 5.507
     }
   ],
@@ -156,7 +179,7 @@
     "target": "bobby",
     "prop": null,
     "shot": "wide",
-    "focusX": 0.32,
+    "focusX": 0.294,
     "widenedForSpread": false,
     "entry": "walk-in",
     "lineEstimated": false,

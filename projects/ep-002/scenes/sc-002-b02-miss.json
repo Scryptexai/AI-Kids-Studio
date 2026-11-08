@@ -48,7 +48,22 @@
       "facing": "right",
       "expression": "surprised",
       "animation": "surprise",
-      "entranceAt": 0
+      "restAnimation": "curious",
+      "entranceAt": 0,
+      "poseTrack": [
+        {
+          "atSec": 0,
+          "animation": "curious"
+        },
+        {
+          "atSec": 1.891,
+          "animation": "surprise"
+        },
+        {
+          "atSec": 3.656,
+          "animation": "curious"
+        }
+      ]
     },
     {
       "characterId": "bobby",
@@ -61,7 +76,18 @@
       "facing": "left",
       "expression": "surprised",
       "animation": "surprise",
-      "entranceAt": 0
+      "restAnimation": "idle",
+      "entranceAt": 0,
+      "poseTrack": [
+        {
+          "atSec": 0,
+          "animation": "idle"
+        },
+        {
+          "atSec": 2.647,
+          "animation": "surprise"
+        }
+      ]
     },
     {
       "characterId": "coco",
@@ -74,7 +100,18 @@
       "facing": "left",
       "expression": "surprised",
       "animation": "surprise",
-      "entranceAt": 0
+      "restAnimation": "idle",
+      "entranceAt": 0,
+      "poseTrack": [
+        {
+          "atSec": 0,
+          "animation": "idle"
+        },
+        {
+          "atSec": 2.647,
+          "animation": "surprise"
+        }
+      ]
     }
   ],
   "props": [
@@ -104,7 +141,7 @@
       "text": "Bobby, bolanya hilang! Tadi ada di dekat bangku itu.",
       "startSec": 0.6,
       "emotion": "surprised",
-      "audioAsset": "audio/generated/ep-002/sc-002-b02-miss/b02-miss-d01.wav",
+      "audioAsset": "audio/generated/ep-002/b02-miss/b02-miss-d01.wav",
       "durationSec": 5.203
     }
   ],

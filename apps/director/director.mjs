@@ -14,6 +14,7 @@ import { readJson, writeJson } from '../../scripts/lib/json.mjs';
 import { StudioError } from '../../scripts/lib/log.mjs';
 import { intentFor, estimateLineDuration, EMOTION_POSE } from './intents.mjs';
 import { blockBeat, posesFor, castIndex, LANES, motionTrackFor } from './stage.mjs';
+import { performanceFor } from './performance.mjs';
 import { frameBeat, shotForTransition } from './camera.mjs';
 
 // Character heights are expressed against the 4.2-unit reference rig; the throw solver needs
@@ -189,6 +190,16 @@ export function directBeat({ beat, index, script, world, cast, characters, leadI
         ? 'walk'
         : pose.animation;
 
+      // The performance: which pose, and when. A beat used to be a single pose for its whole
+      // duration, so a character surprised at second one was still surprised at second six.
+      const poseTrack = performanceFor({
+        role: pos.isActor ? 'actor' : 'reactor',
+        intent: block.intent,
+        emotion: beat.emotion ?? 'neutral',
+        durationSec,
+        travelling: Boolean(motion),
+      });
+
       return {
         characterId: pos.characterId,
         position: { x: pos.x, y: pos.y, z: pos.z },
@@ -196,8 +207,10 @@ export function directBeat({ beat, index, script, world, cast, characters, leadI
         facing: pos.facing,
         expression: pose.expression,
         animation,
+        restAnimation: pose.restAnimation,
         entranceAt: 0,
         ...(motion ? { motion } : {}),
+        ...(poseTrack && poseTrack.length > 1 ? { poseTrack } : {}),
       };
     });
 

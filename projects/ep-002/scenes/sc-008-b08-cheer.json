@@ -48,7 +48,18 @@
       "facing": "right",
       "expression": "happy",
       "animation": "laugh",
-      "entranceAt": 0
+      "restAnimation": "idle",
+      "entranceAt": 0,
+      "poseTrack": [
+        {
+          "atSec": 0,
+          "animation": "idle"
+        },
+        {
+          "atSec": 3.295,
+          "animation": "laugh"
+        }
+      ]
     },
     {
       "characterId": "bobby",
@@ -61,7 +72,18 @@
       "facing": "front",
       "expression": "laughing",
       "animation": "jump",
-      "entranceAt": 0
+      "restAnimation": "laugh",
+      "entranceAt": 0,
+      "poseTrack": [
+        {
+          "atSec": 0,
+          "animation": "jump"
+        },
+        {
+          "atSec": 4.55,
+          "animation": "laugh"
+        }
+      ]
     },
     {
       "characterId": "pip",
@@ -74,7 +96,18 @@
       "facing": "left",
       "expression": "happy",
       "animation": "laugh",
-      "entranceAt": 0
+      "restAnimation": "idle",
+      "entranceAt": 0,
+      "poseTrack": [
+        {
+          "atSec": 0,
+          "animation": "idle"
+        },
+        {
+          "atSec": 3.295,
+          "animation": "laugh"
+        }
+      ]
     }
   ],
   "props": [
@@ -110,7 +143,7 @@
       "text": "Hore! Kita bermain lagi, dan kali ini kita jaga bolanya bersama-sama.",
       "startSec": 0.6,
       "emotion": "laughing",
-      "audioAsset": "audio/generated/ep-002/sc-008-b08-cheer/b08-cheer-d01.wav",
+      "audioAsset": "audio/generated/ep-002/b08-cheer/b08-cheer-d01.wav",
       "durationSec": 6.745
     }
   ],

@@ -48,7 +48,18 @@
       "facing": "right",
       "expression": "excited",
       "animation": "jump",
-      "entranceAt": 0
+      "restAnimation": "idle",
+      "entranceAt": 0,
+      "poseTrack": [
+        {
+          "atSec": 0,
+          "animation": "idle"
+        },
+        {
+          "atSec": 2.523,
+          "animation": "jump"
+        }
+      ]
     },
     {
       "characterId": "bobby",
@@ -61,6 +72,7 @@
       "facing": "right",
       "expression": "excited",
       "animation": "walk",
+      "restAnimation": "walk",
       "entranceAt": 0,
       "motion": {
         "path": [
@@ -95,7 +107,18 @@
       "facing": "left",
       "expression": "excited",
       "animation": "jump",
-      "entranceAt": 0
+      "restAnimation": "idle",
+      "entranceAt": 0,
+      "poseTrack": [
+        {
+          "atSec": 0,
+          "animation": "idle"
+        },
+        {
+          "atSec": 2.523,
+          "animation": "jump"
+        }
+      ]
     }
   ],
   "props": [
@@ -125,7 +148,7 @@
       "text": "Kalau begitu kita ke sungai! Ayo, ikuti aku!",
       "startSec": 0.6,
       "emotion": "excited",
-      "audioAsset": "audio/generated/ep-002/sc-005-b05-go/b05-go-d01.wav",
+      "audioAsset": "audio/generated/ep-002/b05-go/b05-go-d01.wav",
       "durationSec": 4.906
     }
   ],

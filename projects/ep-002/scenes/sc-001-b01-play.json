@@ -48,7 +48,18 @@
       "facing": "right",
       "expression": "happy",
       "animation": "laugh",
-      "entranceAt": 0
+      "restAnimation": "idle",
+      "entranceAt": 0,
+      "poseTrack": [
+        {
+          "atSec": 0,
+          "animation": "idle"
+        },
+        {
+          "atSec": 3.144,
+          "animation": "laugh"
+        }
+      ]
     },
     {
       "characterId": "bobby",
@@ -61,6 +72,7 @@
       "facing": "right",
       "expression": "happy",
       "animation": "walk",
+      "restAnimation": "walk",
       "entranceAt": 0,
       "motion": {
         "path": [
@@ -95,7 +107,18 @@
       "facing": "left",
       "expression": "happy",
       "animation": "laugh",
-      "entranceAt": 0
+      "restAnimation": "idle",
+      "entranceAt": 0,
+      "poseTrack": [
+        {
+          "atSec": 0,
+          "animation": "idle"
+        },
+        {
+          "atSec": 3.144,
+          "animation": "laugh"
+        }
+      ]
     }
   ],
   "props": [
@@ -125,7 +148,7 @@
       "text": "Ayo kita main bola di taman! Lihat, rumputnya masih hijau segar.",
       "startSec": 0.6,
       "emotion": "happy",
-      "audioAsset": "audio/generated/ep-002/sc-001-b01-play/b01-play-d01.wav",
+      "audioAsset": "audio/generated/ep-002/b01-play/b01-play-d01.wav",
       "durationSec": 6.385
     }
   ],

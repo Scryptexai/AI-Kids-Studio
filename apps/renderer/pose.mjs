@@ -11,7 +11,7 @@
 // passes under the body, and an arm gesture bends instead of pointing like a stick.
 
 import { sampleMotionWithDepth, travelDirection } from './motion.mjs';
-import { animationState } from './state.mjs';
+import { animationState, poseStateAt } from './state.mjs';
 import { gaitFor, travelProgress, anticipateFor, arrivalPulse } from './timing.mjs';
 
 const rad = (deg) => (deg * Math.PI) / 180;
@@ -54,7 +54,18 @@ export function solvePose({ character, instance, tSec, compositionHeight, compos
   const LOCMOTION = new Set(['walk', 'run']);
   const nominal = instance.animation;
   const effectiveAnimation = !travelling && LOCMOTION.has(nominal) ? (instance.restAnimation ?? 'idle') : nominal;
-  const st = animationState(effectiveAnimation, tSec, character.id);
+
+  // Travel overrides the authored performance: legs must not be mid-gesture while covering
+  // ground. Everywhere else, a director-authored poseTrack wins, so a beat can ask for one pose
+  // and then another within the same scene.
+  const st = travelling
+    ? animationState(effectiveAnimation, tSec, character.id)
+    : poseStateAt({
+      animation: effectiveAnimation,
+      poseTrack: instance.poseTrack,
+      tSec,
+      characterId: character.id,
+    });
 
   // While travelling the limbs must swing even if the beat's pose is something else — a character
   // can walk and talk at the same time.
