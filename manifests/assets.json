@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-08T13:34:00.493Z",
+  "generatedAt": "2026-11-08T13:43:14.067Z",
   "generator": "scripts/assets/manifest.mjs",
   "assets": [
     {
@@ -428,6 +428,21 @@
         "fileId": "1ngeR6fzmXnL9PYdZg6SdL0Xz4n05Dnrz",
         "name": "ep-002-2026-11-08T13-32-32-rig-v2-PLACEHOLDER-VOICE.mp4",
         "uploadedAt": "2026-11-08T13:34:00.210Z"
+      },
+      "required": false,
+      "description": "recorded in Drive; local copy may be removed (missing locally, restorable from Drive)"
+    },
+    {
+      "id": "renders-ep-002-ep-002-2026-11-08t13-41-32",
+      "kind": "video",
+      "path": "renders/ep-002/ep-002-2026-11-08T13-41-32.mp4",
+      "storage": "drive",
+      "bytes": 13189730,
+      "sha256": "c04418d5570570b1ae65452fc4e37a3c4cff09ac7af16e6306175d834369077c",
+      "drive": {
+        "fileId": "1MJDWqcAHXoufPViQ76_hAi0qUUsWvzZU",
+        "name": "ep-002-2026-11-08T13-41-32-timing-PLACEHOLDER-VOICE.mp4",
+        "uploadedAt": "2026-11-08T13:43:13.842Z"
       },
       "required": false,
       "description": "recorded in Drive; local copy may be removed (also present locally)"
