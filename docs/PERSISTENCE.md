@@ -71,6 +71,25 @@ Aturan:
 * `.gitignore` sudah menutup semuanya; jangan dilemahkan tanpa alasan.
 * Jika suatu saat butuh menyimpan binary di git, gunakan Git LFS — tetapi defaultnya: **Drive**.
 
+### Render tidak ada di git — dan itu memang benar
+
+`renders/` di-*ignore*, jadi **MP4 tidak akan pernah muncul di branch**. Ini sering disalahartikan
+sebagai render yang hilang, padahal artefaknya ada di sandbox dan berlaku sebagai build output:
+bisa dibuat ulang kapan saja dengan `episode:render`.
+
+Konsekuensi yang harus disadari:
+
+* Video final hanya hidup di sandbox sesi. Begitu sandbox dibersihkan, videonya hilang dan harus
+  di-render ulang (butuh `voice:generate` dulu). Untuk menyimpannya permanen: unggah ke Drive
+  (§2), jangan paksa masuk git.
+* **Jangan menumpuk render di sandbox.** Snapshot workspace punya batas gabungan ~128 MB, dan
+  `renders/` mudah melewatinya. Pernah terjadi: `renders/` mencapai 121 MB karena enam render
+  ep-002 yang semuanya 12 MB, ditambah 14 MB frame verifikasi — file render terbaru adalah yang
+  paling berisiko hilang. Aturannya: **simpan satu render per episode**, hapus yang lama setelah
+  render baru terbukti benar.
+* Frame verifikasi (`renders/*/verify/`) adalah alat debug, bukan aset. Hapus setelah selesai
+  memeriksa; format PNG 720p menghabiskan ~0,7 MB per frame.
+
 ---
 
 ## 4. Recovery lengkap setelah reset
