@@ -52,6 +52,18 @@ Sisa P3 (tidak memblokir): pemutar A/B berdampingan, layar migrasi engine, auten
 Yang benar-benar memblokir produksi bukan GUI-nya, melainkan belum adanya engine produksi yang
 lolos audit — lihat `docs/AUDIT-2026-11-08.md`.
 
+### 4b. Director engine — cerita → adegan (selesai)
+
+Wadah cerita sudah ada: `projects/<ep>/script.json` berisi **intent** (beat, aksi, aktor, emosi),
+lalu `npm run studio:direct` menghitung blocking, pose, jalan masuk, dan kamera menjadi scene JSON
+yang langsung bisa dirender. Penulis tidak menulis koordinat.
+
+World sekarang punya panggung: tiap lokasi punya `props[]` (dengan penanda `hero`) dan `marks`;
+5 lokasi punya background plate; 4 preset kamera untuk sutradara.
+
+Terbukti: ep-002 "Bobby dan Bola yang Hilang" — 8 beat → 8 scene → MP4 55,6 detik.
+Detail dan batasannya di `docs/DIRECTOR.md`.
+
 ### 5. Sinkronisasi audio (P5)
 
 Sudah ada: durasi per baris, retiming `--reflow`, subtitle diturunkan dari dialog.
