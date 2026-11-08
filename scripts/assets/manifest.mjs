@@ -28,11 +28,10 @@ const LARGE_FILE_BYTES = 1_000_000;
 // run and would make asset validation fail for no reason.
 const SCAN_DIRS = ['library', 'projects', 'audio/samples', 'renders'];
 const EXCLUDE = [
-  /^renders\/.+\/preview\//,
-  /^renders\/bench\//,
-  /^renders\/.+\/work\//,
-  // render-manifest.json is rewritten on every render, so its size/checksum is never stable.
-  /^renders\/.+\/render-manifest\.json$/,
+  // Everything under renders/ is regenerated output: every run writes a new timestamped mp4,
+  // a new per-scene file and a new manifest. Tracking its size or checksum guarantees a
+  // validation failure after any render, so none of it belongs in the asset manifest.
+  /^renders\//,
 ];
 const BINARY_EXT = new Set(['.png', '.jpg', '.jpeg', '.webp', '.wav', '.mp3', '.mp4', '.ogg', '.pth', '.onnx', '.bin']);
 
