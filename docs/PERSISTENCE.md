@@ -58,14 +58,38 @@ Restore memverifikasi SHA-256 setelah unduh; file yang checksum-nya tidak cocok 
 ### Jalur yang sudah terbukti (tanpa service account)
 
 Konektor Google Drive milik sesi chat bisa mengunggah file dari workspace, dan jalur ini **sudah
-diverifikasi**: `ep-002-2026-11-08T10-30-32.mp4` (12 209 306 byte) diunggah ke folder
-`ODDCHAPTER/video ready`, lalu diunduh kembali — sha256 identik (`15bba670b3691537…`) dengan file
+diverifikasi**: `ep-002-2026-11-08T10-30-32.mp4` (12 209 306 byte) diunggah, lalu diunduh kembali — sha256 identik (`15bba670b3691537…`) dengan file
 asli maupun dengan yang tercatat di manifest. Jadi siklus hapus → pulihkan terbukti utuh, bukan
 asumsi.
 
 Bedanya: konektor hanya bisa dipakai agen di sesi chat, **tidak** oleh GitHub Actions atau script
 lokal — untuk otomasi tetap perlu service account. Untuk kerja manual sehari-hari, konektor sudah
 cukup.
+
+### Lokasi folder: pisahkan per channel
+
+Drive boleh berisi beberapa channel sekaligus. Jangan pernah menaruh aset channel baru ke folder
+channel lain — begitu tercampur, `video ready` channel lama berisi render channel baru dan tidak
+ada cara aman memisahkannya kembali tanpa menebak.
+
+Konvensi:
+
+```
+Drive/
+  ODDCHAPTER/          ← channel lain. Jangan disentuh.
+  Pebblepop World/     ← channel ini
+    video ready/       ← render final yang sudah lolos
+    reference/         ← referensi visual yang dipakai untuk mengarahkan gaya
+```
+
+`manifests/assets.json` mencatat `drive.fileId` saja, bukan folder, jadi pindah folder di Drive
+tidak merusak rekaman. Namun **channel tetap harus dicatat di tempat lain** — ID folder saat ini:
+
+| Channel | Folder | id |
+|---|---|---|
+| Pebblepop World | `Pebblepop World` | `19ZOFPph3EpH_ZJzovr5HcjM2w3P0U3gE` |
+| Pebblepop World | `video ready` | `1c1wVrDp6qQs7yR4EPAVKU9zP7z3ifb0B` |
+| Pebblepop World | `reference` | `1cdhenFQC4aqrdpWMJVjsIhCLTeazMnR6` |
 
 ---
 
