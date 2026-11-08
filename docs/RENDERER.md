@@ -1,17 +1,21 @@
 # Renderer (P4)
 
-Scene JSON → frames → H.264/AAC MP4, entirely on CPU, with no browser and no GPU.
+Scene JSON → frames → H.264/AAC MP4, CPU-only. Two interchangeable backends:
 
 ```
 scene.json + world.json + characters/*.json
         │
-        ├── buildSceneSvg()      pure function: scene + t → SVG
-        │     ├── background plate (location, camera pan/zoom)
-        │     ├── props (procedural until final art exists)
-        │     ├── characters   (rig: legs, body, arms, head, face; animation state per t)
-        │     └── subtitle     (timed from the scene's subtitle track)
+        ├── backend "svg" (default)
+        │     buildSceneSvg()  pure function: scene + t → SVG
+        │       ├── background plate (location, camera pan/zoom)
+        │       ├── props (procedural until final art exists)
+        │       ├── characters   (rig; animation state per t)
+        │       └── subtitle     (timed from the scene's subtitle track)
+        │     resvg (Rust, prebuilt) → raw RGBA   ~160 ms/frame @1280x720 / 2 vCPU
         │
-        ├── resvg (Rust, prebuilt) → raw RGBA   ~160 ms/frame @1280x720 / 2 vCPU
+        ├── backend "remotion" (Chromium + React — verified working, see §1)
+        │     Scene.jsx, same animationState()/cameraAt(), rendered via CDP
+        │     ~198 ms/frame with two concurrent renderers
         │
         ├── ffmpeg rawvideo → libx264 (veryfast, crf 20, yuv420p)
         ├── ffmpeg audio mix (dialogue placed by startSec + ambience, EBU R128 −16 LUFS)
@@ -20,23 +24,72 @@ scene.json + world.json + characters/*.json
 
 ---
 
-## 1. Why not Remotion
+## 1. Chromium and Remotion: corrected finding
 
-Remotion was the first candidate. It was installed and tested, then removed. Evidence:
+An earlier version of this document claimed Remotion was **blocked** in this environment by
+missing shared libraries. That conclusion was **wrong**, and the error was in the method: it
+was reached after `npm install` and a launch attempt, without ever opening the npm tarball to
+see what it actually ships. `@sparticuz/chromium` does not merely contain a browser binary —
+it contains the browser's system libraries as well.
+
+### What the tarball contains
+
+`npm pack @sparticuz/chromium@153.0.0` → 69,995,309 bytes, four brotli payloads:
+
+| Payload | Size | Contents |
+|---|---|---|
+| `bin/chromium.br` | 67.0 MB | the browser binary (209 MB unpacked) |
+| `bin/al2023.tar.br` | 1.21 MB | Amazon Linux 2023 libs: **`libnss3.so`, `libnspr4.so`, `libnssutil3.so`**, `libsoftokn3`, `libfreebl3`, `libplc4`, `libplds4`, `libexpat.so.1` |
+| `bin/swiftshader.tar.br` | 1.64 MB | `libvk_swiftshader.so`, `libvulkan.so.1`, `libEGL.so`, `libGLESv2.so` |
+| `bin/fonts.tar.br` | 184 KB | Open Sans |
+
+The three libraries reported as missing were **inside the second payload the whole time**.
+`chromium.executablePath()` only unpacks `chromium.br`, which is why the naive path fails.
+Unpack `al2023.tar.br` too, export `LD_LIBRARY_PATH`, and the browser starts.
+
+### Reproduced results
 
 | Step | Result |
 |---|---|
-| `npm install remotion @remotion/{cli,renderer,bundler} react react-dom` (4.0.541) | ✅ installs from npm (255 packages) |
-| `@sparticuz/chromium` | ✅ installs, extracts a 209 MB binary to `/tmp/chromium` |
-| `npx remotion render … --browser-executable=/tmp/chromium` | ❌ `Failed to launch the browser process` |
-| Root cause (`ldd`) | `libnspr4.so`, `libnss3.so`, `libnssutil3.so` not found |
-| Fix via apt | ❌ `deb.debian.org` unreachable, no ffmpeg/nss candidates |
-| Fix by building NSS/NSPR from source | ❌ no `autoconf`, `automake`, `libtool`, `m4`; autotools not installable without the Debian mirror |
-| Fix via browser CDNs (Playwright/Puppeteer/chrome-for-testing) | ❌ `cdn.playwright.dev`, `storage.googleapis.com` blocked |
+| decompress all four payloads into `.tools/chromium` | ✅ automated in `scripts/lib/chromium.mjs` |
+| `ldd chromium` with `LD_LIBRARY_PATH=.tools/chromium/lib` | ✅ **0 not found** |
+| `chromium --version` | ✅ `Chromium 153.0.8010.0` |
+| one-shot CLI `--headless --screenshot` / `--dump-dom` | ⚠️ hangs — avoid this path |
+| **CDP**: `--remote-debugging-port` + `Page.navigate` + `Page.captureScreenshot` | ✅ page rendered, text read back, PNG produced |
+| `remotion render` smoke composition (30 frames, 640×360) | ✅ 42 s cold, valid H.264 |
+| **Remotion rendering the real `sc-001`** (72 frames, 1280×720) | ✅ 19.4 s render (269 ms/frame) |
+| **Full `ep-001` through Remotion** (2 scenes, 835 frames) | ✅ 80.0 s + 69.8 s, 8.5 MB MP4 |
 
-So Remotion is **blocked in this environment by three missing shared libraries**, not by Remotion itself. The packages were uninstalled afterwards so the repo does not ship 450 MB of dependencies it cannot use.
+**Lesson recorded here so it is not repeated: a failed `npm install` or launch is not evidence
+that a package is unusable. `npm pack`, extract the tarball, and look inside.**
 
-**This does not close the door.** The scene contract (`schemas/scene.schema.json`) is renderer-agnostic on purpose. On any machine with those libraries — or with working apt — the Remotion backend can be added as `apps/renderer/remotion/` and selected with a flag, without touching scene data, audio mixing or episode orchestration.
+### Why SVG + resvg is still the default
+
+Remotion works and is worth keeping for effects that are awkward in a bespoke renderer (DOM/CSS
+transforms, filters, complex text layout). It is not the default, for measured reasons:
+
+| | SVG + resvg | Remotion |
+|---|---|---|
+| Render speed, 1280×720, same scene | **95 ms/frame** | 198 ms/frame (c=2), 269 (c=1) |
+| Real-time factor | **~5.0×** | ~0.5× (c=2) |
+| Cold start | ~0.2 s | 3.6 s bundle (41 s on first ever run) |
+| Peak RSS | ~250 MB | ~900 MB (browser + node) |
+| Dependencies | 1 prebuilt native module | 236 packages + 209 MB browser |
+| Determinism | byte-identical output | pixel-stable, encoder-dependent |
+| Failure surface | small | Chromium sandbox, GL, fonts, dev shm |
+
+A 2-minute episode: **~10 minutes** with SVG, roughly an hour with Remotion on this hardware.
+Both are offline-production viable; only one is pleasant. The numbers are reproducible with
+`npm run renderer:bench` and are stored in `renders/bench/bench-sc-001.json`.
+
+The scene contract stays renderer-agnostic and both backends read the same data, so this is a
+switch, not a fork:
+
+```bash
+npm run episode:render -- --episode ep-001                        # svg (default)
+npm run episode:render -- --episode ep-001 --backend remotion     # browser pipeline
+npm run renderer:bench -- --scene sc-001 --seconds 3              # A/B both
+```
 
 ---
 
@@ -59,6 +112,17 @@ So Remotion is **blocked in this environment by three missing shared libraries**
 | v2 + `image-rendering=optimizeSpeed` on the background (nearest neighbour) | 65 | 1.6 |
 | **Full episode render as shipped (v2, quality sampling, encode included)** | **≈205** | **≈5.0** |
 
+Cross-backend comparison, identical 3-second slice of `sc-001`, same machine:
+
+| Backend | Wall | Bundle | Render | ms/frame (render only) | Output |
+|---|---|---|---|---|---|
+| svg (quality sampling) | 7.0 s | — | 6.8 s | **95** | 0.13 MB |
+| remotion, concurrency 1 | 62.5 s | 41.5 s (cold) | 19.4 s | 269 | 0.19 MB |
+| remotion, concurrency 2 | 19.0 s | 3.6 s (warm) | 14.3 s | **198** | 0.19 MB |
+
+A frame-by-frame comparison at t=2.0 s shows both backends produce the same composition: same
+character placement, framing and subtitle box.
+
 Actual end-to-end result for episode `ep-001` (34.75 s of video, 2 scenes, 835 frames, 3.8 MB):
 
 ```
@@ -78,6 +142,9 @@ Every optimisation above was found by measurement, and the numbers are reproduci
 | `--fast-bg` | nearest-neighbour background sampling: ~2.5× faster, minor edge aliasing on the backdrop |
 | `--debug-overlay` | burns scene id, frame, time and camera state into the frame |
 | `--scene sc-001` | render a single scene |
+| `--backend svg\|remotion` | frame backend (default `svg`) |
+| `--concurrency N` | Remotion renderer parallelism (default 1; 2 suits 2 vCPU) |
+| `renderer:bench` | timed A/B of both backends on one scene slice |
 | `render:preview --at 9` | single PNG frame, seconds |
 
 ---
@@ -107,9 +174,22 @@ Every optimisation above was found by measurement, and the numbers are reproduci
 
 ---
 
-## 6. Adding a Remotion backend later
+## 6. Remotion backend (implemented)
 
-1. `npm i remotion @remotion/{cli,renderer,bundler} react react-dom` on a machine where Chromium can start.
-2. Add `apps/renderer/remotion/` exporting one composition that accepts the same `{scene, world, characters, episode}` props.
-3. Add `--backend=remotion` to `scripts/episode/render.mjs`; both backends must emit the same silent MP4 contract so audio mixing and concatenation stay unchanged.
-4. Run `render:preview` for both backends on the same frame and diff the images before switching.
+`apps/renderer/remotion/` is a real backend, not a plan:
+
+* `Root.jsx` — one `KidsScene` composition; `calculateMetadata` reads duration/fps/size from props.
+* `Scene.jsx` — React/SVG reimplementation of rig, camera, props and subtitles, importing the
+  *same* `animationState()` and `cameraAt()`, so motion matches by construction.
+* `render.mjs` — bundling, `selectComposition`, `renderMedia`, returning the same
+  `{outputPath, frames, renderMs, avgFrameMs}` contract as the SVG backend.
+
+Requirements and notes:
+
+1. `npm install remotion @remotion/{cli,renderer,bundler} react react-dom @sparticuz/chromium`
+2. `scripts/lib/chromium.mjs` unpacks **all four** payloads (the step that was missed before),
+   verifies the libraries exist and writes `.tools/chromium/version.json`.
+3. `FONTCONFIG_FILE` is generated pointing at `dejavu-fonts-ttf` plus the tarball font payload,
+   so both backends use the same subtitle faces.
+4. Drive it through CDP (`renderMedia`), never the one-shot CLI screenshot flags.
+5. Diff `render:preview` output from both backends before switching production over.

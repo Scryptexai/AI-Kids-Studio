@@ -17,7 +17,7 @@ import { log, run, StudioError } from '../lib/log.mjs';
 import { readJson, writeJson, sha256File, sha256Text } from '../lib/json.mjs';
 import { runProcess } from '../lib/proc.mjs';
 import { loadConfig } from '../lib/config.mjs';
-import { renderScene, concatVideos } from '../../apps/renderer/render.mjs';
+import { renderScene, concatVideos, prepareBackground } from '../../apps/renderer/render.mjs';
 import { buildSceneAudio } from '../../apps/renderer/audio-mix.mjs';
 
 function parseArgs(argv) {
@@ -29,19 +29,34 @@ function parseArgs(argv) {
     skipValidate: false,
     keepFrames: false,
     bgSampling: 'quality',
+    backend: 'svg',
+    concurrency: 1,
   };
   for (let i = 0; i < argv.length; i++) {
-    const a = argv[i];
-    if (a === '--episode') out.episode = argv[++i];
-    else if (a === '--scene') out.scene = argv[++i];
+    let a = argv[i];
+    // Accept both `--key value` and `--key=value` so `npm run ... -- --key=value` works.
+    let inline;
+    if (a.startsWith('--') && a.includes('=')) {
+      const eq = a.indexOf('=');
+      inline = a.slice(eq + 1);
+      a = a.slice(0, eq);
+    }
+    const value = () => (inline !== undefined ? inline : argv[++i]);
+    if (a === '--episode') out.episode = value();
+    else if (a === '--scene') out.scene = value();
     else if (a === '--allow-smoke') out.allowSmoke = true;
     else if (a === '--debug-overlay') out.debugOverlay = true;
     else if (a === '--skip-validate') out.skipValidate = true;
     else if (a === '--keep-frames') out.keepFrames = true;
     else if (a === '--fast-bg') out.bgSampling = 'fast';
+    else if (a === '--backend') out.backend = value();
+    else if (a === '--concurrency') out.concurrency = Number(value());
     else throw new StudioError(`unknown argument: ${a}`);
   }
   if (!out.episode) throw new StudioError('--episode is required', { hint: 'npm run episode:render -- --episode ep-001' });
+  if (!['svg', 'remotion'].includes(out.backend)) {
+    throw new StudioError(`unknown backend '${out.backend}'`, { hint: 'use --backend=svg or --backend=remotion' });
+  }
   return out;
 }
 
@@ -128,7 +143,13 @@ async function main() {
   await ensureDir(outDir);
   await ensureDir(workDir);
 
-  log.step(`rendering ${scenes.length} scene(s) at ${width}x${height} @ ${fps}fps`);
+  log.step(`rendering ${scenes.length} scene(s) at ${width}x${height} @ ${fps}fps using the ${args.backend} backend`);
+  let remotion = null;
+  if (args.backend === 'remotion') {
+    const { renderSceneRemotion } = await import('../../apps/renderer/remotion/render.mjs');
+    remotion = { renderSceneRemotion };
+    log.info('preparing Chromium + Remotion bundle');
+  }
   const sceneResults = [];
 
   for (const scene of scenes) {
@@ -146,14 +167,27 @@ async function main() {
     const silentVideo = path.join(workDir, `${scene.id}-silent.mp4`);
     const sceneVideo = path.join(outDir, `${args.episode}-${scene.id}.mp4`);
 
-    const result = await renderScene({
-      scene, world, characters,
-      outputPath: silentVideo,
-      fps, width, height, workDir, ffmpeg,
-      showDebug: args.debugOverlay,
-      backgroundSampling: args.bgSampling,
-      onProgress: ({ pct, frame, totalFrames }) => log.info(`${scene.id}: ${pct}% (${frame}/${totalFrames} frames)`),
-    });
+    const progress = ({ pct, frame, totalFrames }) => log.info(`${scene.id}: ${pct}% (${frame}/${totalFrames} frames)`);
+    const result = remotion
+      ? await remotion.renderSceneRemotion({
+          scene, world, characters,
+          backgroundDataUri: await prepareBackground({
+            world, scene, width, height, cacheDir: path.join(workDir, 'bg'), ffmpeg,
+          }),
+          outputPath: silentVideo,
+          fps, width, height,
+          showDebug: args.debugOverlay,
+          concurrency: args.concurrency,
+          onProgress: progress,
+        })
+      : await renderScene({
+          scene, world, characters,
+          outputPath: silentVideo,
+          fps, width, height, workDir, ffmpeg,
+          showDebug: args.debugOverlay,
+          backgroundSampling: args.bgSampling,
+          onProgress: progress,
+        });
 
     if (audio) {
       await runProcess(
@@ -210,7 +244,7 @@ async function main() {
     renderedAt: new Date().toISOString(),
     smokeTest: isSmoke,
     output: { file: finalPath, bytes: (await fs.stat(finalAbs)).size, sha256: await sha256File(finalAbs) },
-    video: { width, height, fps, codec: episode.output.videoCodec, audioCodec: episode.output.audioCodec },
+    video: { width, height, fps, codec: episode.output.videoCodec, audioCodec: episode.output.audioCodec, backend: args.backend },
     probe: probeData,
     scenes: sceneResults.map((s) => ({ ...s, sceneChecksum: sha256Text(JSON.stringify(s.sceneId)) })),
     totals: {

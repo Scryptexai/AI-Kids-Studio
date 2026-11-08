@@ -93,14 +93,30 @@ async function main() {
     espeakNg: (await which('espeak-ng')) ?? (await fs.stat(P.espeakBin).then(() => rel(P.espeakBin)).catch(() => null)),
     chromium: null,
   };
-  // Remotion needs a Chrome binary; @sparticuz/chromium ships one inside the npm tarball.
+  // Remotion needs a Chrome binary. @sparticuz/chromium ships the binary *and* its shared
+  // libraries inside the npm tarball; both payloads must be unpacked or the browser dies on
+  // libnss3/libnspr4. scripts/lib/chromium.mjs does that unpacking and verifies the launch.
   try {
-    const chromium = await import('@sparticuz/chromium');
-    const mod = chromium.default ?? chromium;
-    const exe = typeof mod.executablePath === 'function' ? await mod.executablePath() : null;
-    report.media.chromium = exe ? { provider: '@sparticuz/chromium', path: exe, exists: true } : { provider: '@sparticuz/chromium', installed: true, note: 'path not resolved yet' };
+    const { probeChromium } = await import('./lib/chromium.mjs');
+    const probe = await probeChromium();
+    report.media.chromium = probe.available
+      ? {
+          provider: '@sparticuz/chromium',
+          path: probe.executablePath,
+          version: probe.reported,
+          unpackedLibs: true,
+          remotionBackend: 'available',
+        }
+      : { provider: '@sparticuz/chromium', available: false, error: probe.error };
+  } catch (err) {
+    report.media.chromium = { available: false, error: err.message };
+  }
+  // Is the Remotion backend actually installed?
+  try {
+    await import('@remotion/renderer');
+    report.media.remotion = { installed: true };
   } catch {
-    report.media.chromium = null;
+    report.media.remotion = { installed: false, note: 'SVG backend only' };
   }
 
   // --- TTS engines (live probe) ---
@@ -141,7 +157,8 @@ async function main() {
   log.plain(`  ffmpeg        ${report.media.ffmpeg ? `${report.media.ffmpeg.version}` : 'MISSING'}`);
   log.plain(`  ffprobe       ${report.media.ffprobe ? `${report.media.ffprobe.version}` : 'MISSING'}`);
   log.plain(`  espeak-ng     ${report.media.espeakNg ?? 'MISSING (npm run bootstrap)'}`);
-  log.plain(`  chromium      ${report.media.chromium?.path ?? 'not installed (needed for renderer)'}`);
+  log.plain(`  chromium      ${report.media.chromium?.available === false ? `UNAVAILABLE (${report.media.chromium.error})` : report.media.chromium?.version ?? 'not installed'}`);
+  log.plain(`  remotion      ${report.media.remotion?.installed ? 'installed (--backend remotion)' : 'not installed (SVG backend only)'}`);
 
   log.step('NETWORK (egress allowlist)');
   for (const [k, v] of Object.entries(report.network)) {

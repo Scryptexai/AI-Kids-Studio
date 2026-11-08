@@ -21,14 +21,22 @@
     "episode:render": "node scripts/episode/render.mjs",
     "render:preview": "node scripts/episode/preview.mjs",
     "validate": "npm run assets:validate && npm run voice:validate && npm run episode:validate",
-    "test": "node --test"
+    "test": "node --test",
+    "renderer:bench": "node scripts/bench/renderer.mjs"
   },
   "dependencies": {
     "@ffmpeg-installer/ffmpeg": "^1.1.0",
     "@ffprobe-installer/ffprobe": "^2.1.2",
+    "@remotion/bundler": "^4.0.541",
+    "@remotion/cli": "^4.0.541",
+    "@remotion/renderer": "^4.0.541",
     "@resvg/resvg-js": "^2.6.2",
+    "@sparticuz/chromium": "^153.0.0",
     "ajv": "^8.17.1",
     "ajv-formats": "^3.0.1",
-    "dejavu-fonts-ttf": "^2.37.3"
+    "dejavu-fonts-ttf": "^2.37.3",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "remotion": "^4.0.541"
   }
 }

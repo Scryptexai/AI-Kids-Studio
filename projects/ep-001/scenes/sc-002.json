@@ -67,7 +67,7 @@
       "startSec": 0.8,
       "emotion": "happy",
       "audioAsset": "audio/generated/ep-001/sc-002/sc-002-d01.wav",
-      "durationSec": 6.68
+      "durationSec": 6.75
     },
     {
       "id": "sc-002-d02",
@@ -76,7 +76,7 @@
       "startSec": 7.83,
       "emotion": "neutral",
       "audioAsset": "audio/generated/ep-001/sc-002/sc-002-d02.wav",
-      "durationSec": 8.078
+      "durationSec": 8.166
     }
   ],
   "subtitles": [

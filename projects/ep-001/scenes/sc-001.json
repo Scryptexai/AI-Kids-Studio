@@ -92,7 +92,7 @@
       "startSec": 1,
       "emotion": "excited",
       "audioAsset": "audio/generated/ep-001/sc-001/sc-001-d01.wav",
-      "durationSec": 5.457
+      "durationSec": 5.521
     },
     {
       "id": "sc-001-d02",
@@ -101,7 +101,7 @@
       "startSec": 6.807,
       "emotion": "happy",
       "audioAsset": "audio/generated/ep-001/sc-001/sc-001-d02.wav",
-      "durationSec": 4.928
+      "durationSec": 4.987
     },
     {
       "id": "sc-001-d03",
@@ -110,7 +110,7 @@
       "startSec": 12.085,
       "emotion": "neutral",
       "audioAsset": "audio/generated/ep-001/sc-001/sc-001-d03.wav",
-      "durationSec": 5.977
+      "durationSec": 6.022
     }
   ],
   "subtitles": [

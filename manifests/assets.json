@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-08T05:19:22.610Z",
+  "generatedAt": "2026-11-08T08:02:48.075Z",
   "generator": "scripts/assets/manifest.mjs",
   "assets": [
     {
@@ -268,7 +268,7 @@
       "path": "projects/ep-001/scenes/sc-001.json",
       "storage": "git",
       "bytes": 2964,
-      "sha256": "8a0b0332e69c4c2c177956ac5a9d37464aeba3234e30684b5040654878439801",
+      "sha256": "e5aa832557eed97d05b0373bbeaa38d607c137d1be9e97f84f7b24030903691b",
       "drive": null,
       "required": true
     },
@@ -278,57 +278,7 @@
       "path": "projects/ep-001/scenes/sc-002.json",
       "storage": "git",
       "bytes": 2174,
-      "sha256": "fdd35f5d9273308dea36aa16da191d3438a164a043db53aeff83023840abf088",
-      "drive": null,
-      "required": true
-    },
-    {
-      "id": "renders-ep-001-ep-001-2026-11-08t05-09-42",
-      "kind": "video",
-      "path": "renders/ep-001/ep-001-2026-11-08T05-09-42.mp4",
-      "storage": "drive",
-      "bytes": 3418880,
-      "sha256": "c8324c80f7845278e8f69b22a69cf20f18b76646104c5917344df5c9194c3154",
-      "drive": null,
-      "required": true
-    },
-    {
-      "id": "renders-ep-001-ep-001-2026-11-08t05-14-22",
-      "kind": "video",
-      "path": "renders/ep-001/ep-001-2026-11-08T05-14-22.mp4",
-      "storage": "drive",
-      "bytes": 3769568,
-      "sha256": "3cf711b5b7e4c30346c1d0a679074726356db406c5c81ee1f4db669e7f41c3d2",
-      "drive": null,
-      "required": true
-    },
-    {
-      "id": "renders-ep-001-ep-001-sc-001",
-      "kind": "video",
-      "path": "renders/ep-001/ep-001-sc-001.mp4",
-      "storage": "drive",
-      "bytes": 1711929,
-      "sha256": "df8d41979c56f7f5c9166cd0ca51ca84a43fb6c42bd4e41226d155229a050877",
-      "drive": null,
-      "required": true
-    },
-    {
-      "id": "renders-ep-001-ep-001-sc-002",
-      "kind": "video",
-      "path": "renders/ep-001/ep-001-sc-002.mp4",
-      "storage": "drive",
-      "bytes": 2058794,
-      "sha256": "453a44ac3ca75a59c124fdc32ca9a6cd296440130d87b0e638b80bf79e47a072",
-      "drive": null,
-      "required": true
-    },
-    {
-      "id": "renders-ep-001-render-manifest",
-      "kind": "video",
-      "path": "renders/ep-001/render-manifest.json",
-      "storage": "git",
-      "bytes": 1798,
-      "sha256": "4263ffba02d89d657597a007b10499f93fc0365881baac2f60789637fba5b70f",
+      "sha256": "85035069b9eaa369df6463d26ac30bd8a52a4162d740552ab626aa7c92d4cf0b",
       "drive": null,
       "required": true
     }
