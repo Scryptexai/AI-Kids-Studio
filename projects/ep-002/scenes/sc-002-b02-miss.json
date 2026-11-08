@@ -1,0 +1,139 @@
+{
+  "schemaVersion": 1,
+  "id": "sc-002-b02-miss",
+  "beatId": "b02-miss",
+  "worldId": "bobby-forest",
+  "episodeId": "ep-002",
+  "location": "playground",
+  "durationSec": 6.303,
+  "fps": 24,
+  "camera": {
+    "preset": "medium",
+    "keyframes": [
+      {
+        "t": 0,
+        "x": 0.33,
+        "y": 0.532,
+        "zoom": 1.3049
+      },
+      {
+        "t": 1.6,
+        "x": 0.365,
+        "y": 0.52,
+        "zoom": 1.3882
+      },
+      {
+        "t": 5.1685,
+        "x": 0.385,
+        "y": 0.514,
+        "zoom": 1.4576
+      },
+      {
+        "t": 6.303,
+        "x": 0.385,
+        "y": 0.514,
+        "zoom": 1.4576
+      }
+    ]
+  },
+  "characters": [
+    {
+      "characterId": "pip",
+      "position": {
+        "x": 0.265,
+        "y": 0.82,
+        "z": 2
+      },
+      "scale": 0.97,
+      "facing": "right",
+      "expression": "surprised",
+      "animation": "surprise",
+      "entranceAt": 0
+    },
+    {
+      "characterId": "bobby",
+      "position": {
+        "x": 0.465,
+        "y": 0.798,
+        "z": 2
+      },
+      "scale": 1,
+      "facing": "left",
+      "expression": "surprised",
+      "animation": "surprise",
+      "entranceAt": 0
+    },
+    {
+      "characterId": "coco",
+      "position": {
+        "x": 0.595,
+        "y": 0.798,
+        "z": 2
+      },
+      "scale": 0.97,
+      "facing": "left",
+      "expression": "surprised",
+      "animation": "surprise",
+      "entranceAt": 0
+    }
+  ],
+  "props": [
+    {
+      "propId": "bench-wood",
+      "x": 0.15,
+      "y": 0.82,
+      "scale": 1.1
+    },
+    {
+      "propId": "toy-ball",
+      "x": 0.47,
+      "y": 0.82,
+      "scale": 0.8
+    },
+    {
+      "propId": "tree-round",
+      "x": 0.82,
+      "y": 0.82,
+      "scale": 1
+    }
+  ],
+  "dialogue": [
+    {
+      "id": "b02-miss-d01",
+      "characterId": "pip",
+      "text": "Bobby, bolanya hilang! Tadi ada di dekat bangku itu.",
+      "startSec": 0.6,
+      "emotion": "surprised",
+      "audioAsset": "audio/generated/ep-002/sc-002-b02-miss/b02-miss-d01.wav",
+      "durationSec": 5.203
+    }
+  ],
+  "subtitles": [
+    {
+      "startSec": 0.6,
+      "endSec": 5.803,
+      "text": "Bobby, bolanya hilang! Tadi ada di dekat bangku itu."
+    }
+  ],
+  "audioTracks": [
+    {
+      "id": "b02-miss-ambience",
+      "kind": "ambience",
+      "asset": "library/audio/ambience/playground-kids.wav",
+      "gainDb": -18
+    }
+  ],
+  "direction": {
+    "action": "discover",
+    "intent": "discover",
+    "actor": "pip",
+    "target": "bobby",
+    "prop": "toy-ball",
+    "shot": "medium",
+    "focusX": 0.365,
+    "widenedForSpread": false,
+    "entry": "still",
+    "lineEstimated": false,
+    "transition": "cut"
+  }
+}

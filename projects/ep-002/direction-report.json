@@ -1,0 +1,64 @@
+{
+  "generatedAt": "2026-11-08T08:37:56.114Z",
+  "scriptId": "ep-002-script",
+  "episodeId": "ep-002",
+  "worldId": "bobby-forest",
+  "sceneCount": 8,
+  "totalDurationSec": 55.57,
+  "targetDurationSec": 55,
+  "lead": "bobby",
+  "cast": [
+    "bobby",
+    "pip",
+    "coco"
+  ],
+  "locationsUsed": [
+    "playground",
+    "river-bend"
+  ],
+  "estimatedLines": 8,
+  "shots": [
+    {
+      "sceneId": "sc-001-b01-play",
+      "shot": "wide",
+      "seconds": 7.485
+    },
+    {
+      "sceneId": "sc-002-b02-miss",
+      "shot": "medium",
+      "seconds": 6.303
+    },
+    {
+      "sceneId": "sc-003-b03-look",
+      "shot": "medium",
+      "seconds": 6.163
+    },
+    {
+      "sceneId": "sc-004-b04-coco",
+      "shot": "wide",
+      "seconds": 6.607
+    },
+    {
+      "sceneId": "sc-005-b05-go",
+      "shot": "wide",
+      "seconds": 6.006
+    },
+    {
+      "sceneId": "sc-006-b06-river",
+      "shot": "establishing",
+      "seconds": 6.438
+    },
+    {
+      "sceneId": "sc-007-b07-thanks",
+      "shot": "medium",
+      "seconds": 8.723
+    },
+    {
+      "sceneId": "sc-008-b08-cheer",
+      "shot": "wide",
+      "seconds": 7.845
+    }
+  ],
+  "warnings": [],
+  "script": "projects/ep-002/script.json"
+}

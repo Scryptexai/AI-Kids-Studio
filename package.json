@@ -20,12 +20,13 @@
     "episode:validate": "node scripts/episode/validate.mjs",
     "episode:render": "node scripts/episode/render.mjs",
     "render:preview": "node scripts/episode/preview.mjs",
-    "validate": "npm run assets:validate && npm run voice:validate && npm run episode:validate",
+    "validate": "npm run assets:validate && npm run voice:validate && node scripts/episode/validate.mjs --all",
     "test": "node --test",
     "renderer:bench": "node scripts/bench/renderer.mjs",
     "pkg:inspect": "node scripts/tools/inspect-package.mjs",
     "blender:probe": "node scripts/tools/probe-blender.mjs",
-    "studio": "node apps/studio/server.mjs"
+    "studio": "node apps/studio/server.mjs",
+    "studio:direct": "node scripts/studio/direct.mjs"
   },
   "dependencies": {
     "@ffmpeg-installer/ffmpeg": "^1.1.0",

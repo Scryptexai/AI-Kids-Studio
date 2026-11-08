@@ -1,0 +1,127 @@
+{
+  "schemaVersion": 1,
+  "id": "ep-002-script",
+  "worldId": "bobby-forest",
+  "episodeId": "ep-002",
+  "title": "Bobby dan Bola yang Hilang",
+  "targetDurationSec": 55,
+  "locations": [
+    "playground",
+    "river-bend"
+  ],
+  "cast": [
+    {
+      "characterId": "bobby",
+      "role": "lead",
+      "entrance": "present"
+    },
+    {
+      "characterId": "pip",
+      "role": "sidekick",
+      "entrance": "present"
+    },
+    {
+      "characterId": "coco",
+      "role": "companion",
+      "entrance": "walk-in"
+    }
+  ],
+  "beats": [
+    {
+      "id": "b01-play",
+      "location": "playground",
+      "action": "explore",
+      "emotion": "happy",
+      "intensity": 0.6,
+      "actor": "bobby",
+      "target": "pip",
+      "prop": "toy-ball",
+      "line": "Ayo kita main bola di taman! Lihat, rumputnya masih hijau segar.",
+      "notes": "Establishing beat: place the audience in the playground before anything goes wrong."
+    },
+    {
+      "id": "b02-miss",
+      "location": "playground",
+      "action": "discover",
+      "emotion": "surprised",
+      "intensity": 0.8,
+      "actor": "pip",
+      "target": "bobby",
+      "prop": "toy-ball",
+      "line": "Bobby, bolanya hilang! Tadi ada di dekat bangku itu.",
+      "notes": "The problem lands. Pip is the one who notices, so Bobby can react."
+    },
+    {
+      "id": "b03-look",
+      "location": "playground",
+      "action": "ask",
+      "emotion": "curious",
+      "intensity": 0.5,
+      "actor": "bobby",
+      "target": "pip",
+      "line": "Coba kita pikirkan. Ke mana bola itu menggelinding?",
+      "notes": "Bobby models problem-solving instead of panicking."
+    },
+    {
+      "id": "b04-coco",
+      "location": "playground",
+      "action": "entrance",
+      "emotion": "happy",
+      "intensity": 0.55,
+      "actor": "coco",
+      "target": "bobby",
+      "line": "Aku tadi melihat bola berwarna merah menggelinding ke arah sungai.",
+      "notes": "Coco walks in carrying information \u2014 a new cast member changes the shot."
+    },
+    {
+      "id": "b05-go",
+      "location": "playground",
+      "action": "explore",
+      "emotion": "excited",
+      "intensity": 0.75,
+      "actor": "bobby",
+      "target": "coco",
+      "line": "Kalau begitu kita ke sungai! Ayo, ikuti aku!",
+      "notes": "Transition beat. Location changes on the next scene."
+    },
+    {
+      "id": "b06-river",
+      "location": "river-bend",
+      "action": "discover",
+      "emotion": "excited",
+      "intensity": 0.85,
+      "actor": "bobby",
+      "target": "pip",
+      "prop": "flower-patch",
+      "line": "Ada di sini! Bolanya tersangkut di antara bunga-bunga ini.",
+      "notes": "Payoff of the search. New location means the director establishes before the line."
+    },
+    {
+      "id": "b07-thanks",
+      "location": "river-bend",
+      "action": "explain",
+      "emotion": "happy",
+      "intensity": 0.5,
+      "actor": "coco",
+      "target": "bobby",
+      "line": "Terima kasih sudah mencari bersama. Kalau sendiri, aku pasti belum menemukannya.",
+      "notes": "Moral beat, delivered by the character who benefited."
+    },
+    {
+      "id": "b08-cheer",
+      "location": "river-bend",
+      "action": "celebrate",
+      "emotion": "laughing",
+      "intensity": 0.9,
+      "actor": "bobby",
+      "target": "coco",
+      "line": "Hore! Kita bermain lagi, dan kali ini kita jaga bolanya bersama-sama.",
+      "notes": "Close on joy, not on the lesson."
+    }
+  ],
+  "concept": {
+    "logline": "Bola Bobby hilang saat bermain di taman, dan ketiga sahabat mencari bersama sampai menemukannya di tepi sungai.",
+    "moral": "Mencari bersama lebih mudah daripada mencari sendiri.",
+    "targetAge": "4-6"
+  }
+}

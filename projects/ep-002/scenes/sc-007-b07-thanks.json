@@ -1,0 +1,150 @@
+{
+  "schemaVersion": 1,
+  "id": "sc-007-b07-thanks",
+  "beatId": "b07-thanks",
+  "worldId": "bobby-forest",
+  "episodeId": "ep-002",
+  "location": "river-bend",
+  "durationSec": 8.723,
+  "fps": 24,
+  "camera": {
+    "preset": "medium",
+    "keyframes": [
+      {
+        "t": 0,
+        "x": 0.44,
+        "y": 0.532,
+        "zoom": 1.2596
+      },
+      {
+        "t": 1.6,
+        "x": 0.475,
+        "y": 0.52,
+        "zoom": 1.34
+      },
+      {
+        "t": 7.1529,
+        "x": 0.455,
+        "y": 0.514,
+        "zoom": 1.3601
+      },
+      {
+        "t": 8.723,
+        "x": 0.455,
+        "y": 0.514,
+        "zoom": 1.3601
+      }
+    ]
+  },
+  "characters": [
+    {
+      "characterId": "bobby",
+      "position": {
+        "x": 0.375,
+        "y": 0.798,
+        "z": 2
+      },
+      "scale": 1,
+      "facing": "right",
+      "expression": "happy",
+      "animation": "laugh",
+      "entranceAt": 0
+    },
+    {
+      "characterId": "coco",
+      "position": {
+        "x": 0.575,
+        "y": 0.82,
+        "z": 2
+      },
+      "scale": 0.97,
+      "facing": "left",
+      "expression": "happy",
+      "animation": "talk",
+      "entranceAt": 0
+    },
+    {
+      "characterId": "pip",
+      "position": {
+        "x": 0.775,
+        "y": 0.798,
+        "z": 2
+      },
+      "scale": 0.97,
+      "facing": "left",
+      "expression": "happy",
+      "animation": "laugh",
+      "entranceAt": 0
+    }
+  ],
+  "props": [
+    {
+      "propId": "rock-small",
+      "x": 0.18,
+      "y": 0.74,
+      "scale": 1
+    },
+    {
+      "propId": "flower-patch",
+      "x": 0.44,
+      "y": 0.74,
+      "scale": 1
+    },
+    {
+      "propId": "rock-small",
+      "x": 0.72,
+      "y": 0.74,
+      "scale": 0.6
+    },
+    {
+      "propId": "tree-round",
+      "x": 0.92,
+      "y": 0.74,
+      "scale": 1.2
+    }
+  ],
+  "dialogue": [
+    {
+      "id": "b07-thanks-d01",
+      "characterId": "coco",
+      "text": "Terima kasih sudah mencari bersama. Kalau sendiri, aku pasti belum menemukannya.",
+      "startSec": 0.6,
+      "emotion": "happy",
+      "audioAsset": "audio/generated/ep-002/sc-007-b07-thanks/b07-thanks-d01.wav",
+      "durationSec": 7.623
+    }
+  ],
+  "subtitles": [
+    {
+      "startSec": 0.6,
+      "endSec": 6.39,
+      "text": "Terima kasih sudah mencari bersama. Kalau sendiri, aku pasti"
+    },
+    {
+      "startSec": 6.39,
+      "endSec": 8.223,
+      "text": "belum menemukannya."
+    }
+  ],
+  "audioTracks": [
+    {
+      "id": "b07-thanks-ambience",
+      "kind": "ambience",
+      "asset": "library/audio/ambience/river-flow.wav",
+      "gainDb": -18
+    }
+  ],
+  "direction": {
+    "action": "explain",
+    "intent": "explain",
+    "actor": "coco",
+    "target": "bobby",
+    "prop": "rock-small",
+    "shot": "medium",
+    "focusX": 0.475,
+    "widenedForSpread": false,
+    "entry": "still",
+    "lineEstimated": false,
+    "transition": "cut"
+  }
+}

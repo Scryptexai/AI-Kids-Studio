@@ -1,0 +1,125 @@
+{
+  "totalDurationSec": 55.57,
+  "timeline": [
+    {
+      "sceneId": "sc-001-b01-play",
+      "startSec": 0,
+      "endSec": 7.485,
+      "location": "playground",
+      "shot": "wide",
+      "dialogue": [
+        {
+          "id": "b01-play-d01",
+          "characterId": "bobby",
+          "startSec": 0.6
+        }
+      ]
+    },
+    {
+      "sceneId": "sc-002-b02-miss",
+      "startSec": 7.485,
+      "endSec": 13.788,
+      "location": "playground",
+      "shot": "medium",
+      "dialogue": [
+        {
+          "id": "b02-miss-d01",
+          "characterId": "pip",
+          "startSec": 8.085
+        }
+      ]
+    },
+    {
+      "sceneId": "sc-003-b03-look",
+      "startSec": 13.788,
+      "endSec": 19.951,
+      "location": "playground",
+      "shot": "medium",
+      "dialogue": [
+        {
+          "id": "b03-look-d01",
+          "characterId": "bobby",
+          "startSec": 14.388
+        }
+      ]
+    },
+    {
+      "sceneId": "sc-004-b04-coco",
+      "startSec": 19.951,
+      "endSec": 26.558,
+      "location": "playground",
+      "shot": "wide",
+      "dialogue": [
+        {
+          "id": "b04-coco-d01",
+          "characterId": "coco",
+          "startSec": 20.551
+        }
+      ]
+    },
+    {
+      "sceneId": "sc-005-b05-go",
+      "startSec": 26.558,
+      "endSec": 32.564,
+      "location": "playground",
+      "shot": "wide",
+      "dialogue": [
+        {
+          "id": "b05-go-d01",
+          "characterId": "bobby",
+          "startSec": 27.158
+        }
+      ]
+    },
+    {
+      "sceneId": "sc-006-b06-river",
+      "startSec": 32.564,
+      "endSec": 39.002,
+      "location": "river-bend",
+      "shot": "establishing",
+      "dialogue": [
+        {
+          "id": "b06-river-d01",
+          "characterId": "bobby",
+          "startSec": 33.164
+        }
+      ]
+    },
+    {
+      "sceneId": "sc-007-b07-thanks",
+      "startSec": 39.002,
+      "endSec": 47.725,
+      "location": "river-bend",
+      "shot": "medium",
+      "dialogue": [
+        {
+          "id": "b07-thanks-d01",
+          "characterId": "coco",
+          "startSec": 39.602
+        }
+      ]
+    },
+    {
+      "sceneId": "sc-008-b08-cheer",
+      "startSec": 47.725,
+      "endSec": 55.57,
+      "location": "river-bend",
+      "shot": "wide",
+      "dialogue": [
+        {
+          "id": "b08-cheer-d01",
+          "characterId": "bobby",
+          "startSec": 48.325
+        }
+      ]
+    }
+  ],
+  "output": {
+    "width": 1280,
+    "height": 720,
+    "fps": 24,
+    "videoCodec": "h264",
+    "audioCodec": "aac"
+  },
+  "episodeSchemaVersion": 1
+}

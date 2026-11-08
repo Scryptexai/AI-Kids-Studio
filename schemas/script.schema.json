@@ -1,0 +1,208 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://studio.local/schemas/script.schema.json",
+  "title": "DirectorScript",
+  "description": "Story-level input for the director engine. The writer describes WHAT happens (intent); the director decides HOW it is staged (blocking, walk paths, poses, shot choice, camera keyframes). No hand-authored coordinates belong in this file.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "id",
+    "worldId",
+    "episodeId",
+    "locations",
+    "beats"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": 1
+    },
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9-]+$"
+    },
+    "worldId": {
+      "type": "string"
+    },
+    "episodeId": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "targetDurationSec": {
+      "type": "number",
+      "exclusiveMinimum": 0
+    },
+    "locations": {
+      "type": "array",
+      "description": "Locations this story uses. Each must exist in the world's locations[].",
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1
+    },
+    "cast": {
+      "type": "array",
+      "description": "Characters taking part. Roles steer default blocking stance.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "characterId"
+        ],
+        "properties": {
+          "characterId": {
+            "type": "string"
+          },
+          "role": {
+            "enum": [
+              "lead",
+              "sidekick",
+              "companion",
+              "background"
+            ],
+            "default": "companion"
+          },
+          "entrance": {
+            "enum": [
+              "present",
+              "walk-in",
+              "pop-in"
+            ],
+            "default": "present"
+          }
+        }
+      }
+    },
+    "beats": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "location",
+          "action"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z0-9-]+$"
+          },
+          "location": {
+            "type": "string"
+          },
+          "emotion": {
+            "enum": [
+              "neutral",
+              "happy",
+              "excited",
+              "sad",
+              "surprised",
+              "curious",
+              "laughing"
+            ],
+            "default": "neutral"
+          },
+          "intensity": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1,
+            "default": 0.5
+          },
+          "action": {
+            "enum": [
+              "entrance",
+              "discover",
+              "explain",
+              "ask",
+              "celebrate",
+              "explore",
+              "react",
+              "console",
+              "depart",
+              "idle"
+            ],
+            "description": "Story verb. Maps to blocking + pose + shot through apps/director/intents.mjs."
+          },
+          "actor": {
+            "type": "string",
+            "description": "Who performs the action. Defaults to the lead."
+          },
+          "target": {
+            "type": "string",
+            "description": "Who the action is aimed at."
+          },
+          "line": {
+            "type": "string",
+            "description": "Spoken line, if this beat has dialogue."
+          },
+          "lineDurationSec": {
+            "type": "number",
+            "exclusiveMinimum": 0,
+            "description": "Measured audio length. If absent the director estimates from the text so a script can be staged before audio exists."
+          },
+          "prop": {
+            "type": "string",
+            "description": "Prop id from the world catalog that this beat is about."
+          },
+          "durationSec": {
+            "type": "number",
+            "exclusiveMinimum": 0
+          },
+          "notes": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "transitions": {
+      "type": "array",
+      "description": "Optional overrides; by default the director inserts a crossfade when the location changes.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "afterBeat",
+          "kind"
+        ],
+        "properties": {
+          "afterBeat": {
+            "type": "string"
+          },
+          "kind": {
+            "enum": [
+              "cut",
+              "crossfade",
+              "fade-to-black"
+            ]
+          },
+          "durationSec": {
+            "type": "number",
+            "exclusiveMinimum": 0
+          }
+        }
+      }
+    },
+    "concept": {
+      "type": "object",
+      "description": "Story premise. Carried into the directed episode so the episode contract is satisfied without a second authoring step.",
+      "additionalProperties": false,
+      "properties": {
+        "logline": {
+          "type": "string",
+          "minLength": 5
+        },
+        "moral": {
+          "type": "string",
+          "minLength": 5
+        },
+        "targetAge": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

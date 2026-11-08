@@ -1,0 +1,55 @@
+{
+  "schemaVersion": 1,
+  "id": "ep-002",
+  "title": "Bobby dan Bola yang Hilang",
+  "worldId": "bobby-forest",
+  "status": "storyboarded",
+  "concept": {
+    "logline": "Bola Bobby hilang saat bermain di taman, dan ketiga sahabat mencari bersama sampai menemukannya di tepi sungai.",
+    "moral": "Mencari bersama lebih mudah daripada mencari sendiri.",
+    "targetAge": "4-6",
+    "durationTargetSec": 55.57
+  },
+  "scenes": [
+    {
+      "sceneId": "sc-001-b01-play",
+      "file": "projects/ep-002/scenes/sc-001-b01-play.json"
+    },
+    {
+      "sceneId": "sc-002-b02-miss",
+      "file": "projects/ep-002/scenes/sc-002-b02-miss.json"
+    },
+    {
+      "sceneId": "sc-003-b03-look",
+      "file": "projects/ep-002/scenes/sc-003-b03-look.json"
+    },
+    {
+      "sceneId": "sc-004-b04-coco",
+      "file": "projects/ep-002/scenes/sc-004-b04-coco.json"
+    },
+    {
+      "sceneId": "sc-005-b05-go",
+      "file": "projects/ep-002/scenes/sc-005-b05-go.json"
+    },
+    {
+      "sceneId": "sc-006-b06-river",
+      "file": "projects/ep-002/scenes/sc-006-b06-river.json"
+    },
+    {
+      "sceneId": "sc-007-b07-thanks",
+      "file": "projects/ep-002/scenes/sc-007-b07-thanks.json"
+    },
+    {
+      "sceneId": "sc-008-b08-cheer",
+      "file": "projects/ep-002/scenes/sc-008-b08-cheer.json"
+    }
+  ],
+  "output": {
+    "width": 1280,
+    "height": 720,
+    "fps": 24,
+    "container": "mp4",
+    "videoCodec": "h264",
+    "audioCodec": "aac"
+  }
+}

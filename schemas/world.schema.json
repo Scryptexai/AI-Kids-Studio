@@ -5,19 +5,50 @@
   "description": "Reusable animation world: locations, props, animation catalogue and camera presets shared by all episodes.",
   "type": "object",
   "additionalProperties": false,
-  "required": ["schemaVersion", "id", "displayName", "artDirection", "locations", "propCatalog", "animationCatalog", "cameraPresets"],
+  "required": [
+    "schemaVersion",
+    "id",
+    "displayName",
+    "artDirection",
+    "locations",
+    "propCatalog",
+    "animationCatalog",
+    "cameraPresets"
+  ],
   "properties": {
-    "schemaVersion": { "const": 1 },
-    "id": { "type": "string", "pattern": "^[a-z][a-z0-9-]{1,40}$" },
-    "displayName": { "type": "string" },
+    "schemaVersion": {
+      "const": 1
+    },
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9-]{1,40}$"
+    },
+    "displayName": {
+      "type": "string"
+    },
     "artDirection": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["style", "lineWeight", "palette"],
+      "required": [
+        "style",
+        "lineWeight",
+        "palette"
+      ],
       "properties": {
-        "style": { "type": "string" },
-        "lineWeight": { "type": "number", "exclusiveMinimum": 0 },
-        "palette": { "type": "object", "additionalProperties": { "type": "string", "pattern": "^#[0-9a-fA-F]{6}$" } }
+        "style": {
+          "type": "string"
+        },
+        "lineWeight": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "palette": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string",
+            "pattern": "^#[0-9a-fA-F]{6}$"
+          }
+        }
       }
     },
     "locations": {
@@ -26,15 +57,117 @@
       "items": {
         "type": "object",
         "additionalProperties": false,
-        "required": ["id", "displayName", "background", "groundLineY", "depthLayers"],
+        "required": [
+          "id",
+          "displayName",
+          "background",
+          "groundLineY",
+          "depthLayers"
+        ],
         "properties": {
-          "id": { "type": "string" },
-          "displayName": { "type": "string" },
-          "background": { "type": "string", "description": "Repo-relative image path." },
-          "groundLineY": { "type": "number", "minimum": 0, "maximum": 1, "description": "Normalised y of walking surface (0 top, 1 bottom)." },
-          "depthLayers": { "type": "integer", "minimum": 1, "maximum": 5 },
-          "ambientAudio": { "type": ["string", "null"] },
-          "lightingPreset": { "enum": ["day", "golden-hour", "night", "indoor"] }
+          "id": {
+            "type": "string"
+          },
+          "displayName": {
+            "type": "string"
+          },
+          "background": {
+            "type": "string",
+            "description": "Repo-relative image path."
+          },
+          "groundLineY": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1,
+            "description": "Normalised y of walking surface (0 top, 1 bottom)."
+          },
+          "depthLayers": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 5
+          },
+          "ambientAudio": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "lightingPreset": {
+            "enum": [
+              "day",
+              "golden-hour",
+              "night",
+              "indoor"
+            ]
+          },
+          "props": {
+            "type": "array",
+            "description": "Props permanently staged at this location. The director places beats relative to these marks; the renderer draws them in z order.",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "propId",
+                "x"
+              ],
+              "properties": {
+                "propId": {
+                  "type": "string",
+                  "description": "Must exist in the world's propCatalog."
+                },
+                "x": {
+                  "type": "number",
+                  "minimum": 0,
+                  "maximum": 1
+                },
+                "y": {
+                  "type": "number",
+                  "minimum": 0,
+                  "maximum": 1,
+                  "description": "Defaults to the location's groundLineY."
+                },
+                "scale": {
+                  "type": "number",
+                  "exclusiveMinimum": 0,
+                  "maximum": 6
+                },
+                "hero": {
+                  "type": "boolean",
+                  "description": "The prop this location's story usually centres on."
+                }
+              }
+            }
+          },
+          "marks": {
+            "type": "object",
+            "description": "Default blocking marks for this location. The director falls back to these when a beat does not imply a position, so every location stages consistently across episodes.",
+            "additionalProperties": false,
+            "properties": {
+              "leadX": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1
+              },
+              "partnerX": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1
+              },
+              "entryLeftX": {
+                "type": "number",
+                "minimum": -0.5,
+                "maximum": 0.5
+              },
+              "entryRightX": {
+                "type": "number",
+                "minimum": 0.5,
+                "maximum": 1.5
+              },
+              "note": {
+                "type": "string"
+              }
+            }
+          }
         }
       }
     },
@@ -43,13 +176,34 @@
       "items": {
         "type": "object",
         "additionalProperties": false,
-        "required": ["id", "displayName", "asset", "anchor"],
+        "required": [
+          "id",
+          "displayName",
+          "asset",
+          "anchor"
+        ],
         "properties": {
-          "id": { "type": "string" },
-          "displayName": { "type": "string" },
-          "asset": { "type": "string" },
-          "anchor": { "enum": ["ground", "wall", "sky", "hand"] },
-          "scaleUnits": { "type": "number", "exclusiveMinimum": 0 }
+          "id": {
+            "type": "string"
+          },
+          "displayName": {
+            "type": "string"
+          },
+          "asset": {
+            "type": "string"
+          },
+          "anchor": {
+            "enum": [
+              "ground",
+              "wall",
+              "sky",
+              "hand"
+            ]
+          },
+          "scaleUnits": {
+            "type": "number",
+            "exclusiveMinimum": 0
+          }
         }
       }
     },
@@ -58,13 +212,36 @@
       "items": {
         "type": "object",
         "additionalProperties": false,
-        "required": ["id", "fps", "durationFrames", "loop", "appliesTo"],
+        "required": [
+          "id",
+          "fps",
+          "durationFrames",
+          "loop",
+          "appliesTo"
+        ],
         "properties": {
-          "id": { "type": "string" },
-          "fps": { "type": "integer", "minimum": 1, "maximum": 60 },
-          "durationFrames": { "type": "integer", "minimum": 1 },
-          "loop": { "type": "boolean" },
-          "appliesTo": { "type": "array", "items": { "type": "string" }, "minItems": 1 }
+          "id": {
+            "type": "string"
+          },
+          "fps": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 60
+          },
+          "durationFrames": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "loop": {
+            "type": "boolean"
+          },
+          "appliesTo": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "minItems": 1
+          }
         }
       }
     },
@@ -73,15 +250,50 @@
       "items": {
         "type": "object",
         "additionalProperties": false,
-        "required": ["id", "shot", "focalLength", "yaw", "pitch", "height"],
+        "required": [
+          "id",
+          "shot",
+          "focalLength",
+          "yaw",
+          "pitch",
+          "height"
+        ],
         "properties": {
-          "id": { "type": "string" },
-          "shot": { "enum": ["wide", "medium", "close-up", "over-shoulder", "establishing"] },
-          "focalLength": { "type": "number", "exclusiveMinimum": 0 },
-          "yaw": { "type": "number" },
-          "pitch": { "type": "number" },
-          "height": { "type": "number" },
-          "motion": { "enum": ["static", "pan-left", "pan-right", "push-in", "pull-out", "truck"] }
+          "id": {
+            "type": "string"
+          },
+          "shot": {
+            "enum": [
+              "wide",
+              "medium",
+              "close-up",
+              "over-shoulder",
+              "establishing"
+            ]
+          },
+          "focalLength": {
+            "type": "number",
+            "exclusiveMinimum": 0
+          },
+          "yaw": {
+            "type": "number"
+          },
+          "pitch": {
+            "type": "number"
+          },
+          "height": {
+            "type": "number"
+          },
+          "motion": {
+            "enum": [
+              "static",
+              "pan-left",
+              "pan-right",
+              "push-in",
+              "pull-out",
+              "truck"
+            ]
+          }
         }
       }
     }

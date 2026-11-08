@@ -1,0 +1,144 @@
+{
+  "schemaVersion": 1,
+  "id": "sc-001-b01-play",
+  "beatId": "b01-play",
+  "worldId": "bobby-forest",
+  "episodeId": "ep-002",
+  "location": "playground",
+  "durationSec": 7.485,
+  "fps": 24,
+  "camera": {
+    "preset": "wide",
+    "keyframes": [
+      {
+        "t": 0,
+        "x": 0.625,
+        "y": 0.512,
+        "zoom": 0.9513
+      },
+      {
+        "t": 1.6,
+        "x": 0.66,
+        "y": 0.5,
+        "zoom": 1.012
+      },
+      {
+        "t": 6.1377,
+        "x": 0.68,
+        "y": 0.494,
+        "zoom": 1.0272
+      },
+      {
+        "t": 7.485,
+        "x": 0.68,
+        "y": 0.494,
+        "zoom": 1.0272
+      }
+    ]
+  },
+  "characters": [
+    {
+      "characterId": "coco",
+      "position": {
+        "x": 0.23,
+        "y": 0.798,
+        "z": 2
+      },
+      "scale": 0.97,
+      "facing": "right",
+      "expression": "happy",
+      "animation": "laugh",
+      "entranceAt": 0
+    },
+    {
+      "characterId": "bobby",
+      "position": {
+        "x": 0.56,
+        "y": 0.82,
+        "z": 2
+      },
+      "scale": 1,
+      "facing": "right",
+      "expression": "happy",
+      "animation": "walk",
+      "entranceAt": 0
+    },
+    {
+      "characterId": "pip",
+      "position": {
+        "x": 0.76,
+        "y": 0.798,
+        "z": 2
+      },
+      "scale": 0.97,
+      "facing": "left",
+      "expression": "happy",
+      "animation": "laugh",
+      "entranceAt": 0
+    }
+  ],
+  "props": [
+    {
+      "propId": "bench-wood",
+      "x": 0.15,
+      "y": 0.82,
+      "scale": 1.1
+    },
+    {
+      "propId": "toy-ball",
+      "x": 0.47,
+      "y": 0.82,
+      "scale": 0.8
+    },
+    {
+      "propId": "tree-round",
+      "x": 0.82,
+      "y": 0.82,
+      "scale": 1
+    }
+  ],
+  "dialogue": [
+    {
+      "id": "b01-play-d01",
+      "characterId": "bobby",
+      "text": "Ayo kita main bola di taman! Lihat, rumputnya masih hijau segar.",
+      "startSec": 0.6,
+      "emotion": "happy",
+      "audioAsset": "audio/generated/ep-002/sc-001-b01-play/b01-play-d01.wav",
+      "durationSec": 6.385
+    }
+  ],
+  "subtitles": [
+    {
+      "startSec": 0.6,
+      "endSec": 6.377,
+      "text": "Ayo kita main bola di taman! Lihat, rumputnya masih hijau"
+    },
+    {
+      "startSec": 6.377,
+      "endSec": 6.985,
+      "text": "segar."
+    }
+  ],
+  "audioTracks": [
+    {
+      "id": "b01-play-ambience",
+      "kind": "ambience",
+      "asset": "library/audio/ambience/playground-kids.wav",
+      "gainDb": -18
+    }
+  ],
+  "direction": {
+    "action": "explore",
+    "intent": "explore",
+    "actor": "bobby",
+    "target": "pip",
+    "prop": "toy-ball",
+    "shot": "wide",
+    "focusX": 0.66,
+    "widenedForSpread": false,
+    "entry": "walk-to",
+    "lineEstimated": false,
+    "transition": "cut"
+  }
+}

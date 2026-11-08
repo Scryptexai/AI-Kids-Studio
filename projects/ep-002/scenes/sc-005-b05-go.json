@@ -1,0 +1,139 @@
+{
+  "schemaVersion": 1,
+  "id": "sc-005-b05-go",
+  "beatId": "b05-go",
+  "worldId": "bobby-forest",
+  "episodeId": "ep-002",
+  "location": "playground",
+  "durationSec": 6.006,
+  "fps": 24,
+  "camera": {
+    "preset": "wide",
+    "keyframes": [
+      {
+        "t": 0,
+        "x": 0.36,
+        "y": 0.512,
+        "zoom": 0.9682
+      },
+      {
+        "t": 1.6,
+        "x": 0.395,
+        "y": 0.5,
+        "zoom": 1.03
+      },
+      {
+        "t": 4.9249,
+        "x": 0.415,
+        "y": 0.494,
+        "zoom": 1.0815
+      },
+      {
+        "t": 6.006,
+        "x": 0.415,
+        "y": 0.494,
+        "zoom": 1.0815
+      }
+    ]
+  },
+  "characters": [
+    {
+      "characterId": "coco",
+      "position": {
+        "x": 0.23,
+        "y": 0.798,
+        "z": 2
+      },
+      "scale": 0.97,
+      "facing": "right",
+      "expression": "excited",
+      "animation": "jump",
+      "entranceAt": 0
+    },
+    {
+      "characterId": "bobby",
+      "position": {
+        "x": 0.56,
+        "y": 0.82,
+        "z": 2
+      },
+      "scale": 1,
+      "facing": "right",
+      "expression": "excited",
+      "animation": "walk",
+      "entranceAt": 0
+    },
+    {
+      "characterId": "pip",
+      "position": {
+        "x": 0.76,
+        "y": 0.798,
+        "z": 2
+      },
+      "scale": 0.97,
+      "facing": "left",
+      "expression": "excited",
+      "animation": "jump",
+      "entranceAt": 0
+    }
+  ],
+  "props": [
+    {
+      "propId": "bench-wood",
+      "x": 0.15,
+      "y": 0.82,
+      "scale": 1.1
+    },
+    {
+      "propId": "toy-ball",
+      "x": 0.47,
+      "y": 0.82,
+      "scale": 0.8
+    },
+    {
+      "propId": "tree-round",
+      "x": 0.82,
+      "y": 0.82,
+      "scale": 1
+    }
+  ],
+  "dialogue": [
+    {
+      "id": "b05-go-d01",
+      "characterId": "bobby",
+      "text": "Kalau begitu kita ke sungai! Ayo, ikuti aku!",
+      "startSec": 0.6,
+      "emotion": "excited",
+      "audioAsset": "audio/generated/ep-002/sc-005-b05-go/b05-go-d01.wav",
+      "durationSec": 4.906
+    }
+  ],
+  "subtitles": [
+    {
+      "startSec": 0.6,
+      "endSec": 5.506,
+      "text": "Kalau begitu kita ke sungai! Ayo, ikuti aku!"
+    }
+  ],
+  "audioTracks": [
+    {
+      "id": "b05-go-ambience",
+      "kind": "ambience",
+      "asset": "library/audio/ambience/playground-kids.wav",
+      "gainDb": -18
+    }
+  ],
+  "direction": {
+    "action": "explore",
+    "intent": "explore",
+    "actor": "bobby",
+    "target": "coco",
+    "prop": null,
+    "shot": "wide",
+    "focusX": 0.395,
+    "widenedForSpread": false,
+    "entry": "walk-to",
+    "lineEstimated": false,
+    "transition": "cut"
+  }
+}

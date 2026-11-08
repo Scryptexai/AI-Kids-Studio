@@ -24,17 +24,54 @@ async function inferEpisode() {
 }
 
 function parseArgs(argv) {
-  const out = { episode: null, strict: false };
+  const out = { episode: null, strict: false, all: false };
   for (let i = 0; i < argv.length; i++) {
     if (argv[i] === '--episode') out.episode = argv[++i];
     else if (argv[i] === '--strict') out.strict = true;
+    else if (argv[i] === '--all') out.all = true;
   }
   return out;
 }
 
+/** Every project directory that has an episode.json. */
+async function allEpisodes() {
+  const dirs = (await fs.readdir(P.projects, { withFileTypes: true }))
+    .filter((d) => d.isDirectory())
+    .map((d) => d.name);
+  const out = [];
+  for (const d of dirs) {
+    if (await exists(path.join(P.projects, d, 'episode.json'))) out.push(d);
+  }
+  return out.sort();
+}
+
 async function main() {
   const args = parseArgs(process.argv.slice(2));
+
+  // --all: validate every episode, then summarise. Used by `npm run validate` so adding a
+  // second story cannot silently stop the suite from checking anything.
+  if (args.all) {
+    const episodes = await allEpisodes();
+    const results = [];
+    for (const episode of episodes) {
+      const code = await validateOne(episode, args.strict);
+      results.push({ episode, code });
+    }
+    log.plain('');
+    for (const r of results) {
+      const line = `${r.episode}: ${r.code === 0 ? 'OK' : `FAILED (exit ${r.code})`}`;
+      if (r.code === 0) log.ok(line);
+      else log.error(line);
+    }
+    return results.every((r) => r.code === 0) ? 0 : 1;
+  }
+
   if (!args.episode) args.episode = await inferEpisode();
+  return validateOne(args.episode, args.strict);
+}
+
+async function validateOne(episodeId, strict) {
+  const args = { episode: episodeId, strict };
   const errors = [];
   const warnings = [];
 

@@ -7,19 +7,47 @@
   "ageGroup": "early-reader",
   "visual": {
     "baseImage": "library/characters/coco/base.png",
-    "palette": { "primary": "#bb6bd9", "secondary": "#f2f2f2", "accent": "#6fcf97" },
-    "bodyProportions": { "headScale": 1.25, "heightUnits": 5.0 }
+    "palette": {
+      "primary": "#bb6bd9",
+      "secondary": "#f2f2f2",
+      "accent": "#6fcf97"
+    },
+    "bodyProportions": {
+      "headScale": 1.25,
+      "heightUnits": 5.0
+    }
   },
   "rig": {
     "rigId": "coco-rig-v1",
     "skeletonVersion": 1,
-    "expressions": ["neutral", "happy", "sad", "surprised", "curious"],
-    "poses": ["idle", "walk", "talk", "wave", "cry", "surprise"]
+    "expressions": [
+      "neutral",
+      "happy",
+      "sad",
+      "surprised",
+      "curious",
+      "excited",
+      "laughing"
+    ],
+    "poses": [
+      "idle",
+      "walk",
+      "talk",
+      "wave",
+      "cry",
+      "surprise",
+      "jump",
+      "laugh",
+      "run"
+    ]
   },
   "voice": {
     "voiceAlias": "coco_soft_01",
     "notes": "Soft lower-pitched voice, slower speaking rate, warm and reassuring."
   },
   "status": "in-production",
-  "tags": ["mentor", "calm"]
+  "tags": [
+    "mentor",
+    "calm"
+  ]
 }

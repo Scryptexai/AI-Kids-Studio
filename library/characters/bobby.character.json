@@ -7,19 +7,46 @@
   "ageGroup": "early-reader",
   "visual": {
     "baseImage": "library/characters/bobby/base.png",
-    "palette": { "primary": "#f2994a", "secondary": "#4f4f4f", "accent": "#2d9cdb" },
-    "bodyProportions": { "headScale": 1.35, "heightUnits": 4.2 }
+    "palette": {
+      "primary": "#f2994a",
+      "secondary": "#4f4f4f",
+      "accent": "#2d9cdb"
+    },
+    "bodyProportions": {
+      "headScale": 1.35,
+      "heightUnits": 4.2
+    }
   },
   "rig": {
     "rigId": "bobby-rig-v1",
     "skeletonVersion": 1,
-    "expressions": ["neutral", "happy", "excited", "sad", "surprised", "curious"],
-    "poses": ["idle", "walk", "run", "jump", "talk", "wave", "laugh", "surprise"]
+    "expressions": [
+      "neutral",
+      "happy",
+      "excited",
+      "sad",
+      "surprised",
+      "curious",
+      "laughing"
+    ],
+    "poses": [
+      "idle",
+      "walk",
+      "run",
+      "jump",
+      "talk",
+      "wave",
+      "laugh",
+      "surprise"
+    ]
   },
   "voice": {
     "voiceAlias": "bobby_warm_01",
     "notes": "Mid-high male child voice, bright timbre, playful and clear articulation."
   },
   "status": "in-production",
-  "tags": ["lead", "explorer"]
+  "tags": [
+    "lead",
+    "explorer"
+  ]
 }

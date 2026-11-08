@@ -35,9 +35,9 @@ function parseArgs(argv) {
 async function main() {
   const args = parseArgs(process.argv.slice(2));
   const episode = await readJson(path.join(P.projects, args.episode, 'episode.json'));
-  const ref = episode.scenes.find((s) => s.sceneId === args.scene);
+  const ref = (episode.scenes ?? []).find((s) => s.sceneId === args.scene || s.id === args.scene);
   if (!ref) throw new StudioError(`scene '${args.scene}' is not listed in ${args.episode}`);
-  const scene = await readJson(abs(ref.file));
+  const scene = await readJson(abs(ref.file ?? ref.filePath ?? `projects/${args.episode}/scenes/${args.scene}.json`));
   const world = await readJson(path.join(P.worlds, `${episode.worldId}.world.json`));
 
   const characters = new Map();

@@ -1,0 +1,150 @@
+{
+  "schemaVersion": 1,
+  "id": "sc-008-b08-cheer",
+  "beatId": "b08-cheer",
+  "worldId": "bobby-forest",
+  "episodeId": "ep-002",
+  "location": "river-bend",
+  "durationSec": 7.845,
+  "fps": 24,
+  "camera": {
+    "preset": "wide",
+    "keyframes": [
+      {
+        "t": 0,
+        "x": 0.3,
+        "y": 0.512,
+        "zoom": 0.9851
+      },
+      {
+        "t": 1.6,
+        "x": 0.335,
+        "y": 0.5,
+        "zoom": 1.048
+      },
+      {
+        "t": 6.4329,
+        "x": 0.315,
+        "y": 0.494,
+        "zoom": 1.1004
+      },
+      {
+        "t": 7.845,
+        "x": 0.315,
+        "y": 0.494,
+        "zoom": 1.1004
+      }
+    ]
+  },
+  "characters": [
+    {
+      "characterId": "coco",
+      "position": {
+        "x": 0.17,
+        "y": 0.798,
+        "z": 2
+      },
+      "scale": 0.97,
+      "facing": "right",
+      "expression": "happy",
+      "animation": "laugh",
+      "entranceAt": 0
+    },
+    {
+      "characterId": "bobby",
+      "position": {
+        "x": 0.5,
+        "y": 0.82,
+        "z": 2
+      },
+      "scale": 1,
+      "facing": "front",
+      "expression": "laughing",
+      "animation": "jump",
+      "entranceAt": 0
+    },
+    {
+      "characterId": "pip",
+      "position": {
+        "x": 0.7,
+        "y": 0.798,
+        "z": 2
+      },
+      "scale": 0.97,
+      "facing": "left",
+      "expression": "happy",
+      "animation": "laugh",
+      "entranceAt": 0
+    }
+  ],
+  "props": [
+    {
+      "propId": "rock-small",
+      "x": 0.18,
+      "y": 0.74,
+      "scale": 1
+    },
+    {
+      "propId": "flower-patch",
+      "x": 0.44,
+      "y": 0.74,
+      "scale": 1
+    },
+    {
+      "propId": "rock-small",
+      "x": 0.72,
+      "y": 0.74,
+      "scale": 0.6
+    },
+    {
+      "propId": "tree-round",
+      "x": 0.92,
+      "y": 0.74,
+      "scale": 1.2
+    }
+  ],
+  "dialogue": [
+    {
+      "id": "b08-cheer-d01",
+      "characterId": "bobby",
+      "text": "Hore! Kita bermain lagi, dan kali ini kita jaga bolanya bersama-sama.",
+      "startSec": 0.6,
+      "emotion": "laughing",
+      "audioAsset": "audio/generated/ep-002/sc-008-b08-cheer/b08-cheer-d01.wav",
+      "durationSec": 6.745
+    }
+  ],
+  "subtitles": [
+    {
+      "startSec": 0.6,
+      "endSec": 6.056,
+      "text": "Hore! Kita bermain lagi, dan kali ini kita jaga bolanya"
+    },
+    {
+      "startSec": 6.056,
+      "endSec": 7.345,
+      "text": "bersama-sama."
+    }
+  ],
+  "audioTracks": [
+    {
+      "id": "b08-cheer-ambience",
+      "kind": "ambience",
+      "asset": "library/audio/ambience/river-flow.wav",
+      "gainDb": -18
+    }
+  ],
+  "direction": {
+    "action": "celebrate",
+    "intent": "celebrate",
+    "actor": "bobby",
+    "target": "coco",
+    "prop": null,
+    "shot": "wide",
+    "focusX": 0.335,
+    "widenedForSpread": false,
+    "entry": "still",
+    "lineEstimated": false,
+    "transition": "cut"
+  }
+}

@@ -1,0 +1,145 @@
+{
+  "schemaVersion": 1,
+  "id": "sc-006-b06-river",
+  "beatId": "b06-river",
+  "worldId": "bobby-forest",
+  "episodeId": "ep-002",
+  "location": "river-bend",
+  "durationSec": 6.438,
+  "fps": 24,
+  "camera": {
+    "preset": "establishing",
+    "keyframes": [
+      {
+        "t": 0,
+        "x": 0.125,
+        "y": 0.472,
+        "zoom": 0.9011
+      },
+      {
+        "t": 1.6,
+        "x": 0.16,
+        "y": 0.46,
+        "zoom": 0.9586
+      },
+      {
+        "t": 5.2792,
+        "x": 0.18,
+        "y": 0.454,
+        "zoom": 1.0065
+      },
+      {
+        "t": 6.438,
+        "x": 0.18,
+        "y": 0.454,
+        "zoom": 1.0065
+      }
+    ]
+  },
+  "characters": [
+    {
+      "characterId": "pip",
+      "position": {
+        "x": 0.1,
+        "y": 0.798,
+        "z": 2
+      },
+      "scale": 0.97,
+      "facing": "right",
+      "expression": "excited",
+      "animation": "jump",
+      "entranceAt": 0
+    },
+    {
+      "characterId": "bobby",
+      "position": {
+        "x": 0.22,
+        "y": 0.82,
+        "z": 2
+      },
+      "scale": 1,
+      "facing": "right",
+      "expression": "excited",
+      "animation": "surprise",
+      "entranceAt": 0
+    },
+    {
+      "characterId": "coco",
+      "position": {
+        "x": 0.55,
+        "y": 0.798,
+        "z": 2
+      },
+      "scale": 0.97,
+      "facing": "left",
+      "expression": "excited",
+      "animation": "jump",
+      "entranceAt": 0
+    }
+  ],
+  "props": [
+    {
+      "propId": "rock-small",
+      "x": 0.18,
+      "y": 0.74,
+      "scale": 1
+    },
+    {
+      "propId": "flower-patch",
+      "x": 0.44,
+      "y": 0.74,
+      "scale": 1
+    },
+    {
+      "propId": "rock-small",
+      "x": 0.72,
+      "y": 0.74,
+      "scale": 0.6
+    },
+    {
+      "propId": "tree-round",
+      "x": 0.92,
+      "y": 0.74,
+      "scale": 1.2
+    }
+  ],
+  "dialogue": [
+    {
+      "id": "b06-river-d01",
+      "characterId": "bobby",
+      "text": "Ada di sini! Bolanya tersangkut di antara bunga-bunga ini.",
+      "startSec": 0.6,
+      "emotion": "excited",
+      "audioAsset": "audio/generated/ep-002/sc-006-b06-river/b06-river-d01.wav",
+      "durationSec": 5.338
+    }
+  ],
+  "subtitles": [
+    {
+      "startSec": 0.6,
+      "endSec": 5.938,
+      "text": "Ada di sini! Bolanya tersangkut di antara bunga-bunga ini."
+    }
+  ],
+  "audioTracks": [
+    {
+      "id": "b06-river-ambience",
+      "kind": "ambience",
+      "asset": "library/audio/ambience/river-flow.wav",
+      "gainDb": -18
+    }
+  ],
+  "direction": {
+    "action": "discover",
+    "intent": "discover",
+    "actor": "bobby",
+    "target": "pip",
+    "prop": "flower-patch",
+    "shot": "establishing",
+    "focusX": 0.16,
+    "widenedForSpread": false,
+    "entry": "still",
+    "lineEstimated": false,
+    "transition": "establishing"
+  }
+}

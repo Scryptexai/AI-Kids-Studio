@@ -23,7 +23,15 @@ const GIT_IMAGE_LIMIT = 4_000_000;
 const LARGE_FILE_BYTES = 1_000_000;
 // audio/generated is deliberately excluded: dialogue WAVs are derived artefacts that are
 // reproduced by `npm run voice:generate` and tracked by audio/manifests/dialogue-<episode>.json.
+// `renders` is included so finished MP4s get checksummed, but ephemeral review output
+// (preview frames, benchmark clips, per-scene intermediates) is excluded — it changes on every
+// run and would make asset validation fail for no reason.
 const SCAN_DIRS = ['library', 'projects', 'audio/samples', 'renders'];
+const EXCLUDE = [
+  /^renders\/.+\/preview\//,
+  /^renders\/bench\//,
+  /^renders\/.+\/work\//,
+];
 const BINARY_EXT = new Set(['.png', '.jpg', '.jpeg', '.webp', '.wav', '.mp3', '.mp4', '.ogg', '.pth', '.onnx', '.bin']);
 
 function shouldUseDrive(relPath, bytes) {
@@ -43,6 +51,7 @@ function classify(relPath) {
   if (/\/sfx\//.test(relPath)) return 'audio-sfx';
   if (relPath.startsWith('audio/samples/')) return 'audio-sample';
   if (relPath.startsWith('audio/generated/')) return 'audio-dialogue';
+  if (EXCLUDE.some((re) => re.test(relPath))) return null;
   if (relPath.startsWith('renders/')) return 'video';
   if (relPath.endsWith('.json')) return 'scene-manifest';
   return null;

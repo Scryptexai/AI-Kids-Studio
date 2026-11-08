@@ -47,15 +47,15 @@ function wrapText(text, maxChars) {
 function renderSubtitle({ text, width, height }) {
   // Bottom-anchored broadcast caption band: sits in the lower safe area so it never
   // covers the characters' feet, and stays inside the YouTube Kids safe margin.
-  const fontSize = Math.round(height * 0.042);
+  const fontSize = Math.round(height * 0.038);
   const maxChars = Math.floor((width * 0.72) / (fontSize * 0.54));
   const lines = wrapText(text, maxChars).slice(0, 3);
   const lineHeight = fontSize * 1.24;
-  const boxH = lines.length * lineHeight + fontSize * 0.55;
+  const boxH = lines.length * lineHeight + fontSize * 0.4;
   const widest = Math.max(...lines.map((l) => l.length));
   const boxW = Math.min(width * 0.8, widest * fontSize * 0.56 + fontSize * 1.8);
   const x = (width - boxW) / 2;
-  const y = height * 0.975 - boxH;
+  const y = height * 0.99 - boxH;
 
   const tspans = lines
     .map((l, i) => `<tspan x="${width / 2}" y="${y + fontSize * 0.45 + (i + 0.5) * lineHeight}">${esc(l)}</tspan>`)
@@ -103,10 +103,23 @@ export function buildSceneSvg({
   const cam = cameraAt(scene.camera.keyframes, t);
   const palette = world.artDirection?.palette ?? {};
 
-  // Camera: pan/zoom the world group. Overscan keeps edges off-screen while panning.
+  // Camera: pan/zoom the world group.
+  //
+  // Two things keep the frame from showing the void:
+  //   1. overscan — zoom is multiplied past 1 so a pan never reaches the artwork edge;
+  //   2. clamping — the translate is clamped so the scaled world always covers the viewport.
+  // Without the clamp, an off-centre focus point exposes blank canvas at the frame edge,
+  // which reads as a rendering bug even though the math is "correct".
   const zoom = cam.zoom * CAMERA_OVERSCAN;
-  const translateX = width / 2 - cam.x * width * zoom;
-  const translateY = height / 2 - cam.y * height * zoom;
+  const worldW = width * zoom;
+  const worldH = height * zoom;
+  const clampTranslate = (value, worldSize, viewSize) => {
+    // translate must be within [viewSize - worldSize, 0]
+    const min = viewSize - worldSize;
+    return Math.min(0, Math.max(min, value));
+  };
+  const translateX = clampTranslate(width / 2 - cam.x * worldW, worldW, width);
+  const translateY = clampTranslate(height / 2 - cam.y * worldH, worldH, height);
 
   const background = backgroundDataUri
     ? `<image href="${backgroundDataUri}" x="0" y="0" width="${width}" height="${height}" preserveAspectRatio="xMidYMid slice" image-rendering="${backgroundSampling === 'fast' ? 'optimizeSpeed' : 'optimizeQuality'}"/>`
