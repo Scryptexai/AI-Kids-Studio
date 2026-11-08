@@ -6,7 +6,8 @@
 import React from 'react';
 import { useCurrentFrame, useVideoConfig, interpolate } from 'remotion';
 import { animationState } from '../rigs.mjs';
-import { sampleMotion, travelDirection, propInteractionAt, interactionProgress } from '../motion.mjs';
+import { sampleMotion, travelDirection } from '../motion.mjs';
+import { stageProps, paintOrder } from '../staging.mjs';
 import { bodyHeightPx } from '../rigs.mjs';
 import { cameraAt } from '../scene-svg.mjs';
 
@@ -115,29 +116,33 @@ function Prop({ prop, width, height }) {
   const px = prop.x * width;
   const g = prop.y * height;
   const s = prop.scale;
+  // A spinning prop is rotated about its own centre, exactly as the SVG backend does.
+  const wrap = (node) => (prop.rot
+    ? <g transform={`rotate(${prop.rot.toFixed(1)} ${px} ${g})`}>{node}</g>
+    : node);
   const kind = prop.propId.split('-')[0];
   const st = { stroke: '#243b2f', strokeWidth: 3 };
   switch (kind) {
     case 'tree':
-      return (
+      return wrap((
         <g>
           <rect x={px - 9 * s} y={g - 70 * s} width={18 * s} height={70 * s} fill="#8a5a3b" {...st} />
           <circle cx={px} cy={g - 100 * s} r={52 * s} fill="#4f9d52" {...st} />
           <circle cx={px - 34 * s} cy={g - 82 * s} r={30 * s} fill="#2f6b39" {...st} />
           <circle cx={px + 34 * s} cy={g - 84 * s} r={28 * s} fill="#2f6b39" {...st} />
         </g>
-      );
+      ));
     case 'rock':
-      return <path d={`M${px - 30 * s} ${g} q6 -26 ${30 * s} -28 q24 2 ${30 * s} 28 z`} fill="#b9c0c8" {...st} />;
+      return wrap(<path d={`M${px - 30 * s} ${g} q6 -26 ${30 * s} -28 q24 2 ${30 * s} 28 z`} fill="#b9c0c8" {...st} />);
     case 'house':
-      return (
+      return wrap((
         <g>
           <rect x={px - 60 * s} y={g - 80 * s} width={120 * s} height={80 * s} fill="#f2d6a2" {...st} />
           <path d={`M${px - 74 * s} ${g - 80 * s} L${px} ${g - 136 * s} L${px + 74 * s} ${g - 80 * s} z`} fill="#c0553f" {...st} />
         </g>
-      );
+      ));
     case 'flower':
-      return (
+      return wrap((
         <g>
           {[-26, -6, 14, 32].map((dx) => (
             <g key={dx}>
@@ -146,20 +151,20 @@ function Prop({ prop, width, height }) {
             </g>
           ))}
         </g>
-      );
+      ));
     case 'bench':
-      return (
+      return wrap((
         <g>
           <rect x={px - 40 * s} y={g - 26 * s} width={80 * s} height={9 * s} rx={3} fill="#8a5a3b" {...st} />
           <rect x={px - 40 * s} y={g - 46 * s} width={80 * s} height={9 * s} rx={3} fill="#8a5a3b" {...st} />
           <rect x={px - 34 * s} y={g - 26 * s} width={6 * s} height={26 * s} fill="#6b4526" />
           <rect x={px + 28 * s} y={g - 26 * s} width={6 * s} height={26 * s} fill="#6b4526" />
         </g>
-      );
+      ));
     case 'toy':
-      return <circle cx={px} cy={g - 14 * s} r={16 * s} fill="#f2994a" {...st} />;
+      return wrap(<circle cx={px} cy={g - 14 * s} r={16 * s} fill="#f2994a" {...st} />);
     default:
-      return null;
+      return wrap(null);
   }
 }
 
@@ -213,18 +218,19 @@ export const SceneComposition = ({ scene, world, characters, backgroundDataUri, 
   const t = frame / fps;
   const cam = cameraAt(scene.camera.keyframes, t);
   const zoom = cam.zoom * CAMERA_OVERSCAN;
-  const translateX = width / 2 - cam.x * width * zoom;
-  const translateY = height / 2 - cam.y * height * zoom;
+  // Clamp exactly as the SVG backend does. Without it an off-centre focus exposes blank canvas
+  // at the frame edge — a black bar that reads as a rendering bug even though the maths is right.
+  const clampTranslate = (value, worldSize, viewSize) => Math.min(0, Math.max(viewSize - worldSize, value));
+  const translateX = clampTranslate(width / 2 - cam.x * width * zoom, width * zoom, width);
+  const translateY = clampTranslate(height / 2 - cam.y * height * zoom, height * zoom, height);
 
   const byId = new Map((characters ?? []).map((c) => [c.id, c]));
-  const ordered = [...scene.characters]
-    .filter((c) => c.entranceAt == null || t >= c.entranceAt)
-    .sort((a, b) => a.position.z - b.position.z)
-    .map((inst) => ({
-      ...inst,
-      compositionWidth: width,
-      compositionHeight: height,
-    }));
+
+  // Placement and paint order come from the shared stager, so this backend draws the same
+  // picture as the SVG one: a carried prop in the hand, a thrown prop on its arc, and scenery
+  // sorted by depth instead of always sitting behind everyone.
+  const stagedProps = stageProps({ scene, characters: byId, tSec: t, height, width });
+  const { scenery, layers } = paintOrder({ scene, stagedProps, characters: byId, tSec: t });
 
   const sub = (scene.subtitles ?? []).find((s) => t >= s.startSec && t < s.endSec) ?? null;
 
@@ -236,17 +242,21 @@ export const SceneComposition = ({ scene, world, characters, backgroundDataUri, 
         ) : (
           <rect x={0} y={0} width={width} height={height} fill={world?.artDirection?.palette?.sky ?? '#a8d8f0'} />
         )}
-        {(scene.props ?? []).map((p, i) => (
-          <Prop key={i} prop={p} width={width} height={height} />
+        {scenery.map(({ prop }, i) => (
+          <Prop key={`scenery-${i}`} prop={prop} width={width} height={height} t={t} />
         ))}
-        {ordered.map((inst) => {
-          const fade = inst.entranceAt != null ? Math.min(1, (t - inst.entranceAt) / 0.4) : 1;
-          return (
-            <g key={inst.characterId} opacity={fade}>
-              <Character character={byId.get(inst.characterId)} instance={inst} t={t} />
-            </g>
-          );
-        })}
+        {layers.map((layer) => (
+          <g key={layer.characterId} opacity={layer.opacity}>
+            {layer.props.map((p, i) => (
+              <Prop key={`held-${i}`} prop={p} width={width} height={height} t={t} />
+            ))}
+            <Character
+              character={byId.get(layer.characterId)}
+              instance={{ ...layer.instance, compositionWidth: width, compositionHeight: height }}
+              t={t}
+            />
+          </g>
+        ))}
       </g>
       {sub ? <Subtitle text={sub.text} width={width} height={height} /> : null}
       {showDebug ? (

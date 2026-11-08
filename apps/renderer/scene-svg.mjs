@@ -5,8 +5,9 @@
 //
 // Layer order (back to front): background -> far props -> characters (by z) -> near props
 // -> subtitle -> frame furniture. Camera keyframes transform the whole world group.
-import { renderCharacter, renderProp, esc, lerp, bodyHeightPx } from './rigs.mjs';
-import { propInteractionAt, sampleMotion, interactionProgress } from './motion.mjs';
+import { renderCharacter, renderProp, esc, lerp } from './rigs.mjs';
+import { sampleMotionWithDepth, PROP_DEPTH } from './motion.mjs';
+import { stageProps, paintOrder } from './staging.mjs';
 
 const CAMERA_OVERSCAN = 1.12;
 
@@ -128,53 +129,35 @@ export function buildSceneSvg({
 
   // Props: a prop attached to a character is drawn at that character's hands for the window
   // of the interaction, so it reads as picked up and carried rather than glued to the ground.
-  const characterById = new Map((scene.characters ?? []).map((c) => [c.characterId, c]));
-  const props = (scene.props ?? []).map((p) => {
-    const interaction = propInteractionAt(scene.interactions, p.propId, t);
-    if (interaction) {
-      const holder = characterById.get(interaction.characterId);
-      if (holder) {
-        const motion = sampleMotion(holder.motion, t, holder.position);
-        const holderH = bodyHeightPx(holder, characters.get(interaction.characterId));
-        // Carry height: hands sit at roughly a third of body height above the ground line.
-        const carryY = interaction.attach === 'head'
-          ? motion.y - holderH * 0.92 / height
-          : motion.y - holderH * 0.34 / height;
-        const progress = interactionProgress(interaction, t);
-        // Small lift at pickup/release so the object does not snap between marks.
-        const blend = Math.sin(Math.PI * Math.min(1, progress * 2)) * 0.12;
-        return {
-          ...p,
-          x: Number((motion.x + 0.06).toFixed(4)),
-          y: Number((carryY + blend / height).toFixed(4)),
-          attachedTo: interaction.characterId,
-          svg: renderProp({
-            ...p,
-            x: motion.x + 0.06,
-            y: carryY + blend / height,
-            compositionHeight: height,
-            compositionWidth: width,
-          }),
-        };
-      }
-    }
-    return { ...p, svg: renderProp({ ...p, compositionHeight: height, compositionWidth: width }) };
-  });
+  const stagedProps = stageProps({ scene, characters, tSec: t, height, width });
+  const { scenery, layers: paintLayers } = paintOrder({ scene, stagedProps, characters, tSec: t });
 
-  // Characters ordered back-to-front so nearer instances overlap farther ones.
-  const ordered = [...scene.characters]
-    .filter((c) => c.entranceAt == null || t >= c.entranceAt)
-    .sort((a, b) => a.position.z - b.position.z);
+  // A prop in someone's hands or in the air is drawn inside that character's group, so it can
+  // never be buried by scenery at the same nominal depth.
+  const propSvg = (p) => {
+    const svg = renderProp({ ...p, compositionHeight: height, compositionWidth: width });
+    return p.rot
+      ? `<g transform="rotate(${p.rot.toFixed(1)} ${(p.x * width).toFixed(1)} ${(p.y * height).toFixed(1)})">${svg}</g>`
+      : svg;
+  };
 
-  const characterMarkup = ordered
-    .map((instance) => {
-      const character = characters.get(instance.characterId);
-      if (!character) return '';
-      const fade = instance.entranceAt != null ? Math.min(1, (t - instance.entranceAt) / 0.4) : 1;
-      // data-character makes each layer traceable in tests and in rendered-SVG debugging.
-      return `<g data-character="${esc(instance.characterId)}" data-animation="${esc(instance.animation)}" opacity="${fade.toFixed(3)}">${renderCharacter({ character, instance, tSec: t, compositionHeight: height, compositionWidth: width })}</g>`;
-    })
-    .join('');
+  const layers = [
+    ...scenery.map(({ prop }) => ({ z: prop.z, markup: propSvg(prop) })),
+    ...paintLayers.map((layer, i) => ({
+      z: layer.depth,
+      markup: `<g data-character="${esc(layer.characterId)}" data-animation="${esc(layer.instance.animation)}" opacity="${layer.opacity.toFixed(3)}">${layer.props.map(propSvg).join('')}${renderCharacter({
+        character: characters.get(layer.characterId),
+        instance: layer.instance,
+        tSec: t,
+        compositionHeight: height,
+        compositionWidth: width,
+      })}</g>`,
+    })).filter((layer) => layer.markup),
+  ];
+  // Interleave scenery and characters by depth; a stable order keeps a level scene unchanged.
+  layers.sort((a, b) => b.z - a.z);
+
+  const stageMarkup = layers.map((layer) => layer.markup).join('');
 
   const sub = activeSubtitle(scene, t);
   const subtitleMarkup = sub ? renderSubtitle({ text: sub.text, width, height }) : '';
@@ -189,8 +172,7 @@ export function buildSceneSvg({
   return `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}" viewBox="0 0 ${width} ${height}">
 <g transform="translate(${translateX.toFixed(2)} ${translateY.toFixed(2)}) scale(${zoom.toFixed(4)})">
 ${background}
-${props.map((p) => p.svg).join('')}
-${characterMarkup}
+${stageMarkup}
 </g>
 ${subtitleMarkup}
 ${debugMarkup}

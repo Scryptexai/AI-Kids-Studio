@@ -16,6 +16,14 @@ import { intentFor, estimateLineDuration, EMOTION_POSE } from './intents.mjs';
 import { blockBeat, posesFor, castIndex, LANES, motionTrackFor } from './stage.mjs';
 import { frameBeat, shotForTransition } from './camera.mjs';
 
+// Character heights are expressed against the 4.2-unit reference rig; the throw solver needs
+// the same ratio the renderer uses so the ball leaves the hands, not the knees.
+const heightRef = 4.2;
+const num = (v) => Number(v.toFixed(4));
+function bodyHeightRatio(character) {
+  return character?.visual?.bodyProportions?.heightUnits ?? heightRef;
+}
+
 const ROOT_PAD = 0.6; // seconds of silence at the head of a scene
 const TAIL_PAD = 0.5; // seconds after the last line settles
 
@@ -46,6 +54,15 @@ function pickProp({ beat, placements }) {
       });
     }
     return found;
+  }
+  // A beat that throws or holds something must resolve a prop even if the action itself
+  // (explore, celebrate) does not usually need one. Prefer a *carryable* hero prop: throwing
+  // the bench across the playground is not a bug we want to ship.
+  if (beat.throw || beat.interact === 'hold') {
+    const notCarryable = /bench|house|tree|rock|fence|slide|swing/;
+    const carryable = placements.filter((p) => !notCarryable.test(p.propId));
+    const pool = carryable.length ? carryable : placements;
+    return pool.find((p) => p.hero) ?? pool[0] ?? null;
   }
   // Discovery/explanation beats read better when they point at something.
   if (beat.action === 'discover' || beat.action === 'explain') {
@@ -135,11 +152,37 @@ export function directBeat({ beat, index, script, world, cast, characters, leadI
         throw new StudioError(`beat '${beat.id}' uses '${pos.characterId}', which is not in the character library`);
       }
       // Real travel: an entry path becomes a motion track the renderer samples per frame.
-      const motion = motionTrackFor({
+      let motion = motionTrackFor({
         entry: pos.entry,
         durationSec,
         holdUntilSec: durationSec,
       });
+
+      // Depth: walking into or out of the picture adds a z ramp, which also drives scale and
+      // the ground line — no separate scale track needed.
+      if (pos.isActor && (beat.depth === 'away' || beat.depth === 'toward-camera')) {
+        // Depth does not need an entry walk: a stationary actor can still walk away from the
+        // camera while the shot holds.
+        if (!motion) {
+          motion = {
+            path: [
+              { t: 0, x: num(pos.x), y: num(pos.y) },
+              { t: durationSec, x: num(pos.x), y: num(pos.y) },
+            ],
+            ease: 'ease-in-out',
+            durationSec,
+          };
+        }
+        const fromZ = beat.depth === 'away' ? 0.5 : 0.9;
+        const toZ = beat.depth === 'away' ? 0.9 : 0.5;
+        motion = {
+          ...motion,
+          path: motion.path.map((kf, i) => ({
+            ...kf,
+            z: Number((i === 0 ? fromZ : toZ).toFixed(3)),
+          })),
+        };
+      }
 
       // If the character travels, the pose must be a walk cycle, otherwise legs slide.
       const animation = motion && (motion.path[0].x < -0.01 || motion.path[0].x > 1.01)
@@ -180,20 +223,89 @@ export function directBeat({ beat, index, script, world, cast, characters, leadI
   // Prop interaction: if the beat is about a prop and the actor reaches it, the prop is
   // attached to them for the middle of the scene (picked up, carried). "ground" means it is
   // touched but stays put. A beat can opt out with `interact: "none"`.
+  // A throw is solved from the two marks: the director knows where both characters stand,
+  // so the author only supplies timing.
+  const flights = [];
+  if (beat.throw && prop) {
+    // A throw must name who catches it. Falling back to "whoever happens to be nearby" makes
+    // the story ambiguous — the ball could go to the wrong character.
+    if (!beat.target) {
+      throw new StudioError(`beat '${beat.id}' throws '${prop.propId}' but names no target`, {
+        hint: 'add "target": "<characterId>" so the director knows who catches it',
+      });
+    }
+    const targetMark = block.positions.get(beat.target);
+    if (!targetMark) {
+      throw new StudioError(`beat '${beat.id}' throws to '${beat.target}', who is not in this beat's cast`, {
+        hint: 'the target must be a cast member present in the scene',
+      });
+    }
+    const startSec = Number((beat.throw.atSec ?? ROOT_PAD + 0.3).toFixed(3));
+    const flightSec = Number((beat.throw.durationSec ?? 0.9).toFixed(3));
+    const endSec = Number((startSec + flightSec).toFixed(3));
+    if (endSec > durationSec) {
+      throw new StudioError(`beat '${beat.id}' throw ends at ${endSec}s but the scene is ${durationSec}s`, {
+        hint: 'shorten the throw or give the beat an explicit durationSec',
+      });
+    }
+    // Hands sit a little above each character's ground line.
+    const handLift = 0.34 * (bodyHeightRatio(characters.get(block.actorId)) / heightRef);
+    flights.push({
+      propId: prop.propId,
+      // Both ends are named so the renderer can fly the prop between the actual hands (the rig
+      // knows where a hand is; a stored coordinate would only be a guess).
+      fromCharacterId: block.actorId,
+      toCharacterId: beat.target,
+      fromX: Number((block.positions.get(block.actorId).x + 0.05).toFixed(4)),
+      fromY: Number((block.positions.get(block.actorId).y - handLift).toFixed(4)),
+      toX: Number((targetMark.x + 0.03).toFixed(4)),
+      toY: Number((targetMark.y - handLift).toFixed(4)),
+      startSec,
+      endSec,
+      ...(beat.throw.arc != null ? { arc: beat.throw.arc } : {}),
+      spin: beat.throw.spin ?? true,
+      note: `${beat.action}: ${block.actorId} throws ${prop.propId} to ${beat.target}`,
+    });
+  }
+
+  // Carrying and throwing both claim the same prop, so they must agree on who holds it when.
+  // The carry window ends the instant the throw leaves the hand — otherwise the renderer's
+  // precedence rule gives the ball back to the thrower as soon as the flight is over, and the
+  // catcher is left miming a catch.
   const interactions = [];
   if (prop && beat.interact !== 'none') {
     const attach = beat.interact === 'hold' ? 'hands' : null;
+    const releaseSec = flights[0]?.startSec ?? null;
     if (attach) {
       const fromSec = Number((ROOT_PAD + 0.4).toFixed(3));
-      const toSec = Number(Math.max(fromSec + 0.6, durationSec - TAIL_PAD).toFixed(3));
-      interactions.push({
-        propId: prop.propId,
-        characterId: block.actorId,
-        fromSec,
-        toSec,
-        attach,
-        note: `${beat.action}: ${block.actorId} carries ${prop.propId}`,
-      });
+      const carryEnd = Number((durationSec - TAIL_PAD).toFixed(3));
+      const toSec = releaseSec != null ? releaseSec : Number(Math.max(fromSec + 0.6, carryEnd).toFixed(3));
+      if (toSec > fromSec) {
+        interactions.push({
+          propId: prop.propId,
+          characterId: block.actorId,
+          fromSec,
+          toSec,
+          attach,
+          note: `${beat.action}: ${block.actorId} carries ${prop.propId}`,
+        });
+      }
+    }
+    // A throw with a catcher means the prop changes hands: the catcher holds it from the
+    // moment it lands until the scene ends. This is what makes a catch read as a catch.
+    if (flights.length) {
+      const catchFrom = Number((flights[0].endSec).toFixed(3));
+      const catchTo = Number((durationSec - TAIL_PAD).toFixed(3));
+      if (catchTo > catchFrom) {
+        interactions.push({
+          propId: prop.propId,
+          characterId: beat.target,
+          fromSec: catchFrom,
+          toSec: catchTo,
+          attach: 'hands',
+          note: `${beat.action}: ${beat.target} catches ${prop.propId}`,
+        });
+      }
     }
   }
 
@@ -220,6 +332,7 @@ export function directBeat({ beat, index, script, world, cast, characters, leadI
     dialogue,
     subtitles,
     ...(interactions.length ? { interactions } : {}),
+    ...(flights.length ? { flights } : {}),
     audioTracks: (world.locations.find((l) => l.id === location)?.ambientAudio
       ? [{
           id: `${beat.id}-ambience`,
@@ -327,6 +440,7 @@ export async function directScript({ script, world, characters }) {
     shots: scenes.map((s) => ({ sceneId: s.id, shot: s.camera.preset, seconds: s.durationSec })),
     travelling: scenes.reduce((n, s) => n + s.characters.filter((c) => c.motion).length, 0),
     interactions: scenes.reduce((n, s) => n + (s.interactions?.length ?? 0), 0),
+    flights: scenes.reduce((n, s) => n + (s.flights?.length ?? 0), 0),
     warnings: buildWarnings({ scenes, script, world }),
   };
   return { scenes, episode, report };

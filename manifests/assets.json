@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-08T09:09:15.915Z",
+  "generatedAt": "2026-11-08T10:30:28.012Z",
   "generator": "scripts/assets/manifest.mjs",
   "assets": [
     {
@@ -287,8 +287,8 @@
       "kind": "scene-manifest",
       "path": "projects/ep-002/direction-report.json",
       "storage": "git",
-      "bytes": 1249,
-      "sha256": "4252b0dba542dcd5eea4602ba05ede3f78c55c3312f2bd566d11ecef1ac12bc3",
+      "bytes": 1265,
+      "sha256": "91423019dee0c64ba9d97934776fad42469bf871588c5535a23bb82acde2bcf9",
       "drive": null,
       "required": true
     },
@@ -317,8 +317,8 @@
       "kind": "scene-manifest",
       "path": "projects/ep-002/scenes/sc-001-b01-play.json",
       "storage": "git",
-      "bytes": 3343,
-      "sha256": "1f645fbc72dbe8208d0f42197ece9d15d53116323be36020dbae92d5e94ac2d8",
+      "bytes": 3336,
+      "sha256": "3eca3e92d291cecc9327e21f1857be78bb2e7e632a80b96f14b466fb9eff0ccd",
       "drive": null,
       "required": true
     },
@@ -327,8 +327,8 @@
       "kind": "scene-manifest",
       "path": "projects/ep-002/scenes/sc-002-b02-miss.json",
       "storage": "git",
-      "bytes": 2678,
-      "sha256": "ad77f876553191d7666d0379fd65dc5e54fa178ffe0806ded1e94f1ac106e09c",
+      "bytes": 2671,
+      "sha256": "50acb16917bf2814976bc8da39ff86e7d0372e5352f9495cf4fe1a68123165e2",
       "drive": null,
       "required": true
     },
@@ -337,8 +337,8 @@
       "kind": "scene-manifest",
       "path": "projects/ep-002/scenes/sc-003-b03-look.json",
       "storage": "git",
-      "bytes": 2637,
-      "sha256": "60ce4345ac90554ef97b0025c2ab3d8c60c6b55812b3adcf3eab8f0c3595c4d7",
+      "bytes": 2630,
+      "sha256": "7506aebf919b00afcf979509a0bd02514480eb21f0881c7f76e642c788b0c777",
       "drive": null,
       "required": true
     },
@@ -347,8 +347,8 @@
       "kind": "scene-manifest",
       "path": "projects/ep-002/scenes/sc-004-b04-coco.json",
       "storage": "git",
-      "bytes": 3141,
-      "sha256": "4d7af577592a57dfa6dab20d661280f2e93c60f1fd551d21338b226729100882",
+      "bytes": 3134,
+      "sha256": "e2654c1376f7264adb91ca49554114637c14864b7236ce4b3f16542ace3bc8ac",
       "drive": null,
       "required": true
     },
@@ -357,8 +357,8 @@
       "kind": "scene-manifest",
       "path": "projects/ep-002/scenes/sc-005-b05-go.json",
       "storage": "git",
-      "bytes": 3007,
-      "sha256": "41b786c36783ff0e1ced9ddf3e5cd53fa53af2c71b4282e849cdb31826141e34",
+      "bytes": 3719,
+      "sha256": "064fc70ae87b2b959f09cdd6d0b58629ad3c2ff526aa172dfa913cae6584184a",
       "drive": null,
       "required": true
     },
@@ -367,8 +367,8 @@
       "kind": "scene-manifest",
       "path": "projects/ep-002/scenes/sc-006-b06-river.json",
       "storage": "git",
-      "bytes": 2794,
-      "sha256": "a4eace350183d523454f9ad587bf393b3e09289d9b14d343728d8ad71d8a0da4",
+      "bytes": 3130,
+      "sha256": "1b644aeeee959f8d491a838c1c9b2895ee5f10afff20c5966a58101d87041671",
       "drive": null,
       "required": true
     },
@@ -377,8 +377,8 @@
       "kind": "scene-manifest",
       "path": "projects/ep-002/scenes/sc-007-b07-thanks.json",
       "storage": "git",
-      "bytes": 2888,
-      "sha256": "6064a853ed6888803bedf8e3284e9660a9706d0ce519d11fbbf7deb5e8419e59",
+      "bytes": 2881,
+      "sha256": "809c7fc911f176d608afa521f474d7245647f2ff25e0f9a85c3a5f368c99ac62",
       "drive": null,
       "required": true
     },
@@ -387,8 +387,8 @@
       "kind": "scene-manifest",
       "path": "projects/ep-002/scenes/sc-008-b08-cheer.json",
       "storage": "git",
-      "bytes": 2856,
-      "sha256": "7d35024443d0c29ddc7a2ca72228177542d89c12d3b4d189d1fc99c3b80d94b1",
+      "bytes": 3432,
+      "sha256": "5b1b2ee291b15a85e9bbb4d2a3cc2ff104a2c5c26535aa6d1ca0010b5f466c80",
       "drive": null,
       "required": true
     },
@@ -397,8 +397,8 @@
       "kind": "scene-manifest",
       "path": "projects/ep-002/script.json",
       "storage": "git",
-      "bytes": 3810,
-      "sha256": "14d8afc8056b69f9003774a336c67492be21b141e1ddc94f4f86ffac7bb5f543",
+      "bytes": 4048,
+      "sha256": "1d4d8cc094fe9699442478f29502acbc88111d481ded6999a7028b07a988abba",
       "drive": null,
       "required": true
     },
@@ -463,6 +463,26 @@
       "required": true
     },
     {
+      "id": "renders-ep-002-ep-002-2026-11-08t10-13-41",
+      "kind": "video",
+      "path": "renders/ep-002/ep-002-2026-11-08T10-13-41.mp4",
+      "storage": "drive",
+      "bytes": 12207144,
+      "sha256": "bc624c427119be7f72d725c1c9fae3bd3010af3fd8e23221f1c7ea4f1d8416de",
+      "drive": null,
+      "required": true
+    },
+    {
+      "id": "renders-ep-002-ep-002-2026-11-08t10-17-49",
+      "kind": "video",
+      "path": "renders/ep-002/ep-002-2026-11-08T10-17-49.mp4",
+      "storage": "drive",
+      "bytes": 12200279,
+      "sha256": "7fc9a89d0ba4353c0eb90c8830a22867b2e279ed77ea5e26f0dca5a0d710314e",
+      "drive": null,
+      "required": true
+    },
+    {
       "id": "renders-ep-002-ep-002-sc-001-b01-play",
       "kind": "video",
       "path": "renders/ep-002/ep-002-sc-001-b01-play.mp4",
@@ -507,8 +527,8 @@
       "kind": "video",
       "path": "renders/ep-002/ep-002-sc-005-b05-go.mp4",
       "storage": "drive",
-      "bytes": 1086165,
-      "sha256": "e1914437f4b77f811ca450f364334a67bf76d96bee1a838aeba33d816a7130a3",
+      "bytes": 1113170,
+      "sha256": "a6e0c491ac8fd5d045dac64aec8275f92ee70f9681cc857aaf8799302476a76b",
       "drive": null,
       "required": true
     },
@@ -517,8 +537,8 @@
       "kind": "video",
       "path": "renders/ep-002/ep-002-sc-006-b06-river.mp4",
       "storage": "drive",
-      "bytes": 1876021,
-      "sha256": "508cce07a90c4a3ce4f706e7e63e736d707d08c3705e59b841d18253c2306413",
+      "bytes": 1874814,
+      "sha256": "28ed4c2a150d1713e3ac33ff65c3b95b38c03ed0418e558d37eb7853cfbd3ce2",
       "drive": null,
       "required": true
     },
@@ -537,8 +557,448 @@
       "kind": "video",
       "path": "renders/ep-002/ep-002-sc-008-b08-cheer.mp4",
       "storage": "drive",
-      "bytes": 1645453,
-      "sha256": "376181bdd1e88bf3dd29435d5a5864a5732143cb87f6fa25b471a62df3af35f2",
+      "bytes": 1648155,
+      "sha256": "0af61b4028dd000d8ad82a93a99b3cda6752d948f1a3ce4c7eea84e27ec54bb8",
+      "drive": null,
+      "required": true
+    },
+    {
+      "id": "renders-ep-002-verify-acc-28-00",
+      "kind": "video",
+      "path": "renders/ep-002/verify/acc-28.00.png",
+      "storage": "git",
+      "bytes": 724119,
+      "sha256": "f2fa489f1e8d93d3c0826c2e932e70e550768971a93c3643e036a78071dbc7cb",
+      "drive": null,
+      "required": true
+    },
+    {
+      "id": "renders-ep-002-verify-acc-28-60",
+      "kind": "video",
+      "path": "renders/ep-002/verify/acc-28.60.png",
+      "storage": "git",
+      "bytes": 730814,
+      "sha256": "3086f84b5c0f54279f039aa5708075500ae03f0b04c3036894ffdbec43079c52",
+      "drive": null,
+      "required": true
+    },
+    {
+      "id": "renders-ep-002-verify-acc-29-10",
+      "kind": "video",
+      "path": "renders/ep-002/verify/acc-29.10.png",
+      "storage": "git",
+      "bytes": 732037,
+      "sha256": "72c203437bc30430e4266852c9d7a929cff8371f26be4e3358d00f91e62835bc",
+      "drive": null,
+      "required": true
+    },
+    {
+      "id": "renders-ep-002-verify-acc-29-60",
+      "kind": "video",
+      "path": "renders/ep-002/verify/acc-29.60.png",
+      "storage": "git",
+      "bytes": 735090,
+      "sha256": "8bd8b506221d62c13f1314abbabd1986ae60e82206e9c34e713a5e6b0ccb7d7d",
+      "drive": null,
+      "required": true
+    },
+    {
+      "id": "renders-ep-002-verify-bench-remotion",
+      "kind": "video",
+      "path": "renders/ep-002/verify/bench-remotion.png",
+      "storage": "git",
+      "bytes": 735609,
+      "sha256": "a8e98336d506531d63d744f946f13f9873c01169adb76502f0c19187ff4d7161",
+      "drive": null,
+      "required": true
+    },
+    {
+      "id": "renders-ep-002-verify-bench-remotion2",
+      "kind": "video",
+      "path": "renders/ep-002/verify/bench-remotion2.png",
+      "storage": "git",
+      "bytes": 817021,
+      "sha256": "b78caa528dcda36a04893f11f2dadc315363b491a6ac3cf0ed07da8660c67508",
+      "drive": null,
+      "required": true
+    },
+    {
+      "id": "renders-ep-002-verify-bench-svg",
+      "kind": "video",
+      "path": "renders/ep-002/verify/bench-svg.png",
+      "storage": "git",
+      "bytes": 729885,
+      "sha256": "a273a91b3478788c975603b2dd27b0d184cb1ac77e4a41c5811aa32d41a7a229",
+      "drive": null,
+      "required": true
+    },
+    {
+      "id": "renders-ep-002-verify-c-27-60",
+      "kind": "video",
+      "path": "renders/ep-002/verify/c-27.60.png",
+      "storage": "git",
+      "bytes": 712939,
+      "sha256": "ef2c44dd0db0171e15f4ff11e2d03ddacce4c2019ec2bf0297036a1a2365c9ce",
+      "drive": null,
+      "required": true
+    },
+    {
+      "id": "renders-ep-002-verify-c-27-90",
+      "kind": "video",
+      "path": "renders/ep-002/verify/c-27.90.png",
+      "storage": "git",
+      "bytes": 716445,
+      "sha256": "325edd28fbf38dcdaf667f88343fc3e7511ed592ecec85396d7c6c0c036f45a3",
+      "drive": null,
+      "required": true
+    },
+    {
+      "id": "renders-ep-002-verify-c-28-10",
+      "kind": "video",
+      "path": "renders/ep-002/verify/c-28.10.png",
+      "storage": "git",
+      "bytes": 727002,
+      "sha256": "fedf6ce1e2b2b7a0643719ea3c73414439ddf278f25b016a2175daced01a7b67",
+      "drive": null,
+      "required": true
+    },
+    {
+      "id": "renders-ep-002-verify-c-28-35",
+      "kind": "video",
+      "path": "renders/ep-002/verify/c-28.35.png",
+      "storage": "git",
+      "bytes": 722883,
+      "sha256": "a0de1bdb6f896558e877dffc3228fb0f4a85cb50d248f6918d40a6f923016636",
+      "drive": null,
+      "required": true
+    },
+    {
+      "id": "renders-ep-002-verify-c-28-60",
+      "kind": "video",
+      "path": "renders/ep-002/verify/c-28.60.png",
+      "storage": "git",
+      "bytes": 730826,
+      "sha256": "f27d87332f0572b7e4a66a6a8d55eb8e222cc254733464f04487dd96ca305739",
+      "drive": null,
+      "required": true
+    },
+    {
+      "id": "renders-ep-002-verify-c-28-85",
+      "kind": "video",
+      "path": "renders/ep-002/verify/c-28.85.png",
+      "storage": "git",
+      "bytes": 722995,
+      "sha256": "63e214efa641bc0dcf1796aac8479269ae3bad7f2918fdcf1614d748615e3c99",
+      "drive": null,
+      "required": true
+    },
+    {
+      "id": "renders-ep-002-verify-c-29-10",
+      "kind": "video",
+      "path": "renders/ep-002/verify/c-29.10.png",
+      "storage": "git",
+      "bytes": 729510,
+      "sha256": "4f1a9d8ddc0e0eaa03abe6c8528bf10283e6d1d317f3ec928f340737ced6f1e6",
+      "drive": null,
+      "required": true
+    },
+    {
+      "id": "renders-ep-002-verify-c-29-60",
+      "kind": "video",
+      "path": "renders/ep-002/verify/c-29.60.png",
+      "storage": "git",
+      "bytes": 732083,
+      "sha256": "30eff97be439b3c9e9097fff3ef999abcad0af14c6a0dcb665c9db601ae82a8b",
+      "drive": null,
+      "required": true
+    },
+    {
+      "id": "renders-ep-002-verify-c-30-50",
+      "kind": "video",
+      "path": "renders/ep-002/verify/c-30.50.png",
+      "storage": "git",
+      "bytes": 721663,
+      "sha256": "98245b5566e923ac882929d6aa348626678c90914b4cc409d13b328c03ef30a8",
+      "drive": null,
+      "required": true
+    },
+    {
+      "id": "renders-ep-002-verify-depth-1-6",
+      "kind": "video",
+      "path": "renders/ep-002/verify/depth-1.6.png",
+      "storage": "git",
+      "bytes": 651604,
+      "sha256": "fdd9e19ea40343dc5729a0de2d7fce1d5d2c771f59847c982e87265433f80aa4",
+      "drive": null,
+      "required": true
+    },
+    {
+      "id": "renders-ep-002-verify-depth-2-55",
+      "kind": "video",
+      "path": "renders/ep-002/verify/depth-2.55.png",
+      "storage": "git",
+      "bytes": 646409,
+      "sha256": "35efa609226d3bbc8d5093636dce1d4fa0646b539133d856d57c4c46afeb3a95",
+      "drive": null,
+      "required": true
+    },
+    {
+      "id": "renders-ep-002-verify-depth-2-9",
+      "kind": "video",
+      "path": "renders/ep-002/verify/depth-2.9.png",
+      "storage": "git",
+      "bytes": 645746,
+      "sha256": "9f4fb9a0aaa8b0225433a6709bb61bc4902006fb2884ded2e06fb8c65ffaf238",
+      "drive": null,
+      "required": true
+    },
+    {
+      "id": "renders-ep-002-verify-f-27-9",
+      "kind": "video",
+      "path": "renders/ep-002/verify/f-27.9.png",
+      "storage": "git",
+      "bytes": 716559,
+      "sha256": "ffa8590e5599880c91755a70a8b03f343b760a42cb0d319397c051f2633b4074",
+      "drive": null,
+      "required": true
+    },
+    {
+      "id": "renders-ep-002-verify-f-28-35",
+      "kind": "video",
+      "path": "renders/ep-002/verify/f-28.35.png",
+      "storage": "git",
+      "bytes": 722866,
+      "sha256": "ecc01ed02e30e69d962ea89805f2c4fdd40fb49c30416421c20e3d1439eb1a0f",
+      "drive": null,
+      "required": true
+    },
+    {
+      "id": "renders-ep-002-verify-f-28-9",
+      "kind": "video",
+      "path": "renders/ep-002/verify/f-28.9.png",
+      "storage": "git",
+      "bytes": 723630,
+      "sha256": "396125a336237f581e4161083803a426db1662c52aa5fa21fa7cec95e7b0588b",
+      "drive": null,
+      "required": true
+    },
+    {
+      "id": "renders-ep-002-verify-f-29-2",
+      "kind": "video",
+      "path": "renders/ep-002/verify/f-29.2.png",
+      "storage": "git",
+      "bytes": 729343,
+      "sha256": "fd62b65144badd3335f517f84d53baf4f733c628ae6eee7e0512bfb6811a008e",
+      "drive": null,
+      "required": true
+    },
+    {
+      "id": "renders-ep-002-verify-f-29-5",
+      "kind": "video",
+      "path": "renders/ep-002/verify/f-29.5.png",
+      "storage": "git",
+      "bytes": 727744,
+      "sha256": "5fa1b9a0a1fb0c5f5cc1d4a83d81772a8caf474e9a6edc4d70d836c791a54487",
+      "drive": null,
+      "required": true
+    },
+    {
+      "id": "renders-ep-002-verify-f-33-4",
+      "kind": "video",
+      "path": "renders/ep-002/verify/f-33.4.png",
+      "storage": "git",
+      "bytes": 702853,
+      "sha256": "e9c6251983fb28b667f387e50c1623ffb454ec3b7e61a5ae3953c52adea45e2c",
+      "drive": null,
+      "required": true
+    },
+    {
+      "id": "renders-ep-002-verify-f-38-5",
+      "kind": "video",
+      "path": "renders/ep-002/verify/f-38.5.png",
+      "storage": "git",
+      "bytes": 714531,
+      "sha256": "4dabcfa9e61f083af492f250700a9b8f24a0601d1fe03b024c849d823582c0af",
+      "drive": null,
+      "required": true
+    },
+    {
+      "id": "renders-ep-002-verify-hand-2-6",
+      "kind": "video",
+      "path": "renders/ep-002/verify/hand-2.6.png",
+      "storage": "git",
+      "bytes": 648256,
+      "sha256": "e49a2b47635380425e47b5b8d3dd2082a39dda1ebbc6886499d1f9601e33e475",
+      "drive": null,
+      "required": true
+    },
+    {
+      "id": "renders-ep-002-verify-hand-2-9",
+      "kind": "video",
+      "path": "renders/ep-002/verify/hand-2.9.png",
+      "storage": "git",
+      "bytes": 646347,
+      "sha256": "66f4296f263e92e60b46d63375f584eeffb0d81657130e048442902a35071f5d",
+      "drive": null,
+      "required": true
+    },
+    {
+      "id": "renders-ep-002-verify-hand-5-2",
+      "kind": "video",
+      "path": "renders/ep-002/verify/hand-5.2.png",
+      "storage": "git",
+      "bytes": 616691,
+      "sha256": "50b35c03c5b36799188c371c2fda88a8d48b5602d029155e7b0506366171f5cd",
+      "drive": null,
+      "required": true
+    },
+    {
+      "id": "renders-ep-002-verify-held-2-55",
+      "kind": "video",
+      "path": "renders/ep-002/verify/held-2.55.png",
+      "storage": "git",
+      "bytes": 646724,
+      "sha256": "60cbc6c6bbefdde556deb2a5373a45f9e184b16a1377d786725dc8591df39edc",
+      "drive": null,
+      "required": true
+    },
+    {
+      "id": "renders-ep-002-verify-held-2-9",
+      "kind": "video",
+      "path": "renders/ep-002/verify/held-2.9.png",
+      "storage": "git",
+      "bytes": 646145,
+      "sha256": "6ce7ad151ff7d0fbd1990f1d2e1c74e33268156ab1c76f0903f5804641883ed7",
+      "drive": null,
+      "required": true
+    },
+    {
+      "id": "renders-ep-002-verify-held-5-2",
+      "kind": "video",
+      "path": "renders/ep-002/verify/held-5.2.png",
+      "storage": "git",
+      "bytes": 616448,
+      "sha256": "9192806717ef5405d9d285f9e4a52fcd8581b573095c51efacb2387526463b7a",
+      "drive": null,
+      "required": true
+    },
+    {
+      "id": "renders-ep-002-verify-t-27-60",
+      "kind": "video",
+      "path": "renders/ep-002/verify/t-27.60.png",
+      "storage": "git",
+      "bytes": 713014,
+      "sha256": "12594da96b5d082d46e423f78413486d8918f861a60bb1e60e3f50a6dade0012",
+      "drive": null,
+      "required": true
+    },
+    {
+      "id": "renders-ep-002-verify-t-27-90",
+      "kind": "video",
+      "path": "renders/ep-002/verify/t-27.90.png",
+      "storage": "git",
+      "bytes": 716559,
+      "sha256": "ffa8590e5599880c91755a70a8b03f343b760a42cb0d319397c051f2633b4074",
+      "drive": null,
+      "required": true
+    },
+    {
+      "id": "renders-ep-002-verify-t-28-20",
+      "kind": "video",
+      "path": "renders/ep-002/verify/t-28.20.png",
+      "storage": "git",
+      "bytes": 722649,
+      "sha256": "24cee1b30706dc1dc2470b854ac95ad3c7a28c848b148a43fbfa7dc2ce950e38",
+      "drive": null,
+      "required": true
+    },
+    {
+      "id": "renders-ep-002-verify-t-28-50",
+      "kind": "video",
+      "path": "renders/ep-002/verify/t-28.50.png",
+      "storage": "git",
+      "bytes": 722963,
+      "sha256": "72a31109d820c2a5ffaad46211a28dff218294c6d5bad51ec024690c624c2915",
+      "drive": null,
+      "required": true
+    },
+    {
+      "id": "renders-ep-002-verify-t-28-80",
+      "kind": "video",
+      "path": "renders/ep-002/verify/t-28.80.png",
+      "storage": "git",
+      "bytes": 721350,
+      "sha256": "d03b408e7c58d2da7b25be2b35f7d64e5e47b13ff3913c74fa8c2d25c0959ce2",
+      "drive": null,
+      "required": true
+    },
+    {
+      "id": "renders-ep-002-verify-t-29-10",
+      "kind": "video",
+      "path": "renders/ep-002/verify/t-29.10.png",
+      "storage": "git",
+      "bytes": 732037,
+      "sha256": "72c203437bc30430e4266852c9d7a929cff8371f26be4e3358d00f91e62835bc",
+      "drive": null,
+      "required": true
+    },
+    {
+      "id": "renders-ep-002-verify-t-29-40",
+      "kind": "video",
+      "path": "renders/ep-002/verify/t-29.40.png",
+      "storage": "git",
+      "bytes": 727392,
+      "sha256": "f2b123b9aa5e93ad1a721770b286e17661a8d73bb259b718d16a05829913d902",
+      "drive": null,
+      "required": true
+    },
+    {
+      "id": "renders-ep-002-verify-t-29-70",
+      "kind": "video",
+      "path": "renders/ep-002/verify/t-29.70.png",
+      "storage": "git",
+      "bytes": 732175,
+      "sha256": "257b50cb3e4cfdd1852b4788740087fd69e032b29c96abc3a0647a5dfb6ee459",
+      "drive": null,
+      "required": true
+    },
+    {
+      "id": "renders-ep-002-verify-zoom-hand",
+      "kind": "video",
+      "path": "renders/ep-002/verify/zoom-hand.png",
+      "storage": "git",
+      "bytes": 37329,
+      "sha256": "0a31eebac89a8e678ab4b7b4e132e05fe121b181a45bc3d2604f0ca18e04b5c4",
+      "drive": null,
+      "required": true
+    },
+    {
+      "id": "renders-ep-002-verify-zoom-held",
+      "kind": "video",
+      "path": "renders/ep-002/verify/zoom-held.png",
+      "storage": "git",
+      "bytes": 50062,
+      "sha256": "b3569802b36acff9314b355b61a6ff8237fee3190afe313b670734a1ca330094",
+      "drive": null,
+      "required": true
+    },
+    {
+      "id": "renders-ep-002-verify-zoom-pip-28-85",
+      "kind": "video",
+      "path": "renders/ep-002/verify/zoom-pip-28.85.png",
+      "storage": "git",
+      "bytes": 91875,
+      "sha256": "fef1e5facd14bf0d811025469c9b51fadff0d1e6cf61b01d7828c3d5dbf9ccb5",
+      "drive": null,
+      "required": true
+    },
+    {
+      "id": "renders-ep-002-verify-zoom-pip-29-6",
+      "kind": "video",
+      "path": "renders/ep-002/verify/zoom-pip-29.6.png",
+      "storage": "git",
+      "bytes": 93201,
+      "sha256": "4e6d3d62dac18335095434cdbafa276596a41b882709ee2fad77b2626ef2c072",
       "drive": null,
       "required": true
     }

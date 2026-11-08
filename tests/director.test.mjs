@@ -272,3 +272,126 @@ test('castIndex keeps the lead first even if listed later', () => {
   assert.equal(cast.lead, 'bobby');
   assert.equal(cast.get('pip').role, 'sidekick');
 });
+
+test('a throw is solved between the actor and the target marks', async () => {
+  const { world, characters } = await loadFixtures();
+  const script = miniScript();
+  script.beats[0].throw = { atSec: 1.2, durationSec: 0.8 };
+  script.beats[0].target = 'pip';
+  const { scenes } = await directScript({ script, world, characters });
+  const flight = scenes[0].flights?.[0];
+  assert.ok(flight, 'the beat must produce a flight');
+  const actorX = scenes[0].characters.find((c) => c.characterId === 'bobby').position.x;
+  const targetX = scenes[0].characters.find((c) => c.characterId === 'pip').position.x;
+  // The ball leaves near the thrower and arrives near the catcher.
+  assert.ok(Math.abs(flight.fromX - actorX) < 0.12, 'throw must start at the thrower');
+  assert.ok(Math.abs(flight.toX - targetX) < 0.12, 'throw must land at the catcher');
+  assert.ok(flight.endSec > flight.startSec);
+});
+
+test('a throw without a target is refused with a usable hint', async () => {
+  const { world, characters } = await loadFixtures();
+  const script = miniScript();
+  script.beats[0].throw = { atSec: 1, durationSec: 0.6 };
+  delete script.beats[0].target;
+  await assert.rejects(
+    () => directScript({ script, world, characters }),
+    (err) => {
+      assert.match(err.message, /names no target/);
+      assert.match(err.hint, /"target"/);
+      return true;
+    },
+  );
+});
+
+test('a throw that would outlast its scene is refused, not clipped', async () => {
+  const { world, characters } = await loadFixtures();
+  const script = miniScript();
+  script.beats[0].throw = { atSec: 1, durationSec: 60 };
+  await assert.rejects(
+    () => directScript({ script, world, characters }),
+    /throw ends at .* but the scene is/,
+  );
+});
+
+test('a thrown prop is never a bench or a tree', async () => {
+  // Regression: the hero prop at the playground is the bench, and it was thrown across the
+  // yard before carryable props were preferred.
+  const { world, characters } = await loadFixtures();
+  const script = {
+    ...miniScript(),
+    locations: ['playground'],
+    beats: [{
+      id: 'b1', location: 'playground', action: 'celebrate', actor: 'bobby', target: 'pip',
+      emotion: 'happy', throw: { atSec: 1, durationSec: 0.8 },
+    }],
+  };
+  const { scenes } = await directScript({ script, world, characters });
+  const flight = scenes[0].flights?.[0];
+  assert.ok(flight, 'celebrate with a throw must produce a flight');
+  assert.ok(!/bench|tree|rock|house/.test(flight.propId), `threw an unwieldy prop: ${flight.propId}`);
+});
+
+test('depth on a beat produces a z ramp and therefore a changing scale', async () => {
+  const { world, characters } = await loadFixtures();
+  const script = miniScript();
+  script.beats[0].depth = 'away';
+  const { scenes } = await directScript({ script, world, characters });
+  const actor = scenes[0].characters.find((c) => c.characterId === 'bobby');
+  assert.ok(actor.motion, 'depth needs a motion track');
+  const zs = actor.motion.path.map((k) => k.z).filter((z) => z !== undefined);
+  assert.ok(zs.length >= 2, 'depth must ramp, not be a single value');
+  assert.ok(zs.at(-1) > zs[0], 'walking away increases depth');
+});
+
+test('a beat without depth leaves the motion track free of z', async () => {
+  const { world, characters } = await loadFixtures();
+  const { scenes } = await directScript({ script: miniScript(), world, characters });
+  for (const scene of scenes) {
+    for (const c of scene.characters) {
+      if (!c.motion) continue;
+      assert.ok(c.motion.path.every((k) => k.z === undefined), 'unrequested depth must not appear');
+    }
+  }
+});
+
+test('a throw hands the prop to the catcher instead of giving it back', async () => {
+  // Regression: the carry window used to run to the end of the scene, so after the ball landed
+  // it snapped back into the thrower's hands and the catcher was left miming.
+  const { world, characters } = await loadFixtures();
+  const script = miniScript();
+  // A line long enough that the catch has room to read; a 2 s scene ends as the ball lands.
+  script.beats[0].line = 'Ayo kita ke sungai sekarang, ikuti aku dan jangan berhenti.';
+  script.beats[0].interact = 'hold';
+  script.beats[0].target = 'pip';
+  script.beats[0].throw = { atSec: 1.4, durationSec: 0.85 };
+  const { scenes } = await directScript({ script, world, characters });
+  const scene = scenes[0];
+  const flight = scene.flights[0];
+  const holds = scene.interactions.filter((i) => i.propId === flight.propId);
+
+  const thrower = holds.find((i) => i.characterId === 'bobby');
+  const catcher = holds.find((i) => i.characterId === 'pip');
+  assert.ok(catcher, 'the catcher must hold the prop after the catch');
+
+  // Nobody carries the ball through its own flight.
+  for (const hold of holds) {
+    const overlaps = hold.fromSec < flight.endSec && hold.toSec > flight.startSec;
+    assert.ok(!overlaps, `${hold.characterId} carries the prop while it is airborne`);
+  }
+  // The thrower lets go at release; the catcher takes it at landing.
+  if (thrower) assert.ok(Math.abs(thrower.toSec - flight.startSec) < 1e-6);
+  assert.ok(Math.abs(catcher.fromSec - flight.endSec) < 1e-6);
+  assert.ok(catcher.toSec > catcher.fromSec);
+});
+
+test('a throw without hold still gives the catcher the prop', async () => {
+  const { world, characters } = await loadFixtures();
+  const script = miniScript();
+  script.beats[0].target = 'pip';
+  script.beats[0].throw = { atSec: 1.2, durationSec: 0.8 };
+  script.beats[0].interact = 'touch';
+  const { scenes } = await directScript({ script, world, characters });
+  const catcher = scenes[0].interactions.find((i) => i.characterId === 'pip');
+  assert.ok(catcher, 'even touch-beats must hand the caught prop over');
+});

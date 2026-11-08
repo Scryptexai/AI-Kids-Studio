@@ -12,25 +12,25 @@
     "keyframes": [
       {
         "t": 0,
-        "x": 0.36,
+        "x": 0.625,
         "y": 0.512,
         "zoom": 0.9682
       },
       {
         "t": 1.6,
-        "x": 0.395,
+        "x": 0.66,
         "y": 0.5,
         "zoom": 1.03
       },
       {
         "t": 4.9249,
-        "x": 0.415,
+        "x": 0.68,
         "y": 0.494,
         "zoom": 1.0815
       },
       {
         "t": 6.006,
-        "x": 0.415,
+        "x": 0.68,
         "y": 0.494,
         "zoom": 1.0815
       }
@@ -136,6 +136,39 @@
       "text": "Kalau begitu kita ke sungai! Ayo, ikuti aku!"
     }
   ],
+  "interactions": [
+    {
+      "propId": "toy-ball",
+      "characterId": "bobby",
+      "fromSec": 1,
+      "toSec": 1.4,
+      "attach": "hands",
+      "note": "explore: bobby carries toy-ball"
+    },
+    {
+      "propId": "toy-ball",
+      "characterId": "pip",
+      "fromSec": 2.25,
+      "toSec": 5.506,
+      "attach": "hands",
+      "note": "explore: pip catches toy-ball"
+    }
+  ],
+  "flights": [
+    {
+      "propId": "toy-ball",
+      "fromCharacterId": "bobby",
+      "toCharacterId": "pip",
+      "fromX": 0.61,
+      "fromY": 0.48,
+      "toX": 0.79,
+      "toY": 0.458,
+      "startSec": 1.4,
+      "endSec": 2.25,
+      "spin": true,
+      "note": "explore: bobby throws toy-ball to pip"
+    }
+  ],
   "audioTracks": [
     {
       "id": "b05-go-ambience",
@@ -148,10 +181,10 @@
     "action": "explore",
     "intent": "explore",
     "actor": "bobby",
-    "target": "coco",
-    "prop": null,
+    "target": "pip",
+    "prop": "toy-ball",
     "shot": "wide",
-    "focusX": 0.395,
+    "focusX": 0.66,
     "widenedForSpread": false,
     "entry": "walk-to",
     "lineEstimated": false,

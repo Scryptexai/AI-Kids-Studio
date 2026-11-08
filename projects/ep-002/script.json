@@ -82,10 +82,15 @@
       "emotion": "excited",
       "intensity": 0.75,
       "actor": "bobby",
-      "target": "coco",
+      "target": "pip",
       "line": "Kalau begitu kita ke sungai! Ayo, ikuti aku!",
       "notes": "Transition beat. Location changes on the next scene.",
-      "interact": "none"
+      "interact": "hold",
+      "throw": {
+        "atSec": 1.4,
+        "durationSec": 0.85,
+        "spin": true
+      }
     },
     {
       "id": "b06-river",
@@ -98,7 +103,8 @@
       "prop": "flower-patch",
       "line": "Ada di sini! Bolanya tersangkut di antara bunga-bunga ini.",
       "notes": "Payoff of the search. New location means the director establishes before the line.",
-      "interact": "none"
+      "interact": "none",
+      "depth": "away"
     },
     {
       "id": "b07-thanks",
@@ -120,7 +126,13 @@
       "actor": "bobby",
       "target": "coco",
       "line": "Hore! Kita bermain lagi, dan kali ini kita jaga bolanya bersama-sama.",
-      "notes": "Close on joy, not on the lesson."
+      "notes": "Close on joy, not on the lesson.",
+      "throw": {
+        "atSec": 2.2,
+        "durationSec": 1.0,
+        "arc": 0.42,
+        "spin": true
+      }
     }
   ],
   "concept": {

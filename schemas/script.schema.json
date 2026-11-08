@@ -163,6 +163,40 @@
             ],
             "default": "touch",
             "description": "How the actor treats the beat's prop. hold = picks it up and carries it; touch = interacts but it stays put; none = the prop is scenery for this beat."
+          },
+          "throw": {
+            "type": "object",
+            "description": "The beat's prop leaves the actor and is caught by `target`. The director solves the arc from the two characters' marks; only the timing is authored.",
+            "additionalProperties": false,
+            "properties": {
+              "atSec": {
+                "type": "number",
+                "minimum": 0,
+                "description": "When the throw starts, relative to the scene start."
+              },
+              "durationSec": {
+                "type": "number",
+                "exclusiveMinimum": 0,
+                "description": "Flight time. Shorter reads as a toss, longer as a lob."
+              },
+              "arc": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1
+              },
+              "spin": {
+                "type": "boolean"
+              }
+            }
+          },
+          "depth": {
+            "enum": [
+              "toward-camera",
+              "away",
+              "level"
+            ],
+            "default": "level",
+            "description": "Whether the actor travels into the picture (shrinking) or out of it."
           }
         }
       }

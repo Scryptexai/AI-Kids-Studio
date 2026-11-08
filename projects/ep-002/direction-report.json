@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-08T09:07:56.616Z",
+  "generatedAt": "2026-11-08T10:28:33.675Z",
   "scriptId": "ep-002-script",
   "episodeId": "ep-002",
   "worldId": "bobby-forest",
@@ -59,8 +59,9 @@
       "seconds": 7.845
     }
   ],
-  "travelling": 3,
-  "interactions": 1,
+  "travelling": 4,
+  "interactions": 4,
+  "flights": 2,
   "warnings": [],
   "script": "projects/ep-002/script.json"
 }

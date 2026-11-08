@@ -1,4 +1,4 @@
-import { sampleMotion, travelDirection } from './motion.mjs';
+import { sampleMotionWithDepth, travelDirection } from './motion.mjs';
 
 // Placeholder character rig drawn as flat vector parts.
 //
@@ -124,7 +124,13 @@ export function renderCharacter({ character, instance, tSec, compositionHeight, 
   // A motion track overrides the static position: this is what lets a character actually
   // travel across the frame instead of walking in place. Sampling is shared with the Remotion
   // backend so both move identically.
-  const motion = sampleMotion(instance.motion, tSec, instance.position);
+  // Depth-aware sampling: a character walking away shrinks and their ground line rises,
+  // driven by one `z` value rather than a second hand-authored scale track.
+  const motion = sampleMotionWithDepth(instance.motion, tSec, {
+    ...instance.position,
+    depth: instance.depth ?? 0.5,
+  });
+  const effectiveScale = instance.scale * motion.scale;
   const travelling = motion.moving && instance.motion;
   const st = animationState(instance.animation, tSec, character.id);
 
@@ -139,7 +145,7 @@ export function renderCharacter({ character, instance, tSec, compositionHeight, 
 
   const groundY = motion.y * compositionHeight;
   const baseHeight = 205 * (character.visual.bodyProportions.heightUnits / 4.2);
-  const h = baseHeight * instance.scale;
+  const h = baseHeight * effectiveScale;
   const headR = h * 0.16 * character.visual.bodyProportions.headScale;
   const bodyW = h * 0.24;
   const bodyH = h * 0.34;
@@ -189,11 +195,7 @@ export function renderCharacter({ character, instance, tSec, compositionHeight, 
   // arms: a hanging arm points +y, so a positive SVG rotation swings the RIGHT arm
   // outward and the LEFT arm inward — hence the per-side direction multiplier.
   for (const dir of [-1, 1]) {
-    const swing = dir === 1 ? st.armSwing : -st.armSwing;
-    const raise = st.raiseSide === 0 || st.raiseSide === dir ? st.armRaise : 0;
-    // SVG's rotate() maps a downward vector (0,1) to (-sin, cos), so a positive angle
-    // swings the right arm ACROSS the body. Negate: negative = outward for the right arm.
-    const rotation = -(dir * 8 + swing * 26 + dir * raise * 115);
+    const rotation = armRotation(st, dir);
     const ax = cx + dir * bodyW * 0.5;
     const ay = bodyTop + bodyH * 0.16;
     const armLen = bodyH * 0.82;
@@ -214,6 +216,66 @@ export function renderCharacter({ character, instance, tSec, compositionHeight, 
   );
 
   return parts.join('');
+}
+
+/**
+ * Rotation of one arm in the rig, before SVG transform. SVG's rotate() maps a downward vector
+ * (0,1) to (-sin, cos), so a positive angle swings the right arm ACROSS the body. Negated:
+ * negative = outward for the right arm.
+ */
+function armRotation(st, dir) {
+  const swing = dir === 1 ? st.armSwing : -st.armSwing;
+  const raise = st.raiseSide === 0 || st.raiseSide === dir ? st.armRaise : 0;
+  return -(dir * 8 + swing * 26 + dir * raise * 115);
+}
+
+/**
+ * Where a character's hand actually is, in composition pixels.
+ *
+ * The rig draws arms as a rect rotated about the shoulder, so the hand is not at a fixed
+ * offset from the body — it swings with the pose. Guessing (x + 0.06, y - 0.34h) put a carried
+ * ball a head's width away from the hand. This computes the same transform the rig applies, so
+ * a carried prop and the drawn hand are the same point by construction.
+ *
+ * @param {'left'|'right'} side Which hand. Defaults to `right`.
+ */
+export function handPosition({ character, instance, tSec, compositionHeight, compositionWidth, side = 'right' }) {
+  const motion = sampleMotionWithDepth(instance.motion, tSec, {
+    ...instance.position,
+    depth: instance.depth ?? 0.5,
+  });
+  const effectiveScale = instance.scale * motion.scale;
+  const travelling = motion.moving && instance.motion;
+  const st = animationState(instance.animation, tSec, character.id);
+  if (travelling) {
+    const phase = (tSec * 1.1 + 0.25) * Math.PI * 2;
+    st.legSwing = Math.sin(phase * 1.6) * 0.55;
+    st.armSwing = -Math.sin(phase * 1.6) * 0.4;
+    st.bobY = Math.abs(Math.sin(phase * 1.6)) * -3;
+  }
+
+  const baseHeight = 205 * (character.visual.bodyProportions.heightUnits / 4.2);
+  const h = baseHeight * effectiveScale;
+  const headR = h * 0.16 * character.visual.bodyProportions.headScale;
+  const bodyW = h * 0.24;
+  const bodyH = h * 0.34;
+  const legLen = h * 0.26;
+
+  const cx = motion.x * compositionWidth;
+  const footY = motion.y * compositionHeight + st.hopY;
+  const bodyTop = footY - legLen - bodyH;
+
+  const dir = side === 'left' ? -1 : 1;
+  const ax = cx + dir * bodyW * 0.5;
+  const ay = bodyTop + bodyH * 0.16;
+  const armLen = bodyH * 0.82;
+
+  // Same rotation the rig draws with: rotate(angle, ax, ay) applied to the hand point. The hand
+  // hangs straight below the shoulder, so the delta is (0, armLen) — no x component.
+  const rad = (armRotation(st, dir) * Math.PI) / 180;
+  const hx = ax - armLen * Math.sin(rad);
+  const hy = ay + armLen * Math.cos(rad);
+  return { x: hx / compositionWidth, y: hy / compositionHeight, px: hx, py: hy };
 }
 
 function renderFace({ cx, headCy, headR, facing, state, palette }) {

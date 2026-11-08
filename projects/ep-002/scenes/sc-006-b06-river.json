@@ -61,7 +61,25 @@
       "facing": "right",
       "expression": "excited",
       "animation": "surprise",
-      "entranceAt": 0
+      "entranceAt": 0,
+      "motion": {
+        "path": [
+          {
+            "t": 0,
+            "x": 0.22,
+            "y": 0.82,
+            "z": 0.5
+          },
+          {
+            "t": 6.438,
+            "x": 0.22,
+            "y": 0.82,
+            "z": 0.9
+          }
+        ],
+        "ease": "ease-in-out",
+        "durationSec": 6.438
+      }
     },
     {
       "characterId": "coco",

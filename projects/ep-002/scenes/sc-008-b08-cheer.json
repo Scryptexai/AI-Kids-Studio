@@ -126,6 +126,32 @@
       "text": "bersama-sama."
     }
   ],
+  "interactions": [
+    {
+      "propId": "flower-patch",
+      "characterId": "coco",
+      "fromSec": 3.2,
+      "toSec": 7.345,
+      "attach": "hands",
+      "note": "celebrate: coco catches flower-patch"
+    }
+  ],
+  "flights": [
+    {
+      "propId": "flower-patch",
+      "fromCharacterId": "bobby",
+      "toCharacterId": "coco",
+      "fromX": 0.55,
+      "fromY": 0.48,
+      "toX": 0.2,
+      "toY": 0.458,
+      "startSec": 2.2,
+      "endSec": 3.2,
+      "arc": 0.42,
+      "spin": true,
+      "note": "celebrate: bobby throws flower-patch to coco"
+    }
+  ],
   "audioTracks": [
     {
       "id": "b08-cheer-ambience",
@@ -139,7 +165,7 @@
     "intent": "celebrate",
     "actor": "bobby",
     "target": "coco",
-    "prop": null,
+    "prop": "flower-patch",
     "shot": "wide",
     "focusX": 0.335,
     "widenedForSpread": false,

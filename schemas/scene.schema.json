@@ -192,6 +192,12 @@
                       "type": "number",
                       "minimum": -0.4,
                       "maximum": 1.4
+                    },
+                    "z": {
+                      "type": "number",
+                      "minimum": 0,
+                      "maximum": 1,
+                      "description": "Depth lane. Driving z also drives scale and ground line, so walking away needs no scale keyframes."
                     }
                   }
                 }
@@ -212,6 +218,12 @@
                 "description": "How long the travel leg takes. Informational; sampling uses the path times."
               }
             }
+          },
+          "depth": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1,
+            "description": "Static depth when there is no motion track. 0.5 is the default lane."
           }
         }
       }
@@ -447,6 +459,69 @@
               "ground"
             ],
             "description": "Where the prop is drawn while attached."
+          },
+          "note": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "flights": {
+      "type": "array",
+      "description": "Props travelling on their own arc between two marks (a throw). Distinct from interactions: an attached prop follows a hand, a flying prop follows physics.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "propId",
+          "fromX",
+          "fromY",
+          "toX",
+          "toY",
+          "startSec",
+          "endSec"
+        ],
+        "properties": {
+          "propId": {
+            "type": "string"
+          },
+          "fromCharacterId": {
+            "type": "string",
+            "description": "Who releases the prop. The flight starts at that character's hand."
+          },
+          "toCharacterId": {
+            "type": "string",
+            "description": "Who catches the prop. The flight ends at that character's hand."
+          },
+          "fromX": {
+            "type": "number"
+          },
+          "fromY": {
+            "type": "number"
+          },
+          "toX": {
+            "type": "number"
+          },
+          "toY": {
+            "type": "number"
+          },
+          "startSec": {
+            "type": "number",
+            "minimum": 0
+          },
+          "endSec": {
+            "type": "number",
+            "minimum": 0
+          },
+          "arc": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1,
+            "description": "Height of the apex as a fraction of frame height. Defaults to a duration-derived value."
+          },
+          "spin": {
+            "type": "boolean",
+            "description": "Rotate the prop in flight (a ball should)."
           },
           "note": {
             "type": "string"
