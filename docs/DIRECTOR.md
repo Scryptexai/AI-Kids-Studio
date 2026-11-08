@@ -266,9 +266,46 @@ Three bugs it fixes, each found only by looking at frames:
 does, a flight starts and ends on real hands, a held prop is never painted as scenery, and
 `stageProps` is a pure function of time (both backends calling it must agree).
 
+### 7.4 Weight and timing (implemented)
+
+Joints alone still moved like a cursor: a body that starts and stops instantly, feet that skate.
+`apps/renderer/timing.mjs` adds the three things a sine wave cannot express.
+
+**The gait is driven by ground covered, not by the clock.** Walk and run used to be plain sines,
+so a character crossing the frame slowly and one sprinting had the same cadence — the contact foot
+slid. Now `travelProgress` measures how far the character has actually moved, `gaitFor` sizes the
+stride from its real speed, and the leg cycle advances one full stride per stride of ground:
+
+| speed (frame widths/s) | stride | steps/s | reads as |
+|---|---|---|---|
+| 0.10 | ~0.20 | 0.5 | slow amble |
+| 0.26 | ~0.20 | 1.3 | normal walk |
+| 0.80 | ~0.20 | 3.4 | run (knees fold harder, body leans) |
+
+Easing is honoured: a character easing into a stop slows its steps with it.
+
+**Arriving has weight.** `arrivalPulse` compresses the body when travel ends and recovers over
+~0.34 s — the follow-through half of the move. Measured on ep-002: squash 0.069 at the moment of
+arrival, decaying to 0 by 0.4 s later.
+
+**A move is anticipated.** `anticipateFor` coils the body for ~0.22 s before travel starts: hips
+drop, knees fold, torso tips back against the direction of travel. Measured peak anticipation 0.91
+in `sc-001-b01-play`.
+
+**And a locomotion pose only applies while moving.** The director labels a whole scene `walk` when
+the beat includes travel, so a character kept marching on the spot after it arrived — legs
+cycling, no ground covered. The rig now falls back to `idle` once travel ends (overridable per
+instance with `restAnimation`).
+
 ## 8. Limits (do not claim otherwise)
 
-* **No inverse kinematics.** Arms swing on a fixed rotation; a character does not reach for a
+* **No inverse kinematics.** Limb joints follow the animation state, not a target; an arm does not
+  reach for a specific point. Prop attachment uses the drawn hand, but the hand is not solved to
+  the prop.
+* **No keyframed phrasing.** Poses are still procedural functions of time, now with anticipation,
+  landing compression and overshoot layered on. There is no pose-to-pose interpolation between
+  authored keys, so a performance cannot be timed like hand-drawn animation.
+* **Arms swing on a fixed rotation; a character does not reach for a
   specific point on an object. Prop attachment is "at the hands", not "gripping the handle".
 * **No object physics.** Thrown props follow a scripted parabola — they do not bounce, roll,
   collide, or get blocked by anything. There is no simulation, no collision, and no restitution.

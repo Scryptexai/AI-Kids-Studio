@@ -12,6 +12,7 @@
 
 import { sampleMotionWithDepth, travelDirection } from './motion.mjs';
 import { animationState } from './state.mjs';
+import { gaitFor, travelProgress, anticipateFor, arrivalPulse } from './timing.mjs';
 
 const rad = (deg) => (deg * Math.PI) / 180;
 const clamp = (v, lo, hi) => Math.min(hi, Math.max(lo, v));
@@ -46,18 +47,70 @@ export function solvePose({ character, instance, tSec, compositionHeight, compos
   });
   const effectiveScale = instance.scale * motion.scale;
   const travelling = forceTravelling ?? Boolean(motion.moving && instance.motion);
-  const st = animationState(instance.animation, tSec, character.id);
+
+  // A locomotion pose only makes sense while the character is actually moving. The director
+  // labels a whole scene 'walk' when the beat includes travel, so a character kept marching on
+  // the spot after it had arrived — legs cycling, no ground covered. Standing still is a pose.
+  const LOCMOTION = new Set(['walk', 'run']);
+  const nominal = instance.animation;
+  const effectiveAnimation = !travelling && LOCMOTION.has(nominal) ? (instance.restAnimation ?? 'idle') : nominal;
+  const st = animationState(effectiveAnimation, tSec, character.id);
 
   // While travelling the limbs must swing even if the beat's pose is something else — a character
   // can walk and talk at the same time.
+  //
+  // The cycle is driven by distance covered, not by the clock. A clock-driven cycle keeps the
+  // same tempo however fast the character crosses the frame, so the contact foot skates. Here
+  // one stride of ground = one full leg cycle, and easing into a stop slows the steps with it.
+  let gait = null;
   if (travelling) {
-    const phase = (tSec * 1.1 + 0.25) * Math.PI * 2;
-    const step = Math.sin(phase * 1.6);
-    st.legSwing = step * 0.55;
-    st.armSwing = -step * 0.4;
-    st.bobY = Math.abs(step) * -3;
-    st.kneeBend = (1 - step) * 0.5;
-    st.elbowBend = 0.2 + Math.max(0, -step) * 0.45;
+    const heightUnits = character.visual.bodyProportions.heightUnits ?? 4.2;
+    const { speed } = travelProgress(instance.motion, tSec);
+    gait = gaitFor(speed, heightUnits);
+    const phase = travelProgress(instance.motion, tSec).distance / gait.stride;
+    const cycle = phase * Math.PI * 2;
+    const step = Math.sin(cycle);
+    const swingScale = gait.running ? 1.25 : 1;
+    st.legSwing = step * 0.62 * swingScale;
+    st.armSwing = -step * 0.45 * swingScale;
+    st.bobY = Math.abs(step) * -(gait.running ? 6 : 3);
+    // Knees fold hardest as the leg passes under the body, never while it is planted forward.
+    st.kneeBend = (1 - step) * (gait.running ? 0.95 : 0.5) * 0.5 + 0.08;
+    st.elbowBend = 0.2 + Math.max(0, -step) * (gait.running ? 1.0 : 0.45);
+    st.lean = gait.running ? 0.09 : 0.02;
+    st.headBob = Math.sin(cycle * 2) * 0.012;
+  }
+
+  // Anticipation: an actor that is about to travel coils back before it goes. Without this a
+  // walk starts like a cursor moving — the body simply begins sliding.
+  let anticipation = 0;
+  const travelStart = instance.motion?.path?.length
+    ? [...instance.motion.path].sort((a, b) => a.t - b.t)[0].t
+    : null;
+  if (instance.motion && travelStart != null && travelStart > 0) {
+    anticipation = anticipateFor({ tSec, startSec: travelStart, windSec: 0.22 }).amount;
+    if (anticipation > 0) {
+      // Coil: hips drop, knees fold, torso tips back into the direction opposite of travel.
+      st.squash += anticipation * 0.075;
+      st.kneeBend = Math.max(st.kneeBend, anticipation * 0.45);
+      st.lean -= anticipation * 0.05;
+    }
+  }
+
+  // Follow-through: the body compresses when travel ends, then settles. This is the half of
+  // weight that a sine cannot express — it only exists after a movement stops.
+  const travelEnd = instance.motion?.path?.length
+    ? [...instance.motion.path].sort((a, b) => a.t - b.t).at(-1).t
+    : null;
+  let landing = 0;
+  if (instance.motion && travelEnd != null && travelEnd > 0) {
+    const pulse = arrivalPulse({ tSec, landAtSec: travelEnd, amount: 0.07 });
+    landing = pulse.squash;
+    if (pulse.squash) {
+      st.squash += pulse.squash;
+      st.kneeBend = Math.max(st.kneeBend, pulse.squash * 4);
+      st.bobY += pulse.squash * 30;
+    }
   }
 
   const baseHeight = 205 * (character.visual.bodyProportions.heightUnits / 4.2);
@@ -91,6 +144,9 @@ export function solvePose({ character, instance, tSec, compositionHeight, compos
     motion,
     effectiveScale,
     travelling,
+    gait,
+    anticipation,
+    landing,
     facingDir,
     state: st,
     // Geometry in pixels.
