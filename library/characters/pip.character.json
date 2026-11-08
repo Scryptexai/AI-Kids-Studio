@@ -15,6 +15,16 @@
     "bodyProportions": {
       "headScale": 1.6,
       "heightUnits": 2.0
+    },
+    "look": {
+      "shirt": "#56ccf2",
+      "trousers": "#f2f5f7",
+      "skin": "#f7d9b8",
+      "shoe": "#f2c94c",
+      "hair": "#e8b74a",
+      "hairStyle": "fringe",
+      "blush": "#f5a3a3",
+      "outline": "#2b3a2f"
     }
   },
   "rig": {

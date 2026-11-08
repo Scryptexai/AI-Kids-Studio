@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-08T12:07:02.817Z",
+  "generatedAt": "2026-11-08T13:32:16.038Z",
   "generator": "scripts/assets/manifest.mjs",
   "assets": [
     {
@@ -129,8 +129,8 @@
       "kind": "character-image",
       "path": "library/characters/bobby.character.json",
       "storage": "git",
-      "bytes": 1096,
-      "sha256": "f6b7ab871a72876e48d74fefbc6f85174839f8ab94de5cb26335ba0990bb5374",
+      "bytes": 1327,
+      "sha256": "fbecb66168903c10bb704bb5d936157f91038997f2c678d683124323519d4bf7",
       "drive": null,
       "required": true
     },
@@ -150,8 +150,8 @@
       "kind": "character-image",
       "path": "library/characters/coco.character.json",
       "storage": "git",
-      "bytes": 1084,
-      "sha256": "a2cff274197caeb87cf3211eb42531ff9f4be5d1bbaaf8f60ee4d9bb91551827",
+      "bytes": 1314,
+      "sha256": "cbb6d2e5b10980655e3efd2c8956b20f472ed42a55f6844c0036abab8f168eed",
       "drive": null,
       "required": true
     },
@@ -171,8 +171,8 @@
       "kind": "character-image",
       "path": "library/characters/pip.character.json",
       "storage": "git",
-      "bytes": 1095,
-      "sha256": "f23aebda0d224b4cfec80b1a791ea4be239c65d42349bccff5287413525e773f",
+      "bytes": 1328,
+      "sha256": "22e45cb31d70668485c5e88b2d038a59faa65256b2ba7570d441ad6de6ec30ac",
       "drive": null,
       "required": true
     },
@@ -288,7 +288,7 @@
       "path": "projects/ep-002/direction-report.json",
       "storage": "git",
       "bytes": 1265,
-      "sha256": "91423019dee0c64ba9d97934776fad42469bf871588c5535a23bb82acde2bcf9",
+      "sha256": "fe47195f8e0b67b3a96f13adee6768d55f9f323d25893ebb47ef249ad1e6cb5b",
       "drive": null,
       "required": true
     },
@@ -317,8 +317,8 @@
       "kind": "scene-manifest",
       "path": "projects/ep-002/scenes/sc-001-b01-play.json",
       "storage": "git",
-      "bytes": 3343,
-      "sha256": "1f645fbc72dbe8208d0f42197ece9d15d53116323be36020dbae92d5e94ac2d8",
+      "bytes": 3336,
+      "sha256": "3eca3e92d291cecc9327e21f1857be78bb2e7e632a80b96f14b466fb9eff0ccd",
       "drive": null,
       "required": true
     },
@@ -327,8 +327,8 @@
       "kind": "scene-manifest",
       "path": "projects/ep-002/scenes/sc-002-b02-miss.json",
       "storage": "git",
-      "bytes": 2678,
-      "sha256": "ad77f876553191d7666d0379fd65dc5e54fa178ffe0806ded1e94f1ac106e09c",
+      "bytes": 2671,
+      "sha256": "50acb16917bf2814976bc8da39ff86e7d0372e5352f9495cf4fe1a68123165e2",
       "drive": null,
       "required": true
     },
@@ -337,8 +337,8 @@
       "kind": "scene-manifest",
       "path": "projects/ep-002/scenes/sc-003-b03-look.json",
       "storage": "git",
-      "bytes": 2637,
-      "sha256": "60ce4345ac90554ef97b0025c2ab3d8c60c6b55812b3adcf3eab8f0c3595c4d7",
+      "bytes": 2630,
+      "sha256": "7506aebf919b00afcf979509a0bd02514480eb21f0881c7f76e642c788b0c777",
       "drive": null,
       "required": true
     },
@@ -347,8 +347,8 @@
       "kind": "scene-manifest",
       "path": "projects/ep-002/scenes/sc-004-b04-coco.json",
       "storage": "git",
-      "bytes": 3141,
-      "sha256": "4d7af577592a57dfa6dab20d661280f2e93c60f1fd551d21338b226729100882",
+      "bytes": 3126,
+      "sha256": "2923b9f52851101f3191cba10f6d664041dd5e18e56dbcbc22293b0e15c8bf90",
       "drive": null,
       "required": true
     },
@@ -357,8 +357,8 @@
       "kind": "scene-manifest",
       "path": "projects/ep-002/scenes/sc-005-b05-go.json",
       "storage": "git",
-      "bytes": 3726,
-      "sha256": "98c53827527632673ca43c74aae616a8809ae897a99886513980037d94ba6bbc",
+      "bytes": 3719,
+      "sha256": "064fc70ae87b2b959f09cdd6d0b58629ad3c2ff526aa172dfa913cae6584184a",
       "drive": null,
       "required": true
     },
@@ -367,8 +367,8 @@
       "kind": "scene-manifest",
       "path": "projects/ep-002/scenes/sc-006-b06-river.json",
       "storage": "git",
-      "bytes": 3137,
-      "sha256": "fef400c47d5363371725e84f6868459a308d58336fc687620702032db40c0d93",
+      "bytes": 3130,
+      "sha256": "1b644aeeee959f8d491a838c1c9b2895ee5f10afff20c5966a58101d87041671",
       "drive": null,
       "required": true
     },
@@ -377,8 +377,8 @@
       "kind": "scene-manifest",
       "path": "projects/ep-002/scenes/sc-007-b07-thanks.json",
       "storage": "git",
-      "bytes": 2888,
-      "sha256": "6064a853ed6888803bedf8e3284e9660a9706d0ce519d11fbbf7deb5e8419e59",
+      "bytes": 2881,
+      "sha256": "809c7fc911f176d608afa521f474d7245647f2ff25e0f9a85c3a5f368c99ac62",
       "drive": null,
       "required": true
     },
@@ -387,8 +387,8 @@
       "kind": "scene-manifest",
       "path": "projects/ep-002/scenes/sc-008-b08-cheer.json",
       "storage": "git",
-      "bytes": 3439,
-      "sha256": "705f6dfcc819c88f3a4da6d6d2efab910ac5aafc8095ad1dbde2c6b1ed7cb604",
+      "bytes": 3432,
+      "sha256": "5b1b2ee291b15a85e9bbb4d2a3cc2ff104a2c5c26535aa6d1ca0010b5f466c80",
       "drive": null,
       "required": true
     },

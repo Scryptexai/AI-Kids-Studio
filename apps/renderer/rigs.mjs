@@ -1,4 +1,6 @@
 import { sampleMotionWithDepth, travelDirection } from './motion.mjs';
+import { animationState, bodyHeightPx, esc, clamp, lerp } from './state.mjs';
+import { solvePose } from './pose.mjs';
 
 // Placeholder character rig drawn as flat vector parts.
 //
@@ -10,304 +12,205 @@ import { sampleMotionWithDepth, travelDirection } from './motion.mjs';
 // Every shape is derived from the character's palette in library/characters/*.character.json,
 // so characters stay visually distinguishable without any artwork.
 
-const TAU = Math.PI * 2;
-
-const lerp = (a, b, t) => a + (b - a) * t;
-const clamp = (v, lo, hi) => Math.min(hi, Math.max(lo, v));
-
-/** Deterministic pseudo-random in [0,1) so a frame renders identically on every machine. */
-function noise(seed) {
-  const x = Math.sin(seed * 127.1 + 311.7) * 43758.5453;
-  return x - Math.floor(x);
-}
-
-/**
- * Rendered body height in pixels for a character instance. Shared by the rig and by prop
- * attachment so a carried object lands in the hands rather than at the feet.
- */
-export function bodyHeightPx(instance, character) {
-  const heightUnits = character?.visual?.bodyProportions?.heightUnits ?? 4.2;
-  return 205 * (heightUnits / 4.2) * (instance?.scale ?? 1);
-}
-
-/**
- * Animation state for a character at a given local time.
- * @returns {{bobY:number, squash:number, tilt:number, armSwing:number, legSwing:number,
- *            mouthOpen:number, blink:boolean, hopY:number, tears:boolean}}
- */
-export function animationState(animationId, tSec, characterId) {
-  const seed = [...characterId].reduce((a, c) => a + c.charCodeAt(0), 0);
-  const phase = TAU * (tSec * 1.1 + noise(seed) * 0.5);
-  const state = {
-    bobY: 0,
-    squash: 0,
-    tilt: 0,
-    armSwing: 0,
-    legSwing: 0,
-    mouthOpen: 0,
-    blink: false,
-    hopY: 0,
-    tears: false,
-    armRaise: 0,
-    raiseSide: 1,
-  };
-
-  switch (animationId) {
-    case 'idle':
-      state.bobY = Math.sin(phase) * 1.2;
-      state.armSwing = Math.sin(phase * 0.5) * 0.05;
-      break;
-    case 'walk':
-      state.bobY = Math.abs(Math.sin(phase * 1.6)) * -3;
-      state.legSwing = Math.sin(phase * 1.6) * 0.55;
-      state.armSwing = -Math.sin(phase * 1.6) * 0.4;
-      break;
-    case 'run':
-      state.bobY = Math.abs(Math.sin(phase * 2.2)) * -6;
-      state.legSwing = Math.sin(phase * 2.2) * 0.9;
-      state.armSwing = -Math.sin(phase * 2.2) * 0.8;
-      state.tilt = Math.sin(phase * 2.2) * 0.06;
-      break;
-    case 'jump': {
-      const cycle = (tSec * 1.4) % 1;
-      state.hopY = -Math.sin(cycle * Math.PI) * 26;
-      state.squash = cycle < 0.12 ? 0.12 : cycle > 0.88 ? 0.1 : -0.06;
-      state.armRaise = 0.55;
-      break;
-    }
-    case 'talk':
-      state.mouthOpen = 0.35 + 0.65 * Math.abs(Math.sin(phase * 4.2));
-      state.bobY = Math.sin(phase * 1.2) * 1.5;
-      state.armSwing = Math.sin(phase * 1.1) * 0.12;
-      break;
-    case 'wave':
-      state.armRaise = 0.9 + Math.sin(phase * 3.2) * 0.18;
-      state.raiseSide = 1;
-      state.mouthOpen = 0.4;
-      state.bobY = Math.sin(phase * 0.9) * 1.5;
-      break;
-    case 'laugh':
-      state.mouthOpen = 1;
-      state.tilt = Math.sin(phase * 4) * 0.1;
-      state.bobY = Math.abs(Math.sin(phase * 4)) * -3;
-      state.armRaise = 0.3;
-      break;
-    case 'cry':
-      state.tears = true;
-      state.mouthOpen = 0.25;
-      state.bobY = Math.sin(phase * 1.6) * 2;
-      state.tilt = Math.sin(phase * 0.8) * 0.05;
-      break;
-    case 'surprise':
-      state.squash = -0.1;
-      state.mouthOpen = 0.9;
-      state.hopY = -8;
-      state.armRaise = 0.75;
-      break;
-    default:
-      state.bobY = Math.sin(phase) * 1;
-  }
-
-  state.blink = noise(Math.floor(tSec * 2.7) + seed) > 0.93;
-  return state;
-}
-
-const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 
 /**
  * Render one character instance into SVG markup.
  * Coordinates are in composition pixels; the caller has already applied camera transform.
+ *
+ * The figure is a cutout skeleton with two joints per limb. Everything that defines where a
+ * part goes comes from `solvePose`, so this function only decides how parts look — never where
+ * they are. `handPosition` reads the same pose, which is why a carried prop lands in the hand.
  */
 export function renderCharacter({ character, instance, tSec, compositionHeight, compositionWidth }) {
   const palette = character.visual.palette;
+  const look = character.visual.look ?? {};
+  const pose = solvePose({ character, instance, tSec, compositionHeight, compositionWidth });
+  const { state: st, facingDir, cx, groundY, bodyTop, headCy, headR, bodyW, bodyH, footY, limbs } = pose;
 
-  // A motion track overrides the static position: this is what lets a character actually
-  // travel across the frame instead of walking in place. Sampling is shared with the Remotion
-  // backend so both move identically.
-  // Depth-aware sampling: a character walking away shrinks and their ground line rises,
-  // driven by one `z` value rather than a second hand-authored scale track.
-  const motion = sampleMotionWithDepth(instance.motion, tSec, {
-    ...instance.position,
-    depth: instance.depth ?? 0.5,
-  });
-  const effectiveScale = instance.scale * motion.scale;
-  const travelling = motion.moving && instance.motion;
-  const st = animationState(instance.animation, tSec, character.id);
+  const outline = look.outline ?? '#243b2f';
+  const strokeW = Math.max(2, bodyH * 0.055);
+  const stroke = `stroke="${outline}" stroke-width="${strokeW.toFixed(2)}" stroke-linejoin="round" stroke-linecap="round"`;
 
-  // While travelling the legs and arms must swing even if the scene's pose is something else
-  // (a character can walk while "talking"). Blend the walk cycle in on top of the pose.
-  if (travelling) {
-    const phase = (tSec * 1.1 + 0.25) * Math.PI * 2;
-    st.legSwing = Math.sin(phase * 1.6) * 0.55;
-    st.armSwing = -Math.sin(phase * 1.6) * 0.4;
-    st.bobY = Math.abs(Math.sin(phase * 1.6)) * -3;
-  }
-
-  const groundY = motion.y * compositionHeight;
-  const baseHeight = 205 * (character.visual.bodyProportions.heightUnits / 4.2);
-  const h = baseHeight * effectiveScale;
-  const headR = h * 0.16 * character.visual.bodyProportions.headScale;
-  const bodyW = h * 0.24;
-  const bodyH = h * 0.34;
-  const travelDir = travelling ? travelDirection(instance.motion, tSec) : null;
-  const effectiveFacing = travelDir ?? instance.facing;
-  const facing = effectiveFacing === 'left' ? -1 : 1;
-
-  const cx = motion.x * compositionWidth;
-  const footY = groundY + st.hopY;
-  const squash = 1 + st.squash;
-
-  // Layout from the ground up so feet always land exactly on the walk surface.
-  const legLen = h * 0.26;
-  const bodyTop = footY - legLen - bodyH;
-  const headCy = bodyTop - headR * 0.9;
-  const legSwing = st.legSwing * legLen * 0.5;
-
-  const outline = '#243b2f';
-  const stroke = `stroke="${outline}" stroke-width="${Math.max(2, h * 0.012)}" stroke-linejoin="round"`;
+  const shirt = look.shirt ?? palette.primary;
+  const trousers = look.trousers ?? palette.secondary;
+  const skin = look.skin ?? palette.accent;
+  const shoe = look.shoe ?? '#3a3a3a';
 
   const parts = [];
 
-  // shadow
+  // --- ground contact: an ellipse under the figure, wider when it is planted --------------
   parts.push(
     `<ellipse cx="${cx}" cy="${groundY + 2}" rx="${bodyW * 1.15}" ry="${bodyW * 0.24}" fill="#000" opacity="0.16"/>`,
   );
 
-  // legs + shoes, pivoting at the hip so walk cycles read clearly
-  for (const dir of [-1, 1]) {
-    const swing = dir === 1 ? legSwing : -legSwing;
-    const hipX = cx + dir * bodyW * 0.26;
-    const hipY = bodyTop + bodyH * 0.9;
-    const rot = (swing / legLen) * 42;
-    parts.push(
-      `<g transform="rotate(${rot} ${hipX} ${hipY})">` +
-        `<rect x="${hipX - bodyW * 0.11}" y="${hipY}" width="${bodyW * 0.22}" height="${legLen}" rx="${bodyW * 0.1}" fill="${palette.secondary}" ${stroke}/>` +
-        `<ellipse cx="${hipX}" cy="${hipY + legLen}" rx="${bodyW * 0.2}" ry="${bodyW * 0.11}" fill="#3a3a3a" ${stroke}/>` +
-      `</g>`,
-    );
-  }
+  // --- back leg, then back arm, so they sit behind the torso ------------------------------
+  parts.push(renderLeg(limbs.left, { trousers, shoe, skin, stroke, strokeW, outline }));
+  parts.push(renderArm(limbs.left, { shirt, skin, stroke, strokeW, outline }));
 
-  // body
+  // --- torso: a soft rounded rectangle, leaning with the animation ------------------------
+  const lean = (st.lean ?? 0) * 40 + st.tilt * 25;
+  const squash = 1 + st.squash;
   parts.push(
-    `<g transform="translate(0 ${footY}) scale(1 ${squash}) translate(0 ${-footY})"><rect x="${cx - bodyW / 2}" y="${bodyTop}" width="${bodyW}" height="${bodyH}" rx="${bodyW * 0.34}" fill="${palette.primary}" ${stroke}/></g>`,
+    `<g transform="rotate(${lean.toFixed(2)} ${cx} ${bodyTop + bodyH}) translate(0 ${footY}) scale(1 ${squash}) translate(0 ${-footY})">` +
+      `<rect x="${cx - bodyW / 2}" y="${bodyTop}" width="${bodyW}" height="${bodyH}" rx="${bodyW * 0.36}" fill="${shirt}" ${stroke}/>` +
+      // collar: a small V so the neck is not a bare seam
+      `<path d="M${cx - bodyW * 0.18} ${bodyTop + 1} L${cx} ${bodyTop + bodyH * 0.16} L${cx + bodyW * 0.18} ${bodyTop + 1}" fill="none" stroke="${outline}" stroke-width="${(strokeW * 0.7).toFixed(2)}" opacity="0.5"/>` +
+    `</g>`,
   );
 
-  // arms: a hanging arm points +y, so a positive SVG rotation swings the RIGHT arm
-  // outward and the LEFT arm inward — hence the per-side direction multiplier.
-  for (const dir of [-1, 1]) {
-    const rotation = armRotation(st, dir);
-    const ax = cx + dir * bodyW * 0.5;
-    const ay = bodyTop + bodyH * 0.16;
-    const armLen = bodyH * 0.82;
-    parts.push(
-      `<g transform="rotate(${rotation.toFixed(2)} ${ax} ${ay})">` +
-        `<rect x="${ax - bodyW * 0.09}" y="${ay}" width="${bodyW * 0.18}" height="${armLen}" rx="${bodyW * 0.09}" fill="${palette.primary}" ${stroke}/>` +
-        `<circle cx="${ax}" cy="${ay + armLen}" r="${bodyW * 0.13}" fill="${palette.accent}" ${stroke}/>` +
-      `</g>`,
-    );
-  }
+  // --- front leg and front arm, so they read in front ------------------------------------
+  parts.push(renderLeg(limbs.right, { trousers, shoe, skin, stroke, strokeW, outline }));
+  parts.push(renderArm(limbs.right, { shirt, skin, stroke, strokeW, outline }));
 
-  // head
+  // --- head ------------------------------------------------------------------------------
+  const tilt = st.tilt * 40;
   parts.push(
-    `<g transform="rotate(${st.tilt * 40} ${cx} ${headCy + headR})">` +
-      `<circle cx="${cx}" cy="${headCy}" r="${headR}" fill="${palette.accent}" ${stroke}/>` +
-      renderFace({ cx, headCy, headR, facing, state: st, palette }) +
-      `</g>`,
+    `<g transform="rotate(${tilt.toFixed(2)} ${cx} ${headCy + headR})">` +
+      renderHair(look, { cx, headCy, headR, outline, stroke, facingDir }) +
+      `<circle cx="${cx}" cy="${headCy}" r="${headR}" fill="${skin}" ${stroke}/>` +
+      renderEars({ cx, headCy, headR, skin, stroke, strokeW }) +
+      (look.hairStyle === 'fringe' ? renderFringe({ cx, headCy, headR, look, stroke }) : '') +
+      renderFace({ cx, headCy, headR, facing: facingDir, state: st, palette, look, outline }) +
+    `</g>`,
   );
 
   return parts.join('');
 }
 
-/**
- * Rotation of one arm in the rig, before SVG transform. SVG's rotate() maps a downward vector
- * (0,1) to (-sin, cos), so a positive angle swings the right arm ACROSS the body. Negated:
- * negative = outward for the right arm.
- */
-function armRotation(st, dir) {
-  const swing = dir === 1 ? st.armSwing : -st.armSwing;
-  const raise = st.raiseSide === 0 || st.raiseSide === dir ? st.armRaise : 0;
-  return -(dir * 8 + swing * 26 + dir * raise * 115);
+/** A leg drawn as thigh + shin with a knee joint, plus a shoe. */
+function renderLeg(limb, { trousers, shoe, skin, stroke, strokeW, outline }) {
+  const { hip, knee, foot, dir } = limb;
+  const width = strokeW * 1.9;
+  const kneeR = width * 0.52;
+  const ankleR = width * 0.46;
+  // The shoe points the way the body faces.
+  const toeX = foot.x + dir * width * 1.15;
+  return (
+    `<line x1="${hip.x.toFixed(2)}" y1="${hip.y.toFixed(2)}" x2="${knee.x.toFixed(2)}" y2="${knee.y.toFixed(2)}" stroke="${outline}" stroke-width="${(width + strokeW).toFixed(2)}" stroke-linecap="round"/>` +
+    `<line x1="${hip.x.toFixed(2)}" y1="${hip.y.toFixed(2)}" x2="${knee.x.toFixed(2)}" y2="${knee.y.toFixed(2)}" stroke="${trousers}" stroke-width="${width.toFixed(2)}" stroke-linecap="round"/>` +
+    `<line x1="${knee.x.toFixed(2)}" y1="${knee.y.toFixed(2)}" x2="${foot.x.toFixed(2)}" y2="${foot.y.toFixed(2)}" stroke="${outline}" stroke-width="${(width + strokeW).toFixed(2)}" stroke-linecap="round"/>` +
+    `<line x1="${knee.x.toFixed(2)}" y1="${knee.y.toFixed(2)}" x2="${foot.x.toFixed(2)}" y2="${foot.y.toFixed(2)}" stroke="${trousers}" stroke-width="${width.toFixed(2)}" stroke-linecap="round"/>` +
+    // an ankle of skin so the leg does not end in a seam
+    `<circle cx="${foot.x.toFixed(2)}" cy="${foot.y.toFixed(2)}" r="${ankleR.toFixed(2)}" fill="${skin}"/>` +
+    `<ellipse cx="${toeX.toFixed(2)}" cy="${(foot.y + width * 0.34).toFixed(2)}" rx="${(width * 0.95).toFixed(2)}" ry="${(width * 0.52).toFixed(2)}" fill="${shoe}" ${stroke}/>` +
+    `<circle cx="${knee.x.toFixed(2)}" cy="${knee.y.toFixed(2)}" r="${kneeR.toFixed(2)}" fill="${trousers}"/>`
+  );
 }
+
+/** An arm drawn as upper arm + forearm with an elbow joint, ending in a hand. */
+function renderArm(limb, { shirt, skin, stroke, strokeW, outline }) {
+  const { shoulder, elbow, hand } = limb;
+  const width = strokeW * 1.55;
+  const handR = width * 0.62;
+  return (
+    `<line x1="${shoulder.x.toFixed(2)}" y1="${shoulder.y.toFixed(2)}" x2="${elbow.x.toFixed(2)}" y2="${elbow.y.toFixed(2)}" stroke="${outline}" stroke-width="${(width + strokeW).toFixed(2)}" stroke-linecap="round"/>` +
+    `<line x1="${shoulder.x.toFixed(2)}" y1="${shoulder.y.toFixed(2)}" x2="${elbow.x.toFixed(2)}" y2="${elbow.y.toFixed(2)}" stroke="${shirt}" stroke-width="${width.toFixed(2)}" stroke-linecap="round"/>` +
+    `<line x1="${elbow.x.toFixed(2)}" y1="${elbow.y.toFixed(2)}" x2="${hand.x.toFixed(2)}" y2="${hand.y.toFixed(2)}" stroke="${outline}" stroke-width="${(width + strokeW).toFixed(2)}" stroke-linecap="round"/>` +
+    `<line x1="${elbow.x.toFixed(2)}" y1="${elbow.y.toFixed(2)}" x2="${hand.x.toFixed(2)}" y2="${hand.y.toFixed(2)}" stroke="${shirt}" stroke-width="${width.toFixed(2)}" stroke-linecap="round"/>` +
+    `<circle cx="${hand.x.toFixed(2)}" cy="${hand.y.toFixed(2)}" r="${handR.toFixed(2)}" fill="${skin}" ${stroke}/>` +
+    `<circle cx="${elbow.x.toFixed(2)}" cy="${elbow.y.toFixed(2)}" r="${(width * 0.5).toFixed(2)}" fill="${shirt}"/>`
+  );
+}
+
+/** Hair drawn behind the head, so it reads as a silhouette rather than a hat. */
+function renderHair(look, { cx, headCy, headR, outline, stroke }) {
+  const style = look.hairStyle ?? 'cap';
+  if (style === 'none') return '';
+  const color = look.hair ?? '#4a3327';
+  if (style === 'fringe') return '';
+  if (style === 'cap') {
+    return `<path d="M${cx - headR * 1.02} ${headCy - headR * 0.18} a${headR} ${headR} 0 0 1 ${headR * 2.04} 0 q${-headR * 0.3} ${-headR * 0.5} ${-headR * 1.02} ${-headR * 0.5} q${-headR * 0.72} 0 ${-headR * 1.02} ${headR * 0.5} z" fill="${color}" ${stroke}/>`;
+  }
+  // 'tuft': a rounded cap plus a small sprout, which reads well at small sizes.
+  return (
+    `<path d="M${cx - headR * 1.02} ${headCy - headR * 0.12} a${headR} ${headR} 0 0 1 ${headR * 2.04} 0 q${-headR * 0.4} ${-headR * 0.42} ${-headR * 1.02} ${-headR * 0.42} q${-headR * 0.62} 0 ${-headR * 1.02} ${headR * 0.42} z" fill="${color}" ${stroke}/>` +
+    `<path d="M${cx + headR * 0.1} ${headCy - headR * 0.92} q${headR * 0.22} ${-headR * 0.34} ${headR * 0.5} ${-headR * 0.3}" fill="none" stroke="${color}" stroke-width="${(headR * 0.16).toFixed(2)}" stroke-linecap="round"/>`
+  );
+}
+
+function renderFringe({ cx, headCy, headR, look, stroke }) {
+  const color = look.hair ?? '#4a3327';
+  return `<path d="M${cx - headR * 0.98} ${headCy - headR * 0.1} q${headR * 0.42} ${headR * 0.5} ${headR * 0.98} ${headR * 0.42} q${headR * 0.56} ${headR * 0.08} ${headR * 0.98} ${-headR * 0.42} q${-headR * 0.1} ${-headR * 0.9} ${-headR * 0.98} ${-headR * 0.92} q${-headR * 0.88} ${headR * 0.02} ${-headR * 0.98} ${headR * 0.92} z" fill="${color}" ${stroke}/>`;
+}
+
+function renderEars({ cx, headCy, headR, skin, stroke, strokeW }) {
+  const r = headR * 0.17;
+  return (
+    `<circle cx="${(cx - headR * 0.97).toFixed(2)}" cy="${(headCy + headR * 0.06).toFixed(2)}" r="${r.toFixed(2)}" fill="${skin}" ${stroke}/>` +
+    `<circle cx="${(cx + headR * 0.97).toFixed(2)}" cy="${(headCy + headR * 0.06).toFixed(2)}" r="${r.toFixed(2)}" fill="${skin}" ${stroke}/>`
+  );
+}
+
+export { esc, clamp, lerp, bodyHeightPx, animationState };
 
 /**
  * Where a character's hand actually is, in composition pixels.
  *
- * The rig draws arms as a rect rotated about the shoulder, so the hand is not at a fixed
- * offset from the body — it swings with the pose. Guessing (x + 0.06, y - 0.34h) put a carried
- * ball a head's width away from the hand. This computes the same transform the rig applies, so
- * a carried prop and the drawn hand are the same point by construction.
+ * Derived from `solvePose`, the same function that draws the figure. The first version of this
+ * duplicated the rig's arithmetic and drifted: a carried ball ended up a head's width from the
+ * hand. Reading the pose makes the drawn hand and the prop attachment the same point by
+ * construction.
  *
  * @param {'left'|'right'} side Which hand. Defaults to `right`.
  */
 export function handPosition({ character, instance, tSec, compositionHeight, compositionWidth, side = 'right' }) {
-  const motion = sampleMotionWithDepth(instance.motion, tSec, {
-    ...instance.position,
-    depth: instance.depth ?? 0.5,
-  });
-  const effectiveScale = instance.scale * motion.scale;
-  const travelling = motion.moving && instance.motion;
-  const st = animationState(instance.animation, tSec, character.id);
-  if (travelling) {
-    const phase = (tSec * 1.1 + 0.25) * Math.PI * 2;
-    st.legSwing = Math.sin(phase * 1.6) * 0.55;
-    st.armSwing = -Math.sin(phase * 1.6) * 0.4;
-    st.bobY = Math.abs(Math.sin(phase * 1.6)) * -3;
-  }
-
-  const baseHeight = 205 * (character.visual.bodyProportions.heightUnits / 4.2);
-  const h = baseHeight * effectiveScale;
-  const headR = h * 0.16 * character.visual.bodyProportions.headScale;
-  const bodyW = h * 0.24;
-  const bodyH = h * 0.34;
-  const legLen = h * 0.26;
-
-  const cx = motion.x * compositionWidth;
-  const footY = motion.y * compositionHeight + st.hopY;
-  const bodyTop = footY - legLen - bodyH;
-
-  const dir = side === 'left' ? -1 : 1;
-  const ax = cx + dir * bodyW * 0.5;
-  const ay = bodyTop + bodyH * 0.16;
-  const armLen = bodyH * 0.82;
-
-  // Same rotation the rig draws with: rotate(angle, ax, ay) applied to the hand point. The hand
-  // hangs straight below the shoulder, so the delta is (0, armLen) — no x component.
-  const rad = (armRotation(st, dir) * Math.PI) / 180;
-  const hx = ax - armLen * Math.sin(rad);
-  const hy = ay + armLen * Math.cos(rad);
-  return { x: hx / compositionWidth, y: hy / compositionHeight, px: hx, py: hy };
+  const pose = solvePose({ character, instance, tSec, compositionHeight, compositionWidth });
+  const hand = pose.limbs[side]?.hand ?? pose.limbs.right.hand;
+  return { x: hand.x / compositionWidth, y: hand.y / compositionHeight, px: hand.x, py: hand.y };
 }
 
-function renderFace({ cx, headCy, headR, facing, state, palette }) {
+function renderFace({ cx, headCy, headR, facing, state, palette, look, outline }) {
   const eyeY = headCy - headR * 0.12;
   const eyeDx = headR * 0.36;
-  const eyeR = headR * (state.mouthOpen > 0.85 ? 0.17 : 0.12);
+  const eyeR = headR * (state.mouthOpen > 0.85 ? 0.17 : 0.13);
   const pupilR = eyeR * 0.55;
-  const look = facing * headR * 0.06;
+  const look_ = facing * headR * 0.06;
   const out = [];
 
+  // Eye whites with a pupil that follows the facing direction. Big eyes are the single biggest
+  // readability win at 720p, which is why they are not a shape afterthought.
   for (const dir of [-1, 1]) {
     const ex = cx + dir * eyeDx;
     if (state.blink) {
-      out.push(`<rect x="${ex - eyeR}" y="${eyeY - 1.5}" width="${eyeR * 2}" height="3" rx="1.5" fill="#243b2f"/>`);
+      out.push(`<rect x="${(ex - eyeR).toFixed(2)}" y="${(eyeY - 1.5).toFixed(2)}" width="${(eyeR * 2).toFixed(2)}" height="3" rx="1.5" fill="${outline}"/>`);
     } else {
-      out.push(`<circle cx="${ex}" cy="${eyeY}" r="${eyeR}" fill="#ffffff"/><circle cx="${ex + look}" cy="${eyeY + 1}" r="${pupilR}" fill="#243b2f"/>`);
+      out.push(
+        `<circle cx="${ex.toFixed(2)}" cy="${eyeY.toFixed(2)}" r="${eyeR.toFixed(2)}" fill="#ffffff" stroke="${outline}" stroke-width="${Math.max(1.5, headR * 0.055).toFixed(2)}"/>` +
+        `<circle cx="${(ex + look_).toFixed(2)}" cy="${(eyeY + 1).toFixed(2)}" r="${pupilR.toFixed(2)}" fill="${outline}"/>`,
+      );
     }
   }
 
-  // cheeks
-  out.push(`<circle cx="${cx - headR * 0.62}" cy="${headCy + headR * 0.3}" r="${headR * 0.13}" fill="${palette.secondary}" opacity="0.55"/>`);
-  out.push(`<circle cx="${cx + headR * 0.62}" cy="${headCy + headR * 0.3}" r="${headR * 0.13}" fill="${palette.secondary}" opacity="0.55"/>`);
+  // Brows carry most of the emotion; a face without them reads as blank.
+  const browLift = (state.mouthOpen - 0.4) * headR * 0.22;
+  const browY = eyeY - headR * 0.42 - browLift;
+  const browTilt = state.tears ? headR * 0.1 : state.mouthOpen > 0.8 ? headR * 0.06 : 0;
+  out.push(
+    `<line x1="${(cx - eyeDx - eyeR).toFixed(2)}" y1="${(browY - browTilt).toFixed(2)}" x2="${(cx - eyeDx + eyeR).toFixed(2)}" y2="${(browY + browTilt).toFixed(2)}" stroke="${outline}" stroke-width="${(headR * 0.09).toFixed(2)}" stroke-linecap="round"/>` +
+    `<line x1="${(cx + eyeDx - eyeR).toFixed(2)}" y1="${(browY + browTilt).toFixed(2)}" x2="${(cx + eyeDx + eyeR).toFixed(2)}" y2="${(browY - browTilt).toFixed(2)}" stroke="${outline}" stroke-width="${(headR * 0.09).toFixed(2)}" stroke-linecap="round"/>`,
+  );
 
-  // mouth: height follows the talk/laugh/surprise animation state
-  const mouthH = headR * 0.08 + state.mouthOpen * headR * 0.3;
-  const mouthW = headR * 0.34;
+  // cheeks
+  out.push(`<circle cx="${(cx - headR * 0.62).toFixed(2)}" cy="${(headCy + headR * 0.3).toFixed(2)}" r="${(headR * 0.13).toFixed(2)}" fill="${look?.blush ?? palette.secondary}" opacity="0.45"/>`);
+  out.push(`<circle cx="${(cx + headR * 0.62).toFixed(2)}" cy="${(headCy + headR * 0.3).toFixed(2)}" r="${(headR * 0.13).toFixed(2)}" fill="${look?.blush ?? palette.secondary}" opacity="0.45"/>`);
+
+  // mouth: an open ellipse when talking or laughing, a smile line when calm
   const mouthY = headCy + headR * 0.46;
-  out.push(`<ellipse cx="${cx}" cy="${mouthY}" rx="${mouthW}" ry="${mouthH / 2 + 2}" fill="#5b2c2c"/>`);
+  if (state.mouthOpen > 0.1) {
+    const mouthH = headR * 0.08 + state.mouthOpen * headR * 0.3;
+    const mouthW = headR * 0.34;
+    out.push(
+      `<ellipse cx="${cx.toFixed(2)}" cy="${mouthY.toFixed(2)}" rx="${mouthW.toFixed(2)}" ry="${(mouthH / 2 + 2).toFixed(2)}" fill="#5b2c2c" stroke="${outline}" stroke-width="${Math.max(1, headR * 0.045).toFixed(2)}"/>`,
+    );
+  } else {
+    out.push(
+      `<path d="M${(cx - headR * 0.26).toFixed(2)} ${(mouthY - headR * 0.04).toFixed(2)} q${(headR * 0.26).toFixed(2)} ${(headR * 0.28).toFixed(2)} ${(headR * 0.52).toFixed(2)} 0" fill="none" stroke="${outline}" stroke-width="${(headR * 0.1).toFixed(2)}" stroke-linecap="round"/>`,
+    );
+  }
 
   if (state.tears) {
-    out.push(`<ellipse cx="${cx - headR * 0.38}" cy="${eyeY + headR * 0.32}" rx="${headR * 0.07}" ry="${headR * 0.11}" fill="#8fd3ff"/>`);
-    out.push(`<ellipse cx="${cx + headR * 0.38}" cy="${eyeY + headR * 0.42}" rx="${headR * 0.06}" ry="${headR * 0.1}" fill="#8fd3ff"/>`);
+    out.push(`<ellipse cx="${(cx - headR * 0.38).toFixed(2)}" cy="${(eyeY + headR * 0.32).toFixed(2)}" rx="${(headR * 0.07).toFixed(2)}" ry="${(headR * 0.11).toFixed(2)}" fill="#8fd3ff"/>`);
+    out.push(`<ellipse cx="${(cx + headR * 0.38).toFixed(2)}" cy="${(eyeY + headR * 0.42).toFixed(2)}" rx="${(headR * 0.06).toFixed(2)}" ry="${(headR * 0.1).toFixed(2)}" fill="#8fd3ff"/>`);
   }
   return out.join('');
 }
@@ -353,5 +256,3 @@ export function renderProp({ propId, x, y, scale, compositionHeight, composition
       return '';
   }
 }
-
-export { esc, clamp, lerp };

@@ -12,25 +12,25 @@
     "keyframes": [
       {
         "t": 0,
-        "x": 0.44,
+        "x": 0.285,
         "y": 0.512,
         "zoom": 0.9456
       },
       {
         "t": 1.6,
-        "x": 0.475,
+        "x": 0.32,
         "y": 0.5,
         "zoom": 1.006
       },
       {
         "t": 5.4177,
-        "x": 0.455,
+        "x": 0.34,
         "y": 0.494,
         "zoom": 1.0211
       },
       {
         "t": 6.607,
-        "x": 0.455,
+        "x": 0.34,
         "y": 0.494,
         "zoom": 1.0211
       }
@@ -38,13 +38,13 @@
   },
   "characters": [
     {
-      "characterId": "bobby",
+      "characterId": "pip",
       "position": {
-        "x": 0.375,
+        "x": 0.1,
         "y": 0.798,
         "z": 2
       },
-      "scale": 1,
+      "scale": 0.97,
       "facing": "right",
       "expression": "happy",
       "animation": "laugh",
@@ -53,12 +53,12 @@
     {
       "characterId": "coco",
       "position": {
-        "x": 0.575,
+        "x": 0.22,
         "y": 0.82,
         "z": 2
       },
       "scale": 0.97,
-      "facing": "left",
+      "facing": "right",
       "expression": "happy",
       "animation": "walk",
       "entranceAt": 0,
@@ -71,12 +71,12 @@
           },
           {
             "t": 1.4,
-            "x": 0.575,
+            "x": 0.22,
             "y": 0.82
           },
           {
             "t": 6.607,
-            "x": 0.575,
+            "x": 0.22,
             "y": 0.82
           }
         ],
@@ -85,13 +85,13 @@
       }
     },
     {
-      "characterId": "pip",
+      "characterId": "bobby",
       "position": {
-        "x": 0.775,
+        "x": 0.42,
         "y": 0.798,
         "z": 2
       },
-      "scale": 0.97,
+      "scale": 1,
       "facing": "left",
       "expression": "happy",
       "animation": "laugh",
@@ -125,7 +125,7 @@
       "text": "Aku tadi melihat bola berwarna merah menggelinding ke arah sungai.",
       "startSec": 0.6,
       "emotion": "happy",
-      "audioAsset": "audio/generated/ep-002/sc-004-b04-coco/b04-coco-d01.wav",
+      "audioAsset": "audio/generated/ep-002/b04-coco/b04-coco-d01.wav",
       "durationSec": 5.507
     }
   ],
@@ -156,7 +156,7 @@
     "target": "bobby",
     "prop": null,
     "shot": "wide",
-    "focusX": 0.475,
+    "focusX": 0.32,
     "widenedForSpread": false,
     "entry": "walk-in",
     "lineEstimated": false,

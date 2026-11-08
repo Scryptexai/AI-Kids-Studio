@@ -395,3 +395,48 @@ test('a throw without hold still gives the catcher the prop', async () => {
   const catcher = scenes[0].interactions.find((i) => i.characterId === 'pip');
   assert.ok(catcher, 'even touch-beats must hand the caught prop over');
 });
+
+test('an arriving actor does not walk through the person they came to see', async () => {
+  // Regression: Coco entered from the left edge and stopped on the far side of Bobby, sliding
+  // across him. With bigger heads the overlap read as a single blob on screen.
+  const { world, characters } = await loadFixtures();
+  const script = {
+    ...miniScript(),
+    cast: [
+      { characterId: 'bobby', role: 'lead' },
+      { characterId: 'coco', role: 'sidekick' },
+    ],
+    beats: [{
+      id: 'b1', location: 'forest-clearing', action: 'entrance', actor: 'coco', target: 'bobby',
+      emotion: 'happy', line: 'Halo semuanya, aku ikut ya.',
+    }],
+  };
+  const { scenes } = await directScript({ script, world, characters });
+  const scene = scenes[0];
+  const coco = scene.characters.find((c) => c.characterId === 'coco');
+  const bobby = scene.characters.find((c) => c.characterId === 'bobby');
+  assert.ok(coco.motion, 'an entrance needs a motion track');
+
+  const startX = coco.motion.path[0].x;
+  const endX = coco.motion.path.at(-1).x;
+  const enteredFromLeft = startX < 0;
+
+  // If Cocoa enters from the left she must stop left of Bobby, and vice versa.
+  if (enteredFromLeft) {
+    assert.ok(endX < bobby.position.x, `entered from the left but stopped at ${endX} past Bobby at ${bobby.position.x}`);
+  } else {
+    assert.ok(endX > bobby.position.x, `entered from the right but stopped at ${endX} past Bobby at ${bobby.position.x}`);
+  }
+});
+
+test('the cast is spaced by head size, not by a flat guess', async () => {
+  const { separationFor } = await import('../apps/director/stage.mjs');
+  const { characters } = await loadFixtures();
+  const gap = separationFor(characters.get('bobby'), characters.get('coco'));
+  // A flat 0.22 was too tight once heads grew; the floor has to reflect the rig.
+  assert.ok(gap >= 0.2, 'gap must clear the head radius');
+  // A tiny character needs less room than a big one.
+  const small = separationFor(characters.get('pip'), characters.get('pip'));
+  const big = separationFor(characters.get('coco'), characters.get('coco'));
+  assert.ok(big > small, 'a bigger character must reserve more room');
+});

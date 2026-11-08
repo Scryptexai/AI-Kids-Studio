@@ -28,6 +28,30 @@ const round = (v, p = 3) => Number(v.toFixed(p));
 export const SAFE_MIN = 0.1;
 export const SAFE_MAX = 0.9;
 
+// The director cannot read the rig, but it can agree with it. The rig draws a head of
+// `0.16 * heightUnits/4.2 * headScale` of the body height, and the widest characters in this
+// cast reach roughly a head's radius either side of their centre line. Blocking used to space
+// actors by a flat 0.22, which was fine when heads were small — after the heads grew, characters
+// stood *inside* each other and read as one blob on screen.
+const FRAME_WIDTH_UNITS = 4.4; // roughly how many body heights fit across the frame
+const HEAD_FRACTION = 0.16;
+
+/** Minimum horizontal gap between two character centres, in frame fractions. */
+export function separationFor(characterA, characterB) {
+  const widest = (c) => {
+    const p = c?.visual?.bodyProportions ?? {};
+    const heightUnits = p.heightUnits ?? 4.2;
+    const headScale = p.headScale ?? 1;
+    // body height relative to the frame, plus the head radius on each side
+    return (heightUnits / 4.2) * (0.24 + HEAD_FRACTION * headScale) / FRAME_WIDTH_UNITS;
+  };
+  // Scale the measured width into frame fractions first, then apply the floor. Scaling after the
+  // floor (as an earlier version did) made every character return exactly the floor, so the rule
+  // looked character-aware while being a constant.
+  const measured = Math.max(widest(characterA), widest(characterB)) * 1.9;
+  return Math.max(0.2, measured);
+}
+
 /**
  * Where should this actor stand for this intent?
  *
@@ -36,7 +60,7 @@ export const SAFE_MAX = 0.9;
  * alternating offsets, because stacking them in a line to the right used to push the last one
  * off the edge of the frame (clipping a character is a blocking bug, not a style choice).
  */
-export function markFor({ intent, role, actorIndex, actorCount, targetX, propX, lane = 'mid', actorX = null }) {
+export function markFor({ intent, role, actorIndex, actorCount, targetX, propX, lane = 'mid', actorX = null, minGap = null }) {
   const base = LANES[lane] ?? LANES.mid;
   const leadX = 0.42;
   let x = leadX;
@@ -71,7 +95,8 @@ export function markFor({ intent, role, actorIndex, actorCount, targetX, propX, 
   // A reactor should not sit on top of whoever is acting, and two reactors on the same side
   // would overlap each other: alternate sides and widen the ring per index.
   if (actorX != null) {
-    const gap = intent.offset ?? 0.22;
+    // A character-aware floor beats the intent's preferred offset when the cast is chunky.
+    const gap = Math.max(intent.offset ?? 0.22, minGap ?? 0);
     const ring = Math.floor(actorIndex / 2);
     const side = actorIndex % 2 === 1 ? -1 : 1;
     // Keep reactors on the open side of the frame: if the actor is left of centre there is
@@ -195,7 +220,7 @@ export function entryFor({ intent, mark, role, castIndex }) {
  * @param {object} world      world definition (prop catalog, location)
  * @param {Array}  propPlacements  resolved prop positions for this beat's location
  */
-export function blockBeat({ beat, cast, propPlacements, leadId }) {
+export function blockBeat({ beat, cast, propPlacements, leadId, characters }) {
   const intent = intentFor(beat.action);
   const actorId = beat.actor ?? leadId;
   const others = [...cast.keys()].filter((id) => id !== actorId);
@@ -213,10 +238,11 @@ export function blockBeat({ beat, cast, propPlacements, leadId }) {
         actorCount: cast.size,
         targetX: null,
         propX,
+        minGap: characters ? separationFor(characters.get(actorId), characters.get(partnerId)) : null,
       })
     : null;
 
-  const actorMark = markFor({
+  let actorMark = markFor({
     intent,
     role: cast.get(actorId)?.role ?? 'lead',
     actorIndex: cast.role(actorId).index,
@@ -224,6 +250,23 @@ export function blockBeat({ beat, cast, propPlacements, leadId }) {
     targetX: partnerMark?.x ?? null,
     propX,
   });
+
+  // An arriving character must not walk *through* the person they came to talk to. Walk-in
+  // always enters from the frame edge, so if the partner stands between that edge and the mark,
+  // the actor would slide across them — which read on screen as two bodies overlapping into one
+  // blob. Flip the mark to the open side of the partner instead.
+  const fromLeft = cast.role(actorId).index % 2 === 0;
+  if (intent.walkIn && partnerMark) {
+    const approachesFromLeft = fromLeft;
+    const partnerBlocks = approachesFromLeft
+      ? partnerMark.x < actorMark.x
+      : partnerMark.x > actorMark.x;
+    if (partnerBlocks) {
+      const gap = characters ? separationFor(characters.get(actorId), characters.get(partnerId)) : 0.22;
+      const flipped = partnerMark.x + (approachesFromLeft ? -1 : 1) * gap;
+      actorMark = { ...actorMark, x: round(Math.max(SAFE_MIN, Math.min(SAFE_MAX, flipped))) };
+    }
+  }
 
   const facing = facingFor({
     intent,

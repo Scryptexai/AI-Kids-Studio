@@ -124,7 +124,7 @@ export function directBeat({ beat, index, script, world, cast, characters, leadI
   if (durationSec <= 0) throw new StudioError(`beat '${beat.id}' has non-positive duration`);
 
   // Blocking needs the partner's mark, which needs the actor's mark: solve partner first.
-  const block = blockBeat({ beat, cast, propPlacements: placements, leadId });
+  const block = blockBeat({ beat, cast, propPlacements: placements, leadId, characters });
 
   // Shot choice, with continuity rules.
   const shotOverride = shotForTransition({
