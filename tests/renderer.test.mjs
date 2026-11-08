@@ -93,10 +93,12 @@ test('animation state is deterministic per (animation, time, character)', () => 
   assert.notDeepEqual(a, other);
 });
 
-test('talk animation opens the mouth over time', () => {
+test('the talk pose does not invent a mouth: speech comes from the audio', () => {
+  // The talk animation used to open the mouth from a sine, which meant it flapped on a clock and
+  // was identical for every line. Speech is now driven by the dialogue's amplitude, so a
+  // gesturing character with no line must NOT be mouthing a fake conversation.
   const samples = [0.1, 0.2, 0.3, 0.4, 0.5, 0.6].map((t) => animationState('talk', t, 'pip').mouthOpen);
-  assert.ok(Math.max(...samples) > 0.5, 'mouth never opens');
-  assert.ok(new Set(samples.map((v) => v.toFixed(3))).size > 1, 'mouth is static during a talk animation');
+  assert.deepEqual(samples, [0, 0, 0, 0, 0, 0]);
 });
 
 test('unknown animation ids fall back to a neutral idle instead of throwing', () => {

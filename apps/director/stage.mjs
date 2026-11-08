@@ -153,27 +153,27 @@ export function facingFor({ intent, markX, targetX, propX, travelDirection }) {
  * This is what turns "walk in" from a pose into actual travel across the frame.
  * @returns {{path:Array<{t:number,x:number,y:number}>, ease:string, durationSec:number}|null}
  */
-export function motionTrackFor({ entry, durationSec, holdUntilSec = null }) {
+export function motionTrackFor({ entry, durationSec }) {
   if (!entry || entry.kind === 'still') return null;
   const walkSec = Math.min(entry.durationSec, Math.max(0.8, durationSec * 0.45));
-  // walk-in travels from the entry point to the mark; walk-out travels the other way and
-  // must NOT be pinned to the mark at the end (it leaves the frame).
-  const path = entry.kind === 'walk-out'
-    ? [
-        { t: 0, x: num(entry.from.x), y: num(entry.from.y) },
-        { t: num(walkSec), x: num(entry.to.x), y: num(entry.to.y) },
-      ]
-    : [
-        { t: 0, x: num(entry.from.x), y: num(entry.from.y) },
-        { t: num(walkSec), x: num(entry.to.x), y: num(entry.to.y) },
-      ];
+  // Both directions are the same two keys: an entry starts off-frame and ends on the mark, a
+  // departure starts on the mark and keeps going off-frame.
+  const path = [
+    { t: 0, x: num(entry.from.x), y: num(entry.from.y) },
+    { t: num(walkSec), x: num(entry.to.x), y: num(entry.to.y) },
+  ];
 
-  // Hold the final position until the scene ends so the last frame is stable.
-  // A departure holds nothing: the character is gone.
-  if (entry.kind !== 'walk-out' && holdUntilSec != null && holdUntilSec > walkSec) {
-    const last = path[path.length - 1];
-    path.push({ t: num(holdUntilSec), x: last.x, y: last.y });
-  }
+  // The track must end where the WALK ends, not where the scene ends.
+  //
+  // It used to be pinned to the scene end: `[{t:0, x:0.32}, {t:1.2, x:0.56}, {t:7.4, x:0.56}]`.
+  // The pose layer decides "is this character travelling?" by asking whether the motion sampler
+  // sees x change, so that long identical tail made it read as travelling for the remaining six
+  // seconds — and a travelling character plays a locomotion pose. Bobby kept a walk cycle for the
+  // whole beat after arriving at his mark, while his feet covered no ground.
+  //
+  // Holding the position needs no key: `sampleMotion` holds the last keyframe forever, so the
+  // figure is already pinned at the mark from walkSec to the scene end. The extra key bought
+  // nothing and cost the walk.
   return { path, ease: 'ease-in-out', durationSec: num(walkSec) };
 }
 
@@ -327,6 +327,15 @@ export function blockBeat({ beat, cast, propPlacements, leadId, characters }) {
  */
 export function posesFor({ beat, block, cast }) {
   const emotion = EMOTION_POSE[beat.emotion ?? 'neutral'] ?? EMOTION_POSE.neutral;
+  // A locomotion pose is not a resting body.
+  //
+  // `explore` and `depart` name 'walk' as their rest pose, because that is what the actor is
+  // doing for most of the beat. But the pose track cannot blend to a locomotion pose once travel
+  // stops, and the renderer correctly refuses to march on the spot — so the fallback for both was
+  // 'idle', and the actor stood perfectly still for five seconds after arriving. The rest pose
+  // has to be something a standing child can do.
+  const LOCOMOTION = new Set(['walk', 'run']);
+  const restFor = (id) => (LOCOMOTION.has(id) || !id ? 'idle' : id);
   const poses = new Map();
   for (const [id, pos] of block.positions) {
     if (id === block.actorId) {
@@ -334,7 +343,7 @@ export function posesFor({ beat, block, cast }) {
         animation: block.intent.pose,
         expression: beat.emotion ?? 'neutral',
         // Action poses are the performance; emotion drives the face.
-        restAnimation: block.intent.restPose ?? emotion.pose,
+        restAnimation: restFor(block.intent.restPose ?? emotion.pose),
       });
     } else {
       poses.set(id, {

@@ -58,6 +58,10 @@
         {
           "atSec": 3.144,
           "animation": "laugh"
+        },
+        {
+          "atSec": 4.559,
+          "animation": "idle"
         }
       ]
     },
@@ -72,7 +76,7 @@
       "facing": "right",
       "expression": "happy",
       "animation": "walk",
-      "restAnimation": "walk",
+      "restAnimation": "idle",
       "entranceAt": 0,
       "motion": {
         "path": [
@@ -83,11 +87,6 @@
           },
           {
             "t": 1.2,
-            "x": 0.56,
-            "y": 0.82
-          },
-          {
-            "t": 7.485,
             "x": 0.56,
             "y": 0.82
           }
@@ -117,6 +116,10 @@
         {
           "atSec": 3.144,
           "animation": "laugh"
+        },
+        {
+          "atSec": 4.559,
+          "animation": "idle"
         }
       ]
     }

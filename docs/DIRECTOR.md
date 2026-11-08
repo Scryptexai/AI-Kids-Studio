@@ -327,8 +327,39 @@ half-closed blink is a different expression, not a blend of two. Transitions ove
 ~0.24 s of a gap, so a pose change reads as a change rather than a slow dissolve.
 
 Verified on ep-002 `sc-002-b02-miss`: Pip holds `curious` until 1.891 s, snaps to `surprise`, and
-returns to `curious` at 3.656 s; Bobby and Coco react 0.756 s later, which is what makes it read
-as one character noticing and the others following.
+returns to `curious` at 6.003 s — the end of his own line, not a fixed fraction of the beat; Bobby
+and Coco react 0.756 s later and release at 3.838 s, which is what makes it read as one character
+noticing and the others following.
+
+### 7.6 Speech, and the four bugs it exposed (implemented)
+
+Nobody's mouth moved while they spoke. That was the most visible defect in the episode and it
+survived a fully green test suite, because the tests were checking the mouth channel, not the
+sound.
+
+**The mouth now follows the audio.** `apps/renderer/lipsync.mjs` reads the dialogue WAV, computes a
+100 Hz RMS envelope, normalises it against the loud peak and samples it per frame. A syllable is a
+burst of energy, so mouth-open tracks loudness. This is not phoneme-accurate viseme animation —
+the pipeline has no phoneme timings — but it is genuinely *in sync*, which is the part a viewer
+notices. Verified on `sc-002`: the mouth opens on each word and closes between them.
+
+Fixing that surfaced four separate defects, all of which were visible in frames:
+
+| Symptom on screen | Cause | Fix |
+| --- | --- | --- |
+| Nobody's mouth moved | `talk` animated the mouth from a sine, and `travelling` overwrote the whole pose state | Speech is derived from the audio; travel no longer overwrites the mouth |
+| A mouth flapped while the character said nothing | `talk`'s sine ran regardless of dialogue | `talk` no longer animates the mouth at all |
+| Still marching in place six seconds after arriving | the motion track carried a hold key at the scene end, so the sampler reported "travelling" for the tail | track ends with the walk; the sampler already holds the last key |
+| Frozen for the last five seconds of every beat | the pose track stopped after the opening reaction and the actor held that pose to the cut | the reaction is released after the line, and a listener's reaction decays |
+
+The performance is now timed against the **line**, not against a fraction of the beat: a gesture
+that belongs to a sentence is released after that sentence ends. `performanceFor` takes
+`lineStartSec`/`lineDurationSec` for this reason.
+
+Two smaller causes worth knowing: a rest pose of `'walk'` is not a pose a standing child can hold,
+so locomotion rest poses resolve to `idle`; and the listener reaction check compared against the
+*actor's* rest pose, which silently disabled listener tracks in beats where both resolved to the
+same pose.
 
 ## 8. Limits (do not claim otherwise)
 
@@ -340,7 +371,8 @@ as one character noticing and the others following.
   something new ("picks up the ball with both hands") requires a new pose in the rig first.
 * **One pose per character at a time.** Two characters never share a pose, and a character cannot
   be walking and gesturing simultaneously — travel overrides the performance, so a beat must
-  choose between the two.
+  choose between the two. Speech is the one exception (§7.6): a walking character can talk,
+  because the mouth is not a limb.
 * **Arms swing on a fixed rotation; a character does not reach for a
   specific point on an object. Prop attachment is "at the hands", not "gripping the handle".
 * **No object physics.** Thrown props follow a scripted parabola — they do not bounce, roll,
@@ -352,7 +384,10 @@ as one character noticing and the others following.
   front by lane.
 * **Travel is horizontal plus depth.** There is no diagonal ground path between lanes and no
   turning; a character walking away still faces the camera in profile.
-* **No lip sync.** `talk` opens the mouth on a sine wave, not on phonemes.
+* **Lip sync is amplitude, not phonemes.** The mouth follows the dialogue's loudness envelope
+  (§7.6), so it opens and closes with the words. It does not know which word: there is no
+  phoneme timing in the pipeline, so the shapes are open/closed, not an `m`/`a`/`f` viseme set.
+  A mouth that closes on a wide-open vowel is possible and has not been hand-corrected.
 * **One line per beat.** Real conversations with overlap need multiple dialogue entries and
   audio mixing per line, which the scene schema allows but the director does not yet emit.
 * **No transitions rendered.** The director records `transition: cuts` in scene metadata, but the

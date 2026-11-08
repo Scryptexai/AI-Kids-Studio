@@ -49,17 +49,7 @@
       "expression": "curious",
       "animation": "talk",
       "restAnimation": "curious",
-      "entranceAt": 0,
-      "poseTrack": [
-        {
-          "atSec": 0,
-          "animation": "talk"
-        },
-        {
-          "atSec": 3.575,
-          "animation": "idle"
-        }
-      ]
+      "entranceAt": 0
     },
     {
       "characterId": "pip",

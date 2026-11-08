@@ -60,7 +60,7 @@
           "animation": "surprise"
         },
         {
-          "atSec": 3.656,
+          "atSec": 6.003,
           "animation": "curious"
         }
       ]
@@ -86,6 +86,10 @@
         {
           "atSec": 2.647,
           "animation": "surprise"
+        },
+        {
+          "atSec": 3.838,
+          "animation": "idle"
         }
       ]
     },
@@ -110,6 +114,10 @@
         {
           "atSec": 2.647,
           "animation": "surprise"
+        },
+        {
+          "atSec": 3.838,
+          "animation": "idle"
         }
       ]
     }

@@ -13,6 +13,7 @@
 import { sampleMotionWithDepth, travelDirection } from './motion.mjs';
 import { animationState, poseStateAt } from './state.mjs';
 import { gaitFor, travelProgress, anticipateFor, arrivalPulse } from './timing.mjs';
+import { mouthFor } from './lipsync.mjs';
 
 const rad = (deg) => (deg * Math.PI) / 180;
 const clamp = (v, lo, hi) => Math.min(hi, Math.max(lo, v));
@@ -40,7 +41,16 @@ const SHAPE = {
  * Returns geometry in composition pixels plus the joint angles used, so callers can either draw
  * it or ask where a hand is and get an answer consistent with the drawing.
  */
-export function solvePose({ character, instance, tSec, compositionHeight, compositionWidth, travelling: forceTravelling }) {
+export function solvePose({
+  character,
+  instance,
+  tSec,
+  compositionHeight,
+  compositionWidth,
+  travelling: forceTravelling,
+  // The scene's dialogue, so the mouth can follow the audio the audience actually hears.
+  dialogue = null,
+}) {
   const motion = sampleMotionWithDepth(instance.motion, tSec, {
     ...instance.position,
     depth: instance.depth ?? 0.5,
@@ -67,6 +77,11 @@ export function solvePose({ character, instance, tSec, compositionHeight, compos
       characterId: character.id,
     });
 
+  // Speech is solved first: the mouth is not a limb, and travel must not overwrite it.
+  const speechMouth = dialogue
+    ? mouthFor({ dialogue, characterId: instance.characterId, tSec })
+    : null;
+
   // While travelling the limbs must swing even if the beat's pose is something else — a character
   // can walk and talk at the same time.
   //
@@ -90,6 +105,22 @@ export function solvePose({ character, instance, tSec, compositionHeight, compos
     st.elbowBend = 0.2 + Math.max(0, -step) * (gait.running ? 1.0 : 0.45);
     st.lean = gait.running ? 0.09 : 0.02;
     st.headBob = Math.sin(cycle * 2) * 0.012;
+    // A walking character can talk. Speech used to be dropped here along with the gesture,
+    // because travel overwrote the whole pose state — so a character who spoke while crossing the
+    // frame had a mouth that never opened. Only the mouth comes back from the performance.
+    if (speechMouth != null) {
+      // `expressionOpen` is what the FACE means; `mouthOpen` is how far the jaw is open this
+      // frame. They are the same thing for a laugh or a gasp, but not while talking: the brows
+      // and eyes are driven by expressionOpen, so loud syllables no longer make the character
+      // look angry and quiet ones make them look bored. See renderFace.
+      st.expressionOpen = st.mouthOpen;
+      st.mouthOpen = speechMouth;
+      st.speaking = true;
+    }
+  } else if (speechMouth != null) {
+    st.expressionOpen = st.mouthOpen;
+    st.mouthOpen = speechMouth;
+    st.speaking = true;
   }
 
   // Anticipation: an actor that is about to travel coils back before it goes. Without this a

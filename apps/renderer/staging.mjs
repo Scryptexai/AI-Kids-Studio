@@ -17,7 +17,12 @@ export function handFor({ scene, characters, characterId, tSec, side = 'right', 
   const instance = (scene.characters ?? []).find((c) => c.characterId === characterId);
   const character = characters.get(characterId);
   if (!instance || !character) return null;
-  return handPosition({ character, instance, tSec, compositionHeight: height, compositionWidth: width, side });
+  // Dialogue is passed through so the hand is solved from the same pose the frame draws: the
+  // mouth opens the face, but a speaking pose can also move an arm, and a prop must follow it.
+  return handPosition({
+    character, instance, tSec, compositionHeight: height, compositionWidth: width, side,
+    dialogue: scene.dialogue ?? null,
+  });
 }
 
 /**

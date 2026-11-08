@@ -58,6 +58,10 @@
         {
           "atSec": 2.523,
           "animation": "jump"
+        },
+        {
+          "atSec": 3.658,
+          "animation": "idle"
         }
       ]
     },
@@ -72,7 +76,7 @@
       "facing": "right",
       "expression": "excited",
       "animation": "walk",
-      "restAnimation": "walk",
+      "restAnimation": "idle",
       "entranceAt": 0,
       "motion": {
         "path": [
@@ -83,11 +87,6 @@
           },
           {
             "t": 1.2,
-            "x": 0.56,
-            "y": 0.82
-          },
-          {
-            "t": 6.006,
             "x": 0.56,
             "y": 0.82
           }
@@ -117,6 +116,10 @@
         {
           "atSec": 2.523,
           "animation": "jump"
+        },
+        {
+          "atSec": 3.658,
+          "animation": "idle"
         }
       ]
     }

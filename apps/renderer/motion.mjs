@@ -60,7 +60,13 @@ export function sampleMotion(track, tSec, fallback) {
       return {
         x: a.x + (b.x - a.x) * k,
         y: ay + (by - ay) * k,
-        moving: Math.abs(b.x - a.x) > 0.001 && raw > 0 && raw < 1,
+        // "Moving" means the character's feet are covering ground, on either axis.
+        //
+        // This used to look only at x, so a character walking *into the picture* — the depth
+        // ramp, where x is constant and z moves — read as standing still. The rig then played a
+        // standing pose while the figure glided backwards into the distance with locked legs.
+        moving: (Math.abs(b.x - a.x) > 0.001 || Math.abs((b.z ?? 0) - (a.z ?? 0)) > 0.001)
+          && raw > 0 && raw < 1,
         phase: raw,
       };
     }

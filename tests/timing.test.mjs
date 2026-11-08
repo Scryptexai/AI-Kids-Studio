@@ -110,3 +110,17 @@ test('overshoot decays instead of ringing forever', () => {
   assert.ok(values[0] > values.at(-1), 'the correction must fade');
   assert.equal(overshoot({ tSec: 0.5, changeAtSec: 0 }), 0, 'it must end, not ring');
 });
+
+test('a character that has arrived stops travelling, so the walk cycle ends', () => {
+  // The director used to append a "hold" keyframe at the scene end, which made the sampler read
+  // the character as travelling for the rest of the beat. On screen this was a figure marching
+  // in place for six seconds after reaching its mark.
+  const arrived = walker(shortWalk);
+  const during = poseAt(arrived, 1.0);
+  const after = poseAt(arrived, 4.0);
+  assert.equal(during.travelling, true);
+  assert.equal(after.travelling, false, 'standing on the mark is not travelling');
+  assert.ok(Math.abs(after.state.legSwing) < 0.01, 'the legs must stop swinging when the feet stop');
+  // The pose must come from the rest animation, not from the locomotion cycle.
+  assert.equal(after.cx, poseAt(arrived, 4.0).cx, 'a still character does not drift');
+});

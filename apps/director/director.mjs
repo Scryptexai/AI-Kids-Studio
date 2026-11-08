@@ -124,6 +124,12 @@ export function directBeat({ beat, index, script, world, cast, characters, leadI
   );
   if (durationSec <= 0) throw new StudioError(`beat '${beat.id}' has non-positive duration`);
 
+  // Where the line sits inside the beat. Needed before the characters are built, because the
+  // performance is timed against the voice.
+  const lineStart = ROOT_PAD;
+  // Scene id is derived here because the dialogue asset path is keyed by it.
+  const sceneId = `sc-${String(index + 1).padStart(3, '0')}-${beat.id}`;
+
   // Blocking needs the partner's mark, which needs the actor's mark: solve partner first.
   const block = blockBeat({ beat, cast, propPlacements: placements, leadId, characters });
 
@@ -153,11 +159,7 @@ export function directBeat({ beat, index, script, world, cast, characters, leadI
         throw new StudioError(`beat '${beat.id}' uses '${pos.characterId}', which is not in the character library`);
       }
       // Real travel: an entry path becomes a motion track the renderer samples per frame.
-      let motion = motionTrackFor({
-        entry: pos.entry,
-        durationSec,
-        holdUntilSec: durationSec,
-      });
+      let motion = motionTrackFor({ entry: pos.entry, durationSec });
 
       // Depth: walking into or out of the picture adds a z ramp, which also drives scale and
       // the ground line — no separate scale track needed.
@@ -198,6 +200,10 @@ export function directBeat({ beat, index, script, world, cast, characters, leadI
         emotion: beat.emotion ?? 'neutral',
         durationSec,
         travelling: Boolean(motion),
+        // The line is the clock the performance hangs from: it tells the director when the
+        // actor's gesture should be released instead of held to the end of the beat.
+        lineStartSec: lineStart,
+        lineDurationSec: lineDuration,
       });
 
       return {
@@ -214,7 +220,6 @@ export function directBeat({ beat, index, script, world, cast, characters, leadI
       };
     });
 
-  const lineStart = ROOT_PAD;
   const lineEnd = Number((lineStart + lineDuration).toFixed(3));
 
   const dialogue = beat.line
@@ -224,7 +229,11 @@ export function directBeat({ beat, index, script, world, cast, characters, leadI
         text: beat.line,
         startSec: Number(lineStart.toFixed(3)),
         emotion: beat.emotion ?? 'neutral',
-        audioAsset: `audio/generated/${script.episodeId}/${beat.id}/${beat.id}-d01.wav`,
+        // The voice generator writes into audio/generated/<episode>/<SCENE id>/, keyed by the
+        // scene, not the beat. Guessing .../<beatId>/<beatId>-d01.wav here pointed at a file that
+        // never exists, so re-directing after voice:generate silently replaced the real asset path
+        // with a wrong one and the render refused with "dialogue line has no rendered audio".
+        audioAsset: `audio/generated/${script.episodeId}/${sceneId}/${beat.id}-d01.wav`,
         durationSec: Number(lineDuration.toFixed(3)),
       }]
     : [];
@@ -324,7 +333,7 @@ export function directBeat({ beat, index, script, world, cast, characters, leadI
 
   const scene = {
     schemaVersion: 1,
-    id: `sc-${String(index + 1).padStart(3, '0')}-${beat.id}`,
+    id: sceneId,
     beatId: beat.id,
     worldId: script.worldId,
     episodeId: script.episodeId,

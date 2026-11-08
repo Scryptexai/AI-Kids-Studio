@@ -88,13 +88,17 @@ test('travel direction reflects the sign of movement', () => {
   assert.equal(travelDirection(null, 0.5), null);
 });
 
-test('walk-in travels from off-frame to the mark and holds there', () => {
+test('walk-in travels from off-frame to the mark and the track ends with the walk', () => {
   const mark = { x: 0.42, y: 0.82, z: 2, scale: 1 };
   const entry = entryFor({ intent: INTENTS.entrance, mark, role: 'lead', castIndex: 0 });
-  const track = motionTrackFor({ entry, durationSec: 6, holdUntilSec: 6 });
+  const track = motionTrackFor({ entry, durationSec: 6 });
   assert.ok(track.path[0].x < 0, 'starts off-frame');
   assert.equal(track.path.at(-1).x, 0.42);
-  assert.equal(track.path.at(-1).t, 6);
+  // The track must stop when the walk stops. Pinning a third key at the scene end made the
+  // character read as travelling for the rest of the beat, so the walk cycle never ended.
+  assert.equal(track.path.length, 2, 'no hold key: the sampler holds the last keyframe already');
+  assert.ok(track.path.at(-1).t < 6, 'the track must end before the scene does');
+  assert.equal(track.durationSec, track.path.at(-1).t, 'duration matches the walk, not the scene');
 });
 
 test('departure travels from the mark to off-frame and does not hold', () => {
@@ -288,4 +292,21 @@ test('a track without depth keeps the static position and scale', () => {
 test('DEPTH.lanes are ordered front, mid, far', () => {
   assert.ok(DEPTH.front.scale > DEPTH.mid.scale && DEPTH.mid.scale > DEPTH.far.scale);
   assert.ok(DEPTH.front.groundY > DEPTH.mid.groundY && DEPTH.mid.groundY > DEPTH.far.groundY);
+});
+
+test('walking into the picture counts as moving, not as standing still', () => {
+  // A depth ramp keeps x constant and moves z. The visibility test used to look only at x, so a
+  // character walking away from camera played a standing pose and glided backwards with locked
+  // legs — the depth shot read as a bug in the renderer.
+  const towardBack = {
+    path: [{ t: 0, x: 0.4, y: 0.82, z: 0.5 }, { t: 3, x: 0.4, y: 0.82, z: 0.9 }],
+    ease: 'linear',
+  };
+  assert.equal(sampleMotion(towardBack, 1.5, { x: 0.4, y: 0.82 }).moving, true);
+  // But not before it starts or after it stops.
+  assert.equal(sampleMotion(towardBack, 0, { x: 0.4, y: 0.82 }).moving, false);
+  assert.equal(sampleMotion(towardBack, 3, { x: 0.4, y: 0.82 }).moving, false);
+  // A genuinely static track is still static.
+  const still = { path: [{ t: 0, x: 0.4, y: 0.82, z: 0.5 }, { t: 3, x: 0.4, y: 0.82, z: 0.5 }] };
+  assert.equal(sampleMotion(still, 1.5, { x: 0.4, y: 0.82 }).moving, false);
 });

@@ -21,10 +21,10 @@ import { solvePose } from './pose.mjs';
  * part goes comes from `solvePose`, so this function only decides how parts look — never where
  * they are. `handPosition` reads the same pose, which is why a carried prop lands in the hand.
  */
-export function renderCharacter({ character, instance, tSec, compositionHeight, compositionWidth }) {
+export function renderCharacter({ character, instance, tSec, compositionHeight, compositionWidth, dialogue = null }) {
   const palette = character.visual.palette;
   const look = character.visual.look ?? {};
-  const pose = solvePose({ character, instance, tSec, compositionHeight, compositionWidth });
+  const pose = solvePose({ character, instance, tSec, compositionHeight, compositionWidth, dialogue });
   const { state: st, facingDir, cx, groundY, bodyTop, headCy, headR, bodyW, bodyH, footY, limbs } = pose;
 
   const outline = look.outline ?? '#243b2f';
@@ -153,8 +153,8 @@ export { esc, clamp, lerp, bodyHeightPx, animationState };
  *
  * @param {'left'|'right'} side Which hand. Defaults to `right`.
  */
-export function handPosition({ character, instance, tSec, compositionHeight, compositionWidth, side = 'right' }) {
-  const pose = solvePose({ character, instance, tSec, compositionHeight, compositionWidth });
+export function handPosition({ character, instance, tSec, compositionHeight, compositionWidth, side = 'right', dialogue = null }) {
+  const pose = solvePose({ character, instance, tSec, compositionHeight, compositionWidth, dialogue });
   const hand = pose.limbs[side]?.hand ?? pose.limbs.right.hand;
   return { x: hand.x / compositionWidth, y: hand.y / compositionHeight, px: hand.x, py: hand.y };
 }
@@ -162,29 +162,54 @@ export function handPosition({ character, instance, tSec, compositionHeight, com
 function renderFace({ cx, headCy, headR, facing, state, palette, look, outline }) {
   const eyeY = headCy - headR * 0.12;
   const eyeDx = headR * 0.36;
-  const eyeR = headR * (state.mouthOpen > 0.85 ? 0.17 : 0.13);
+  // The face reads `expressionOpen`, not the jaw.
+  //
+  // Brows, eye size and tears used to be driven straight off `mouthOpen`. That was harmless while
+  // the mouth was a slow sine, but once speech began driving the jaw from the audio envelope the
+  // brows lifted and fell with every syllable: the character looked furious on loud vowels and
+  // bored on quiet ones, in the middle of a happy line. `expressionOpen` is the pose's expression
+  // and only changes when the *expression* changes; `mouthOpen` is this frame's lips.
+  const expression = state.expressionOpen ?? state.mouthOpen;
+  const eyeR = headR * (expression > 0.85 ? 0.17 : 0.13);
   const pupilR = eyeR * 0.55;
   const look_ = facing * headR * 0.06;
   const out = [];
 
   // Eye whites with a pupil that follows the facing direction. Big eyes are the single biggest
   // readability win at 720p, which is why they are not a shape afterthought.
+  // The lid position, not a boolean: a blink that switches between two drawings pops.
+  // `blinkAmount` is 0 when open and 1 when shut. Half-closed is drawn by laying a lid of skin
+  // over the top of the eye — that is what an eye closing looks like in flat style, and it is one
+  // shape rather than a second set of eye drawings.
+  const lid = Math.max(0, Math.min(1, state.blinkAmount ?? (state.blink ? 1 : 0)));
+  const lidFill = look?.skin ?? palette.accent ?? '#f0c8a0';
   for (const dir of [-1, 1]) {
     const ex = cx + dir * eyeDx;
-    if (state.blink) {
-      out.push(`<rect x="${(ex - eyeR).toFixed(2)}" y="${(eyeY - 1.5).toFixed(2)}" width="${(eyeR * 2).toFixed(2)}" height="3" rx="1.5" fill="${outline}"/>`);
-    } else {
+    if (lid < 0.02) {
       out.push(
         `<circle cx="${ex.toFixed(2)}" cy="${eyeY.toFixed(2)}" r="${eyeR.toFixed(2)}" fill="#ffffff" stroke="${outline}" stroke-width="${Math.max(1.5, headR * 0.055).toFixed(2)}"/>` +
         `<circle cx="${(ex + look_).toFixed(2)}" cy="${(eyeY + 1).toFixed(2)}" r="${pupilR.toFixed(2)}" fill="${outline}"/>`,
       );
+    } else if (lid < 0.98) {
+      const lidY = eyeY - eyeR + eyeR * 2 * lid;
+      out.push(
+        `<circle cx="${ex.toFixed(2)}" cy="${eyeY.toFixed(2)}" r="${eyeR.toFixed(2)}" fill="#ffffff" stroke="${outline}" stroke-width="${Math.max(1.5, headR * 0.055).toFixed(2)}"/>`,
+        `<circle cx="${(ex + look_).toFixed(2)}" cy="${(eyeY + 1).toFixed(2)}" r="${pupilR.toFixed(2)}" fill="${outline}"/>`,
+        // Lid: skin above the lid line, then the lid line itself as an outline.
+        `<path d="M${(ex - eyeR).toFixed(2)} ${(eyeY - eyeR - 1).toFixed(2)} L${(ex + eyeR).toFixed(2)} ${(eyeY - eyeR - 1).toFixed(2)} L${(ex + eyeR).toFixed(2)} ${lidY.toFixed(2)} Q${ex.toFixed(2)} ${(lidY + eyeR * 0.3).toFixed(2)} ${(ex - eyeR).toFixed(2)} ${lidY.toFixed(2)} Z" fill="${lidFill}"/>`,
+        `<path d="M${(ex - eyeR).toFixed(2)} ${lidY.toFixed(2)} Q${ex.toFixed(2)} ${(lidY + eyeR * 0.3).toFixed(2)} ${(ex + eyeR).toFixed(2)} ${lidY.toFixed(2)}" fill="none" stroke="${outline}" stroke-width="${Math.max(1.4, headR * 0.06).toFixed(2)}" stroke-linecap="round"/>`,
+      );
+    } else {
+      out.push(`<rect x="${(ex - eyeR).toFixed(2)}" y="${(eyeY - 1.5).toFixed(2)}" width="${(eyeR * 2).toFixed(2)}" height="3" rx="1.5" fill="${outline}"/>`);
     }
   }
 
   // Brows carry most of the emotion; a face without them reads as blank.
-  const browLift = (state.mouthOpen - 0.4) * headR * 0.22;
+  const browLift = (expression - 0.4) * headR * 0.22;
   const browY = eyeY - headR * 0.42 - browLift;
-  const browTilt = state.tears ? headR * 0.1 : state.mouthOpen > 0.8 ? headR * 0.06 : 0;
+  // Anger is the one brow shape that can ruin a line, so it is reserved for a deliberately
+  // indignant expression rather than reached by holding the mouth open.
+  const browTilt = state.tears ? headR * 0.1 : expression > 0.95 ? headR * 0.05 : 0;
   out.push(
     `<line x1="${(cx - eyeDx - eyeR).toFixed(2)}" y1="${(browY - browTilt).toFixed(2)}" x2="${(cx - eyeDx + eyeR).toFixed(2)}" y2="${(browY + browTilt).toFixed(2)}" stroke="${outline}" stroke-width="${(headR * 0.09).toFixed(2)}" stroke-linecap="round"/>` +
     `<line x1="${(cx + eyeDx - eyeR).toFixed(2)}" y1="${(browY + browTilt).toFixed(2)}" x2="${(cx + eyeDx + eyeR).toFixed(2)}" y2="${(browY - browTilt).toFixed(2)}" stroke="${outline}" stroke-width="${(headR * 0.09).toFixed(2)}" stroke-linecap="round"/>`,

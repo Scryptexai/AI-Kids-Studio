@@ -58,6 +58,10 @@
         {
           "atSec": 2.704,
           "animation": "jump"
+        },
+        {
+          "atSec": 3.921,
+          "animation": "idle"
         }
       ]
     },
@@ -114,6 +118,10 @@
         {
           "atSec": 2.704,
           "animation": "jump"
+        },
+        {
+          "atSec": 3.921,
+          "animation": "idle"
         }
       ]
     }

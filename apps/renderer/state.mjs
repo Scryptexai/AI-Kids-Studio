@@ -40,7 +40,7 @@ export function bodyHeightPx(instance, character) {
 /** Numeric fields of a pose state, in the order a blend should treat them. */
 export const POSE_FIELDS = [
   'bobY', 'squash', 'tilt', 'armSwing', 'legSwing', 'elbowBend', 'kneeBend',
-  'headBob', 'lean', 'armRaise', 'raiseSide', 'mouthOpen', 'hopY',
+  'headBob', 'lean', 'armRaise', 'raiseSide', 'mouthOpen', 'hopY', 'blinkAmount',
 ];
 
 /**
@@ -128,6 +128,12 @@ export function animationState(animationId, tSec, characterId) {
     kneeBend: 0,
     headBob: 0,
     lean: 0,
+    // Set by the pose layer once the jaw is driven by speech: the expression the face should
+    // wear, as distinct from how far this frame's mouth happens to be open.
+    expressionOpen: null,
+    speaking: false,
+    // 0 = eyes open, 1 = lid fully down. See the blink block at the end of this function.
+    blinkAmount: 0,
   };
 
   switch (animationId) {
@@ -173,7 +179,12 @@ export function animationState(animationId, tSec, characterId) {
       break;
     }
     case 'talk':
-      state.mouthOpen = 0.35 + 0.65 * Math.abs(Math.sin(phase * 4.2));
+      // The mouth used to be animated here, from a sine. That is the wrong signal: it flapped on
+      // a clock whether or not anything was being said, and it was identical in every line ever
+      // spoken. Speech now drives `mouthOpen` from the dialogue's own amplitude (lipsync.mjs);
+      // the pose keeps the body language, which is what 'talk' can honestly animate. `mouthOpen`
+      // stays 0 so a gesturing character is not silently mouthing a fake conversation.
+      state.mouthOpen = 0;
       state.bobY = Math.sin(phase * 1.2) * 1.5;
       state.armSwing = Math.sin(phase * 1.1) * 0.12;
       // Hands come up to the body while speaking — the gesture children actually make.
@@ -184,13 +195,14 @@ export function animationState(animationId, tSec, characterId) {
     case 'wave':
       state.armRaise = 0.9 + Math.sin(phase * 3.2) * 0.18;
       state.raiseSide = 1;
-      state.mouthOpen = 0.4;
       state.bobY = Math.sin(phase * 0.9) * 1.5;
       // A raised arm needs a bent elbow to look like a wave rather than a salute.
       state.elbowBend = 0.85 + Math.sin(phase * 3.2) * 0.35;
       state.headBob = Math.sin(phase * 0.9) * 0.01;
       break;
     case 'laugh':
+      // Laughter is a sound the pose owns (there is no laugh track), so the mouth is the one case
+      // where the rig may open it on its own. Speech still wins while a line is playing.
       state.mouthOpen = 1;
       state.tilt = Math.sin(phase * 4) * 0.1;
       state.bobY = Math.abs(Math.sin(phase * 4)) * -3;
@@ -223,7 +235,31 @@ export function animationState(animationId, tSec, characterId) {
       state.bobY = Math.sin(phase) * 1;
   }
 
-  state.blink = noise(Math.floor(tSec * 2.7) + seed) > 0.93;
+  // A blink is an event, not a state.
+  //
+  // This used to quantise time into 370 ms buckets and hold the eyes shut for a whole bucket —
+  // so a blink lasted a quarter of a second, three times longer than a real one. On camera it
+  // read as a character repeatedly falling asleep mid-line.
+  //
+  // A real blink takes ~130 ms and is not symmetric: the lid snaps down in about a third of that
+  // and eases back up. `blink` stays a boolean for the poses that override it, and `blinkAmount`
+  // carries the lid position so the eye can close smoothly rather than switching between two
+  // drawings.
+  const BLINK_SEC = 0.13;
+  const CLOSE_FRACTION = 0.35;
+  const blinkPeriod = 2.9; // nominal gap between blinks
+  const slot = Math.floor(tSec / blinkPeriod);
+  const blinkStart = slot * blinkPeriod + noise(slot * 7.3 + seed) * (blinkPeriod - BLINK_SEC);
+  const sinceBlink = tSec - blinkStart;
+  if (sinceBlink >= 0 && sinceBlink < BLINK_SEC && noise(slot + seed * 3.1) > 0.22) {
+    const p = sinceBlink / BLINK_SEC;
+    // Down fast, up slow: smoothstep on each half so the lid does not jerk at the turnaround.
+    const k = p < CLOSE_FRACTION
+      ? p / CLOSE_FRACTION
+      : 1 - (p - CLOSE_FRACTION) / (1 - CLOSE_FRACTION);
+    state.blinkAmount = k * k * (3 - 2 * k);
+    state.blink = state.blinkAmount > 0.5;
+  }
   return state;
 }
 

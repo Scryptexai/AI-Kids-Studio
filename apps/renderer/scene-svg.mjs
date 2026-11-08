@@ -151,6 +151,8 @@ export function buildSceneSvg({
         tSec: t,
         compositionHeight: height,
         compositionWidth: width,
+        // The scene's dialogue goes in, so the mouth can follow the audio the viewer hears.
+        dialogue: scene.dialogue ?? null,
       })}</g>`,
     })).filter((layer) => layer.markup),
   ];
