@@ -148,6 +148,41 @@
             "type": "string",
             "description": "Prop id from the world catalog that this beat is about."
           },
+          "absent": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Props that are OFF-STAGE for this beat because the plot has lost or hidden them. Unlike prop=null (which only means \"this beat has no prop\"), absent removes the object from the scene entirely \u2014 a beat about a missing ball must not have the ball standing next to it."
+          },
+          "reveal": {
+            "type": "object",
+            "additionalProperties": false,
+            "description": "A prop the beat brings INTO shot, because the story has just found it. Needed whenever the prop is genuinely off-stage earlier in the scene: hiding something and then showing it are two different directions and a single flag cannot express both.",
+            "required": [
+              "prop"
+            ],
+            "properties": {
+              "prop": {
+                "type": "string"
+              },
+              "atSec": {
+                "type": "number",
+                "minimum": 0,
+                "description": "When it appears. Defaults to the start of the beat."
+              },
+              "x": {
+                "type": "number"
+              },
+              "y": {
+                "type": "number"
+              },
+              "scale": {
+                "type": "number",
+                "exclusiveMinimum": 0
+              }
+            }
+          },
           "durationSec": {
             "type": "number",
             "exclusiveMinimum": 0

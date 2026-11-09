@@ -46,10 +46,24 @@ export function placeProps({ world, location }) {
 }
 
 /** Preferred prop for a beat: the one it names, else a sensible default per intent. */
-function pickProp({ beat, placements }) {
+function pickProp({ beat, placements, hidden = new Set(), carried = null }) {
+  // Something a character is already holding outranks everything: a beat that picks a different
+  // prop would leave the held one on the floor mid-shot. Before this, the ball Bobby found at the
+  // river vanished again in the next two scenes, because those beats never named it.
+  if (carried) {
+    const held = placements.find((p) => p.propId === carried.propId);
+    if (held) return held;
+  }
   if (beat.prop) {
     const found = placements.find((p) => p.propId === beat.prop);
     if (!found) {
+      // Distinguish "not in this location" from "the plot has taken it away". The second is a
+      // script that forgot to say so, and the hint is the part that gets it fixed.
+      if (hidden.has(beat.prop)) {
+        throw new StudioError(`beat '${beat.id}' names prop '${beat.prop}', but an earlier beat marks it absent`, {
+          hint: `add "absent": ["${beat.prop}"] to this beat if it is still lost, or reveal it first`,
+        });
+      }
       throw new StudioError(`beat '${beat.id}' refers to prop '${beat.prop}' which is not placed at this location`, {
         hint: `placed here: ${placements.map((p) => p.propId).join(', ') || 'none'}`,
       });
@@ -66,8 +80,21 @@ function pickProp({ beat, placements }) {
     return pool.find((p) => p.hero) ?? pool[0] ?? null;
   }
   // Discovery/explanation beats read better when they point at something.
+  //
+  // But only when the hero prop is actually *there*. A story beats `absent` on a prop that the
+  // plot has lost or hidden, and a beat that claims something is missing must not stand next to
+  // it pointing at an empty patch of grass — or, worse, at the prop itself.
   if (beat.action === 'discover' || beat.action === 'explain') {
-    return placements.find((p) => p.hero) ?? placements[0] ?? null;
+    const absent = new Set(beat.absent ?? []);
+
+  // A lost prop is not being carried. If the story takes something off the stage, the carry chain
+  // has to be broken in the same beat — otherwise the character keeps holding a ball that the next
+  // line says is missing, which is exactly the contradiction this feature exists to remove.
+  if (carried && (absent.has(carried.propId) || hidden.has(carried.propId))) carried = null;
+    const shown = placements.filter((p) => !absent.has(p.propId));
+    // Only a hero prop is worth pointing at. Falling back to `placements[0]` made this beat about
+    // a missing ball point at the bench, which is exactly the wrong thing to look at.
+    return shown.find((p) => p.hero) ?? null;
   }
   return null;
 }
@@ -109,11 +136,90 @@ function subtitleCues({ line, startSec, endSec, maxChars = 62 }) {
  * Turn one beat into one scene.
  * @returns {{scene:object, timing:object}}
  */
-export function directBeat({ beat, index, script, world, cast, characters, leadId, previousLocation, previousShot, transitionOverride }) {
+export function directBeat({
+  beat, index, script, world, cast, characters, leadId, previousLocation, previousShot,
+  transitionOverride, hidden = new Set(), carried = null,
+}) {
   const intent = intentFor(beat.action); // throws early on a typo'd action
   const location = beat.location ?? script.locations[0];
   const placements = placeProps({ world, location });
-  const prop = pickProp({ beat, placements });
+  // `absent` is a story fact, not a staging hint: these props are off-stage for this beat because
+  // the plot has lost or hidden them. Filtering here means no downstream rule can feature a ball
+  // that the characters are in the middle of looking for.
+  const absent = new Set(beat.absent ?? []);
+
+  // A lost prop is not being carried. If the story takes something off the stage, the carry chain
+  // has to be broken in the same beat — otherwise the character keeps holding a ball that the next
+  // line says is missing, which is exactly the contradiction this feature exists to remove.
+  if (carried && (absent.has(carried.propId) || hidden.has(carried.propId))) carried = null;
+  // Absent only makes sense for a prop this location actually stages. Saying "the ball is gone"
+  // at the river, where there was never a ball, is a script mistake — but it is also harmless,
+  // and a location change is exactly when people write it. So it is a warning-shaped no-op, not
+  // a hard stop, unless the prop is not in the world at all.
+  const worldProps = new Set((world.propCatalog ?? []).map((p) => p.id));
+  for (const id of absent) {
+    if (!worldProps.has(id)) {
+      throw new StudioError(`beat '${beat.id}' marks prop '${id}' absent, but no such prop exists in world '${world.id}'`, {
+        hint: 'absent hides a prop; it cannot invent one or remove something that never existed',
+      });
+    }
+  }
+  // `hidden` carries the story forward: a prop a previous beat lost stays lost in every later
+  // scene at that location, whether or not this beat's line mentions it. Without this, the ball
+  // pops back onto the grass in the very next shot because that beat simply did not repeat the
+  // word "absent" — the audience reads that as the ball being found twice.
+  let present = placements.filter((p) => !absent.has(p.propId) && !hidden.has(p.propId));
+  const stillHidden = new Set([...hidden, ...absent]);
+
+  // A `reveal` puts something back into shot. Hiding a prop and showing it are opposite actions,
+  // so one flag cannot express both: a beat that finds the ball needs the ball on stage for the
+  // second half of the beat, while the beats before it must not have it at all.
+  if (beat.reveal) {
+    const r = beat.reveal;
+    if (present.some((p) => p.propId === r.prop)) {
+      throw new StudioError(`beat '${beat.id}' reveals '${r.prop}', which is already on stage`, {
+        hint: 'reveal is for a prop the story has hidden with "absent"',
+      });
+    }
+    const catalog = (world.propCatalog ?? []).find((p) => p.id === r.prop);
+    if (!catalog) {
+      throw new StudioError(`beat '${beat.id}' reveals '${r.prop}', which is not in the world prop catalogue`);
+    }
+    const loc = world.locations.find((l) => l.id === location);
+    stillHidden.delete(r.prop);
+    present = [...present, {
+      propId: r.prop,
+      x: num(r.x ?? 0.5),
+      y: num(r.y ?? loc?.groundLineY ?? 0.84),
+      scale: num(r.scale ?? catalog.scaleUnits ?? 1),
+      appearsAt: num(r.atSec ?? 0),
+    }];
+  }
+
+  // A held prop has to be on stage wherever its carrier is. The ball is only in the playground's
+  // prop list, so the moment the story walked to the river the found ball disappeared — the
+  // characters arrived at the payoff scene with nothing in their hands.
+  if (carried && !absent.has(carried.propId) && !present.some((p) => p.propId === carried.propId)) {
+    const catalog = (world.propCatalog ?? []).find((p) => p.id === carried.propId);
+    const loc = world.locations.find((l) => l.id === location);
+    if (!catalog) {
+      throw new StudioError(`'${carried.characterId}' is carrying '${carried.propId}', which is not in the world prop catalogue`);
+    }
+    present = [...present, {
+      propId: carried.propId,
+      x: 0.5,
+      y: num(loc?.groundLineY ?? 0.84),
+      scale: num(catalog.scaleUnits ?? 1),
+      carriedIn: true,
+    }];
+    stillHidden.delete(carried.propId);
+  }
+
+  // A beat that reveals a prop is about that prop: it is what the character has just found, and
+  // what every later rule (facing, interaction, pointing) should work from. Picking the location's
+  // hero prop instead made a beat reveal the ball and then bend down over a flower patch.
+  const beatProp = beat.prop ?? beat.reveal?.prop ?? null;
+  const prop = pickProp({ beat: beatProp ? { ...beat, prop: beatProp } : beat, placements: present, hidden: stillHidden, carried });
 
   // Timing: measured audio wins; otherwise estimate so a script can be staged before TTS.
   const lineDuration = beat.line
@@ -148,6 +254,127 @@ export function directBeat({ beat, index, script, world, cast, characters, leadI
   });
 
   const poses = posesFor({ beat, block, cast });
+
+  /** When a prop arrives in shot, or null if it was always there. */
+  const revealedAt = (p) => present.find((x) => x.propId === p?.propId)?.appearsAt ?? null;
+
+  // Declared before every block that reads or fills them. The throw has to be solved *before*
+  // the carry windows, because a carried prop leaves the hands at the moment of release — and the
+  // windows have to be solved before the character loop, which records what is still being held
+  // into the next beat. Getting this order wrong is silent: the prop is held through its own
+  // flight, so it snaps back to the thrower's hand as soon as it lands.
+  const flights = [];
+  const carryWindows = [];
+  const interactions = [];
+
+  if (beat.throw && prop) {
+    // A throw must name who catches it. Falling back to "whoever happens to be nearby" makes
+    // the story ambiguous — the ball could go to the wrong character.
+    if (!beat.target) {
+      throw new StudioError(`beat '${beat.id}' throws '${prop.propId}' but names no target`, {
+        hint: 'add "target": "<characterId>" so the director knows who catches it',
+      });
+    }
+    const targetMark = block.positions.get(beat.target);
+    if (!targetMark) {
+      throw new StudioError(`beat '${beat.id}' throws to '${beat.target}', who is not in this beat's cast`, {
+        hint: 'the target must be a cast member present in the scene',
+      });
+    }
+    const startSec = Number((beat.throw.atSec ?? ROOT_PAD + 0.3).toFixed(3));
+    const flightSec = Number((beat.throw.durationSec ?? 0.9).toFixed(3));
+    const endSec = Number((startSec + flightSec).toFixed(3));
+    if (endSec > durationSec) {
+      throw new StudioError(`beat '${beat.id}' throw ends at ${endSec}s but the scene is ${durationSec}s`, {
+        hint: 'shorten the throw or give the beat an explicit durationSec',
+      });
+    }
+    // Hands sit a little above each character's ground line.
+    const handLift = 0.34 * (bodyHeightRatio(characters.get(block.actorId)) / heightRef);
+    // A throw can only leave the hands of whoever is actually holding the prop. Using the beat's
+    // actor unconditionally meant a beat could throw a ball it was not holding, or could pick one
+    // up mid-air. When the prop is already in someone's hands, they are the thrower.
+    const throwerId = carried && carried.propId === prop.propId ? carried.characterId : block.actorId;
+    const throwerMark = block.positions.get(throwerId);
+    if (!throwerMark) {
+      throw new StudioError(`beat '${beat.id}' throws '${prop.propId}', but '${throwerId}' is not in this scene`, {
+        hint: 'the thrower must be on stage, and must be the one holding the prop',
+      });
+    }
+    flights.push({
+      propId: prop.propId,
+      // Both ends are named so the renderer can fly the prop between the actual hands (the rig
+      // knows where a hand is; a stored coordinate would only be a guess).
+      fromCharacterId: throwerId,
+      toCharacterId: beat.target,
+      fromX: Number((throwerMark.x + 0.05).toFixed(4)),
+      fromY: Number((throwerMark.y - handLift).toFixed(4)),
+      toX: Number((targetMark.x + 0.03).toFixed(4)),
+      toY: Number((targetMark.y - handLift).toFixed(4)),
+      startSec,
+      endSec,
+      ...(beat.throw.arc != null ? { arc: beat.throw.arc } : {}),
+      spin: beat.throw.spin ?? true,
+      note: `${beat.action}: ${throwerId} throws ${prop.propId} to ${beat.target}`,
+    });
+  }
+
+  // Throwing something requires having held it. A script that writes a throw and forgets to say
+  // `interact: "hold"` used to produce a ball that left a hand it was never in, so the hold is
+  // implied from the start of the beat up to release.
+  if (prop && beat.throw && beat.interact !== 'hold' && beat.interact !== 'none') {
+    const releaseAtSec = flights[0]?.startSec ?? null;
+    const fromSec = Number((revealedAt(prop) ?? ROOT_PAD + 0.4).toFixed(3));
+    if (releaseAtSec != null && releaseAtSec > fromSec) {
+      interactions.push({
+        propId: prop.propId,
+        characterId: flights[0].fromCharacterId,
+        fromSec,
+        toSec: releaseAtSec,
+        attach: 'hands',
+        note: `${beat.action}: ${flights[0].fromCharacterId} holds ${prop.propId} before the throw`,
+      });
+    }
+  }
+
+  if (prop && beat.interact !== 'none') {
+    const attach = beat.interact === 'hold' ? 'hands' : null;
+    const releaseSec = flights[0]?.startSec ?? null;
+    if (attach) {
+      // You cannot pick something up before it is in shot. A revealed prop is held from the
+      // instant it appears; otherwise the character walks on camera already holding an object
+      // the audience has not been shown yet, which gives away the reveal.
+      const fromSec = Number((revealedAt(prop) ?? ROOT_PAD + 0.4).toFixed(3));
+      const carryEnd = Number((durationSec - TAIL_PAD).toFixed(3));
+      const toSec = releaseSec != null ? releaseSec : Number(Math.max(fromSec + 0.6, carryEnd).toFixed(3));
+      if (toSec > fromSec) {
+        interactions.push({
+          propId: prop.propId,
+          characterId: block.actorId,
+          fromSec,
+          toSec,
+          attach,
+          note: `${beat.action}: ${block.actorId} carries ${prop.propId}`,
+        });
+      }
+    }
+    // A throw with a catcher means the prop changes hands: the catcher holds it from the
+    // moment it lands until the scene ends. This is what makes a catch read as a catch.
+    if (flights.length) {
+      const catchFrom = Number((flights[0].endSec).toFixed(3));
+      const catchTo = Number((durationSec - TAIL_PAD).toFixed(3));
+      if (catchTo > catchFrom) {
+        interactions.push({
+          propId: prop.propId,
+          characterId: beat.target,
+          fromSec: catchFrom,
+          toSec: catchTo,
+          attach: 'hands',
+          note: `${beat.action}: ${beat.target} catches ${prop.propId}`,
+        });
+      }
+    }
+  }
 
   // Characters array, ordered back-to-front so the renderer's z sort is stable.
   const sceneCharacters = [...block.positions.values()]
@@ -206,6 +433,21 @@ export function directBeat({ beat, index, script, world, cast, characters, leadI
         lineDurationSec: lineDuration,
       });
 
+      // A carry inherited from the previous beat has to be marked here, at the only place that has
+      // both the cast of this scene and the prop list: an inherited hold that is not re-stated by
+      // the script must still appear as a hold on screen, or the object arrives in shot with the
+      // character's hands at their sides and the ball hovering beside them.
+      const carries = Boolean(
+        carried
+        && prop
+        && prop.propId === carried.propId
+        && carried.characterId === pos.characterId,
+      );
+      if (carries) {
+        carryWindows.push({ propId: carried.propId, characterId: carried.characterId, fromSec: 0 });
+      }
+
+
       return {
         characterId: pos.characterId,
         position: { x: pos.x, y: pos.y, z: pos.z },
@@ -219,6 +461,36 @@ export function directBeat({ beat, index, script, world, cast, characters, leadI
         ...(poseTrack && poseTrack.length > 1 ? { poseTrack } : {}),
       };
     });
+
+  // --- story state leaving this beat ---------------------------------------------------------
+  // Everything below runs after the character loop, because only that loop knows which carried
+  // props actually have a carrier on stage in this scene.
+
+  // Inherited holds become ordinary hold windows, opened at the first frame. This is what makes a
+  // found object stay found: the character walks into the next shot already carrying it.
+  for (const w of carryWindows) {
+    if (interactions.some((i) => i.propId === w.propId && i.characterId === w.characterId && i.fromSec === 0)) continue;
+    interactions.push({
+      propId: w.propId,
+      characterId: w.characterId,
+      fromSec: 0,
+      toSec: Number((durationSec - TAIL_PAD).toFixed(3)),
+      attach: 'hands',
+      note: `carried over: ${w.characterId} is still holding ${w.propId}`,
+    });
+  }
+
+  // What leaves this beat in someone's hands. A carried prop belongs to the character, not to the
+  // scene: it has to follow them into the next shot, otherwise the story loses the object every
+  // time the location or the beat changes. "Still holding at the end" means the window reaches the
+  // tail of the beat, which is where every hold closes by construction.
+  const holdEndsAt = Number((durationSec - TAIL_PAD).toFixed(3));
+  const heldAtEnd = interactions
+    .filter((i) => i.attach === 'hands' && i.toSec >= holdEndsAt - 0.05)
+    .at(-1) ?? null;
+  const carriedNext = heldAtEnd
+    ? { propId: heldAtEnd.propId, characterId: heldAtEnd.characterId, fromBeatId: beat.id }
+    : null;
 
   const lineEnd = Number((lineStart + lineDuration).toFixed(3));
 
@@ -247,90 +519,10 @@ export function directBeat({ beat, index, script, world, cast, characters, leadI
   // touched but stays put. A beat can opt out with `interact: "none"`.
   // A throw is solved from the two marks: the director knows where both characters stand,
   // so the author only supplies timing.
-  const flights = [];
-  if (beat.throw && prop) {
-    // A throw must name who catches it. Falling back to "whoever happens to be nearby" makes
-    // the story ambiguous — the ball could go to the wrong character.
-    if (!beat.target) {
-      throw new StudioError(`beat '${beat.id}' throws '${prop.propId}' but names no target`, {
-        hint: 'add "target": "<characterId>" so the director knows who catches it',
-      });
-    }
-    const targetMark = block.positions.get(beat.target);
-    if (!targetMark) {
-      throw new StudioError(`beat '${beat.id}' throws to '${beat.target}', who is not in this beat's cast`, {
-        hint: 'the target must be a cast member present in the scene',
-      });
-    }
-    const startSec = Number((beat.throw.atSec ?? ROOT_PAD + 0.3).toFixed(3));
-    const flightSec = Number((beat.throw.durationSec ?? 0.9).toFixed(3));
-    const endSec = Number((startSec + flightSec).toFixed(3));
-    if (endSec > durationSec) {
-      throw new StudioError(`beat '${beat.id}' throw ends at ${endSec}s but the scene is ${durationSec}s`, {
-        hint: 'shorten the throw or give the beat an explicit durationSec',
-      });
-    }
-    // Hands sit a little above each character's ground line.
-    const handLift = 0.34 * (bodyHeightRatio(characters.get(block.actorId)) / heightRef);
-    flights.push({
-      propId: prop.propId,
-      // Both ends are named so the renderer can fly the prop between the actual hands (the rig
-      // knows where a hand is; a stored coordinate would only be a guess).
-      fromCharacterId: block.actorId,
-      toCharacterId: beat.target,
-      fromX: Number((block.positions.get(block.actorId).x + 0.05).toFixed(4)),
-      fromY: Number((block.positions.get(block.actorId).y - handLift).toFixed(4)),
-      toX: Number((targetMark.x + 0.03).toFixed(4)),
-      toY: Number((targetMark.y - handLift).toFixed(4)),
-      startSec,
-      endSec,
-      ...(beat.throw.arc != null ? { arc: beat.throw.arc } : {}),
-      spin: beat.throw.spin ?? true,
-      note: `${beat.action}: ${block.actorId} throws ${prop.propId} to ${beat.target}`,
-    });
-  }
-
   // Carrying and throwing both claim the same prop, so they must agree on who holds it when.
   // The carry window ends the instant the throw leaves the hand — otherwise the renderer's
   // precedence rule gives the ball back to the thrower as soon as the flight is over, and the
   // catcher is left miming a catch.
-  const interactions = [];
-  if (prop && beat.interact !== 'none') {
-    const attach = beat.interact === 'hold' ? 'hands' : null;
-    const releaseSec = flights[0]?.startSec ?? null;
-    if (attach) {
-      const fromSec = Number((ROOT_PAD + 0.4).toFixed(3));
-      const carryEnd = Number((durationSec - TAIL_PAD).toFixed(3));
-      const toSec = releaseSec != null ? releaseSec : Number(Math.max(fromSec + 0.6, carryEnd).toFixed(3));
-      if (toSec > fromSec) {
-        interactions.push({
-          propId: prop.propId,
-          characterId: block.actorId,
-          fromSec,
-          toSec,
-          attach,
-          note: `${beat.action}: ${block.actorId} carries ${prop.propId}`,
-        });
-      }
-    }
-    // A throw with a catcher means the prop changes hands: the catcher holds it from the
-    // moment it lands until the scene ends. This is what makes a catch read as a catch.
-    if (flights.length) {
-      const catchFrom = Number((flights[0].endSec).toFixed(3));
-      const catchTo = Number((durationSec - TAIL_PAD).toFixed(3));
-      if (catchTo > catchFrom) {
-        interactions.push({
-          propId: prop.propId,
-          characterId: beat.target,
-          fromSec: catchFrom,
-          toSec: catchTo,
-          attach: 'hands',
-          note: `${beat.action}: ${beat.target} catches ${prop.propId}`,
-        });
-      }
-    }
-  }
-
   const scene = {
     schemaVersion: 1,
     id: sceneId,
@@ -345,11 +537,13 @@ export function directBeat({ beat, index, script, world, cast, characters, leadI
       keyframes: frame.keyframes,
     },
     characters: sceneCharacters,
-    props: placements.map((p) => ({
+    props: present.map((p) => ({
       propId: p.propId,
       x: Number(p.x.toFixed(3)),
       y: Number(p.y.toFixed(3)),
       scale: Number(p.scale.toFixed(3)),
+      // Only written when the prop genuinely arrives mid-beat; absent means "on stage from frame 0".
+      ...(p.appearsAt ? { appearsAt: Number(p.appearsAt.toFixed(3)) } : {}),
     })),
     dialogue,
     subtitles,
@@ -380,6 +574,10 @@ export function directBeat({ beat, index, script, world, cast, characters, leadI
 
   return {
     scene,
+    // What is still off-stage after this beat, so the next scene inherits the story rather than
+    // re-reading the prop list from scratch.
+    hiddenNext: stillHidden,
+    carriedNext,
     timing: {
       beatId: beat.id,
       durationSec,
@@ -415,10 +613,14 @@ export async function directScript({ script, world, characters }) {
   const timings = [];
   let previousLocation = null;
   let previousShot = null;
+  // Props the story has taken off the stage. Carried from beat to beat so a lost ball stays lost
+  // through a location change instead of reappearing every time the prop list is rebuilt.
+  let hidden = new Set();
+  let carried = null;
 
   for (const [i, beat] of script.beats.entries()) {
     const override = script.transitions?.find((t) => t.afterBeat === script.beats[i - 1]?.id)?.kind ?? null;
-    const { scene, timing } = directBeat({
+    const { scene, timing, hiddenNext, carriedNext } = directBeat({
       beat,
       index: i,
       script,
@@ -429,9 +631,13 @@ export async function directScript({ script, world, characters }) {
       previousLocation,
       previousShot,
       transitionOverride: override,
+      hidden,
+      carried,
     });
     scenes.push(scene);
     timings.push(timing);
+    hidden = hiddenNext;
+    carried = carriedNext;
     previousLocation = scene.location;
     previousShot = scene.camera.preset;
   }

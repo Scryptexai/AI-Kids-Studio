@@ -88,12 +88,6 @@
       "scale": 1.1
     },
     {
-      "propId": "toy-ball",
-      "x": 0.47,
-      "y": 0.82,
-      "scale": 0.8
-    },
-    {
       "propId": "tree-round",
       "x": 0.82,
       "y": 0.82,

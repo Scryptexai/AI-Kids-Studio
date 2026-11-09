@@ -331,6 +331,39 @@ returns to `curious` at 6.003 s — the end of his own line, not a fixed fractio
 and Coco react 0.756 s later and release at 3.838 s, which is what makes it read as one character
 noticing and the others following.
 
+### 7.6 Story state: props obey the plot (implemented)
+
+Staging a beat in isolation produced three contradictions that a single frame cannot show and a
+unit test on one scene will never catch. They were found by reading the episode back as a story.
+
+| What the episode did | Why | Fix |
+| --- | --- | --- |
+| Pip said "the ball is gone" while the ball sat on the grass beside him | a beat's `prop` only meant "no prop here", not "this prop is off stage" | `absent: ["toy-ball"]` removes it; the beat then has no hero prop to point at |
+| Bobby threw the ball to Coco in the beat *after* it went missing | a throw resolved against the beat's `prop` with no reference to who was holding it | a throw requires a hold: the thrower is whoever holds it, and a throw implies a hold |
+| Bobby found the ball at the river, and it vanished again in the next two shots | each scene rebuilds its prop list from the location, so the story state was lost at every cut | the director carries `hidden` and `carried` from beat to beat |
+
+Three primitives express it, and each does one thing:
+
+* **`absent`** — off stage for this beat, because the plot has lost or hidden it.
+* **`reveal`** — arrives on stage at `atSec`, because the plot has just found it. A revealed prop is
+  also the beat's prop, and nothing can be picked up before it is in shot.
+* **carried** — implicit. Whatever is in someone's hands at the end of a beat follows them into the
+  next one, including across a location change.
+
+The state is threaded through `directScript`, not stored on the scene: `hiddenNext` and
+`carriedNext` are returned alongside the scene and passed into the next `directBeat`. A beat that
+marks something absent also drops the carry, because a character cannot be holding the thing the
+next line says is missing.
+
+Verified on ep-002 across all eight scenes: the ball is in shot and held (`b01`), off stage for the
+three beats where the search happens (`b02`–`b04`), appears at 1.9 s where it is found (`b06`), and
+stays in Bobby's hands through `b07`–`b08` — including the cut from the playground to the river,
+which is where it used to disappear. Seven guards in `tests/story.test.mjs`.
+
+A smaller fix from the same pass: the ball was a 13 px dot at 720p (radius `16 × 0.2`), on the
+object the whole episode is about. `scaleUnits` is now 0.6 — a ~40 px ball, about a third of a
+child's body height.
+
 ### 7.6 Speech, and the four bugs it exposed (implemented)
 
 Nobody's mouth moved while they spoke. That was the most visible defect in the episode and it

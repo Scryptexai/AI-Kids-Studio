@@ -282,6 +282,11 @@
           "scale": {
             "type": "number",
             "exclusiveMinimum": 0
+          },
+          "appearsAt": {
+            "type": "number",
+            "minimum": 0,
+            "description": "The prop is not on stage before this time. Set by the director for a prop the story reveals mid-beat, so a ball that was lost is genuinely absent while the characters search for it."
           }
         }
       }

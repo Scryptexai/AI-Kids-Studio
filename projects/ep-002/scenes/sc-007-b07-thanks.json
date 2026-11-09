@@ -132,6 +132,12 @@
       "x": 0.92,
       "y": 0.74,
       "scale": 1.2
+    },
+    {
+      "propId": "toy-ball",
+      "x": 0.5,
+      "y": 0.74,
+      "scale": 0.6
     }
   ],
   "dialogue": [
@@ -157,6 +163,16 @@
       "text": "belum menemukannya."
     }
   ],
+  "interactions": [
+    {
+      "propId": "toy-ball",
+      "characterId": "bobby",
+      "fromSec": 0,
+      "toSec": 8.223,
+      "attach": "hands",
+      "note": "carried over: bobby is still holding toy-ball"
+    }
+  ],
   "audioTracks": [
     {
       "id": "b07-thanks-ambience",
@@ -170,7 +186,7 @@
     "intent": "explain",
     "actor": "coco",
     "target": "bobby",
-    "prop": "rock-small",
+    "prop": "toy-ball",
     "shot": "medium",
     "focusX": 0.475,
     "widenedForSpread": false,

@@ -48,9 +48,11 @@
       "intensity": 0.8,
       "actor": "pip",
       "target": "bobby",
-      "prop": "toy-ball",
       "line": "Bobby, bolanya hilang! Tadi ada di dekat bangku itu.",
-      "notes": "The problem lands. Pip is the one who notices, so Bobby can react."
+      "notes": "The problem lands, and the ball must be OFF STAGE for it to be a problem. Pip is the one who notices, so Bobby can react. No prop: they are talking about something that is not there.",
+      "absent": [
+        "toy-ball"
+      ]
     },
     {
       "id": "b03-look",
@@ -71,8 +73,8 @@
       "intensity": 0.55,
       "actor": "coco",
       "target": "bobby",
-      "line": "Aku tadi melihat bola berwarna merah menggelinding ke arah sungai.",
-      "notes": "Coco walks in carrying information \u2014 a new cast member changes the shot.",
+      "line": "Aku tadi melihat bola itu menggelinding ke arah sungai, lewat jalan setapak!",
+      "notes": "Coco walks in carrying information, not a description: the audience has seen the ball, so she recalls the event instead of re-describing it.",
       "interact": "none"
     },
     {
@@ -84,13 +86,10 @@
       "actor": "bobby",
       "target": "pip",
       "line": "Kalau begitu kita ke sungai! Ayo, ikuti aku!",
-      "notes": "Transition beat. Location changes on the next scene.",
-      "interact": "hold",
-      "throw": {
-        "atSec": 1.4,
-        "durationSec": 0.85,
-        "spin": true
-      }
+      "notes": "Transition beat. The ball is still lost; the search is the movement. Previously this beat made Bobby throw a ball that was supposed to be missing.",
+      "absent": [
+        "toy-ball"
+      ]
     },
     {
       "id": "b06-river",
@@ -100,11 +99,18 @@
       "intensity": 0.85,
       "actor": "bobby",
       "target": "pip",
-      "prop": "flower-patch",
+      "prop": "toy-ball",
       "line": "Ada di sini! Bolanya tersangkut di antara bunga-bunga ini.",
-      "notes": "Payoff of the search. New location means the director establishes before the line.",
-      "interact": "none",
-      "depth": "away"
+      "notes": "Payoff: the ball appears where the flowers are, and Bobby picks it up. The reveal is what makes the search worth watching — the audience sees the thing they were told was lost.",
+      "interact": "hold",
+      "depth": "away",
+      "reveal": {
+        "prop": "toy-ball",
+        "atSec": 1.9,
+        "x": 0.24,
+        "y": 0.83,
+        "scale": 1.0
+      }
     },
     {
       "id": "b07-thanks",
@@ -126,13 +132,7 @@
       "actor": "bobby",
       "target": "coco",
       "line": "Hore! Kita bermain lagi, dan kali ini kita jaga bolanya bersama-sama.",
-      "notes": "Close on joy, not on the lesson.",
-      "throw": {
-        "atSec": 2.2,
-        "durationSec": 1.0,
-        "arc": 0.42,
-        "spin": true
-      }
+      "notes": "Close on joy, not on the lesson. The ball stays in Bobby's hands: throwing it again would undo the very thing the episode just taught."
     }
   ],
   "concept": {

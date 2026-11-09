@@ -132,6 +132,12 @@
       "x": 0.92,
       "y": 0.74,
       "scale": 1.2
+    },
+    {
+      "propId": "toy-ball",
+      "x": 0.5,
+      "y": 0.74,
+      "scale": 0.6
     }
   ],
   "dialogue": [
@@ -159,28 +165,12 @@
   ],
   "interactions": [
     {
-      "propId": "flower-patch",
-      "characterId": "coco",
-      "fromSec": 3.2,
+      "propId": "toy-ball",
+      "characterId": "bobby",
+      "fromSec": 0,
       "toSec": 7.345,
       "attach": "hands",
-      "note": "celebrate: coco catches flower-patch"
-    }
-  ],
-  "flights": [
-    {
-      "propId": "flower-patch",
-      "fromCharacterId": "bobby",
-      "toCharacterId": "coco",
-      "fromX": 0.55,
-      "fromY": 0.48,
-      "toX": 0.2,
-      "toY": 0.458,
-      "startSec": 2.2,
-      "endSec": 3.2,
-      "arc": 0.42,
-      "spin": true,
-      "note": "celebrate: bobby throws flower-patch to coco"
+      "note": "carried over: bobby is still holding toy-ball"
     }
   ],
   "audioTracks": [
@@ -196,7 +186,7 @@
     "intent": "celebrate",
     "actor": "bobby",
     "target": "coco",
-    "prop": "flower-patch",
+    "prop": "toy-ball",
     "shot": "wide",
     "focusX": 0.335,
     "widenedForSpread": false,

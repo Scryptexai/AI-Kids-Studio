@@ -12,25 +12,25 @@
     "keyframes": [
       {
         "t": 0,
-        "x": 0.125,
+        "x": 0.245,
         "y": 0.472,
         "zoom": 0.9011
       },
       {
         "t": 1.6,
-        "x": 0.16,
+        "x": 0.28,
         "y": 0.46,
         "zoom": 0.9586
       },
       {
         "t": 5.2792,
-        "x": 0.18,
+        "x": 0.26,
         "y": 0.454,
         "zoom": 1.0065
       },
       {
         "t": 6.438,
-        "x": 0.18,
+        "x": 0.26,
         "y": 0.454,
         "zoom": 1.0065
       }
@@ -40,7 +40,7 @@
     {
       "characterId": "pip",
       "position": {
-        "x": 0.1,
+        "x": 0.18,
         "y": 0.798,
         "z": 2
       },
@@ -68,12 +68,12 @@
     {
       "characterId": "bobby",
       "position": {
-        "x": 0.22,
+        "x": 0.38,
         "y": 0.82,
         "z": 2
       },
       "scale": 1,
-      "facing": "right",
+      "facing": "left",
       "expression": "excited",
       "animation": "surprise",
       "restAnimation": "curious",
@@ -82,13 +82,13 @@
         "path": [
           {
             "t": 0,
-            "x": 0.22,
+            "x": 0.38,
             "y": 0.82,
             "z": 0.5
           },
           {
             "t": 6.438,
-            "x": 0.22,
+            "x": 0.38,
             "y": 0.82,
             "z": 0.9
           }
@@ -100,7 +100,7 @@
     {
       "characterId": "coco",
       "position": {
-        "x": 0.55,
+        "x": 0.71,
         "y": 0.798,
         "z": 2
       },
@@ -150,6 +150,13 @@
       "x": 0.92,
       "y": 0.74,
       "scale": 1.2
+    },
+    {
+      "propId": "toy-ball",
+      "x": 0.24,
+      "y": 0.83,
+      "scale": 1,
+      "appearsAt": 1.9
     }
   ],
   "dialogue": [
@@ -170,6 +177,16 @@
       "text": "Ada di sini! Bolanya tersangkut di antara bunga-bunga ini."
     }
   ],
+  "interactions": [
+    {
+      "propId": "toy-ball",
+      "characterId": "bobby",
+      "fromSec": 1.9,
+      "toSec": 5.938,
+      "attach": "hands",
+      "note": "discover: bobby carries toy-ball"
+    }
+  ],
   "audioTracks": [
     {
       "id": "b06-river-ambience",
@@ -183,9 +200,9 @@
     "intent": "discover",
     "actor": "bobby",
     "target": "pip",
-    "prop": "flower-patch",
+    "prop": "toy-ball",
     "shot": "establishing",
-    "focusX": 0.16,
+    "focusX": 0.28,
     "widenedForSpread": false,
     "entry": "still",
     "lineEstimated": false,

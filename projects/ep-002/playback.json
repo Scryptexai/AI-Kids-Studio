@@ -1,5 +1,5 @@
 {
-  "totalDurationSec": 55.57,
+  "totalDurationSec": 56.733,
   "timeline": [
     {
       "sceneId": "sc-001-b01-play",
@@ -46,7 +46,7 @@
     {
       "sceneId": "sc-004-b04-coco",
       "startSec": 19.951,
-      "endSec": 26.558,
+      "endSec": 27.721,
       "location": "playground",
       "shot": "wide",
       "dialogue": [
@@ -59,57 +59,57 @@
     },
     {
       "sceneId": "sc-005-b05-go",
-      "startSec": 26.558,
-      "endSec": 32.564,
+      "startSec": 27.721,
+      "endSec": 33.727,
       "location": "playground",
       "shot": "wide",
       "dialogue": [
         {
           "id": "b05-go-d01",
           "characterId": "bobby",
-          "startSec": 27.158
+          "startSec": 28.321
         }
       ]
     },
     {
       "sceneId": "sc-006-b06-river",
-      "startSec": 32.564,
-      "endSec": 39.002,
+      "startSec": 33.727,
+      "endSec": 40.165,
       "location": "river-bend",
       "shot": "establishing",
       "dialogue": [
         {
           "id": "b06-river-d01",
           "characterId": "bobby",
-          "startSec": 33.164
+          "startSec": 34.327
         }
       ]
     },
     {
       "sceneId": "sc-007-b07-thanks",
-      "startSec": 39.002,
-      "endSec": 47.725,
+      "startSec": 40.165,
+      "endSec": 48.888,
       "location": "river-bend",
       "shot": "medium",
       "dialogue": [
         {
           "id": "b07-thanks-d01",
           "characterId": "coco",
-          "startSec": 39.602
+          "startSec": 40.765
         }
       ]
     },
     {
       "sceneId": "sc-008-b08-cheer",
-      "startSec": 47.725,
-      "endSec": 55.57,
+      "startSec": 48.888,
+      "endSec": 56.733,
       "location": "river-bend",
       "shot": "wide",
       "dialogue": [
         {
           "id": "b08-cheer-d01",
           "characterId": "bobby",
-          "startSec": 48.325
+          "startSec": 49.488
         }
       ]
     }

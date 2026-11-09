@@ -145,7 +145,7 @@
         {
           "propId": "toy-ball",
           "x": 0.47,
-          "scale": 0.8,
+          "scale": 1.0,
           "hero": true
         },
         {
@@ -238,7 +238,7 @@
       "displayName": "Ball",
       "asset": "library/props/toy-ball.png",
       "anchor": "ground",
-      "scaleUnits": 0.2
+      "scaleUnits": 0.6
     }
   ],
   "animationCatalog": [

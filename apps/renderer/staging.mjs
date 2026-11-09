@@ -70,6 +70,11 @@ export function stageProps({ scene, characters, tSec: t, height, width }) {
   const ctx = { scene, characters, height, width };
 
   return (scene.props ?? []).map((p) => {
+    // A prop can arrive mid-beat: something the story just found is not standing there while the
+    // characters are still searching for it. Dropping it from the list is enough — the renderers
+    // paint what they are given, so an unrevealed prop costs nothing per frame.
+    if (p.appearsAt != null && t < p.appearsAt) return null;
+
     // A thrown prop is on its own arc: physics beats attachment.
     const raw = (scene.flights ?? []).find((f) => f.propId === p.propId && t >= f.startSec && t <= f.endSec);
     if (raw) {
@@ -124,7 +129,7 @@ export function stageProps({ scene, characters, tSec: t, height, width }) {
     }
 
     return { ...p, z: PROP_DEPTH, rot: 0 };
-  });
+  }).filter(Boolean);
 }
 
 /**

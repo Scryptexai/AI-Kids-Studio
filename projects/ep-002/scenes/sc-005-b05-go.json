@@ -132,12 +132,6 @@
       "scale": 1.1
     },
     {
-      "propId": "toy-ball",
-      "x": 0.47,
-      "y": 0.82,
-      "scale": 0.8
-    },
-    {
       "propId": "tree-round",
       "x": 0.82,
       "y": 0.82,
@@ -162,39 +156,6 @@
       "text": "Kalau begitu kita ke sungai! Ayo, ikuti aku!"
     }
   ],
-  "interactions": [
-    {
-      "propId": "toy-ball",
-      "characterId": "bobby",
-      "fromSec": 1,
-      "toSec": 1.4,
-      "attach": "hands",
-      "note": "explore: bobby carries toy-ball"
-    },
-    {
-      "propId": "toy-ball",
-      "characterId": "pip",
-      "fromSec": 2.25,
-      "toSec": 5.506,
-      "attach": "hands",
-      "note": "explore: pip catches toy-ball"
-    }
-  ],
-  "flights": [
-    {
-      "propId": "toy-ball",
-      "fromCharacterId": "bobby",
-      "toCharacterId": "pip",
-      "fromX": 0.61,
-      "fromY": 0.48,
-      "toX": 0.79,
-      "toY": 0.458,
-      "startSec": 1.4,
-      "endSec": 2.25,
-      "spin": true,
-      "note": "explore: bobby throws toy-ball to pip"
-    }
-  ],
   "audioTracks": [
     {
       "id": "b05-go-ambience",
@@ -208,7 +169,7 @@
     "intent": "explore",
     "actor": "bobby",
     "target": "pip",
-    "prop": "toy-ball",
+    "prop": null,
     "shot": "wide",
     "focusX": 0.66,
     "widenedForSpread": false,

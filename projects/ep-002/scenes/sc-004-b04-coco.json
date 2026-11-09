@@ -5,7 +5,7 @@
   "worldId": "bobby-forest",
   "episodeId": "ep-002",
   "location": "playground",
-  "durationSec": 6.607,
+  "durationSec": 7.77,
   "fps": 24,
   "camera": {
     "preset": "wide",
@@ -23,13 +23,13 @@
         "zoom": 1.006
       },
       {
-        "t": 5.4177,
+        "t": 6.3714,
         "x": 0.314,
         "y": 0.494,
         "zoom": 1.0211
       },
       {
-        "t": 6.607,
+        "t": 7.77,
         "x": 0.314,
         "y": 0.494,
         "zoom": 1.0211
@@ -56,11 +56,11 @@
           "animation": "idle"
         },
         {
-          "atSec": 2.775,
+          "atSec": 3.263,
           "animation": "laugh"
         },
         {
-          "atSec": 4.024,
+          "atSec": 4.731,
           "animation": "idle"
         }
       ]
@@ -114,11 +114,11 @@
           "animation": "idle"
         },
         {
-          "atSec": 2.775,
+          "atSec": 3.263,
           "animation": "laugh"
         },
         {
-          "atSec": 4.024,
+          "atSec": 4.731,
           "animation": "idle"
         }
       ]
@@ -132,12 +132,6 @@
       "scale": 1.1
     },
     {
-      "propId": "toy-ball",
-      "x": 0.47,
-      "y": 0.82,
-      "scale": 0.8
-    },
-    {
       "propId": "tree-round",
       "x": 0.82,
       "y": 0.82,
@@ -148,23 +142,23 @@
     {
       "id": "b04-coco-d01",
       "characterId": "coco",
-      "text": "Aku tadi melihat bola berwarna merah menggelinding ke arah sungai.",
+      "text": "Aku tadi melihat bola itu menggelinding ke arah sungai, lewat jalan setapak!",
       "startSec": 0.6,
       "emotion": "happy",
       "audioAsset": "audio/generated/ep-002/sc-004-b04-coco/b04-coco-d01.wav",
-      "durationSec": 5.507
+      "durationSec": 6.67
     }
   ],
   "subtitles": [
     {
       "startSec": 0.6,
-      "endSec": 5.514,
-      "text": "Aku tadi melihat bola berwarna merah menggelinding ke arah"
+      "endSec": 6.025,
+      "text": "Aku tadi melihat bola itu menggelinding ke arah sungai, lewat"
     },
     {
-      "startSec": 5.514,
-      "endSec": 6.107,
-      "text": "sungai."
+      "startSec": 6.025,
+      "endSec": 7.27,
+      "text": "jalan setapak!"
     }
   ],
   "audioTracks": [

@@ -1,6 +1,6 @@
 # Roadmap
 
-Status per 2026-11-08. Tahap diselesaikan berurutan; tidak ada tahap yang ditandai selesai tanpa bukti yang bisa dijalankan ulang.
+Status per 2026-11-09. Tahap diselesaikan berurutan; tidak ada tahap yang ditandai selesai tanpa bukti yang bisa dijalankan ulang.
 
 | Tahap | Isi | Status |
 |---|---|---|
@@ -14,6 +14,20 @@ Status per 2026-11-08. Tahap diselesaikan berurutan; tidak ada tahap yang ditand
 | **P7** | GitHub Actions render + backup + publishing | 🟡 workflow validate ada; render/publish belum |
 
 ---
+
+## Fase karakter (keputusan 2026-11-09)
+
+Karakter manusia dipakai sampai cerita stabil; karakter yang lebih kompleks (Pip sebagai burung,
+misalnya) ditunda. Alasannya praktis: setiap perubahan rig mengubah ongkos menguji cerita, dan
+cerita masih berubah lebih sering daripada rig.
+
+| | Sekarang | Ditunda |
+|---|---|---|
+| Bentuk | rig manusia untuk ketiga karakter | Pip sebagai burung sesuai character bible |
+| Tujuan | menstabilkan naskah dan penyutradaraan | identitas visual per karakter |
+
+Yang **tidak** ikut ditunda karena tidak bergantung pada bentuk: jalur prop, akting per beat,
+lip-sync, berat dan timing. Ketiganya sudah selesai dan berlaku untuk rig apa pun.
 
 ## Langkah berikutnya, berurutan
 
