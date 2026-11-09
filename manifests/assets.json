@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-09T19:21:23.604Z",
+  "generatedAt": "2026-11-09T19:45:48.100Z",
   "generator": "scripts/assets/manifest.mjs",
   "assets": [
     {
@@ -247,8 +247,8 @@
       "kind": "scene-manifest",
       "path": "library/worlds/bobby-forest.world.json",
       "storage": "git",
-      "bytes": 8993,
-      "sha256": "23e538d2002e16ac983cb6a3718f62f6eaf18889cea4d996ca085ea7d5ceeeba",
+      "bytes": 9172,
+      "sha256": "3fb4cf9e4b815805e48de1fcd618ae383222b1d23e5bec5218634281a795ca21",
       "drive": null,
       "required": true
     },
@@ -288,7 +288,7 @@
       "path": "projects/ep-002/direction-report.json",
       "storage": "git",
       "bytes": 1265,
-      "sha256": "4e1620d0ce4aee407e5375716a7249091aa534e17e010bcea93f68d20572ec3a",
+      "sha256": "f782861943c8af8e91114fce86d991c77d8b635f34723a85159dc8cbebf4dedf",
       "drive": null,
       "required": true
     },
@@ -337,8 +337,8 @@
       "kind": "scene-manifest",
       "path": "projects/ep-002/scenes/sc-003-b03-look.json",
       "storage": "git",
-      "bytes": 3583,
-      "sha256": "30161aa9373362c54700f065528a5246a099884e99e63bed9cb0cad277cc3f13",
+      "bytes": 3609,
+      "sha256": "10582cd3dc05a72da8ec9aca1ed2f67412ebc0639bdddf90f2921d0a7238dd07",
       "drive": null,
       "required": true
     },
@@ -503,6 +503,21 @@
         "fileId": "19I5b-X_BmPr_XJqCLxgcfDFRJSKFVUZi",
         "name": "ep-002-2026-11-09T19-19-15-feelfirst-PLACEHOLDER-VOICE.mp4",
         "uploadedAt": "2026-11-09T19:21:08.269Z"
+      },
+      "required": false,
+      "description": "recorded in Drive; local copy may be removed (missing locally, restorable from Drive)"
+    },
+    {
+      "id": "renders-ep-002-ep-002-2026-11-09t19-44-09",
+      "kind": "video",
+      "path": "renders/ep-002/ep-002-2026-11-09T19-44-09.mp4",
+      "storage": "drive",
+      "bytes": 12807322,
+      "sha256": "1b009f8c271967cd6efa8066a9a82d6bbf63108259d34daa60b22ee560bf5e7f",
+      "drive": {
+        "fileId": "1fz3yU3svoJd3PK6CXTpAryl3b0LnVYQO",
+        "name": "ep-002-2026-11-09T19-44-09-one-owner-PLACEHOLDER-VOICE.mp4",
+        "uploadedAt": "2026-11-09T19:45:47.875Z"
       },
       "required": false,
       "description": "recorded in Drive; local copy may be removed (also present locally)"

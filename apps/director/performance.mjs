@@ -154,11 +154,23 @@ export function performanceFor({
   // it takes, then relaxes. This used to hold until the cut: a listener laughing at second three
   // was still frozen mid-laugh at second six.
   const hold = clamp(reactAt * 0.45, 0.8, 1.6);
+  // What a listener falls back to.
+  //
+  // `cry` is a pose that only has one owner. When the beat's emotion is sadness, everyone else
+  // reaches for it too — and three teary children on one screen split the audience's sympathy
+  // three ways. The actor keeps the tears; the others are concerned, which is what friends look
+  // like while someone else is grieving.
+  // When the beat's emotion is sadness the listener still reacts — `surprise` at first, the way
+  // anyone turns round at bad news — but the cry itself belongs to the actor.
+  const LISTENER_POSE = { cry: 'surprise' };
+  const FALLBACK = { cry: 'concerned' };
+  const reaction = LISTENER_POSE[pose] ?? pose;
+  const resting = FALLBACK[pose] ?? 'idle';
   const track = [
     { atSec: 0, animation: 'idle' },
-    { atSec: reactAt, animation: pose },
+    { atSec: reactAt, animation: reaction },
   ];
   const releaseAt = round(reactAt + hold);
-  if (releaseAt < durationSec - 0.3) track.push({ atSec: releaseAt, animation: 'idle' });
+  if (releaseAt < durationSec - 0.3) track.push({ atSec: releaseAt, animation: resting });
   return track;
 }

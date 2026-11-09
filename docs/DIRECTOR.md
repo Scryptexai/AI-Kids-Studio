@@ -397,6 +397,14 @@ this style lives in the brows, the flat mouth and the tears; the eyes stay open.
 A smaller fix from the same render: an expression now has to exist on the character's rig (`Pip`
 has no `sad`), so one sad beat no longer fails validation on a listening character.
 
+**Sadness has one owner.** The beat's emotion used to be spread across the whole cast, so when Bobby
+grief for his lost ball, all three children cried at once. That is not more feeling; it is less —
+a child watching needs one place to put their feelings, and grief with three owners has none. In a
+sad beat the listeners now `surprise` when the actor reacts, then settle into `concerned`: no tears,
+a small lean, the hand that `hold` already offers. The tears belong to whoever the beat is about.
+Implemented in `posesFor` (listener emotion) and `performanceFor` (listener pose); the `concerned`
+animation is in the world's `animationCatalog` like any other.
+
 ### 7.8 Story state: props obey the plot (implemented)
 
 Staging a beat in isolation produced three contradictions that a single frame cannot show and a

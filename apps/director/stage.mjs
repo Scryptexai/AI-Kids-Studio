@@ -339,6 +339,18 @@ export function posesFor({ beat, block, cast, characters = null }) {
   // An expression has to exist on the character's rig. Not every rig carries every face — Pip's
   // has no 'sad' — and passing the beat's emotion straight through meant one sad beat would fail
   // validation for the whole episode on a character who is only listening.
+  /**
+   * How a listener reacts to a beat that is not about them.
+   *
+   * Spreading the actor's emotion across the cast meant that when Bobby grieved for his lost ball,
+   * all three children cried at once. That is not more feeling — it is less. A child watching needs
+   * one place to put their feelings, and grief with three owners has none. Listeners get the
+   * worried/touched versions instead: they are visibly affected, but the tears belong to whoever
+   * the beat is about. `sad` also stops meaning "everyone cries", which it did for two episodes.
+   */
+  const LISTENER_EMOTION = { sad: 'curious' };
+  const listenerEmotionFor = (id, wanted) => (wanted === 'sad' ? 'curious' : wanted);
+
   const expressionFor = (id, wanted) => {
     const available = characters?.get(id)?.rig?.expressions;
     if (!available?.length) return wanted;
@@ -354,9 +366,12 @@ export function posesFor({ beat, block, cast, characters = null }) {
         restAnimation: restFor(block.intent.restPose ?? emotion.pose),
       });
     } else {
+      // Listeners mirror the moment without owning it.
+      const listened = listenerEmotionFor(id, beat.emotion ?? 'neutral');
+      const listenerPose = listened === 'sad' ? 'cry' : (EMOTION_POSE[listened] ?? EMOTION_POSE.neutral).pose;
       poses.set(id, {
-        animation: emotion.pose,
-        expression: expressionFor(id, emotion.expression),
+        animation: listenerPose,
+        expression: expressionFor(id, (EMOTION_POSE[listened] ?? EMOTION_POSE.neutral).expression),
         restAnimation: 'idle',
       });
     }

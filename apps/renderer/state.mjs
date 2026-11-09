@@ -233,6 +233,15 @@ export function animationState(animationId, tSec, characterId) {
       state.kneeBend = 0.18;
       state.lean = 0.04;
       break;
+    case 'concerned':
+      // What a friend does while someone else is grieving: no tears, no words, a small lean in and
+      // a hand offered. The stance is `hold` in the leg block, so the arm is already forward; the
+      // only things this adds are the face and a slight, hesitant weight shift.
+      state.mood = -0.45;
+      state.lean = 0.22;
+      state.headBob = -0.012;
+      state.elbowBend = 0.55;
+      break;
     case 'surprise':
       state.mood = 0;
       state.squash = -0.1;

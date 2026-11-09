@@ -151,7 +151,8 @@ Every optimisation above was found by measurement, and the numbers are reproduci
 
 ## 4. What the rig supports today
 
-* Animations: `idle`, `walk`, `run`, `jump`, `talk`, `wave`, `laugh`, `cry`, `surprise` — driven by `animationState(animationId, t)`.
+* Animations: `idle`, `walk`, `run`, `jump`, `talk`, `wave`, `laugh`, `cry`, `surprise`, `concerned` — driven by `animationState(animationId, t)`.
+* `mood` is a separate facial channel (−1 crestfallen … +1 delighted) set per animation and blended like any other state field. `cry` is −1, `laugh` +1, `concerned` −0.45, `idle` 0.
 * Face: blinking, mouth opening tied to `talk`/`laugh`/`surprise`, tears for `cry`.
 * Arms: per-side raise with correct SVG rotation sign (a downward arm rotates **inward** for positive angles — this was a real bug that crossed the arms over the chest).
 * Walking legs with hip pivot and shoes; ground shadow anchored to the walk surface.

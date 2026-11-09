@@ -161,3 +161,30 @@ test('mood is a separate channel from the mouth and survives a blend', () => {
   assert.equal(p.state.mood, -1);
   assert.equal(p.state.tears, true);
 });
+
+test('sadness has one owner: listeners are surprised and concerned, never crying', () => {
+  // Regression: spreading the beat's emotion across the cast meant all three children cried at
+  // once when Bobby's ball went missing. Three grieving faces split the audience's sympathy three
+  // ways; one child's grief is stronger. The listener still reacts — anyone turns at bad news —
+  // but the tears stay with the actor.
+  const track = performanceFor({
+    role: 'reactor',
+    intent: intentFor('react'),
+    emotion: 'sad',
+    durationSec: 6.2,
+    travelling: false,
+  });
+  assert.ok(Array.isArray(track));
+  const poses = track.map((k) => k.animation);
+  assert.ok(!poses.includes('cry'), `listener used cry: ${poses.join(' > ')}`);
+  assert.ok(poses.includes('surprise'), 'a listener still notices');
+  assert.equal(poses.at(-1), 'concerned', 'and stays concerned rather than going blank');
+});
+
+test('a listener reaction never outlives the beat', () => {
+  const track = performanceFor({
+    role: 'reactor', intent: intentFor('react'), emotion: 'happy',
+    durationSec: 3, travelling: false,
+  });
+  for (const key of track ?? []) assert.ok(key.atSec < 3, `${key.animation} @${key.atSec}s`);
+});

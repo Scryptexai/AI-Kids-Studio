@@ -339,6 +339,17 @@
         "pip",
         "coco"
       ]
+    },
+    {
+      "id": "concerned",
+      "fps": 24,
+      "durationFrames": 36,
+      "loop": true,
+      "appliesTo": [
+        "bobby",
+        "pip",
+        "coco"
+      ]
     }
   ],
   "cameraPresets": [
