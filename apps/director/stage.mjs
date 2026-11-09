@@ -325,7 +325,7 @@ export function blockBeat({ beat, cast, propPlacements, leadId, characters }) {
  * Pose per character for this beat. The actor performs the beat's pose; everyone else
  * reacts using their emotion pose, which keeps idle characters from looking frozen.
  */
-export function posesFor({ beat, block, cast }) {
+export function posesFor({ beat, block, cast, characters = null }) {
   const emotion = EMOTION_POSE[beat.emotion ?? 'neutral'] ?? EMOTION_POSE.neutral;
   // A locomotion pose is not a resting body.
   //
@@ -336,19 +336,27 @@ export function posesFor({ beat, block, cast }) {
   // has to be something a standing child can do.
   const LOCOMOTION = new Set(['walk', 'run']);
   const restFor = (id) => (LOCOMOTION.has(id) || !id ? 'idle' : id);
+  // An expression has to exist on the character's rig. Not every rig carries every face — Pip's
+  // has no 'sad' — and passing the beat's emotion straight through meant one sad beat would fail
+  // validation for the whole episode on a character who is only listening.
+  const expressionFor = (id, wanted) => {
+    const available = characters?.get(id)?.rig?.expressions;
+    if (!available?.length) return wanted;
+    return available.includes(wanted) ? wanted : 'neutral';
+  };
   const poses = new Map();
   for (const [id, pos] of block.positions) {
     if (id === block.actorId) {
       poses.set(id, {
         animation: block.intent.pose,
-        expression: beat.emotion ?? 'neutral',
+        expression: expressionFor(id, beat.emotion ?? 'neutral'),
         // Action poses are the performance; emotion drives the face.
         restAnimation: restFor(block.intent.restPose ?? emotion.pose),
       });
     } else {
       poses.set(id, {
         animation: emotion.pose,
-        expression: emotion.expression,
+        expression: expressionFor(id, emotion.expression),
         restAnimation: 'idle',
       });
     }

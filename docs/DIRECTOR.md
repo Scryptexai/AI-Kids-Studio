@@ -331,7 +331,73 @@ returns to `curious` at 6.003 s — the end of his own line, not a fixed fractio
 and Coco react 0.756 s later and release at 3.838 s, which is what makes it read as one character
 noticing and the others following.
 
-### 7.6 Story state: props obey the plot (implemented)
+### 7.6 Speech, and the four bugs it exposed (implemented)
+
+Nobody's mouth moved while they spoke. That was the most visible defect in the episode and it
+survived a fully green test suite, because the tests were checking the mouth channel, not the
+sound.
+
+**The mouth now follows the audio.** `apps/renderer/lipsync.mjs` reads the dialogue WAV, computes a
+100 Hz RMS envelope, normalises it against the loud peak and samples it per frame. A syllable is a
+burst of energy, so mouth-open tracks loudness. This is not phoneme-accurate viseme animation —
+the pipeline has no phoneme timings — but it is genuinely *in sync*, which is the part a viewer
+notices. Verified on `sc-002`: the mouth opens on each word and closes between them.
+
+Fixing that surfaced four separate defects, all of which were visible in frames:
+
+| Symptom on screen | Cause | Fix |
+| --- | --- | --- |
+| Nobody's mouth moved | `talk` animated the mouth from a sine, and `travelling` overwrote the whole pose state | Speech is derived from the audio; travel no longer overwrites the mouth |
+| A mouth flapped while the character said nothing | `talk`'s sine ran regardless of dialogue | `talk` no longer animates the mouth at all |
+| Still marching in place six seconds after arriving | the motion track carried a hold key at the scene end, so the sampler reported "travelling" for the tail | track ends with the walk; the sampler already holds the last key |
+| Frozen for the last five seconds of every beat | the pose track stopped after the opening reaction and the actor held that pose to the cut | the reaction is released after the line, and a listener's reaction decays |
+
+The performance is now timed against the **line**, not against a fraction of the beat: a gesture
+that belongs to a sentence is released after that sentence ends. `performanceFor` takes
+`lineStartSec`/`lineDurationSec` for this reason.
+
+Two smaller causes worth knowing: a rest pose of `'walk'` is not a pose a standing child can hold,
+so locomotion rest poses resolve to `idle`; and the listener reaction check compared against the
+*actor's* rest pose, which silently disabled listener tracks in beats where both resolved to the
+same pose.
+
+### 7.7 Feeling the news before deciding (implemented)
+
+One line gave it away. Two seconds after Bobby's ball went missing he said *"Coba kita pikirkan,
+ke mana bola itu menggelinding?"* — calm, curious, reasonable. That is an adult solving logistics.
+A four-year-old who just lost their ball is upset first and reasonable second, and the story could
+not show that because a beat carried exactly one emotion.
+
+`feelFirst: true` on a beat stages the whole arc inside the beat:
+
+```json
+{ "id": "b03-look", "emotion": "sad", "feelFirst": true,
+  "line": "Bola kesayanganku hilang... tapi aku tidak mau menyerah. Coba kita pikirkan, ke mana bola itu menggelinding?" }
+```
+
+→ `idle @0 → cry @0.45 → curious @3.74`
+
+The face falls as the line starts (not before it — nobody is sad about news they have not heard
+yet), and the decision lands about two thirds into the sentence. Opt-in per beat: forcing it
+everywhere would turn every question into a sulk.
+
+**A new channel had to exist first.** The rig could only say *crying* or *fine* — there was no way
+to draw "sad but not crying", which is what most of this beat actually is. `mood` (−1 crestfallen …
++1 delighted) is a facial-only channel, so it layers on top of any pose without fighting the limbs:
+
+* the resting mouth curve bends by `mood`, so a glum mouth and a smile are one path, not two drawings
+* the inner ends of the brows lift for sorrow and drop for joy; the brows also drop overall
+* it blends like any other state field, so a mood change is a transition rather than a cut
+
+Getting the brows right took three passes on rendered frames, which is worth recording: the first
+attempt raised the *outer* ends and produced the angry V — a crying child who looked furious about
+it. The second lowered a lid over the eye, which read as irritation rather than sadness. Sadness in
+this style lives in the brows, the flat mouth and the tears; the eyes stay open.
+
+A smaller fix from the same render: an expression now has to exist on the character's rig (`Pip`
+has no `sad`), so one sad beat no longer fails validation on a listening character.
+
+### 7.8 Story state: props obey the plot (implemented)
 
 Staging a beat in isolation produced three contradictions that a single frame cannot show and a
 unit test on one scene will never catch. They were found by reading the episode back as a story.
@@ -363,36 +429,6 @@ which is where it used to disappear. Seven guards in `tests/story.test.mjs`.
 A smaller fix from the same pass: the ball was a 13 px dot at 720p (radius `16 × 0.2`), on the
 object the whole episode is about. `scaleUnits` is now 0.6 — a ~40 px ball, about a third of a
 child's body height.
-
-### 7.6 Speech, and the four bugs it exposed (implemented)
-
-Nobody's mouth moved while they spoke. That was the most visible defect in the episode and it
-survived a fully green test suite, because the tests were checking the mouth channel, not the
-sound.
-
-**The mouth now follows the audio.** `apps/renderer/lipsync.mjs` reads the dialogue WAV, computes a
-100 Hz RMS envelope, normalises it against the loud peak and samples it per frame. A syllable is a
-burst of energy, so mouth-open tracks loudness. This is not phoneme-accurate viseme animation —
-the pipeline has no phoneme timings — but it is genuinely *in sync*, which is the part a viewer
-notices. Verified on `sc-002`: the mouth opens on each word and closes between them.
-
-Fixing that surfaced four separate defects, all of which were visible in frames:
-
-| Symptom on screen | Cause | Fix |
-| --- | --- | --- |
-| Nobody's mouth moved | `talk` animated the mouth from a sine, and `travelling` overwrote the whole pose state | Speech is derived from the audio; travel no longer overwrites the mouth |
-| A mouth flapped while the character said nothing | `talk`'s sine ran regardless of dialogue | `talk` no longer animates the mouth at all |
-| Still marching in place six seconds after arriving | the motion track carried a hold key at the scene end, so the sampler reported "travelling" for the tail | track ends with the walk; the sampler already holds the last key |
-| Frozen for the last five seconds of every beat | the pose track stopped after the opening reaction and the actor held that pose to the cut | the reaction is released after the line, and a listener's reaction decays |
-
-The performance is now timed against the **line**, not against a fraction of the beat: a gesture
-that belongs to a sentence is released after that sentence ends. `performanceFor` takes
-`lineStartSec`/`lineDurationSec` for this reason.
-
-Two smaller causes worth knowing: a rest pose of `'walk'` is not a pose a standing child can hold,
-so locomotion rest poses resolve to `idle`; and the listener reaction check compared against the
-*actor's* rest pose, which silently disabled listener tracks in beats where both resolved to the
-same pose.
 
 ## 8. Limits (do not claim otherwise)
 

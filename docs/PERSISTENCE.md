@@ -181,6 +181,7 @@ npm run voice:generate -- --episode ep-001
 
 | Created | File | Drive id | Commit |
 | --- | --- | --- | --- |
+| 09 Nov 19:19 | `ep-002-…19-19-15-feelfirst` | `19I5b-X_BmPr_XJqCLxgcfDFRJSKFVUZi` | see log |
 | 09 Nov 13:58 | `ep-002-…13-58-49-story` | `1n1Z22eFcQmSGlnIKTMaHcHIyBoOWLF_M` | `8b4dd77` |
 | 15:13 | `ep-002-…15-13-37-lipsync` | `1XNtYcm84lmTSr9X5hg2RUryo1bMf-4xv` | `f25b613` |
 | 14:32 | `ep-002-…14-32-02-acting` | `1tXQoZbmz552Sege6hXxB3EAsqogBX7xh` | `4ce4330` |

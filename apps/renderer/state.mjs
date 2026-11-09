@@ -41,6 +41,11 @@ export function bodyHeightPx(instance, character) {
 export const POSE_FIELDS = [
   'bobY', 'squash', 'tilt', 'armSwing', 'legSwing', 'elbowBend', 'kneeBend',
   'headBob', 'lean', 'armRaise', 'raiseSide', 'mouthOpen', 'hopY', 'blinkAmount',
+  // Which way the face pulls. -1 is crestfallen, 0 neutral, +1 delighted. The rig had no way to
+  // say "sad but not crying", so a character who had just lost something could only be drawn
+  // crying or perfectly fine — and the only two emotional states the story could reach were
+  // 'devastated' and 'delighted'. This is the channel in between.
+  'mood',
 ];
 
 /**
@@ -134,6 +139,9 @@ export function animationState(animationId, tSec, characterId) {
     speaking: false,
     // 0 = eyes open, 1 = lid fully down. See the blink block at the end of this function.
     blinkAmount: 0,
+    // -1 crestfallen … +1 delighted. Facial only: it never moves a limb, so it can be layered on
+    // top of any pose without fighting it.
+    mood: 0,
   };
 
   switch (animationId) {
@@ -169,6 +177,7 @@ export function animationState(animationId, tSec, characterId) {
       break;
     }
     case 'jump': {
+      state.mood = 0.7;
       const cycle = (tSec * 1.4) % 1;
       state.hopY = -Math.sin(cycle * Math.PI) * 26;
       state.squash = cycle < 0.12 ? 0.12 : cycle > 0.88 ? 0.1 : -0.06;
@@ -193,6 +202,7 @@ export function animationState(animationId, tSec, characterId) {
       state.headBob = Math.sin(phase * 2.4) * 0.018;
       break;
     case 'wave':
+      state.mood = 0.8;
       state.armRaise = 0.9 + Math.sin(phase * 3.2) * 0.18;
       state.raiseSide = 1;
       state.bobY = Math.sin(phase * 0.9) * 1.5;
@@ -203,6 +213,7 @@ export function animationState(animationId, tSec, characterId) {
     case 'laugh':
       // Laughter is a sound the pose owns (there is no laugh track), so the mouth is the one case
       // where the rig may open it on its own. Speech still wins while a line is playing.
+      state.mood = 1;
       state.mouthOpen = 1;
       state.tilt = Math.sin(phase * 4) * 0.1;
       state.bobY = Math.abs(Math.sin(phase * 4)) * -3;
@@ -212,6 +223,7 @@ export function animationState(animationId, tSec, characterId) {
       state.lean = Math.sin(phase * 4) * 0.03;
       break;
     case 'cry':
+      state.mood = -1;
       state.tears = true;
       state.mouthOpen = 0.25;
       state.bobY = Math.sin(phase * 1.6) * 2;
@@ -222,6 +234,7 @@ export function animationState(animationId, tSec, characterId) {
       state.lean = 0.04;
       break;
     case 'surprise':
+      state.mood = 0;
       state.squash = -0.1;
       state.mouthOpen = 0.9;
       state.hopY = -8;

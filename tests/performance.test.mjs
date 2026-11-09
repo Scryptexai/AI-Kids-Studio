@@ -116,3 +116,48 @@ test('a scene with a travel track ignores its pose track while moving', () => {
   assert.ok(Math.abs(moving.state.legSwing) > 0.02, 'the legs must be walking');
   assert.ok(moving.state.mouthOpen < 0.5, 'the surprise must not fire mid-stride');
 });
+
+test('a child feels the news before deciding what to do about it', () => {
+  // Regression: a beat where Bobby had just lost his ball opened with a calm, curious body asking
+  // "shall we think about it" — an adult solving logistics. A child is upset first and reasonable
+  // second, and the only place that order can be staged is inside one beat.
+  const track = performanceFor({
+    role: 'actor',
+    intent: intentFor('ask'),
+    emotion: 'sad',
+    durationSec: 6.2,
+    travelling: false,
+    lineStartSec: 0.6,
+    lineDurationSec: 5.06,
+    feelFirst: true,
+  });
+  assert.ok(Array.isArray(track) && track.length === 3, 'feel, then decide');
+  assert.equal(track[1].animation, 'cry', 'the face falls first');
+  assert.notEqual(track[2].animation, 'cry', 'then the character does something');
+  // The feeling comes as the line starts, not before it: nobody is sad about news they have not
+  // heard yet.
+  assert.ok(track[1].atSec > 0.05 && track[1].atSec <= 0.6, `fell at ${track[1].atSec}s`);
+  // The decision arrives while they are still talking, not long after the beat is over.
+  assert.ok(track[2].atSec > track[1].atSec + 0.5);
+  assert.ok(track[2].atSec < 6.2, 'the decision must land inside the beat');
+});
+
+test('feeling first is opt-in, not applied to every beat', () => {
+  const plain = performanceFor({
+    role: 'actor', intent: intentFor('ask'), emotion: 'happy', durationSec: 6.2,
+    travelling: false, lineStartSec: 0.6, lineDurationSec: 5,
+  });
+  assert.ok(!plain.some((k) => k.animation === 'cry'), 'a happy question is not a sulk');
+});
+
+test('mood is a separate channel from the mouth and survives a blend', () => {
+  // -1 crestfallen … +1 delighted. Without it the rig could only be crying or fine.
+  assert.equal(animationState('cry', 1, 'bobby').mood, -1);
+  assert.ok(animationState('laugh', 1, 'bobby').mood > 0.8);
+  assert.equal(animationState('idle', 1, 'bobby').mood, 0);
+  // Speaking over a sad face keeps the sad face: the jaw moves, the mood does not.
+  const sad = inst({ animation: 'cry', poseTrack: [{ atSec: 0, animation: 'cry' }, { atSec: 3, animation: 'cry' }] });
+  const p = poseAt(sad, 1);
+  assert.equal(p.state.mood, -1);
+  assert.equal(p.state.tears, true);
+});

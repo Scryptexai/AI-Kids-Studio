@@ -46,10 +46,24 @@
       },
       "scale": 1,
       "facing": "right",
-      "expression": "curious",
+      "expression": "sad",
       "animation": "talk",
       "restAnimation": "curious",
-      "entranceAt": 0
+      "entranceAt": 0,
+      "poseTrack": [
+        {
+          "atSec": 0,
+          "animation": "idle"
+        },
+        {
+          "atSec": 0.45,
+          "animation": "cry"
+        },
+        {
+          "atSec": 3.739,
+          "animation": "curious"
+        }
+      ]
     },
     {
       "characterId": "pip",
@@ -60,10 +74,24 @@
       },
       "scale": 0.97,
       "facing": "left",
-      "expression": "curious",
-      "animation": "idle",
+      "expression": "neutral",
+      "animation": "cry",
       "restAnimation": "idle",
-      "entranceAt": 0
+      "entranceAt": 0,
+      "poseTrack": [
+        {
+          "atSec": 0,
+          "animation": "idle"
+        },
+        {
+          "atSec": 2.588,
+          "animation": "cry"
+        },
+        {
+          "atSec": 3.753,
+          "animation": "idle"
+        }
+      ]
     },
     {
       "characterId": "coco",
@@ -74,10 +102,24 @@
       },
       "scale": 0.97,
       "facing": "left",
-      "expression": "curious",
-      "animation": "idle",
+      "expression": "sad",
+      "animation": "cry",
       "restAnimation": "idle",
-      "entranceAt": 0
+      "entranceAt": 0,
+      "poseTrack": [
+        {
+          "atSec": 0,
+          "animation": "idle"
+        },
+        {
+          "atSec": 2.588,
+          "animation": "cry"
+        },
+        {
+          "atSec": 3.753,
+          "animation": "idle"
+        }
+      ]
     }
   ],
   "props": [
@@ -98,9 +140,9 @@
     {
       "id": "b03-look-d01",
       "characterId": "bobby",
-      "text": "Coba kita pikirkan. Ke mana bola itu menggelinding?",
+      "text": "Bola kesayanganku hilang... tapi aku tidak mau menyerah. Coba kita pikirkan, ke mana bola itu menggelinding?",
       "startSec": 0.6,
-      "emotion": "curious",
+      "emotion": "sad",
       "audioAsset": "audio/generated/ep-002/sc-003-b03-look/b03-look-d01.wav",
       "durationSec": 5.063
     }
@@ -108,8 +150,13 @@
   "subtitles": [
     {
       "startSec": 0.6,
+      "endSec": 3.486,
+      "text": "Bola kesayanganku hilang... tapi aku tidak mau menyerah. Coba"
+    },
+    {
+      "startSec": 3.486,
       "endSec": 5.663,
-      "text": "Coba kita pikirkan. Ke mana bola itu menggelinding?"
+      "text": "kita pikirkan, ke mana bola itu menggelinding?"
     }
   ],
   "audioTracks": [

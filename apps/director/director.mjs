@@ -253,7 +253,7 @@ export function directBeat({
     durationSec,
   });
 
-  const poses = posesFor({ beat, block, cast });
+  const poses = posesFor({ beat, block, cast, characters });
 
   /** When a prop arrives in shot, or null if it was always there. */
   const revealedAt = (p) => present.find((x) => x.propId === p?.propId)?.appearsAt ?? null;
@@ -431,6 +431,7 @@ export function directBeat({
         // actor's gesture should be released instead of held to the end of the beat.
         lineStartSec: lineStart,
         lineDurationSec: lineDuration,
+        feelFirst: Boolean(beat.feelFirst),
       });
 
       // A carry inherited from the previous beat has to be marked here, at the only place that has

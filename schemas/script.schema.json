@@ -183,6 +183,11 @@
               }
             }
           },
+          "feelFirst": {
+            "type": "boolean",
+            "default": false,
+            "description": "Stage the character feeling the news before they can be reasonable about it: face falls as the line starts, then they decide. For beats where the character has just lost or broken something \u2014 a calm, curious body delivering \"let us think about it\" reads as an adult solving logistics, not a child who is upset."
+          },
           "durationSec": {
             "type": "number",
             "exclusiveMinimum": 0

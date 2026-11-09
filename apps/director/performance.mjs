@@ -23,6 +23,34 @@ const clamp = (v, lo, hi) => Math.min(hi, Math.max(lo, v));
 const REACTIONS = new Set(['surprise', 'laugh', 'cry', 'wave']);
 
 /**
+ * How a child actually registers bad news: feel it first, then do something about it.
+ *
+ * A line like "let's think about where it rolled" delivered in a calm, curious body reads as an
+ * adult solving a logistics problem. Children get hit by the loss first — the face falls, the
+ * shoulders drop — and only then, given a moment, do they start thinking. This track stages that
+ * order inside one beat, which is the only place it can live: the reaction belongs to the line, and
+ * the recovery belongs to the same scene.
+ *
+ * @returns {Array<{atSec:number, animation:string}>}
+ */
+function feelThenDecide({ durationSec, lineStartSec, lineDurationSec, decidePose }) {
+  // The face falls while the line begins — not before it, or the character would be sad about
+  // something that has not been said yet.
+  const fallAt = round(clamp((lineStartSec ?? 0) - 0.15, 0.15, Math.max(durationSec - 1.2, 0.3)));
+  // Then the decision, once the line has had time to land: two thirds into the sentence.
+  const decideAt = round(clamp(
+    (lineStartSec ?? 0) + (lineDurationSec ?? 0) * 0.62,
+    fallAt + 0.6,
+    Math.max(durationSec - 0.45, fallAt + 0.7),
+  ));
+  return [
+    { atSec: 0, animation: 'idle' },
+    { atSec: fallAt, animation: 'cry' },
+    { atSec: decideAt, animation: decidePose },
+  ];
+}
+
+/**
  * When the line's last word lands.
  *
  * Speech is the clock a performance hangs from: a gesture held after the voice has finished is
@@ -45,11 +73,13 @@ function lineEndFor({ durationSec, lineStartSec, lineDurationSec }) {
  *   overrides the performance, so a track would be dead weight.
  * @param {number|null} [args.lineStartSec] When the actor's line starts inside the beat.
  * @param {number|null} [args.lineDurationSec] How long the actor's line lasts.
+ * @param {boolean} [args.feelFirst] Stage the reaction before the decision (see feelThenDecide).
  * @returns {Array<{atSec:number, animation:string}>|null}
  */
 export function performanceFor({
   role, intent, emotion, durationSec, travelling,
   lineStartSec = null, lineDurationSec = null,
+  feelFirst = false,
 }) {
   if (travelling) return null;
   const feel = EMOTION_POSE[emotion] ?? EMOTION_POSE.neutral;
@@ -60,6 +90,18 @@ export function performanceFor({
   if (role === 'actor') {
     // An arriving actor is walking, so there is no performance to stage.
     if (intent?.walkIn) return null;
+
+    // `feelFirst` is for beats where the character is reacting to bad news before they can be
+    // reasonable about it. Opt-in per beat: most beats are not this, and forcing it everywhere
+    // would turn every question into a sulk.
+    if (feelFirst && durationSec > 2.4) {
+      return feelThenDecide({
+        durationSec,
+        lineStartSec,
+        lineDurationSec,
+        decidePose: intent?.restPose && !REACTIONS.has(intent.restPose) ? intent.restPose : 'talk',
+      });
+    }
 
     // Nothing new begins in the last stretch of a beat: the editor cuts there, and a pose change
     // whose blend is still running on the cut frame reads as a flicker.

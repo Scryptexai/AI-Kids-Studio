@@ -58,12 +58,13 @@
       "id": "b03-look",
       "location": "playground",
       "action": "ask",
-      "emotion": "curious",
+      "emotion": "sad",
       "intensity": 0.5,
       "actor": "bobby",
       "target": "pip",
-      "line": "Coba kita pikirkan. Ke mana bola itu menggelinding?",
-      "notes": "Bobby models problem-solving instead of panicking."
+      "line": "Bola kesayanganku hilang... tapi aku tidak mau menyerah. Coba kita pikirkan, ke mana bola itu menggelinding?",
+      "notes": "Bobby reacts before he reasons: the ball is gone and he is upset about it. Only then does he decide to search. FeelFirst stages that inside one beat — face falls as the line starts, decision two thirds in. He models problem-solving, but as a child, not a project manager.",
+      "feelFirst": true
     },
     {
       "id": "b04-coco",

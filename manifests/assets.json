@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-09T14:04:16.853Z",
+  "generatedAt": "2026-11-09T19:21:08.516Z",
   "generator": "scripts/assets/manifest.mjs",
   "assets": [
     {
@@ -288,7 +288,7 @@
       "path": "projects/ep-002/direction-report.json",
       "storage": "git",
       "bytes": 1265,
-      "sha256": "78da2af45085a136afb53928216c5ada4fdb82e1c467f583a1f5cf701846565e",
+      "sha256": "4e1620d0ce4aee407e5375716a7249091aa534e17e010bcea93f68d20572ec3a",
       "drive": null,
       "required": true
     },
@@ -337,8 +337,8 @@
       "kind": "scene-manifest",
       "path": "projects/ep-002/scenes/sc-003-b03-look.json",
       "storage": "git",
-      "bytes": 2639,
-      "sha256": "698a3c45d3e874d17fc810d14d911b51b36ed99050b490eb116e313fc2bb1fea",
+      "bytes": 3583,
+      "sha256": "30161aa9373362c54700f065528a5246a099884e99e63bed9cb0cad277cc3f13",
       "drive": null,
       "required": true
     },
@@ -397,8 +397,8 @@
       "kind": "scene-manifest",
       "path": "projects/ep-002/script.json",
       "storage": "git",
-      "bytes": 4485,
-      "sha256": "b0f6327261883bf63ff966ff35ce89177bc8d4f0a1e850468bbaba196af305d8",
+      "bytes": 4786,
+      "sha256": "a734b21972108c7852c1c80fbf15fdc363234ae1296e4446f4e84acdd1ae06e8",
       "drive": null,
       "required": true
     },
@@ -488,6 +488,21 @@
         "fileId": "1n1Z22eFcQmSGlnIKTMaHcHIyBoOWLF_M",
         "name": "ep-002-2026-11-09T13-58-49-story-PLACEHOLDER-VOICE.mp4",
         "uploadedAt": "2026-11-09T14:04:12.352Z"
+      },
+      "required": false,
+      "description": "recorded in Drive; local copy may be removed (missing locally, restorable from Drive)"
+    },
+    {
+      "id": "renders-ep-002-ep-002-2026-11-09t19-19-15",
+      "kind": "video",
+      "path": "renders/ep-002/ep-002-2026-11-09T19-19-15.mp4",
+      "storage": "drive",
+      "bytes": 12833121,
+      "sha256": "a4eba5353983d9753b51030ab1b51d802f04630ea4283bdada6121dda134b89f",
+      "drive": {
+        "fileId": "19I5b-X_BmPr_XJqCLxgcfDFRJSKFVUZi",
+        "name": "ep-002-2026-11-09T19-19-15-feelfirst-PLACEHOLDER-VOICE.mp4",
+        "uploadedAt": "2026-11-09T19:21:08.269Z"
       },
       "required": false,
       "description": "recorded in Drive; local copy may be removed (also present locally)"

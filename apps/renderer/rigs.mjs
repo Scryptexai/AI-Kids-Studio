@@ -181,7 +181,15 @@ function renderFace({ cx, headCy, headR, facing, state, palette, look, outline }
   // `blinkAmount` is 0 when open and 1 when shut. Half-closed is drawn by laying a lid of skin
   // over the top of the eye — that is what an eye closing looks like in flat style, and it is one
   // shape rather than a second set of eye drawings.
-  const lid = Math.max(0, Math.min(1, state.blinkAmount ?? (state.blink ? 1 : 0)));
+  // Sorrow pulls the upper lid down a little and hollows the eye; joy opens it wide. Without this
+  // a sad child has the same wide-open eyes as an excited one and only the mouth changes, which
+  // reads as an expression being applied rather than felt.
+  const mood = Math.max(-1, Math.min(1, state.mood ?? 0));
+  // Sorrow does not need a lid. A lowered lid on top of raised inner brows reads as irritation —
+  // it was the lid, not the brows, that made a crying child look annoyed. Sadness in this style is
+  // carried by the brows, the flat mouth and (when it is real grief) tears, so the eyes stay open.
+  const droop = 0;
+  const lid = Math.max(0, Math.min(1, (state.blinkAmount ?? (state.blink ? 1 : 0)) * (1 - droop * 0.6) + droop));
   const lidFill = look?.skin ?? palette.accent ?? '#f0c8a0';
   for (const dir of [-1, 1]) {
     const ex = cx + dir * eyeDx;
@@ -205,11 +213,24 @@ function renderFace({ cx, headCy, headR, facing, state, palette, look, outline }
   }
 
   // Brows carry most of the emotion; a face without them reads as blank.
-  const browLift = (expression - 0.4) * headR * 0.22;
+  //
+  // `mood` gives them a direction instead of only a height. Height alone says "surprised"; the
+  // angle is what says "sad" or "delighted", and the inner end is what children read first: inner
+  // ends UP is sorrow, inner ends DOWN and level is cross, both ends up is joy.
+  const sad = Math.max(0, -mood);
+  const glad = Math.max(0, mood);
+  const browLift = (expression - 0.4) * headR * 0.22 + glad * headR * 0.06;
   const browY = eyeY - headR * 0.42 - browLift;
-  // Anger is the one brow shape that can ruin a line, so it is reserved for a deliberately
-  // indignant expression rather than reached by holding the mouth open.
-  const browTilt = state.tears ? headR * 0.1 : expression > 0.95 ? headR * 0.05 : 0;
+  // Sorrow raises the INNER ends and drops the outer ones — the "worried" brows that every
+  // children's book uses. Getting this sign backwards produces the angry V instead, which is what
+  // shipped the first time: a crying child who looked furious about it.
+  //
+  // The two brows are drawn with a shared `browTilt`: whatever lowers the inner end on the left
+  // must raise the inner end on the right, so the sign flip below is deliberate and not a typo.
+  // A steep tilt reads as a frowning V rather than as sorrow, so this stays gentle: the inner
+  // ends lift a little and the whole brow drops, which is the shape a small child makes when the
+  // feeling is disappointment and not yet crying.
+  const browTilt = -sad * headR * 0.09 + glad * headR * 0.04;
   out.push(
     `<line x1="${(cx - eyeDx - eyeR).toFixed(2)}" y1="${(browY - browTilt).toFixed(2)}" x2="${(cx - eyeDx + eyeR).toFixed(2)}" y2="${(browY + browTilt).toFixed(2)}" stroke="${outline}" stroke-width="${(headR * 0.09).toFixed(2)}" stroke-linecap="round"/>` +
     `<line x1="${(cx + eyeDx - eyeR).toFixed(2)}" y1="${(browY + browTilt).toFixed(2)}" x2="${(cx + eyeDx + eyeR).toFixed(2)}" y2="${(browY - browTilt).toFixed(2)}" stroke="${outline}" stroke-width="${(headR * 0.09).toFixed(2)}" stroke-linecap="round"/>`,
@@ -228,8 +249,12 @@ function renderFace({ cx, headCy, headR, facing, state, palette, look, outline }
       `<ellipse cx="${cx.toFixed(2)}" cy="${mouthY.toFixed(2)}" rx="${mouthW.toFixed(2)}" ry="${(mouthH / 2 + 2).toFixed(2)}" fill="#5b2c2c" stroke="${outline}" stroke-width="${Math.max(1, headR * 0.045).toFixed(2)}"/>`,
     );
   } else {
+    // The resting mouth is a curve whose direction IS the mood: a smile bends down-out and a
+    // glum mouth bends the other way. One control point, no second drawing.
+    const smile = Math.max(-1, Math.min(1, state.mood ?? 0));
+    const curve = headR * (0.06 + smile * 0.22);
     out.push(
-      `<path d="M${(cx - headR * 0.26).toFixed(2)} ${(mouthY - headR * 0.04).toFixed(2)} q${(headR * 0.26).toFixed(2)} ${(headR * 0.28).toFixed(2)} ${(headR * 0.52).toFixed(2)} 0" fill="none" stroke="${outline}" stroke-width="${(headR * 0.1).toFixed(2)}" stroke-linecap="round"/>`,
+      `<path d="M${(cx - headR * 0.26).toFixed(2)} ${(mouthY - headR * 0.04).toFixed(2)} q${(headR * 0.26).toFixed(2)} ${curve.toFixed(2)} ${(headR * 0.52).toFixed(2)} 0" fill="none" stroke="${outline}" stroke-width="${(headR * 0.1).toFixed(2)}" stroke-linecap="round"/>`,
     );
   }
 
