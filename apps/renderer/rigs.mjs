@@ -300,8 +300,18 @@ export function renderProp({ propId, x, y, scale, compositionHeight, composition
         `<rect x="${px - 34 * s}" y="${g - 26 * s}" width="${6 * s}" height="${26 * s}" fill="#6b4526"/>` +
         `<rect x="${px + 28 * s}" y="${g - 26 * s}" width="${6 * s}" height="${26 * s}" fill="#6b4526"/>`
       );
-    case 'toy':
-      return `<circle cx="${px}" cy="${g - 14 * s}" r="${16 * s}" fill="#f2994a" stroke="${outline}" stroke-width="${sw}"/>`;
+    case 'toy': {
+      // A ball with a stripe, not a plain orange disc.
+      //
+      // The disc was plain `#f2994a` — the exact shirt colour of the child who owns it. A hero prop
+      // the audience is supposed to track across eight scenes was camouflaged on the one character
+      // who carries it. The stripe costs one path and makes the silhouette readable against a
+      // shirt, a flower patch or grass.
+      const cy = g - 14 * s;
+      const r = 16 * s;
+      return `<circle cx="${px}" cy="${cy}" r="${r}" fill="#f2f4f7" stroke="${outline}" stroke-width="${sw}"/>`
+        + `<path d="M${(px - r).toFixed(2)} ${(cy - r * 0.52).toFixed(2)} A${r.toFixed(2)} ${r.toFixed(2)} 0 0 1 ${(px + r).toFixed(2)} ${(cy - r * 0.52).toFixed(2)} Z" fill="#e2574c" stroke="${outline}" stroke-width="${(sw * 0.7).toFixed(2)}"/>`;
+    }
     default:
       return '';
   }

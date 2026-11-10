@@ -5,7 +5,7 @@
   "worldId": "bobby-forest",
   "episodeId": "ep-002",
   "location": "river-bend",
-  "durationSec": 7.845,
+  "durationSec": 4.483,
   "fps": 24,
   "camera": {
     "preset": "wide",
@@ -17,19 +17,19 @@
         "zoom": 0.9851
       },
       {
-        "t": 1.6,
+        "t": 1.569,
         "x": 0.335,
         "y": 0.5,
         "zoom": 1.048
       },
       {
-        "t": 6.4329,
+        "t": 3.6761,
         "x": 0.315,
         "y": 0.494,
         "zoom": 1.1004
       },
       {
-        "t": 7.845,
+        "t": 4.483,
         "x": 0.315,
         "y": 0.494,
         "zoom": 1.1004
@@ -56,11 +56,11 @@
           "animation": "idle"
         },
         {
-          "atSec": 3.295,
+          "atSec": 1.883,
           "animation": "laugh"
         },
         {
-          "atSec": 4.778,
+          "atSec": 2.73,
           "animation": "idle"
         }
       ]
@@ -98,11 +98,11 @@
           "animation": "idle"
         },
         {
-          "atSec": 3.295,
+          "atSec": 1.883,
           "animation": "laugh"
         },
         {
-          "atSec": 4.778,
+          "atSec": 2.73,
           "animation": "idle"
         }
       ]
@@ -144,23 +144,18 @@
     {
       "id": "b08-cheer-d01",
       "characterId": "bobby",
-      "text": "Hore! Kita bermain lagi, dan kali ini kita jaga bolanya bersama-sama.",
+      "text": "Hore! Kita main lagi, yuk! Ini bolamu, ayo kita jaga bersama!",
       "startSec": 0.6,
       "emotion": "laughing",
       "audioAsset": "audio/generated/ep-002/sc-008-b08-cheer/b08-cheer-d01.wav",
-      "durationSec": 6.745
+      "durationSec": 3.383
     }
   ],
   "subtitles": [
     {
       "startSec": 0.6,
-      "endSec": 6.056,
-      "text": "Hore! Kita bermain lagi, dan kali ini kita jaga bolanya"
-    },
-    {
-      "startSec": 6.056,
-      "endSec": 7.345,
-      "text": "bersama-sama."
+      "endSec": 3.983,
+      "text": "Hore! Kita main lagi, yuk! Ini bolamu, ayo kita jaga bersama!"
     }
   ],
   "interactions": [
@@ -168,9 +163,32 @@
       "propId": "toy-ball",
       "characterId": "bobby",
       "fromSec": 0,
-      "toSec": 7.345,
+      "toSec": 2.4,
       "attach": "hands",
-      "note": "carried over: bobby is still holding toy-ball"
+      "note": "celebrate: bobby carries toy-ball"
+    },
+    {
+      "propId": "toy-ball",
+      "characterId": "coco",
+      "fromSec": 3.4,
+      "toSec": 4.483,
+      "attach": "hands",
+      "note": "celebrate: coco catches toy-ball"
+    }
+  ],
+  "flights": [
+    {
+      "propId": "toy-ball",
+      "fromCharacterId": "bobby",
+      "toCharacterId": "coco",
+      "fromX": 0.55,
+      "fromY": 0.48,
+      "toX": 0.2,
+      "toY": 0.458,
+      "startSec": 2.4,
+      "endSec": 3.4,
+      "spin": false,
+      "note": "celebrate: bobby hands toy-ball to coco"
     }
   ],
   "audioTracks": [

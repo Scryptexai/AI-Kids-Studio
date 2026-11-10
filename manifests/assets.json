@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-09T19:45:55.797Z",
+  "generatedAt": "2026-11-10T06:34:50.098Z",
   "generator": "scripts/assets/manifest.mjs",
   "assets": [
     {
@@ -287,8 +287,8 @@
       "kind": "scene-manifest",
       "path": "projects/ep-002/direction-report.json",
       "storage": "git",
-      "bytes": 1265,
-      "sha256": "f782861943c8af8e91114fce86d991c77d8b635f34723a85159dc8cbebf4dedf",
+      "bytes": 1264,
+      "sha256": "df57fccc2a4cda45c2424dba760732ede0389c650954a9bfc0b50d6c77db7672",
       "drive": null,
       "required": true
     },
@@ -298,7 +298,7 @@
       "path": "projects/ep-002/episode.json",
       "storage": "git",
       "bytes": 1457,
-      "sha256": "cc9e9e65fa65f24302aeb46563c7c3e82014bcc7d34f39f2b9ec6a23d15abb70",
+      "sha256": "79a77c68183c1d39cf1e307b6202e5a780b0834cd6dafc9a0ba4ae1f485008a7",
       "drive": null,
       "required": true
     },
@@ -308,7 +308,7 @@
       "path": "projects/ep-002/playback.json",
       "storage": "git",
       "bytes": 2575,
-      "sha256": "22abb487a061fd472dfdd3d455e89d5230bba6810a43efcc6449ad8ca64366a2",
+      "sha256": "6313fcb7508154846c2907a9485873fe0b5e0cd093cbd95d6f703fc12bfa1df3",
       "drive": null,
       "required": true
     },
@@ -318,7 +318,7 @@
       "path": "projects/ep-002/scenes/sc-001-b01-play.json",
       "storage": "git",
       "bytes": 3854,
-      "sha256": "ebc2779b18af68e4b1d08f69a81c325f15ee876c6bd494d8b991edbafd049cb4",
+      "sha256": "a69a0a4c83f8698b440b5ae49f2ffa162868ffe08f3a5ca37d91bf31698242e4",
       "drive": null,
       "required": true
     },
@@ -337,8 +337,8 @@
       "kind": "scene-manifest",
       "path": "projects/ep-002/scenes/sc-003-b03-look.json",
       "storage": "git",
-      "bytes": 3609,
-      "sha256": "10582cd3dc05a72da8ec9aca1ed2f67412ebc0639bdddf90f2921d0a7238dd07",
+      "bytes": 3606,
+      "sha256": "1c25d9753ee0d73f9c119ee570f4ac4bae27a06a201e2dd3c1e07c1e469b997b",
       "drive": null,
       "required": true
     },
@@ -367,8 +367,8 @@
       "kind": "scene-manifest",
       "path": "projects/ep-002/scenes/sc-006-b06-river.json",
       "storage": "git",
-      "bytes": 4070,
-      "sha256": "b8fdeb825ea1ed22e9181636d1e50340a5fad77818bd775a4f9c5e9378c6dc0a",
+      "bytes": 3857,
+      "sha256": "0d928496996bc3465f0d8d2d68ca6942763a30ef732e9c7205313b75b603fcf9",
       "drive": null,
       "required": true
     },
@@ -377,8 +377,8 @@
       "kind": "scene-manifest",
       "path": "projects/ep-002/scenes/sc-007-b07-thanks.json",
       "storage": "git",
-      "bytes": 3810,
-      "sha256": "0d50e822992316dec2b54aa3d28a7e17e1b6ab696bd02c9c971b1b25e1cd1f8b",
+      "bytes": 4308,
+      "sha256": "589e01bd01582f8921539a699871600ae6e62a15407c7e24f7d97580392382b7",
       "drive": null,
       "required": true
     },
@@ -387,8 +387,8 @@
       "kind": "scene-manifest",
       "path": "projects/ep-002/scenes/sc-008-b08-cheer.json",
       "storage": "git",
-      "bytes": 3787,
-      "sha256": "4835cb628ea24f215d5a4feff17b84cdb59efa93e735593eafb2d6678c84a18e",
+      "bytes": 4194,
+      "sha256": "7af28a9d8d7bd911db363b27b81554a09ce1c1b130bda5db34aa673c5b2b0ee1",
       "drive": null,
       "required": true
     },
@@ -397,8 +397,8 @@
       "kind": "scene-manifest",
       "path": "projects/ep-002/script.json",
       "storage": "git",
-      "bytes": 4786,
-      "sha256": "a734b21972108c7852c1c80fbf15fdc363234ae1296e4446f4e84acdd1ae06e8",
+      "bytes": 5555,
+      "sha256": "c77b2e81abae6e67df84a3bd4e162787ba6a75e26e9d0771d8e96f415dd6a82b",
       "drive": null,
       "required": true
     },

@@ -177,16 +177,6 @@
       "text": "Ada di sini! Bolanya tersangkut di antara bunga-bunga ini."
     }
   ],
-  "interactions": [
-    {
-      "propId": "toy-ball",
-      "characterId": "bobby",
-      "fromSec": 1.9,
-      "toSec": 5.938,
-      "attach": "hands",
-      "note": "discover: bobby carries toy-ball"
-    }
-  ],
   "audioTracks": [
     {
       "id": "b06-river-ambience",

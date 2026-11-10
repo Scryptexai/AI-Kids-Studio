@@ -247,14 +247,20 @@ export const SceneComposition = ({ scene, world, characters, backgroundDataUri, 
         ))}
         {layers.map((layer) => (
           <g key={layer.characterId} opacity={layer.opacity}>
-            {layer.props.map((p, i) => (
-              <Prop key={`held-${i}`} prop={p} width={width} height={height} t={t} />
+            {/* Worn props go behind the body; held ones go in front. Drawn all before the character,
+                a ball in the hand was painted under the torso and disappeared for the whole time it
+                was carried — the hero prop hidden by the child holding it. */}
+            {layer.props.filter((p) => p.attach === 'head').map((p, i) => (
+              <Prop key={`worn-${i}`} prop={p} width={width} height={height} t={t} />
             ))}
             <Character
               character={byId.get(layer.characterId)}
               instance={{ ...layer.instance, compositionWidth: width, compositionHeight: height }}
               t={t}
             />
+            {layer.props.filter((p) => p.attach !== 'head').map((p, i) => (
+              <Prop key={`held-${i}`} prop={p} width={width} height={height} t={t} />
+            ))}
           </g>
         ))}
       </g>

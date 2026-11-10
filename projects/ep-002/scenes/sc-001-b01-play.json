@@ -172,7 +172,7 @@
       "propId": "toy-ball",
       "characterId": "bobby",
       "fromSec": 1,
-      "toSec": 6.985,
+      "toSec": 7.485,
       "attach": "hands",
       "note": "explore: bobby carries toy-ball"
     }

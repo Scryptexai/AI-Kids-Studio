@@ -199,10 +199,11 @@
             "enum": [
               "none",
               "hold",
-              "touch"
+              "touch",
+              "take"
             ],
             "default": "touch",
-            "description": "How the actor treats the beat's prop. hold = picks it up and carries it; touch = interacts but it stays put; none = the prop is scenery for this beat."
+            "description": "How the actor treats the beat's prop. hold = picks it up and carries it; touch = interacts but it stays put; take = reaches for something another character is already holding (needs `take.afterSec`); none = the prop is scenery for this beat."
           },
           "throw": {
             "type": "object",
@@ -237,6 +238,48 @@
             ],
             "default": "level",
             "description": "Whether the actor travels into the picture (shrinking) or out of it."
+          },
+          "handoff": {
+            "type": "object",
+            "description": "The beat's prop is passed to `target` by hand rather than thrown. Same flight as `throw` with a slower, later, non-spinning default: starts after the line says \"here\", takes ~1.1 s, does not spin.",
+            "additionalProperties": false,
+            "properties": {
+              "atSec": {
+                "type": "number",
+                "minimum": 0,
+                "description": "Release time. Defaults to ROOT_PAD + 0.7."
+              },
+              "durationSec": {
+                "type": "number",
+                "exclusiveMinimum": 0,
+                "description": "Travel time. Defaults to 1.1 s."
+              },
+              "arc": {
+                "type": "number",
+                "description": "Height of the flight arc."
+              },
+              "spin": {
+                "type": "boolean",
+                "description": "Defaults to false for a handoff."
+              }
+            }
+          },
+          "take": {
+            "type": "object",
+            "description": "Timing for `interact: \"take\"` \u2014 reaching for a prop another character is holding.",
+            "additionalProperties": false,
+            "properties": {
+              "afterSec": {
+                "type": "number",
+                "minimum": 0,
+                "description": "Seconds into the beat when the actor reaches for it. Defaults to 0.9."
+              },
+              "releaseSec": {
+                "type": "number",
+                "minimum": 0,
+                "description": "Absolute release time; overrides afterSec."
+              }
+            }
           }
         }
       }

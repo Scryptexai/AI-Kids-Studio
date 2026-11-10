@@ -405,6 +405,41 @@ a small lean, the hand that `hold` already offers. The tears belong to whoever t
 Implemented in `posesFor` (listener emotion) and `performanceFor` (listener pose); the `concerned`
 animation is in the world's `animationCatalog` like any other.
 
+### 7.9 The lesson is a hand, not a sentence (implemented)
+
+The epilogue used to say its own moral: *"Terima kasih sudah mencari bersama. Kalau sendiri, aku
+pasti belum menemukannya."* A child does not learn from being told what they just watched, and a
+thank-you delivered as dialogue is a message to the parent in the room, not to the child.
+
+It is now a gesture. `b06` leaves the ball **stuck in the flowers** (`interact: "touch"`, exactly
+what the line says), and in `b07` the child who lost it lifts it out and puts it into the finder's
+hands — line: *"Ini bolamu. Simpan baik-baik, ya."* No one says "share". `b08` returns the favour
+mid-celebration so the ball ends in the other child's hands, and the last thing on screen is a ball
+in a hand rather than a rule in a subtitle.
+
+That needed one new primitive:
+
+* **`handoff`** — the prop is passed by hand, not thrown: same solved flight, but released later
+  (after the line says "here"), slower, and `spin: false` by default. A thrown ball says *play*; a
+  handed ball says *here, this is yours*.
+
+```json
+{ "id": "b07-thanks", "actor": "coco", "target": "bobby", "prop": "toy-ball",
+  "interact": "hold", "handoff": { "atSec": 2.0, "durationSec": 0.9 },
+  "line": "Ini bolamu. Simpan baik-baik, ya." }
+```
+
+Two smaller rules fell out of writing it, both of which had been silently wrong:
+
+* **A hold reaches the cut.** Every hold used to close at `duration - TAIL_PAD`, which left half a
+  second in which the character had let go — the ball dropped to the grass for the last six frames
+  of **eight scenes out of eight**, on both episodes. Never visible as a broken frame; always just
+  off the end of the shot.
+* **A handoff must land before the tail pad**, not merely before the cut. The catcher's hold starts
+  where the flight ends, so a late release produced a ball that arrived in a hand that never closed.
+  A handoff with no room left is refused with a hint rather than clipped. An authored `throw` that
+  does not fit is still an error — the two are deliberately different.
+
 ### 7.8 Story state: props obey the plot (implemented)
 
 Staging a beat in isolation produced three contradictions that a single frame cannot show and a

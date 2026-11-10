@@ -123,6 +123,8 @@ export function stageProps({ scene, characters, tSec: t, height, width }) {
         y: carryY + blend / height,
         z: sampleMotionWithDepth(holder.motion, t, holder.position).depth,
         rot: 0,
+        // How it is on the body decides paint order: worn goes behind, held goes in front.
+        attach: interaction.attach ?? 'hands',
         bornWith: interaction.characterId,
         attachedTo: interaction.characterId,
       };

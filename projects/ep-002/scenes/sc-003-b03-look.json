@@ -5,7 +5,7 @@
   "worldId": "bobby-forest",
   "episodeId": "ep-002",
   "location": "playground",
-  "durationSec": 6.163,
+  "durationSec": 11.08,
   "fps": 24,
   "camera": {
     "preset": "medium",
@@ -23,13 +23,13 @@
         "zoom": 1.2727
       },
       {
-        "t": 5.0537,
+        "t": 9.0856,
         "x": 0.285,
         "y": 0.514,
         "zoom": 1.2918
       },
       {
-        "t": 6.163,
+        "t": 11.08,
         "x": 0.285,
         "y": 0.514,
         "zoom": 1.2918
@@ -60,7 +60,7 @@
           "animation": "cry"
         },
         {
-          "atSec": 3.739,
+          "atSec": 6.788,
           "animation": "curious"
         }
       ]
@@ -84,11 +84,11 @@
           "animation": "idle"
         },
         {
-          "atSec": 2.588,
+          "atSec": 4.654,
           "animation": "surprise"
         },
         {
-          "atSec": 3.753,
+          "atSec": 6.254,
           "animation": "concerned"
         }
       ]
@@ -112,11 +112,11 @@
           "animation": "idle"
         },
         {
-          "atSec": 2.588,
+          "atSec": 4.654,
           "animation": "surprise"
         },
         {
-          "atSec": 3.753,
+          "atSec": 6.254,
           "animation": "concerned"
         }
       ]
@@ -144,18 +144,18 @@
       "startSec": 0.6,
       "emotion": "sad",
       "audioAsset": "audio/generated/ep-002/sc-003-b03-look/b03-look-d01.wav",
-      "durationSec": 5.063
+      "durationSec": 9.98
     }
   ],
   "subtitles": [
     {
       "startSec": 0.6,
-      "endSec": 3.486,
+      "endSec": 6.29,
       "text": "Bola kesayanganku hilang... tapi aku tidak mau menyerah. Coba"
     },
     {
-      "startSec": 3.486,
-      "endSec": 5.663,
+      "startSec": 6.29,
+      "endSec": 10.58,
       "text": "kita pikirkan, ke mana bola itu menggelinding?"
     }
   ],

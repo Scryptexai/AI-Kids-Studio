@@ -102,8 +102,8 @@
       "target": "pip",
       "prop": "toy-ball",
       "line": "Ada di sini! Bolanya tersangkut di antara bunga-bunga ini.",
-      "notes": "Payoff: the ball appears where the flowers are, and Bobby picks it up. The reveal is what makes the search worth watching — the audience sees the thing they were told was lost.",
-      "interact": "hold",
+      "notes": "Payoff: the ball appears where the flowers are and Bobby finds it — but it is *stuck*, exactly as the line says, so he does not pick it up. Keeping it in the flowers is what lets the next beat show the moral instead of saying it: Coco is the one who lifts it out.",
+      "interact": "touch",
       "depth": "away",
       "reveal": {
         "prop": "toy-ball",
@@ -121,8 +121,21 @@
       "intensity": 0.5,
       "actor": "coco",
       "target": "bobby",
-      "line": "Terima kasih sudah mencari bersama. Kalau sendiri, aku pasti belum menemukannya.",
-      "notes": "Moral beat, delivered by the character who benefited."
+      "line": "Ini bolamu. Simpan baik-baik, ya.",
+      "notes": "The lesson is shown, not said: Coco lifts the ball out of the flowers (where b06 left it stuck) and puts it into Bobby's hands instead of thanking him out loud. Gratitude at the end of a children's story is usually a message to the parent, not to the child — a small deliberate gesture carries it without the sermon.",
+      "prop": "toy-ball",
+      "handoff": {
+        "atSec": 2.0,
+        "durationSec": 0.9
+      },
+      "interact": "hold",
+      "reveal": {
+        "prop": "toy-ball",
+        "atSec": 0,
+        "x": 0.24,
+        "y": 0.83,
+        "scale": 1
+      }
     },
     {
       "id": "b08-cheer",
@@ -132,8 +145,14 @@
       "intensity": 0.9,
       "actor": "bobby",
       "target": "coco",
-      "line": "Hore! Kita bermain lagi, dan kali ini kita jaga bolanya bersama-sama.",
-      "notes": "Close on joy, not on the lesson. The ball stays in Bobby's hands: throwing it again would undo the very thing the episode just taught."
+      "line": "Hore! Kita main lagi, yuk! Ini bolamu, ayo kita jaga bersama!",
+      "notes": "Close on joy, not on the lesson. Bobby hands the ball back to Coco mid-line — the gesture that closed the last scene is only real if it is returned. The ball ends in Coco's hands, and nobody says the word 'share'.",
+      "prop": "toy-ball",
+      "interact": "hold",
+      "handoff": {
+        "atSec": 2.4,
+        "durationSec": 1.0
+      }
     }
   ],
   "concept": {

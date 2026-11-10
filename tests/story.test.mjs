@@ -152,3 +152,62 @@ test('a prop that does not exist cannot be marked absent', async () => {
     /no such prop exists/,
   );
 });
+
+test('a prop is never let go in the last half second of a scene', async () => {
+  // Regression: every hold closed at `duration - TAIL_PAD`, which left six frames — from the tail
+  // pad to the cut — in which the ball was on the grass under a character who was supposed to be
+  // carrying it. It happened in eight scenes out of eight, on both episodes, and no single frame
+  // was wrong enough to notice: the drop was always just off the end of the shot.
+  const { scenes } = await directScript({
+    script: script([
+      { id: 'b1', location: 'playground', action: 'discover', emotion: 'happy', actor: 'bobby', target: 'pip', prop: 'toy-ball', interact: 'hold', line: 'Bola!' },
+    ]),
+    world,
+    characters,
+  });
+  const s = scenes[0];
+  const held = (s.interactions ?? []).filter((i) => i.attach === 'hands');
+  assert.ok(held.length, 'the ball is held at all');
+  assert.ok(
+    held.some((i) => i.toSec >= s.durationSec - 0.001),
+    `a hold must reach the cut: ${held.map((i) => i.toSec).join(', ')} vs ${s.durationSec}s`,
+  );
+});
+
+test('a prop can change hands by hand, and the receiver ends up holding it', async () => {
+  // The moral of ep-002 used to be spoken ("thank you for searching with me"). A gesture carries it
+  // better: the character who found the ball puts it back in the hand of the one who lost it. That
+  // needs a non-throwing handoff — same flight, slower, no spin, released after the line says
+  // "here" — and the receiver has to be the one holding it at the cut.
+  const { scenes } = await directScript({
+    script: script([
+      { id: 'b1', location: 'playground', action: 'discover', emotion: 'happy', actor: 'bobby', target: 'pip', prop: 'toy-ball', interact: 'hold', line: 'Bolanya ketemu!' },
+      { id: 'b2', location: 'playground', action: 'explain', emotion: 'happy', actor: 'bobby', target: 'pip', prop: 'toy-ball', interact: 'hold', handoff: { atSec: 1.5, durationSec: 0.9 }, line: 'Ini bolamu.' },
+    ]),
+    world,
+    characters,
+  });
+  const s = scenes[1];
+  const flight = (s.flights ?? []).find((f) => f.propId === 'toy-ball');
+  assert.ok(flight, 'the ball travels between hands');
+  assert.equal(flight.fromCharacterId, 'bobby', 'it leaves the hand that had it');
+  assert.equal(flight.toCharacterId, 'pip', 'and arrives in the other');
+  assert.equal(flight.spin, false, 'a handed ball is not a thrown ball');
+  const catcher = (s.interactions ?? []).find((i) => i.characterId === 'pip' && i.attach === 'hands');
+  assert.ok(catcher, 'the ball is held after the handoff');
+  assert.ok(catcher.fromSec >= flight.endSec, 'held only once it arrives');
+});
+
+test('a beat cannot take the prop out of its own hand', async () => {
+  const error = await directScript({
+    script: script([
+      { id: 'b1', location: 'playground', action: 'discover', emotion: 'happy', actor: 'bobby', target: 'pip', prop: 'toy-ball', interact: 'hold', line: 'Bola!' },
+      { id: 'b2', location: 'playground', action: 'celebrate', emotion: 'happy', actor: 'bobby', target: 'pip', prop: 'toy-ball', interact: 'take', line: 'Ayo!' },
+    ]),
+    world,
+    characters,
+  }).then(() => null, (e) => e);
+  assert.ok(error, 'the director refuses it');
+  assert.match(error.message, /already holding it/);
+  assert.match(error.hint ?? '', /handoff/, 'and says which primitive to use instead');
+});

@@ -73,7 +73,7 @@ function pickProp({ beat, placements, hidden = new Set(), carried = null }) {
   // A beat that throws or holds something must resolve a prop even if the action itself
   // (explore, celebrate) does not usually need one. Prefer a *carryable* hero prop: throwing
   // the bench across the playground is not a bug we want to ship.
-  if (beat.throw || beat.interact === 'hold') {
+  if (beat.throw || beat.handoff || beat.interact === 'hold') {
     const notCarryable = /bench|house|tree|rock|fence|slide|swing/;
     const carryable = placements.filter((p) => !notCarryable.test(p.propId));
     const pool = carryable.length ? carryable : placements;
@@ -267,12 +267,13 @@ export function directBeat({
   const carryWindows = [];
   const interactions = [];
 
-  if (beat.throw && prop) {
+  if ((beat.throw || beat.handoff) && prop) {
     // A throw must name who catches it. Falling back to "whoever happens to be nearby" makes
     // the story ambiguous — the ball could go to the wrong character.
+    const handing = beat.handoff ?? beat.throw;
     if (!beat.target) {
-      throw new StudioError(`beat '${beat.id}' throws '${prop.propId}' but names no target`, {
-        hint: 'add "target": "<characterId>" so the director knows who catches it',
+      throw new StudioError(`beat '${beat.id}' ${beat.handoff ? 'hands' : 'throws'} '${prop.propId}' but names no target`, {
+        hint: 'add "target": "<characterId>" so the director knows who receives it',
       });
     }
     const targetMark = block.positions.get(beat.target);
@@ -281,8 +282,27 @@ export function directBeat({
         hint: 'the target must be a cast member present in the scene',
       });
     }
-    const startSec = Number((beat.throw.atSec ?? ROOT_PAD + 0.3).toFixed(3));
-    const flightSec = Number((beat.throw.durationSec ?? 0.9).toFixed(3));
+    // A handoff is the same journey as a throw with a different reading: it starts later in the
+    // beat (once the line has said "here") and it travels slower and without spin, because a ball
+    // being passed is not a ball being thrown.
+    const startSec = Number((handing.atSec ?? (beat.handoff ? ROOT_PAD + 0.7 : ROOT_PAD + 0.3)).toFixed(3));
+    // A handoff written into a beat that is too short used to be silently clipped, or pushed past
+    // the cut: it has to fit before the tail pad, or the ball is still travelling when the scene
+    // ends and simply disappears.
+    // A handoff has to *land* before the tail pad, not merely before the cut: the catcher's hold
+    // starts where the flight ends, and if that is past `duration - TAIL_PAD` there is no hold at
+    // all — the ball arrives in a hand that never closes. The clamp floor is the real room left,
+    // never a convenient minimum.
+    const roomForFlight = Math.floor((durationSec - TAIL_PAD - startSec) * 1000) / 1000;
+    const askedFlightSec = handing.durationSec ?? (beat.handoff ? 1.1 : 0.9);
+    if (beat.handoff && roomForFlight < 0.2) {
+      throw new StudioError(`beat '${beat.id}' hands '${prop.propId}' over at ${startSec}s, leaving no room before the cut`, {
+        hint: 'release it earlier (handoff.atSec) or give the beat a longer durationSec',
+      });
+    }
+    const flightSec = Number((beat.handoff
+      ? Math.min(askedFlightSec, roomForFlight)
+      : askedFlightSec).toFixed(3));
     const endSec = Number((startSec + flightSec).toFixed(3));
     if (endSec > durationSec) {
       throw new StudioError(`beat '${beat.id}' throw ends at ${endSec}s but the scene is ${durationSec}s`, {
@@ -313,16 +333,16 @@ export function directBeat({
       toY: Number((targetMark.y - handLift).toFixed(4)),
       startSec,
       endSec,
-      ...(beat.throw.arc != null ? { arc: beat.throw.arc } : {}),
-      spin: beat.throw.spin ?? true,
-      note: `${beat.action}: ${throwerId} throws ${prop.propId} to ${beat.target}`,
+      ...(handing.arc != null ? { arc: handing.arc } : {}),
+      spin: handing.spin ?? !beat.handoff,
+      note: `${beat.action}: ${throwerId} ${beat.handoff ? 'hands' : 'throws'} ${prop.propId} to ${beat.target}`,
     });
   }
 
   // Throwing something requires having held it. A script that writes a throw and forgets to say
   // `interact: "hold"` used to produce a ball that left a hand it was never in, so the hold is
   // implied from the start of the beat up to release.
-  if (prop && beat.throw && beat.interact !== 'hold' && beat.interact !== 'none') {
+  if (prop && (beat.throw || beat.handoff) && beat.interact !== 'hold' && beat.interact !== 'none') {
     const releaseAtSec = flights[0]?.startSec ?? null;
     const fromSec = Number((revealedAt(prop) ?? ROOT_PAD + 0.4).toFixed(3));
     if (releaseAtSec != null && releaseAtSec > fromSec) {
@@ -337,14 +357,56 @@ export function directBeat({
     }
   }
 
-  if (prop && beat.interact !== 'none') {
+  // Who is holding the beat's prop as the beat opens.
+  //
+  // `take` needs this and so did the old version of it: a prop the actor is about to be handed must
+  // already be in someone's hand, or the audience sees it lifted off the grass by nobody.
+  const heldAtStart = prop && carried?.propId === prop.propId ? carried.characterId : null;
+
+  if (prop && beat.interact === 'take') {
+    // Reaching for something *someone else is holding*. Without an explicit release the pickup
+    // window simply overwrote the holder's carry and the ball snapped between two characters on the
+    // same frame. If the actor already holds it there is nothing to take — that is a handoff, and
+    // writing it as a take reads as a character grabbing something out of their own hand.
+    if (heldAtStart === block.actorId) {
+      throw new StudioError(`beat '${beat.id}' takes '${prop.propId}' but '${block.actorId}' is already holding it`, {
+        hint: 'use "handoff" to give it to the target, or "hold" to keep carrying it',
+      });
+    }
+    const releaseAt = Number((beat.take?.releaseSec ?? ROOT_PAD + (beat.take?.afterSec ?? 0.9)).toFixed(3));
+    if (releaseAt <= ROOT_PAD + 0.05) {
+      throw new StudioError(`beat '${beat.id}' takes '${prop.propId}' before anyone could offer it`, {
+        hint: 'set take.afterSec to the second of the line where the actor reaches for it',
+      });
+    }
+    interactions.push({
+      propId: prop.propId,
+      characterId: block.actorId,
+      fromSec: releaseAt,
+      toSec: Number((durationSec - TAIL_PAD).toFixed(3)),
+      attach: 'hands',
+      note: `${beat.action}: ${block.actorId} takes ${prop.propId} from ${heldAtStart ?? 'the ground'}`,
+    });
+  }
+
+  if (prop && beat.interact !== 'none' && beat.interact !== 'take') {
     const attach = beat.interact === 'hold' ? 'hands' : null;
     const releaseSec = flights[0]?.startSec ?? null;
     if (attach) {
-      // You cannot pick something up before it is in shot. A revealed prop is held from the
-      // instant it appears; otherwise the character walks on camera already holding an object
-      // the audience has not been shown yet, which gives away the reveal.
-      const fromSec = Number((revealedAt(prop) ?? ROOT_PAD + 0.4).toFixed(3));
+      // You cannot pick something up before it is in shot, and you cannot have been holding it
+      // since the first frame unless you walked in with it. A revealed prop is held from the
+      // instant it appears — but a prop that was *already* on stage (found in an earlier beat and
+      // still lying there) is picked up after the beat starts, not teleported into the hand on the
+      // cut. Both cases used to be the same expression, which made Coco "hold" a ball that had
+      // been lying in the flowers one frame earlier.
+      const alreadyHeld = carried?.propId === prop.propId && carried.characterId === block.actorId;
+      // A prop the beat reveals at 0:00 is on stage from the first frame, so there is no pickup to
+      // stage and the character may already be holding it. Otherwise the hold starts once the prop
+      // is in shot.
+      const inShotFromStart = revealedAt(prop) === 0;
+      const fromSec = Number((alreadyHeld || inShotFromStart
+        ? 0
+        : Math.max(revealedAt(prop) ?? 0, ROOT_PAD + 0.4)).toFixed(3));
       const carryEnd = Number((durationSec - TAIL_PAD).toFixed(3));
       const toSec = releaseSec != null ? releaseSec : Number(Math.max(fromSec + 0.6, carryEnd).toFixed(3));
       if (toSec > fromSec) {
@@ -374,6 +436,21 @@ export function directBeat({
         });
       }
     }
+  }
+
+  // Who is holding the beat's prop, if anyone.
+  //
+  // `carried` only says what one character kept from the previous beat. A prop can also have been
+  // handed between characters inside this beat (`handoff`, or a catcher in the same beat), and a
+  // beat that reaches for something ("take") needs to know whose hand it is reaching into — or it
+  // will pull the object out of the story's own carry chain.
+  if (prop) {
+    const openHold = carryWindows.filter((w) => w.propId === prop.propId)
+      .concat(interactions.filter((i) => i.propId === prop.propId && i.attach === 'hands'))
+      .concat(flights.filter((f) => f.propId === prop.propId).map((f) => ({ propId: f.propId, characterId: f.toCharacterId })));
+    const holder = openHold.at(-1)?.characterId
+      ?? (carried?.propId === prop.propId ? carried.characterId : null);
+    if (holder) prop.carriedBy = holder;
   }
 
   // Characters array, ordered back-to-front so the renderer's z sort is stable.
@@ -486,6 +563,13 @@ export function directBeat({
   // time the location or the beat changes. "Still holding at the end" means the window reaches the
   // tail of the beat, which is where every hold closes by construction.
   const holdEndsAt = Number((durationSec - TAIL_PAD).toFixed(3));
+  // ...but what is held when the beat *ends* is held until the beat ends. Every hold that closes at
+  // the tail pad left half a second in which the character had let go: the ball dropped to the
+  // grass for the last 6 frames of eight scenes out of eight, on every episode, including right
+  // before the cut that was carrying it into the next shot.
+  for (const i of interactions) {
+    if (i.attach === 'hands' && i.toSec >= holdEndsAt - 0.05) i.toSec = Number(durationSec.toFixed(3));
+  }
   const heldAtEnd = interactions
     .filter((i) => i.attach === 'hands' && i.toSec >= holdEndsAt - 0.05)
     .at(-1) ?? null;
@@ -684,6 +768,12 @@ function buildWarnings({ scenes, script, world }) {
     }
     if (s.dialogue.length && s.dialogue[0].durationSec < 1) {
       warnings.push(`${s.id}: line is only ${s.dialogue[0].durationSec}s — may be too short to read`);
+    }
+    // A prop changing hands too quickly to read is a staging compromise, not a broken script, so it
+    // is a warning rather than an error.
+    for (const f of s.flights ?? []) {
+      const flightSec = f.endSec - f.startSec;
+      if (flightSec < 0.4) warnings.push(`${s.id}: ${f.propId} changes hands in ${flightSec.toFixed(2)}s — too quick to read`);
     }
     const withAudio = s.dialogue.every((d) => !d.audioAsset || d.audioAsset.startsWith('audio/generated/'));
     if (!withAudio) warnings.push(`${s.id}: dialogue asset path is outside audio/generated — check the generator`);

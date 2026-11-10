@@ -134,6 +134,11 @@ export function buildSceneSvg({
 
   // A prop in someone's hands or in the air is drawn inside that character's group, so it can
   // never be buried by scenery at the same nominal depth.
+  //
+  // ...and it is painted *after* the body, not before. Drawn before, the hand-held ball sat behind
+  // the torso silhouette and vanished on every frame it was carried: the prop the whole episode is
+  // about was hidden by the child holding it. Anything attached to the head goes behind, because a
+  // hat is worn rather than held.
   const propSvg = (p) => {
     const svg = renderProp({ ...p, compositionHeight: height, compositionWidth: width });
     return p.rot
@@ -143,9 +148,9 @@ export function buildSceneSvg({
 
   const layers = [
     ...scenery.map(({ prop }) => ({ z: prop.z, markup: propSvg(prop) })),
-    ...paintLayers.map((layer, i) => ({
+    ...paintLayers.map((layer) => ({
       z: layer.depth,
-      markup: `<g data-character="${esc(layer.characterId)}" data-animation="${esc(layer.instance.animation)}" opacity="${layer.opacity.toFixed(3)}">${layer.props.map(propSvg).join('')}${renderCharacter({
+      markup: `<g data-character="${esc(layer.characterId)}" data-animation="${esc(layer.instance.animation)}" opacity="${layer.opacity.toFixed(3)}">${layer.props.filter((p) => p.attach === 'head').map(propSvg).join('')}${renderCharacter({
         character: characters.get(layer.characterId),
         instance: layer.instance,
         tSec: t,
@@ -153,7 +158,7 @@ export function buildSceneSvg({
         compositionWidth: width,
         // The scene's dialogue goes in, so the mouth can follow the audio the viewer hears.
         dialogue: scene.dialogue ?? null,
-      })}</g>`,
+      })}${layer.props.filter((p) => p.attach !== 'head').map(propSvg).join('')}</g>`,
     })).filter((layer) => layer.markup),
   ];
   // Interleave scenery and characters by depth; a stable order keeps a level scene unchanged.

@@ -152,6 +152,8 @@ Every optimisation above was found by measurement, and the numbers are reproduci
 ## 4. What the rig supports today
 
 * Animations: `idle`, `walk`, `run`, `jump`, `talk`, `wave`, `laugh`, `cry`, `surprise`, `concerned` — driven by `animationState(animationId, t)`.
+* Paint order inside a character layer: worn props (a hat) go behind the body, held props go **in front**. Drawn all before the body, a ball in the hand was covered by the torso silhouette for the whole time it was carried.
+* The toy ball is white with a red stripe, not a plain disc. It used to be `#f2994a` — the exact shirt colour of the child who owns it, so the hero prop was camouflaged on its carrier.
 * `mood` is a separate facial channel (−1 crestfallen … +1 delighted) set per animation and blended like any other state field. `cry` is −1, `laugh` +1, `concerned` −0.45, `idle` 0.
 * Face: blinking, mouth opening tied to `talk`/`laugh`/`surprise`, tears for `cry`.
 * Arms: per-side raise with correct SVG rotation sign (a downward arm rotates **inward** for positive angles — this was a real bug that crossed the arms over the chest).

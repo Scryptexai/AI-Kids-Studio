@@ -1,5 +1,5 @@
 {
-  "totalDurationSec": 56.733,
+  "totalDurationSec": 54.255,
   "timeline": [
     {
       "sceneId": "sc-001-b01-play",
@@ -32,7 +32,7 @@
     {
       "sceneId": "sc-003-b03-look",
       "startSec": 13.788,
-      "endSec": 19.951,
+      "endSec": 24.868,
       "location": "playground",
       "shot": "medium",
       "dialogue": [
@@ -45,71 +45,71 @@
     },
     {
       "sceneId": "sc-004-b04-coco",
-      "startSec": 19.951,
-      "endSec": 27.721,
+      "startSec": 24.868,
+      "endSec": 32.638,
       "location": "playground",
       "shot": "wide",
       "dialogue": [
         {
           "id": "b04-coco-d01",
           "characterId": "coco",
-          "startSec": 20.551
+          "startSec": 25.468
         }
       ]
     },
     {
       "sceneId": "sc-005-b05-go",
-      "startSec": 27.721,
-      "endSec": 33.727,
+      "startSec": 32.638,
+      "endSec": 38.644,
       "location": "playground",
       "shot": "wide",
       "dialogue": [
         {
           "id": "b05-go-d01",
           "characterId": "bobby",
-          "startSec": 28.321
+          "startSec": 33.238
         }
       ]
     },
     {
       "sceneId": "sc-006-b06-river",
-      "startSec": 33.727,
-      "endSec": 40.165,
+      "startSec": 38.644,
+      "endSec": 45.082,
       "location": "river-bend",
       "shot": "establishing",
       "dialogue": [
         {
           "id": "b06-river-d01",
           "characterId": "bobby",
-          "startSec": 34.327
+          "startSec": 39.244
         }
       ]
     },
     {
       "sceneId": "sc-007-b07-thanks",
-      "startSec": 40.165,
-      "endSec": 48.888,
+      "startSec": 45.082,
+      "endSec": 49.772,
       "location": "river-bend",
       "shot": "medium",
       "dialogue": [
         {
           "id": "b07-thanks-d01",
           "characterId": "coco",
-          "startSec": 40.765
+          "startSec": 45.682
         }
       ]
     },
     {
       "sceneId": "sc-008-b08-cheer",
-      "startSec": 48.888,
-      "endSec": 56.733,
+      "startSec": 49.772,
+      "endSec": 54.255,
       "location": "river-bend",
       "shot": "wide",
       "dialogue": [
         {
           "id": "b08-cheer-d01",
           "characterId": "bobby",
-          "startSec": 49.488
+          "startSec": 50.372
         }
       ]
     }

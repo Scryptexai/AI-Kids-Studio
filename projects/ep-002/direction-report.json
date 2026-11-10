@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-11-09T19:43:39.386Z",
+  "generatedAt": "2026-11-09T22:54:24.641Z",
   "scriptId": "ep-002-script",
   "episodeId": "ep-002",
   "worldId": "bobby-forest",
   "sceneCount": 8,
-  "totalDurationSec": 56.733,
+  "totalDurationSec": 54.255,
   "targetDurationSec": 55,
   "lead": "bobby",
   "cast": [
@@ -31,7 +31,7 @@
     {
       "sceneId": "sc-003-b03-look",
       "shot": "medium",
-      "seconds": 6.163
+      "seconds": 11.08
     },
     {
       "sceneId": "sc-004-b04-coco",
@@ -51,17 +51,17 @@
     {
       "sceneId": "sc-007-b07-thanks",
       "shot": "medium",
-      "seconds": 8.723
+      "seconds": 4.69
     },
     {
       "sceneId": "sc-008-b08-cheer",
       "shot": "wide",
-      "seconds": 7.845
+      "seconds": 4.483
     }
   ],
   "travelling": 4,
-  "interactions": 4,
-  "flights": 0,
+  "interactions": 5,
+  "flights": 2,
   "warnings": [],
   "script": "projects/ep-002/script.json"
 }
