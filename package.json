@@ -28,7 +28,8 @@
     "pkg:inspect": "node scripts/tools/inspect-package.mjs",
     "blender:probe": "node scripts/tools/probe-blender.mjs",
     "studio": "node apps/studio/server.mjs",
-    "studio:direct": "node scripts/studio/direct.mjs"
+    "studio:direct": "node scripts/studio/direct.mjs",
+    "preview:player": "node tools/preview/server.mjs"
   },
   "dependencies": {
     "@ffmpeg-installer/ffmpeg": "^1.1.0",

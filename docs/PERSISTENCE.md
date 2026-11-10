@@ -4,6 +4,13 @@ Sandbox bisa hilang kapan saja. Dokumen ini menjelaskan apa yang disimpan di man
 
 ---
 
+## Reviewing a render before it is published
+
+Drive is the archive; it is the wrong place to *judge* a scene, because the video has to be opened
+and downloaded first. `npm run preview:player` (env `PORT`, `EPISODE`) serves the newest full episode
+plus every per-scene file out of `renders/<episode>/` with HTTP range support, so it can be scrubbed
+in a browser. The player reads the render directory directly — no manifest, no build step.
+
 ## 1. Pembagian tanggung jawab penyimpanan
 
 | Jenis data | Tempat | Alasan |
@@ -181,7 +188,7 @@ npm run voice:generate -- --episode ep-001
 
 | Created | File | Drive id | Commit |
 | --- | --- | --- | --- |
-| 10 Nov 06:33 | `ep-002-…06-33-11-gesture` | `1Ydk2fgCB2OP_bQ62QD112mwxPnmL0jCW` | see log |
+| 10 Nov 06:33 | `ep-002-…06-33-11-gesture` | `1Ydk2fgCB2OP_bQ62QD112mwxPnmL0jCW` | `7210786` |
 | 09 Nov 19:44 | `ep-002-…19-44-09-one-owner` | `1fz3yU3svoJd3PK6CXTpAryl3b0LnVYQO` | `2eb8a8e` |
 | 09 Nov 19:19 | `ep-002-…19-19-15-feelfirst` | `19I5b-X_BmPr_XJqCLxgcfDFRJSKFVUZi` | `7e74e16` |
 | 09 Nov 13:58 | `ep-002-…13-58-49-story` | `1n1Z22eFcQmSGlnIKTMaHcHIyBoOWLF_M` | `8b4dd77` |
