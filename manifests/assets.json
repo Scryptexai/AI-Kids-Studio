@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-10T06:34:50.098Z",
+  "generatedAt": "2026-11-10T06:35:11.280Z",
   "generator": "scripts/assets/manifest.mjs",
   "assets": [
     {
@@ -518,6 +518,21 @@
         "fileId": "1fz3yU3svoJd3PK6CXTpAryl3b0LnVYQO",
         "name": "ep-002-2026-11-09T19-44-09-one-owner-PLACEHOLDER-VOICE.mp4",
         "uploadedAt": "2026-11-09T19:45:47.875Z"
+      },
+      "required": false,
+      "description": "recorded in Drive; local copy may be removed (missing locally, restorable from Drive)"
+    },
+    {
+      "id": "renders-ep-002-ep-002-2026-11-10t06-33-11",
+      "kind": "video",
+      "path": "renders/ep-002/ep-002-2026-11-10T06-33-11.mp4",
+      "storage": "drive",
+      "bytes": 11634302,
+      "sha256": "d76fe2285508683ef26a1feaf6957d8a9b97c888fec223caed05af873b905eda",
+      "drive": {
+        "fileId": "1Ydk2fgCB2OP_bQ62QD112mwxPnmL0jCW",
+        "name": "ep-002-2026-11-10T06-33-11-gesture-PLACEHOLDER-VOICE.mp4",
+        "uploadedAt": "2026-11-10T06:35:11.027Z"
       },
       "required": false,
       "description": "recorded in Drive; local copy may be removed (also present locally)"
