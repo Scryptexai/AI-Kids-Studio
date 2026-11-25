@@ -1,1 +1,86 @@
-{}
+{
+  "KT-L01": {
+    "episode": "KT-L01",
+    "post_id": "6b06f22e29f2f1241e985123",
+    "scheduled_for": "2026-11-26T08:30:00.000Z",
+    "slot": "SORE_LONG",
+    "status": "scheduled",
+    "synced_from_zernio": true,
+    "timezone": "Asia/Makassar",
+    "title": "5 Mesin Raksasa di Bawah Kota yang Bekerja Diam-Diam Saat Badai dan Mati Lampu",
+    "uploaded_at": "2026-11-25T14:35:29.011Z",
+    "youtube_url": null
+  },
+  "KT-S01": {
+    "episode": "KT-S01",
+    "post_id": "6b06f223fbd1a481496dcd90",
+    "scheduled_for": "2026-11-26T00:00:00.000Z",
+    "slot": "PAGI_SHORT",
+    "status": "scheduled",
+    "synced_from_zernio": true,
+    "timezone": "Asia/Makassar",
+    "title": "Angin Kencang di Peron MRT Datang Sebelum Keretanya Terlihat #Shorts",
+    "uploaded_at": "2026-11-25T14:35:16.934Z",
+    "youtube_url": null
+  },
+  "KT-S02": {
+    "episode": "KT-S02",
+    "post_id": "6b06f2281560c4de86ca58b2",
+    "scheduled_for": "2026-11-26T04:30:00.000Z",
+    "slot": "SIANG_SHORT",
+    "status": "scheduled",
+    "synced_from_zernio": true,
+    "timezone": "Asia/Makassar",
+    "title": "Di Film Semua Sprinkler Menyala Sekaligus. Aslinya Cuma 1 Kepala! #Shorts",
+    "uploaded_at": "2026-11-25T14:35:21.036Z",
+    "youtube_url": null
+  },
+  "KT-S03": {
+    "episode": "KT-S03",
+    "post_id": "6b06f2341e1543178cfad32f",
+    "scheduled_for": "2026-11-26T12:30:00.000Z",
+    "slot": "MALAM_SHORT",
+    "status": "scheduled",
+    "synced_from_zernio": true,
+    "timezone": "Asia/Makassar",
+    "title": "Hamparan Batu Kerikil di Gardu Listrik Ini Bukan Hiasan Taman #Shorts",
+    "uploaded_at": "2026-11-25T14:35:34.210Z",
+    "youtube_url": null
+  },
+  "KT-S04": {
+    "episode": "KT-S04",
+    "post_id": "6b06f2391e1543178cfad34a",
+    "scheduled_for": "2026-11-27T00:00:00.000Z",
+    "slot": "PAGI_SHORT",
+    "status": "scheduled",
+    "synced_from_zernio": true,
+    "timezone": "Asia/Makassar",
+    "title": "Sabuk Pengaman Mobil Sengaja Mengalah Sedikit Saat Tabrakan #Shorts",
+    "uploaded_at": "2026-11-25T14:35:37.965Z",
+    "youtube_url": null
+  },
+  "KT-S05": {
+    "episode": "KT-S05",
+    "post_id": "6b06f23d29f2f1241e9851a1",
+    "scheduled_for": "2026-11-27T04:30:00.000Z",
+    "slot": "SIANG_SHORT",
+    "status": "scheduled",
+    "synced_from_zernio": true,
+    "timezone": "Asia/Makassar",
+    "title": "Toilet Kamar Tamu Bau Setelah Lama Kosong? Bukan Pipanya yang Rusak #Shorts",
+    "uploaded_at": "2026-11-25T14:35:43.134Z",
+    "youtube_url": null
+  },
+  "KT-S06": {
+    "episode": "KT-S06",
+    "post_id": "6b06f24229f2f1241e9851b6",
+    "scheduled_for": "2026-11-27T12:30:00.000Z",
+    "slot": "MALAM_SHORT",
+    "status": "scheduled",
+    "synced_from_zernio": true,
+    "timezone": "Asia/Makassar",
+    "title": "Batang Setir Mobil Sengaja Dirancang Supaya Bisa Memendek #Shorts",
+    "uploaded_at": "2026-11-25T14:35:47.094Z",
+    "youtube_url": null
+  }
+}
