@@ -1,0 +1,18 @@
+# Python & Virtualenvs
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Native compiled shared libraries
+*.so
+*.dylib
+*.dll
+
+# Heavy rendered video/audio binaries & scratch directories
+output/*.mp4
+assets/audio/**/*.wav
+tmp_render/
+google_drive/
+Unselected files/

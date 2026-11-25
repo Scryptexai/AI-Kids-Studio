@@ -1,0 +1,56 @@
+{
+  "series": "Hidden Infrastructure — 3D Stylized Educational Shorts",
+  "episode": 3,
+  "slug": "ep03_menara_air",
+  "title": "Bagaimana Menara Air Mengalirkan Air Tanpa Listrik?",
+  "topic": "Prinsip Gravitasi & Tekanan Hidrostatis pada Water Tower",
+  "resolution": [1080, 1920],
+  "fps": 24,
+  "duration_sec": 58.5,
+  "voice_id": "voice-00",
+  "lighting_preset": "Dusk Blackout -> Midnight Pump -> Daylight Hydrostatic Cutaway",
+  "assets_checklist": [
+    "Mini_City_Houses",
+    "Water_Tower_LowPoly",
+    "Sink_Cutaway",
+    "Electric_Pump_Unit"
+  ],
+  "segments": [
+    {
+      "id": 1,
+      "name": "Hook (Listrik Padam, Keran Jalan)",
+      "time_range": [0.0, 11.4],
+      "vo_file": "assets/audio/ep03/vo_seg1.wav",
+      "vo_start": 0.3,
+      "vo_script": "Pas listrik di rumahmu mati total, kenapa air dari keran PDAM sering kali masih bisa ngalir lancar? Rahasianya ada di menara air raksasa ini.",
+      "visual": "Diorama kota kecil low-poly. Seluruh jendela rumah padam bersamaan saat mati lampu, tetapi di rumah cutaway keran wastafel tetap mengucurkan air biru cerah, lalu kamera zoom-out cepat ke Menara Air raksasa."
+    },
+    {
+      "id": 2,
+      "name": "Cara Kerja Pompa Tengah Malam & Gravitasi",
+      "time_range": [11.4, 24.0],
+      "vo_file": "assets/audio/ep03/vo_seg2.wav",
+      "vo_start": 11.5,
+      "vo_script": "Menara air ini nggak butuh listrik buat dorong air ke rumahmu, karena dia pakai gravitasi. Listrik cuma dipakai sekali di awal buat mompa air naik ke tangki di atas sana, biasanya pas tengah malam.",
+      "visual": "Tangki kaca transparan memperlihatkan cara kerja gravitasi. Saat tengah malam, pipa kiri menyala hijau terang memompa air naik mengisi silinder air biru di dalam tangki hingga penuh."
+    },
+    {
+      "id": 3,
+      "name": "Tekanan Hidrostatis (± 30 Meter = 3 Bar)",
+      "time_range": [24.0, 41.8],
+      "vo_file": "assets/audio/ep03/vo_seg3.wav",
+      "vo_start": 24.1,
+      "vo_script": "Begitu airnya udah di atas, berat air itu sendiri nyiptain tekanan besar ke bawah. Setiap 10 meter ketinggian, tekanannya nambah sekitar 1 bar. Makanya air otomatis kedorong kencang lewat pipa bawah tanah ke semua rumah, bahkan sampai lantai dua.",
+      "visual": "Garis ukur vertikal kuning menyala (± 30 Meter = 3 Bar). Cutaway tanah terbuka memperlihatkan pipa outlet biru terang mengalirkan pulsa air deras lewat jaringan bawah tanah hingga naik deras ke keran wastafel lantai 1 & lantai 2."
+    },
+    {
+      "id": 4,
+      "name": "Kenapa Nggak Pakai Pompa Langsung? & CTA",
+      "time_range": [41.8, 58.5],
+      "vo_file": "assets/audio/ep03/vo_seg4.wav",
+      "vo_start": 42.0,
+      "vo_script": "Kalau kota cuma ngandelin pompa listrik langsung tanpa menara, pas jam sibuk pagi hari semua orang mandi barengan, pompanya bakal jebol. Menara air ini jadi 'baterai air' cadangan buat satu kota.",
+      "visual": "Perbandingan cepat: pompa listrik kecil menyala merah, bergetar hebat, dan berasap hitam (❌) saat jam sibuk pagi, beralih ke Menara Air kokoh mengalirkan air tenang ke seluruh kota (✅) dan ditutup kartu komentar interaktif."
+    }
+  ]
+}
