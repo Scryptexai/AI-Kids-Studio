@@ -1,0 +1,34 @@
+{
+  "episode": "KT-S05",
+  "slot_label": "SIANG_SHORT",
+  "video": "KT-S05_1080x1920_master.mp4",
+  "thumbnail": "KT-S05_thumbnail.jpg",
+  "drive_file_id": "18kGn8ikGzLChfVwH_kUESrmilnAQeEpA",
+  "size_bytes": 4571718,
+  "sha256": "081ddd5a528b9e42a9cb99acddf33849f905709fe70496b521b7b659e860762a",
+  "title": "Toilet Kamar Tamu Bau Setelah Lama Kosong? Bukan Pipanya yang Rusak #Shorts",
+  "hook": "Kamar mandi yang bersih dan berbulan-bulan tidak dipakai justru tiba-tiba bau saluran pembuangan?",
+  "description": "Kamar mandi yang bersih dan berbulan-bulan tidak dipakai justru tiba-tiba bau saluran pembuangan? Sering kali bukan karena pipa pecah!\n\nLekukan pipa berbentuk huruf U (P-Trap) di bawah wastafel, floor drain, dan kloset sengaja menyimpan genangan air kecil sebagai pintu kedap gas selokan. Jika terlalu lama tidak disiram, air itu menguap habis sehingga gas saluran bebas naik. Sementara pipa ventilasi ke atap menjaga tekanan udara pipa agar segel air tidak tersedot habis saat menyiram.\n\nBatas Akurasi: Jika bau tetap muncul meski rutin dipakai dan disiram air, barulah periksa kebocoran sambungan atau vent tersumbat.\nReferensi: Uniform Plumbing Code (UPC) & SNI Sistem Plambing.\n\n#KnotTheory #RumahTangga #Plambing #TeknikSipil #InfrastrukturTersembunyi #Shorts",
+  "tags": [
+    "Knot Theory",
+    "kamar mandi bau got",
+    "cara kerja P-trap",
+    "pipa ventilasi kloset",
+    "sistem plambing rumah",
+    "shorts indonesia"
+  ],
+  "categoryId": "28",
+  "visibility": "public",
+  "madeForKids": false,
+  "containsSyntheticMedia": false,
+  "defaultLanguage": "id",
+  "defaultAudioLanguage": "id",
+  "first_comment": "Solusi paling gampang buat kamar mandi tamu yang jarang dipakai: cukup tuang segelas air ke floor drain & wastafel seminggu sekali!",
+  "scheduledFor": "2026-11-27T12:30:00",
+  "timezone": "Asia/Makassar",
+  "render_provenance": {
+    "engine": "ai-kids-studio-3d-cpp",
+    "entrypoint": "src/knot_shorts_engine.py",
+    "manifest": "upload/provenance/KT-S05.json"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "episode": "KT-L01",
+  "status": "requested",
+  "approved": true,
+  "slot": "SORE_LONG",
+  "scheduledFor": "2026-11-26T16:30:00",
+  "timezone": "Asia/Makassar",
+  "visibility": "public"
+}

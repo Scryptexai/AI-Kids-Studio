@@ -1,0 +1,104 @@
+1
+00:00:00,281 --> 00:00:02,644
+Hamparan batu kerikil di halaman
+
+2
+00:00:02,644 --> 00:00:04,882
+gardu listrik ini bukan dipasang
+
+3
+00:00:04,882 --> 00:00:06,126
+untuk hiasan taman.
+
+4
+00:00:06,483 --> 00:00:08,538
+Saat terjadi gangguan arus besar
+
+5
+00:00:08,538 --> 00:00:09,928
+yang bocor ke tanah di
+
+6
+00:00:09,928 --> 00:00:10,714
+dalam gardu,
+
+7
+00:00:10,714 --> 00:00:12,860
+arus menyebar di permukaan bumi
+
+8
+00:00:12,860 --> 00:00:15,127
+dan membentuk gradien tegangan dari
+
+9
+00:00:15,127 --> 00:00:16,789
+pusat gangguan ke arah luar.
+
+10
+00:00:17,260 --> 00:00:19,125
+Kalau seseorang melangkah di atas
+
+11
+00:00:19,125 --> 00:00:20,121
+tanah basah biasa,
+
+12
+00:00:20,121 --> 00:00:21,909
+selisih tegangan di antara dua
+
+13
+00:00:21,909 --> 00:00:24,183
+kakinya bisa mendorong arus berbahaya
+
+14
+00:00:24,183 --> 00:00:24,847
+lewat tubuh.
+
+15
+00:00:25,229 --> 00:00:27,132
+Lapisan batu pecah yang resistif
+
+16
+00:00:27,132 --> 00:00:29,166
+bekerja sebagai penyekat di bawah
+
+17
+00:00:29,166 --> 00:00:31,517
+sepatu, sekaligus melancarkan resapan
+
+18
+00:00:31,517 --> 00:00:33,076
+air hujan dan menahan gulma.
+
+19
+00:00:33,458 --> 00:00:35,271
+Kerikil ini hanya salah satu
+
+20
+00:00:35,271 --> 00:00:36,710
+lapis pengaman pembumian,
+
+21
+00:00:36,710 --> 00:00:38,602
+jadi area gardu tetap terlarang
+
+22
+00:00:38,602 --> 00:00:39,909
+dimasuki warga umum.
+
+23
+00:00:40,531 --> 00:00:42,383
+Oh, jadi lapisan kerikil itu
+
+24
+00:00:42,383 --> 00:00:44,539
+memperkecil tegangan di antara dua
+
+25
+00:00:44,539 --> 00:00:46,253
+kaki saat ada gangguan listrik
+
+26
+00:00:46,253 --> 00:00:46,778
+ke tanah.
+

@@ -1,0 +1,188 @@
+name: Upload & Schedule YouTube 4x/Day (Zernio)
+
+# Arsitektur GitHub Actions -> Google Drive -> Zernio API -> YouTube
+#
+# Mendukung jadwal 4 video per hari (Zona Asia/Makassar WITA / UTC+8):
+#   1. Pagi  (08:00 WITA) — Short 9:16
+#   2. Siang (12:30 WITA) — Short 9:16
+#   3. Sore  (16:30 WITA) — Long Video 10–20 Menit (16:9 Full HD)
+#   4. Malam (20:30 WITA) — Short 9:16
+#
+# Tiga cara pemicu otomatis & terkendali:
+#   • push ke upload/queue/*.json (berstatus "requested" & "approved": true)
+#     langsung mengunggah master dari Google Drive ke Zernio dengan scheduledFor
+#     sehingga YouTube menjadwalkan publishAt tepat pada detik tayang.
+#   • schedule cron 4x sehari (07:30, 12:00, 16:00, 20:00 WITA) menyapu antrean
+#     upload/queue/*.json yang belum terkirim ke upload/published.json.
+#   • workflow_dispatch manual (bisa dry_run=true/false, per episode atau BATCH_READY).
+
+on:
+  push:
+    paths:
+      - "upload/queue/*.json"
+  schedule:
+    # 07:30 WITA (23:30 UTC) — Slot 1 Pagi Short (08:00 WITA)
+    - cron: "30 23 * * *"
+    # 12:00 WITA (04:00 UTC) — Slot 2 Siang Short (12:30 WITA)
+    - cron: "0 4 * * *"
+    # 16:00 WITA (08:00 UTC) — Slot 3 Sore Long 10-20m (16:30 WITA)
+    - cron: "0 8 * * *"
+    # 20:00 WITA (12:00 UTC) — Slot 4 Malam Short (20:30 WITA)
+    - cron: "0 12 * * *"
+  workflow_dispatch:
+    inputs:
+      episode:
+        description: "Episode atau BATCH_READY (semua video siap di antrean)"
+        type: choice
+        options:
+          - "BATCH_READY"
+          - "KT-S01"
+          - "KT-S02"
+          - "KT-L01"
+          - "KT-S03"
+          - "KT-S04"
+          - "KT-S05"
+          - "KT-S06"
+          - "LOOKUP"
+        default: "BATCH_READY"
+      visibility:
+        description: "Visibilitas target di YouTube"
+        type: choice
+        options: ["public", "unlisted", "private"]
+        default: "public"
+      dry_run:
+        description: "true = validasi & cetak payload Zernio tanpa unggah"
+        type: choice
+        options: ["true", "false"]
+        default: "false"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: zernio-youtube-upload-schedule
+  cancel-in-progress: false
+
+jobs:
+  upload:
+    name: QC Drive -> Presign Zernio -> Schedule YouTube
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+
+    env:
+      ZERNIO_API_KEY: ${{ secrets.ZERNIO_API_KEY || secrets.ZERNIO_KEY }}
+      ZERNIO_YOUTUBE_ACCOUNT_ID: ${{ secrets.ZERNIO_YOUTUBE_ACCOUNT_ID || vars.ZERNIO_YOUTUBE_ACCOUNT_ID }}
+      ZERNIO_PLAYLIST_ID: ${{ secrets.ZERNIO_PLAYLIST_ID || vars.ZERNIO_PLAYLIST_ID }}
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Sembunyikan kredensial Zernio dari log
+        run: |
+          set -euo pipefail
+          for v in ZERNIO_API_KEY ZERNIO_YOUTUBE_ACCOUNT_ID ZERNIO_PLAYLIST_ID; do
+            if [ -n "${!v:-}" ]; then echo "::add-mask::${!v}"; fi
+          done
+
+      - name: Tentukan mode & daftar episode antrean
+        id: plan
+        env:
+          EVENT: ${{ github.event_name }}
+          EP_INPUT: ${{ inputs.episode }}
+          DRY_INPUT: ${{ inputs.dry_run }}
+          VIS_INPUT: ${{ inputs.visibility }}
+        run: |
+          set -euo pipefail
+          if [ "$EVENT" = "workflow_dispatch" ]; then
+            echo "dry=${DRY_INPUT:-false}" >> "$GITHUB_OUTPUT"
+            echo "vis=${VIS_INPUT:-public}" >> "$GITHUB_OUTPUT"
+            if [ "$EP_INPUT" = "LOOKUP" ]; then
+              echo "mode=lookup" >> "$GITHUB_OUTPUT"
+              exit 0
+            elif [ "$EP_INPUT" = "BATCH_READY" ]; then
+              echo "mode=batch" >> "$GITHUB_OUTPUT"
+            else
+              echo "mode=single" >> "$GITHUB_OUTPUT"
+              echo "ep=$EP_INPUT" >> "$GITHUB_OUTPUT"
+            fi
+          else
+            # push / schedule otomatis menyapu semua antrean approved yang belum terkirim
+            echo "dry=false" >> "$GITHUB_OUTPUT"
+            echo "vis=public" >> "$GITHUB_OUTPUT"
+            echo "mode=batch" >> "$GITHUB_OUTPUT"
+          fi
+
+          EPS=$(python3 -c 'import os; from tools.upload_zernio import discover_ready_queue_requests; m = os.environ.get("EP_INPUT", "") if os.environ.get("EVENT") == "workflow_dispatch" else "BATCH_READY"; print(m if (m and m not in ("BATCH_READY", "LOOKUP")) else ",".join(ep for ep, _ in discover_ready_queue_requests()))')
+          if [ -z "$EPS" ]; then
+            echo "::notice::Tidak ada antrean baru yang perlu diunggah saat ini."
+            echo "skip=1" >> "$GITHUB_OUTPUT"
+          else
+            echo "skip=0" >> "$GITHUB_OUTPUT"
+            echo "episodes=$EPS" >> "$GITHUB_OUTPUT"
+            echo "::notice::Episode yang akan diproses: $EPS"
+          fi
+
+      - name: Cek kredensial Zernio API
+        if: steps.plan.outputs.skip != '1' && steps.plan.outputs.dry != 'true'
+        run: python3 tools/upload_zernio.py --check
+
+      - name: Mode Lookup daftar post Zernio
+        if: steps.plan.outputs.mode == 'lookup'
+        run: python3 tools/upload_zernio.py --lookup
+
+      - name: Unduh master MP4 dari Google Drive + siapkan thumbnail
+        if: steps.plan.outputs.skip != '1' && steps.plan.outputs.mode != 'lookup'
+        env:
+          EPISODE_SELECT: ${{ steps.plan.outputs.episodes }}
+        run: |
+          set -euo pipefail
+          pip install --quiet --disable-pip-version-check gdown
+          python3 tools/fetch_masters.py --media-dir media
+
+      - name: Validasi SHA-256 & Unggah / Jadwalkan ke YouTube lewat Zernio
+        if: steps.plan.outputs.skip != '1' && steps.plan.outputs.mode != 'lookup'
+        env:
+          MODE: ${{ steps.plan.outputs.mode }}
+          EP: ${{ steps.plan.outputs.ep }}
+          DRY: ${{ steps.plan.outputs.dry }}
+          VIS: ${{ steps.plan.outputs.vis }}
+        run: |
+          set -euo pipefail
+          ARGS=(--media-dir media --visibility "$VIS")
+          if [ "$DRY" != "true" ]; then
+            ARGS+=(--send)
+          fi
+          if [ "$MODE" = "single" ]; then
+            python3 tools/upload_zernio.py "$EP" "${ARGS[@]}"
+          else
+            python3 tools/upload_zernio.py --batch-ready "${ARGS[@]}"
+          fi
+
+      - name: Catat buku besar upload/published.json ke repositori
+        if: always() && steps.plan.outputs.skip != '1'
+        run: |
+          set -euo pipefail
+          if [ -z "$(git status --porcelain -- upload/published.json upload/zernio-posts.json 2>/dev/null)" ]; then
+            echo "::notice::published.json tidak berubah."
+            exit 0
+          fi
+          git config user.name "ai-kids-studio-upload"
+          git config user.email "actions@users.noreply.github.com"
+          git add upload/published.json upload/zernio-posts.json 2>/dev/null || git add upload/published.json
+          git commit -m "chore(zernio): catat jadwal & unggahan $(date -u +%Y-%m-%dT%H:%MZ)"
+          git push
+
+      - name: Simpan artifact log unggah (90 hari)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: upload-log-${{ github.run_id }}
+          path: upload/upload-log/
+          if-no-files-found: warn
+          retention-days: 90

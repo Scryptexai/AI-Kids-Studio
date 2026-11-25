@@ -1,0 +1,13 @@
+{
+  "episode": "KT-L01",
+  "engine": "ai-kids-studio-3d-cpp",
+  "entrypoint": "src/knot_long_ep01.py",
+  "video_filename": "KT-L01_1920x1080_master.mp4",
+  "master_sha256": "eab1e8ecb6c7324ac7ed25c999a8201eab704a6859c086c789165b815b9a70ce",
+  "size_bytes": 70592025,
+  "duration_seconds": 662.75,
+  "resolution": "1920x1080",
+  "fps": 24,
+  "voice_id": "voice-00",
+  "drive_file_id": "1uWXXNVKB_Op_jkFt4zRsEUCzZRXdtZkh"
+}

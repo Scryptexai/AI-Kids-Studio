@@ -1,0 +1,35 @@
+{
+  "episode": "KT-S02",
+  "slot_label": "SIANG_SHORT",
+  "video": "KT-S02_1080x1920_master.mp4",
+  "thumbnail": "KT-S02_thumbnail.jpg",
+  "drive_file_id": "13P6QOBBMZPr74L7myLMJIMXZEBu_k2jw",
+  "size_bytes": 4411529,
+  "sha256": "3eaea578445300eb7b7d023a68130bd40e841c58618d4e6e089c808d6d93d9ed",
+  "title": "Di Film Semua Sprinkler Menyala Sekaligus. Aslinya Cuma 1 Kepala! #Shorts",
+  "hook": "Adegan film sering menampilkan satu ruangan basah kuyup hanya karena satu korek api dinyalakan.",
+  "description": "Adegan film sering menampilkan satu ruangan basah kuyup hanya karena satu korek api dinyalakan. Padahal pada gedung kantor dan hotel biasa, sprinkler standar bekerja sendiri-sendiri!\n\nSetiap kepala sprinkler ditahan oleh tabung kaca kecil berisi cairan peka panas. Saat api memanaskan satu titik, hanya cairan di ampul kaca tepat di atas api yang memuai, memecahkan segel kaca, dan menyiram titik api tersebut—sementara kepala lain tetap tertutup agar tekanan pipa fokus.\n\nBatas Akurasi: Sistem serentak (deluge system) memang ada, tetapi khusus untuk hanggar pesawat, kilang kimia, atau gudang bahan mudah meledak.\nReferensi: Standar sistem sprinkler otomatis NFPA 13.\n\n#KnotTheory #SafetyEngineering #PemadamKebakaran #FaktaFilm #TeknikMesin #Shorts",
+  "tags": [
+    "Knot Theory",
+    "cara kerja sprinkler",
+    "fakta vs film",
+    "safety engineering",
+    "NFPA 13",
+    "pemadam kebakaran gedung",
+    "shorts indonesia"
+  ],
+  "categoryId": "28",
+  "visibility": "public",
+  "madeForKids": false,
+  "containsSyntheticMedia": false,
+  "defaultLanguage": "id",
+  "defaultAudioLanguage": "id",
+  "first_comment": "Film apa yang paling sering kamu lihat adegan semua sprinkler nyala barengan gara-gara pemantik kecil?",
+  "scheduledFor": "2026-11-26T12:30:00",
+  "timezone": "Asia/Makassar",
+  "render_provenance": {
+    "engine": "ai-kids-studio-3d-cpp",
+    "entrypoint": "src/knot_shorts_engine.py",
+    "manifest": "upload/provenance/KT-S02.json"
+  }
+}

@@ -1,0 +1,69 @@
+{
+  "project": "Knot Theory Editorial Sprint V3",
+  "source_pdf": "Knot_Theory_V3_Ide_Terkuat.pdf",
+  "timezone": "Asia/Makassar",
+  "daily_slots": [
+    {"slot": 1, "label": "PAGI_SHORT", "time_wita": "08:00:00", "time_wib": "07:00:00", "format": "9:16_short"},
+    {"slot": 2, "label": "SIANG_SHORT", "time_wita": "12:30:00", "time_wib": "11:30:00", "format": "9:16_short"},
+    {"slot": 3, "label": "SORE_LONG_10_20M", "time_wita": "16:30:00", "time_wib": "15:30:00", "format": "16:9_long_10_20m"},
+    {"slot": 4, "label": "MALAM_SHORT", "time_wita": "20:30:00", "time_wib": "19:30:00", "format": "9:16_short"}
+  ],
+  "selected_14_shorts_pdf": [
+    {"id": "KT-S01", "pdf_no": "01 (asli 25)", "category": "Hidden Infrastructure", "hook": "Angin kencang ini datang sebelum keretanya terlihat.", "status": "rendered_and_queued", "scheduledFor": "2026-11-26T08:00:00"},
+    {"id": "KT-S02", "pdf_no": "02 (asli 08)", "category": "Safety Engineering", "hook": "Di film, semua sprinkler menyala sekaligus. Aslinya hampir tidak pernah.", "status": "rendered_and_queued", "scheduledFor": "2026-11-26T12:30:00"},
+    {"id": "KT-S03", "pdf_no": "03 (asli 11)", "category": "Hidden Infrastructure", "hook": "Kerikil di gardu listrik ini bukan hiasan.", "status": "rendered_and_queued", "scheduledFor": "2026-11-26T20:30:00"},
+    {"id": "KT-S04", "pdf_no": "04 (asli 16)", "category": "Safety Engineering", "hook": "Sabuk pengaman sengaja mengalah saat tabrakan.", "status": "rendered_and_queued", "scheduledFor": "2026-11-27T08:00:00"},
+    {"id": "KT-S05", "pdf_no": "05 (asli 07+27)", "category": "Hidden Infrastructure", "hook": "Toilet kamar tamu bau setelah lama kosong? Bukan pipanya rusak.", "status": "rendered_and_queued", "scheduledFor": "2026-11-27T12:30:00"},
+    {"id": "KT-S06", "pdf_no": "06 (asli 28)", "category": "Safety Engineering", "hook": "Setir mobil sengaja dirancang agar bisa memendek.", "status": "rendered_and_queued", "scheduledFor": "2026-11-27T20:30:00"},
+    {"id": "KT-S07", "pdf_no": "07 (asli 13)", "category": "Hidden Infrastructure", "hook": "Kabel internet laut tidak sama tebal di sepanjang jalurnya.", "status": "scripted_next_batch", "scheduledFor": "2026-11-28T08:00:00"},
+    {"id": "KT-S08", "pdf_no": "08 (asli 22)", "category": "Safety Engineering", "hook": "Helm ini masih mulus setelah kecelakaan. Di dalamnya sudah menyerah.", "status": "scripted_next_batch", "scheduledFor": "2026-11-28T12:30:00"},
+    {"id": "KT-S09", "pdf_no": "09 (asli 01)", "category": "Hidden Infrastructure", "hook": "Air menyembur dari selokan tanpa ada pompa. Dari mana tenaganya?", "status": "scripted_next_batch", "scheduledFor": "2026-11-28T20:30:00"},
+    {"id": "KT-S10", "pdf_no": "10 (asli 24)", "category": "Safety Engineering", "hook": "Pemutus listrik ini sengaja menunggu sebelum memutus arus.", "status": "scripted_next_batch", "scheduledFor": "2026-11-29T08:00:00"},
+    {"id": "KT-S11", "pdf_no": "11 (asli 21)", "category": "Hidden Infrastructure", "hook": "Limbah ini ditiup udara 24 jam. Untuk memberi napas pada bakteri.", "status": "scripted_next_batch", "scheduledFor": "2026-11-29T12:30:00"},
+    {"id": "KT-S12", "pdf_no": "12 (asli 14)", "category": "Safety Engineering", "hook": "Atap tangki ini ikut turun saat isinya dipompa keluar.", "status": "scripted_next_batch", "scheduledFor": "2026-11-29T20:30:00"},
+    {"id": "KT-S13", "pdf_no": "13 (asli 20)", "category": "Hidden Infrastructure", "hook": "Air di kaki bendungan sengaja dibuat bergolak.", "status": "scripted_next_batch", "scheduledFor": "2026-11-30T08:00:00"},
+    {"id": "KT-S14", "pdf_no": "14 (asli 26)", "category": "Safety Engineering", "hook": "Roda pesawat punya sumbat yang sengaja meleleh.", "status": "scripted_next_batch", "scheduledFor": "2026-11-30T12:30:00"}
+  ],
+  "long_videos_10_20m_outside_pdf": [
+    {
+      "id": "KT-L01",
+      "title": "5 Mesin Raksasa di Bawah Kota yang Bekerja Diam-Diam Saat Badai dan Mati Lampu",
+      "topics": ["Immersed Tube Tunnel", "Subsea TBM Earth Pressure Balance", "Maeslantkering Floating Storm Barrier", "Tokyo G-Cans Flood Cathedral", "Power Grid Black Start & Hyperboloid Cooling Tower"],
+      "duration_target_min": "11.1",
+      "status": "rendered_and_queued",
+      "scheduledFor": "2026-11-26T16:30:00"
+    },
+    {
+      "id": "KT-L02",
+      "title": "Bagaimana Pesawat, Kereta Cepat, dan Kapal Raksasa Berhenti Tanpa Kampas Habis Terbakar?",
+      "topics": ["Eddy Current Brake Shinkansen", "Aircraft Carbon Brake & Thrust Reverser", "Regenerative Dynamic Braking", "Container Ship Crash Astern"],
+      "duration_target_min": "13.5",
+      "status": "scripted_next_batch",
+      "scheduledFor": "2026-11-27T16:30:00"
+    },
+    {
+      "id": "KT-L03",
+      "title": "5 Sistem Darurat Bandara dan Pesawat Komersial yang Bekerja Tanpa Disadari Penumpang",
+      "topics": ["EMAS Crushable Concrete Runway Bed", "Engine Bleed Air Pressurization", "Fuel Tank Nitrogen Inerting", "ILS Cat III Blind Autoland", "Ram Air Turbine (RAT)"],
+      "duration_target_min": "14.0",
+      "status": "scripted_next_batch",
+      "scheduledFor": "2026-11-28T16:30:00"
+    },
+    {
+      "id": "KT-L04",
+      "title": "Bagaimana Gedung Pencakar Langit Memompa Air dan Udara ke Lantai 100 Tanpa Pipa Meledak?",
+      "topics": ["Break-Tank & Zona Tekanan Bertingkat", "District Cooling Ice Thermal Storage", "Stack Effect Control", "Pressurized Fire Escape Stairwell"],
+      "duration_target_min": "12.5",
+      "status": "scripted_next_batch",
+      "scheduledFor": "2026-11-29T16:30:00"
+    },
+    {
+      "id": "KT-L05",
+      "title": "Rekayasa Suhu Ekstrem: Kapal Gas Cair -162 Derajat, Pipa Quench MRI, dan Pendingin Celup Server",
+      "topics": ["LNG Invar Membrane Boil-Off", "Hospital MRI Liquid Helium Quench Vent", "Two-Phase Immersion Data Center", "Vacuum Jacketed Cryo Piping"],
+      "duration_target_min": "14.5",
+      "status": "scripted_next_batch",
+      "scheduledFor": "2026-11-30T16:30:00"
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "episode": "KT-S01",
+  "slot_label": "PAGI_SHORT",
+  "video": "KT-S01_1080x1920_master.mp4",
+  "thumbnail": "KT-S01_thumbnail.jpg",
+  "drive_file_id": "1C63SKT80Cr6qtjbTHY4rcNGv-MTDMVoF",
+  "size_bytes": 10923759,
+  "sha256": "510bde8d43cb82b79b3e7162133ef871c9c054177bf4ffa4c437c55a71385eee",
+  "title": "Angin Kencang di Peron MRT Datang Sebelum Keretanya Terlihat #Shorts",
+  "hook": "Pernah merasakan hembusan angin kencang di peron bawah tanah padahal lampu kereta belum kelihatan?",
+  "description": "Pernah merasakan hembusan angin kencang di peron bawah tanah padahal lampu kereta belum kelihatan?\n\nKereta yang melaju di terowongan sempit bekerja persis seperti piston di dalam tabung suntik (Piston Effect). Kolom udara di depan moncong kereta terdorong jauh mendahului kereta. Tanpa cerobong pelepas tekanan (draught relief shaft) di dekat stasiun, angin itu bisa jauh lebih kuat mendorong penumpang di peron.\n\nBatas Akurasi: Pada stasiun dengan pintu sekat peron tertutup penuh (full-height PSD), efek hembusan di peron jauh lebih kecil dibanding peron terbuka.\nReferensi: Prinsip efek piston terowongan & standar ventilasi transit bawah tanah NFPA 130.\n\n#KnotTheory #InfrastrukturTersembunyi #TeknikSipil #MRT #SainsSehariHari #Shorts",
+  "tags": [
+    "Knot Theory",
+    "efek piston kereta",
+    "angin peron MRT",
+    "infrastruktur tersembunyi",
+    "teknik sipil",
+    "NFPA 130",
+    "edukasi sains",
+    "shorts indonesia"
+  ],
+  "categoryId": "28",
+  "visibility": "public",
+  "madeForKids": false,
+  "containsSyntheticMedia": false,
+  "defaultLanguage": "id",
+  "defaultAudioLanguage": "id",
+  "first_comment": "Pernah ngerasain angin hangat ini waktu nunggu MRT di stasiun bawah tanah? Tulis stasiunnya di kolom komentar!",
+  "scheduledFor": "2026-11-26T08:00:00",
+  "timezone": "Asia/Makassar",
+  "render_provenance": {
+    "engine": "ai-kids-studio-3d-cpp",
+    "entrypoint": "src/knot_shorts_engine.py",
+    "manifest": "upload/provenance/KT-S01.json"
+  }
+}

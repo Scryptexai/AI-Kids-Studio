@@ -1,0 +1,96 @@
+1
+00:00:00,280 --> 00:00:02,757
+Batang setir mobil sengaja dirancang
+
+2
+00:00:02,757 --> 00:00:05,172
+supaya bisa memendek saat tabrakan
+
+3
+00:00:05,172 --> 00:00:05,574
+depan.
+
+4
+00:00:05,932 --> 00:00:07,814
+Pada konstruksi poros besi kaku
+
+5
+00:00:07,814 --> 00:00:08,476
+zaman dulu,
+
+6
+00:00:08,476 --> 00:00:10,198
+benturan keras di depan mobil
+
+7
+00:00:10,198 --> 00:00:12,239
+berisiko mendorong batang kemudi
+
+8
+00:00:12,239 --> 00:00:13,749
+mundur ke arah pengemudi,
+
+9
+00:00:13,749 --> 00:00:15,896
+sementara tubuh pengemudi melaju
+
+10
+00:00:15,896 --> 00:00:16,399
+ke depan.
+
+11
+00:00:16,779 --> 00:00:17,968
+Untuk meredamnya,
+
+12
+00:00:17,968 --> 00:00:20,437
+kolom kemudi modern dibuat bertingkat
+
+13
+00:00:20,437 --> 00:00:22,083
+dengan tabung teleskopik,
+
+14
+00:00:22,083 --> 00:00:23,211
+kisi baja lipat,
+
+15
+00:00:23,211 --> 00:00:25,010
+atau pin geser yang sengaja
+
+16
+00:00:25,010 --> 00:00:27,265
+menyusut terkendali saat menyerap
+
+17
+00:00:27,265 --> 00:00:28,424
+energi tumbukan.
+
+18
+00:00:28,887 --> 00:00:30,927
+Sistem ini bekerja bersama sabuk
+
+19
+00:00:30,927 --> 00:00:32,511
+pengaman dan kantung udara,
+
+20
+00:00:32,511 --> 00:00:34,632
+serta desainnya bervariasi menurut
+
+21
+00:00:34,632 --> 00:00:35,330
+model mobil.
+
+22
+00:00:35,875 --> 00:00:37,594
+Oh, jadi kolom setir sengaja
+
+23
+00:00:37,594 --> 00:00:40,021
+menyusut untuk menyerap energi supaya
+
+24
+00:00:40,021 --> 00:00:41,767
+tidak terdorong kaku ke dada.
+

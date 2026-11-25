@@ -1,0 +1,38 @@
+{
+  "episode": "KT-L01",
+  "slot_label": "SORE_LONG",
+  "video": "KT-L01_1920x1080_master.mp4",
+  "thumbnail": "KT-L01_thumbnail.jpg",
+  "drive_file_id": "1uWXXNVKB_Op_jkFt4zRsEUCzZRXdtZkh",
+  "size_bytes": 70592025,
+  "sha256": "eab1e8ecb6c7324ac7ed25c999a8201eab704a6859c086c789165b815b9a70ce",
+  "title": "5 Mesin Raksasa di Bawah Kota yang Bekerja Diam-Diam Saat Badai dan Mati Lampu",
+  "hook": "Saat badai besar menghantam pesisir atau listrik satu provinsi padam total, ada mesin raksasa di bawah kota yang bekerja diam-diam agar jutaan orang tetap aman.",
+  "description": "Saat badai besar menghantam pesisir atau listrik satu provinsi padam total, ada mesin raksasa di bawah kota yang bekerja diam-diam agar jutaan orang tetap aman.\n\nDi episode dokumenter panjang Knot Theory ini, kita membedah penampang 3D cara kerja 5 sistem rekayasa skala besar yang jarang terlihat mata:\n\n00:00 Cold Open — Saat Badai & Mati Lampu Menghantam Kota\n00:03 Bab 1: Terowongan Tenggelam di Dasar Laut (Immersed Tube Tunnel)\n01:39 Bab 2: Mesin Bor Terowongan Bawah Laut (TBM Earth Pressure Balance)\n03:10 Bab 3: Gerbang Badai Raksasa yang Mengapung & Tenggelam (Maeslantkering)\n04:40 Bab 4: Katedral Banjir Bawah Tanah Tokyo (G-Cans Kasukabe)\n06:16 Bab 5: Menyalakan Pembangkit Saat Kota Gelap Total (Grid Black Start)\n07:50 Bab 6: Menara Pendingin Hiperboloid Raksasa Tanpa Kipas\n09:24 Bab 7: Benang Merah Rekayasa: Mengalah Terukur pada Fisika Alam\n\nBatas Akurasi & Referensi Teknis:\n• Terowongan tabung tenggelam memakai segel karet Gina & Omega memanfaatkan tekanan hidrostatik laut (PIANC / FHWA).\n• Mesin bor TBM bawah laut memakai ruang tekan lumpur/tanah (EPB & Slurry Shield) agar dasar laut tidak runtuh.\n• Gerbang badai Maeslantkering Rotterdam mengapung saat bergeser dan tenggelam dengan air pemberat saat mengunci.\n• Katedral bawah tanah G-Cans Kasukabe menahan lonjakan momentum air banjir sebelum dipompa ke Sungai Edo.\n• Prosedur Black Start memulihkan jaringan transmisi bertahap mulai dari pembangkit mandiri tanpa listrik luar.\n\n#KnotTheory #DokumenterSains #RekayasaSipil #InfrastrukturRaksasa #CaraKerjaMesin #EdukasiTeknik",
+  "tags": [
+    "Knot Theory",
+    "dokumenter teknik",
+    "infrastruktur bawah tanah",
+    "terowongan bawah laut",
+    "mesin bor TBM",
+    "Maeslantkering Rotterdam",
+    "G-Cans Tokyo",
+    "black start listrik PLN",
+    "menara pendingin hiperboloid",
+    "cara kerja megastruktur"
+  ],
+  "categoryId": "28",
+  "visibility": "public",
+  "madeForKids": false,
+  "containsSyntheticMedia": false,
+  "defaultLanguage": "id",
+  "defaultAudioLanguage": "id",
+  "first_comment": "Dari 5 sistem raksasa di video ini—Terowongan Tenggelam, TBM Bawah Laut, Gerbang Badai Mengapung, Katedral Banjir Tokyo, atau Black Start Listrik—mana yang menurutmu paling jenius?",
+  "scheduledFor": "2026-11-26T16:30:00",
+  "timezone": "Asia/Makassar",
+  "render_provenance": {
+    "engine": "ai-kids-studio-3d-cpp",
+    "entrypoint": "src/knot_long_ep01.py",
+    "manifest": "upload/provenance/KT-L01.json"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "episode": "KT-S01",
+  "status": "requested",
+  "approved": true,
+  "slot": "PAGI_SHORT",
+  "scheduledFor": "2026-11-26T08:00:00",
+  "timezone": "Asia/Makassar",
+  "visibility": "public"
+}

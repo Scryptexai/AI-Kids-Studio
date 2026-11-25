@@ -1,0 +1,34 @@
+{
+  "episode": "KT-S04",
+  "slot_label": "PAGI_SHORT",
+  "video": "KT-S04_1080x1920_master.mp4",
+  "thumbnail": "KT-S04_thumbnail.jpg",
+  "drive_file_id": "19zPDF22kxwqudQ7dS8_16GK0HgXkiJsX",
+  "size_bytes": 5779170,
+  "sha256": "98ee1456e3211d25eb84c28a89fe1badb08ea5e70bc8bbe999c6d4e69db7b135",
+  "title": "Sabuk Pengaman Mobil Sengaja Mengalah Sedikit Saat Tabrakan #Shorts",
+  "hook": "Banyak orang mengira sabuk pengaman terbaik harus mengunci sekeras besi tanpa bergerak sedikit pun.",
+  "description": "Banyak orang mengira sabuk pengaman terbaik harus mengunci sekeras besi tanpa bergerak sedikit pun. Padahal sabuk modern bekerja dalam dua tahap pintar!\n\n1. Pretensioner menarik kencang sabuk dalam hitungan milidetik pertama benturan.\n2. Load Limiter (batang puntir torsion bar di dalam gulungan) sengaja memuntir terukur dan mengulur sedikit pita sabuk sebelum beban puncak mematahkan tulang dada—sambil mengarahkan tubuh ke bantalan airbag.\n\nBatas Akurasi: Uluran terukur ini hanya beberapa sentimeter dan dihitung bersama ruang kerja airbag depan.\nReferensi: Regulasi sabuk keselamatan UN ECE R16 & uji keselamatan Euro NCAP.\n\n#KnotTheory #KeselamatanMobil #TeknikOtomotif #SafetyEngineering #CaraKerja #Shorts",
+  "tags": [
+    "Knot Theory",
+    "cara kerja sabuk pengaman",
+    "pretensioner load limiter",
+    "keselamatan mobil",
+    "teknik otomotif",
+    "shorts indonesia"
+  ],
+  "categoryId": "28",
+  "visibility": "public",
+  "madeForKids": false,
+  "containsSyntheticMedia": false,
+  "defaultLanguage": "id",
+  "defaultAudioLanguage": "id",
+  "first_comment": "Setuju nggak kalau prinsip 'mengalah sedikit secara terukur supaya tidak patah' itu salah satu ide paling brilian di dunia teknik?",
+  "scheduledFor": "2026-11-27T08:00:00",
+  "timezone": "Asia/Makassar",
+  "render_provenance": {
+    "engine": "ai-kids-studio-3d-cpp",
+    "entrypoint": "src/knot_shorts_engine.py",
+    "manifest": "upload/provenance/KT-S04.json"
+  }
+}

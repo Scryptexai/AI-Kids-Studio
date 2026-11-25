@@ -1,0 +1,96 @@
+1
+00:00:00,283 --> 00:00:01,106
+Di film aksi,
+
+2
+00:00:01,106 --> 00:00:03,069
+begitu satu korek menyala,
+
+3
+00:00:03,069 --> 00:00:05,158
+semua sprinkler di gedung langsung
+
+4
+00:00:05,158 --> 00:00:06,488
+menyembur bersamaan.
+
+5
+00:00:06,907 --> 00:00:08,870
+Aslinya, hal itu hampir tidak
+
+6
+00:00:08,870 --> 00:00:09,883
+pernah terjadi.
+
+7
+00:00:10,371 --> 00:00:12,378
+Pada sprinkler otomatis standar,
+
+8
+00:00:12,378 --> 00:00:14,297
+tiap kepala di plafon bekerja
+
+9
+00:00:14,297 --> 00:00:16,688
+mandiri karena disegel ampul kaca
+
+10
+00:00:16,688 --> 00:00:18,754
+kecil berisi cairan peka panas.
+
+11
+00:00:19,156 --> 00:00:21,278
+Asap tebal saja tidak memicunya.
+
+12
+00:00:21,836 --> 00:00:23,736
+Hanya kepala tepat di dekat
+
+13
+00:00:23,736 --> 00:00:25,756
+titik api yang cairannya memuai
+
+14
+00:00:25,756 --> 00:00:26,691
+karena panas,
+
+15
+00:00:26,691 --> 00:00:28,228
+memecahkan ampul kaca,
+
+16
+00:00:28,228 --> 00:00:29,947
+lalu membuka katup air di
+
+17
+00:00:29,947 --> 00:00:31,394
+satu titik itu saja.
+
+18
+00:00:31,883 --> 00:00:33,861
+Pengecualiannya hanya sistem khusus
+
+19
+00:00:33,861 --> 00:00:35,839
+tipe deluge berlubang terbuka di
+
+20
+00:00:35,839 --> 00:00:37,141
+area berisiko tinggi.
+
+21
+00:00:37,552 --> 00:00:39,469
+Oh, jadi tiap kepala sprinkler
+
+22
+00:00:39,469 --> 00:00:41,324
+punya sensor panas sendiri,
+
+23
+00:00:41,324 --> 00:00:43,650
+sehingga hanya yang kepanasan yang
+
+24
+00:00:43,650 --> 00:00:45,913
+menyala tanpa membanjiri gedung.
+

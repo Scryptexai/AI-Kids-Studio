@@ -1,0 +1,97 @@
+{
+  "project": "Knot Theory Editorial Sprint V3",
+  "timezone": "Asia/Makassar",
+  "drive_folder_id": "1nBzSmuWbD_vbognbMZ4B9NQStpiuLcYn",
+  "daily_schedule_pattern": {
+    "slot_1_pagi": "08:00:00 (Short 9:16)",
+    "slot_2_siang": "12:30:00 (Short 9:16)",
+    "slot_3_sore": "16:30:00 (Long 10-20m 16:9, outside PDF)",
+    "slot_4_malam": "20:30:00 (Short 9:16)"
+  },
+  "episodes": {
+    "KT-S01": {
+      "video": "KT-S01_1080x1920_master.mp4",
+      "thumbnail": "KT-S01_thumbnail.jpg",
+      "drive_file_id": "1C63SKT80Cr6qtjbTHY4rcNGv-MTDMVoF",
+      "size_bytes": 10923759,
+      "sha256": "510bde8d43cb82b79b3e7162133ef871c9c054177bf4ffa4c437c55a71385eee",
+      "duration_seconds": 45.75,
+      "resolution": "1080x1920",
+      "slot": "PAGI_SHORT",
+      "scheduledFor": "2026-11-26T08:00:00",
+      "timezone": "Asia/Makassar"
+    },
+    "KT-S02": {
+      "video": "KT-S02_1080x1920_master.mp4",
+      "thumbnail": "KT-S02_thumbnail.jpg",
+      "drive_file_id": "13P6QOBBMZPr74L7myLMJIMXZEBu_k2jw",
+      "size_bytes": 4411529,
+      "sha256": "3eaea578445300eb7b7d023a68130bd40e841c58618d4e6e089c808d6d93d9ed",
+      "duration_seconds": 48.14,
+      "resolution": "1080x1920",
+      "slot": "SIANG_SHORT",
+      "scheduledFor": "2026-11-26T12:30:00",
+      "timezone": "Asia/Makassar"
+    },
+    "KT-L01": {
+      "video": "KT-L01_1920x1080_master.mp4",
+      "thumbnail": "KT-L01_thumbnail.jpg",
+      "drive_file_id": "1uWXXNVKB_Op_jkFt4zRsEUCzZRXdtZkh",
+      "size_bytes": 70592025,
+      "sha256": "eab1e8ecb6c7324ac7ed25c999a8201eab704a6859c086c789165b815b9a70ce",
+      "duration_seconds": 662.75,
+      "resolution": "1920x1080",
+      "slot": "SORE_LONG",
+      "scheduledFor": "2026-11-26T16:30:00",
+      "timezone": "Asia/Makassar"
+    },
+    "KT-S03": {
+      "video": "KT-S03_1080x1920_master.mp4",
+      "thumbnail": "KT-S03_thumbnail.jpg",
+      "drive_file_id": "1loQE6aKjxdhBZodsYYcBsHy2h3dIv7ie",
+      "size_bytes": 12042011,
+      "sha256": "105a818ccf3f4c367ae098e50a8523d878d87efc8a3c61b93dd52b9f755d8d9c",
+      "duration_seconds": 49.0,
+      "resolution": "1080x1920",
+      "slot": "MALAM_SHORT",
+      "scheduledFor": "2026-11-26T20:30:00",
+      "timezone": "Asia/Makassar"
+    },
+    "KT-S04": {
+      "video": "KT-S04_1080x1920_master.mp4",
+      "thumbnail": "KT-S04_thumbnail.jpg",
+      "drive_file_id": "19zPDF22kxwqudQ7dS8_16GK0HgXkiJsX",
+      "size_bytes": 5779170,
+      "sha256": "98ee1456e3211d25eb84c28a89fe1badb08ea5e70bc8bbe999c6d4e69db7b135",
+      "duration_seconds": 50.73,
+      "resolution": "1080x1920",
+      "slot": "PAGI_SHORT",
+      "scheduledFor": "2026-11-27T08:00:00",
+      "timezone": "Asia/Makassar"
+    },
+    "KT-S05": {
+      "video": "KT-S05_1080x1920_master.mp4",
+      "thumbnail": "KT-S05_thumbnail.jpg",
+      "drive_file_id": "18kGn8ikGzLChfVwH_kUESrmilnAQeEpA",
+      "size_bytes": 4571718,
+      "sha256": "081ddd5a528b9e42a9cb99acddf33849f905709fe70496b521b7b659e860762a",
+      "duration_seconds": 45.5,
+      "resolution": "1080x1920",
+      "slot": "SIANG_SHORT",
+      "scheduledFor": "2026-11-27T12:30:00",
+      "timezone": "Asia/Makassar"
+    },
+    "KT-S06": {
+      "video": "KT-S06_1080x1920_master.mp4",
+      "thumbnail": "KT-S06_thumbnail.jpg",
+      "drive_file_id": "1tzekP_kmsYCSqySS5jtWO0JEG-gh5kzr",
+      "size_bytes": 3213238,
+      "sha256": "160a37c756f093413118d3db7822ba0f0307279027bd34cb2a4f1ee48914b337",
+      "duration_seconds": 43.99,
+      "resolution": "1080x1920",
+      "slot": "MALAM_SHORT",
+      "scheduledFor": "2026-11-27T20:30:00",
+      "timezone": "Asia/Makassar"
+    }
+  }
+}
