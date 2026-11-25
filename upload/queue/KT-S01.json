@@ -5,5 +5,7 @@
   "slot": "PAGI_SHORT",
   "scheduledFor": "2026-11-26T08:00:00",
   "timezone": "Asia/Makassar",
-  "visibility": "public"
+  "visibility": "public",
+  "revision": "v2_ep02_ep03_diorama_benchmark",
+  "master_sha256": "e1b4538844c88a2d0b586d528e92f390af6233a3d16ca406995fce917785b312"
 }

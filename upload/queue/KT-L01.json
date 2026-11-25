@@ -6,5 +6,7 @@
   "scheduledFor": "2026-11-26T16:30:00",
   "timezone": "Asia/Makassar",
   "visibility": "public",
-  "verified_at": "2026-11-25T14:40:00Z"
+  "verified_at": "2026-11-25T14:40:00Z",
+  "revision": "v2_ep02_ep03_diorama_benchmark",
+  "master_sha256": "6b05180c1366f8e2dc94174525d7f2ba1da1e891fd3733568088b6e4817f1546"
 }

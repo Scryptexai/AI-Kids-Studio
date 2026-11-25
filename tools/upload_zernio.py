@@ -463,8 +463,9 @@ def run_episode(ep: str, media_dir: pathlib.Path, send: bool, visibility: str = 
     force = force or bool((request or {}).get("force"))
     ledger = load_ledger()
 
-    if send and ep in ledger and not force:
-        print(f"::notice title=DILEWATI-{ep}::{ep} sudah tercatat di published.json ({ledger[ep].get('status')})")
+    same_sha = ep in ledger and ledger[ep].get("sha256") == meta.get("sha256")
+    if send and same_sha and not force:
+        print(f"::notice title=DILEWATI-{ep}::{ep} sudah tercatat di published.json dengan SHA-256 identik ({ledger[ep].get('status')})")
         return {"episode": ep, "skipped": True, **ledger[ep]}
 
     for w in WARNS:
@@ -482,6 +483,22 @@ def run_episode(ep: str, media_dir: pathlib.Path, send: bool, visibility: str = 
     account = resolve_account(key, (request or {}).get("accountId"))
     os.environ["ZERNIO_YOUTUBE_ACCOUNT_ID"] = account
 
+    # Batalkan jadwal lama di Zernio apabila master video diperbarui (SHA-256 baru atau --force)
+    superseded_id = (ledger.get(ep) or {}).get("post_id")
+    if superseded_id:
+        print(f"  membatalkan post Zernio versi lama untuk {ep}: DELETE /posts/{superseded_id}")
+        try:
+            del_req = urllib.request.Request(
+                f"{API}/posts/{superseded_id}", method="DELETE",
+                headers={"Authorization": f"Bearer {key}", "Accept": "application/json"},
+            )
+            with urllib.request.urlopen(del_req, timeout=60) as dr:
+                print(f"  post lama {superseded_id} dibatalkan (HTTP {dr.status})")
+        except urllib.error.HTTPError as de:
+            print(f"  ! catatan pembatalan post lama {superseded_id}: HTTP {de.code}")
+        except Exception as exc:
+            print(f"  ! catatan pembatalan post lama {superseded_id}: {exc}")
+
     video_url = upload_media(media_dir / meta["video"], key, "video")
     thumb_url = upload_media(media_dir / meta["thumbnail"], key, "thumbnail")
 
@@ -498,6 +515,9 @@ def run_episode(ep: str, media_dir: pathlib.Path, send: bool, visibility: str = 
         "title": meta["title"],
         "slot": meta.get("slot_label"),
         "post_id": post.get("_id"),
+        "superseded_post_id": superseded_id,
+        "sha256": meta.get("sha256"),
+        "drive_file_id": meta.get("drive_file_id"),
         "status": post.get("status"),
         "scheduled_for": payload.get("scheduledFor"),
         "timezone": payload.get("timezone"),
@@ -527,7 +547,7 @@ def discover_ready_queue_requests():
         meta = json.loads(meta_p.read_text(encoding="utf-8"))
         if not (meta.get("drive_file_id") and meta.get("sha256") and meta.get("size_bytes")):
             continue
-        if ep in ledger and not q.get("force"):
+        if ep in ledger and not q.get("force") and ledger[ep].get("sha256") == meta.get("sha256"):
             continue
         reqs.append((ep, q))
     # Sort chronologically by scheduledFor

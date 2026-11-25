@@ -3,11 +3,12 @@
   "engine": "ai-kids-studio-3d-cpp",
   "entrypoint": "src/knot_shorts_engine.py",
   "video_filename": "KT-S02_1080x1920_master.mp4",
-  "master_sha256": "3eaea578445300eb7b7d023a68130bd40e841c58618d4e6e089c808d6d93d9ed",
-  "size_bytes": 4411529,
+  "master_sha256": "5aa7197870b988a412b5caaf05f2bddcc407c133c5ac1803b983e11fe3abe5a2",
+  "size_bytes": 7101465,
   "duration_seconds": 48.14,
   "resolution": "1080x1920",
   "fps": 24,
   "voice_id": "voice-00",
-  "drive_file_id": "13P6QOBBMZPr74L7myLMJIMXZEBu_k2jw"
+  "drive_file_id": "1RZtf5ieM84-Prr_TnVDY-K3icHsiVnOx",
+  "director_version": "v2_multi_act_diorama"
 }

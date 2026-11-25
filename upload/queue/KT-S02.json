@@ -5,5 +5,7 @@
   "slot": "SIANG_SHORT",
   "scheduledFor": "2026-11-26T12:30:00",
   "timezone": "Asia/Makassar",
-  "visibility": "public"
+  "visibility": "public",
+  "revision": "v2_ep02_ep03_diorama_benchmark",
+  "master_sha256": "5aa7197870b988a412b5caaf05f2bddcc407c133c5ac1803b983e11fe3abe5a2"
 }
