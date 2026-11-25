@@ -228,7 +228,7 @@ def cancel_post(post_id: str) -> int:
     return 0
 
 
-def lookup(limit: int = 20):
+def lookup(limit: int = 50):
     key = get_api_key()
     if not key:
         fail("ZERNIO_API_KEY kosong.")
@@ -244,18 +244,74 @@ def lookup(limit: int = 20):
         if not isinstance(post, dict):
             continue
         yt = next((p for p in post.get("platforms", []) if isinstance(p, dict) and (p.get("platform") or "").lower() == "youtube"), {})
-        dump["posts"].append({
+        p_entry = {
             "id": post.get("_id") or post.get("id"),
             "status": post.get("status"),
             "scheduledFor": post.get("scheduledFor"),
             "createdAt": post.get("createdAt") or post.get("publishedAt"),
             "title": post.get("title") or (yt.get("platformSpecificData") or {}).get("title"),
             "url": yt.get("platformPostUrl"),
-        })
+        }
+        dump["posts"].append(p_entry)
     out = META_DIR / "zernio-posts.json"
     out.write_text(json.dumps(dump, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     print(f"  {len(dump['posts'])} post disimpan ke {out.relative_to(ROOT)}")
     return dump
+
+
+def sync_ledger_from_remote() -> int:
+    key = get_api_key()
+    if not key:
+        return 0
+    try:
+        dump = lookup(limit=50)
+    except SystemExit:
+        return 0
+    except Exception as exc:
+        print(f"  ! gagal sinkronisasi daftar post Zernio: {exc}")
+        return 0
+    by_title = {}
+    for p in dump.get("posts", []):
+        st = (p.get("status") or "").lower()
+        if st in ("failed", "cancelled", "canceled", "deleted"):
+            continue
+        if p.get("title") and p.get("id"):
+            by_title[p["title"].strip()] = p
+    ledger = load_ledger()
+    added = 0
+    for meta_p in sorted(META_DIR.glob("KT-*.json")):
+        ep = meta_p.stem
+        if ep in ledger:
+            p_live = by_title.get((ledger[ep].get("title") or "").strip())
+            if p_live and p_live.get("url") and not ledger[ep].get("youtube_url"):
+                ledger[ep]["youtube_url"] = p_live["url"]
+                ledger[ep]["status"] = p_live.get("status") or ledger[ep].get("status")
+                added += 1
+            continue
+        try:
+            meta = json.loads(meta_p.read_text(encoding="utf-8"))
+        except Exception:
+            continue
+        t = (meta.get("title") or "").strip()
+        if t in by_title:
+            hit = by_title[t]
+            ledger[ep] = {
+                "episode": ep,
+                "title": t,
+                "slot": meta.get("slot_label"),
+                "post_id": hit["id"],
+                "status": hit.get("status"),
+                "scheduled_for": hit.get("scheduledFor") or meta.get("scheduledFor"),
+                "timezone": meta.get("timezone", "Asia/Makassar"),
+                "youtube_url": hit.get("url"),
+                "synced_from_zernio": True,
+                "uploaded_at": hit.get("createdAt") or dump["fetched_at"],
+            }
+            print(f"::notice title=ZERNIO-SYNC-{ep}::post_id={hit['id']} status={hit.get('status')} jadwal={hit.get('scheduledFor')} url={hit.get('url') or 'pending'}")
+            added += 1
+    if added:
+        save_ledger(ledger)
+    return added
 
 
 def load_ledger() -> dict:
@@ -452,6 +508,7 @@ def run_episode(ep: str, media_dir: pathlib.Path, send: bool, visibility: str = 
     }
     ledger[ep] = {k: v for k, v in out.items() if k != "dry_run"}
     save_ledger(ledger)
+    print(f"::notice title=ZERNIO-SCHEDULED-{ep}::post_id={out['post_id']} status={out['status']} jadwal={out.get('scheduled_for') or 'SEKARANG'} url={out.get('youtube_url') or 'pending'}")
     print(f"  SUKSES [{out['status']}]: post_id={out['post_id']} · jadwal={out.get('scheduled_for') or 'SEKARANG'} · url={out.get('youtube_url') or '(muncul saat rilis)'}")
     return out
 
@@ -489,6 +546,7 @@ def main():
     ap.add_argument("--request", help="path ke berkas upload/queue/<EP>.json")
     ap.add_argument("--force", action="store_true")
     ap.add_argument("--lookup", action="store_true")
+    ap.add_argument("--sync-ledger", action="store_true", help="sinkronkan published.json dengan daftar post aktif di Zernio")
     ap.add_argument("--cancel", metavar="POST_ID")
     ap.add_argument("--check", action="store_true")
     ap.add_argument("--text-only", action="store_true")
@@ -496,6 +554,9 @@ def main():
 
     if args.lookup:
         lookup()
+        return 0
+    if args.sync_ledger:
+        sync_ledger_from_remote()
         return 0
     if args.cancel:
         return cancel_post(args.cancel)

@@ -118,9 +118,13 @@ jobs:
             echo "mode=batch" >> "$GITHUB_OUTPUT"
           fi
 
+          if [ "${DRY_INPUT:-false}" != "true" ] && [ -n "${ZERNIO_API_KEY:-}" ]; then
+            python3 tools/upload_zernio.py --sync-ledger || true
+          fi
+
           EPS=$(python3 -c 'import os; from tools.upload_zernio import discover_ready_queue_requests; m = os.environ.get("EP_INPUT", "") if os.environ.get("EVENT") == "workflow_dispatch" else "BATCH_READY"; print(m if (m and m not in ("BATCH_READY", "LOOKUP")) else ",".join(ep for ep, _ in discover_ready_queue_requests()))')
           if [ -z "$EPS" ]; then
-            echo "::notice::Tidak ada antrean baru yang perlu diunggah saat ini."
+            echo "::notice::Semua episode di antrean sudah terjadwal di Zernio."
             echo "skip=1" >> "$GITHUB_OUTPUT"
           else
             echo "skip=0" >> "$GITHUB_OUTPUT"
@@ -165,7 +169,7 @@ jobs:
           fi
 
       - name: Catat buku besar upload/published.json ke repositori
-        if: always() && steps.plan.outputs.skip != '1'
+        if: always()
         run: |
           set -euo pipefail
           if [ -z "$(git status --porcelain -- upload/published.json upload/zernio-posts.json 2>/dev/null)" ]; then
@@ -174,9 +178,10 @@ jobs:
           fi
           git config user.name "ai-kids-studio-upload"
           git config user.email "actions@users.noreply.github.com"
-          git add upload/published.json upload/zernio-posts.json 2>/dev/null || git add upload/published.json
-          git commit -m "chore(zernio): catat jadwal & unggahan $(date -u +%Y-%m-%dT%H:%MZ)"
-          git push
+          [ -f upload/published.json ] && git add upload/published.json
+          [ -f upload/zernio-posts.json ] && git add upload/zernio-posts.json
+          git commit -m "chore(zernio): catat jadwal & unggahan $(date -u +%Y-%m-%dT%H:%MZ)" || exit 0
+          git pull --rebase origin "${GITHUB_REF_NAME}" && git push origin "HEAD:${GITHUB_REF_NAME}" || echo "::warning::Tidak bisa push otomatis buku besar dari GITHUB_TOKEN; deduplikasi tetap aktif lewat sync Zernio API."
 
       - name: Simpan artifact log unggah (90 hari)
         if: always()
