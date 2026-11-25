@@ -7,5 +7,6 @@
   "timezone": "Asia/Makassar",
   "visibility": "public",
   "revision": "v2_ep02_ep03_diorama_benchmark",
-  "master_sha256": "aa30bf4f5b73492b572e5a54a8c28228b88bfcfbe506fb0f0052921d11105c43"
+  "master_sha256": "aa30bf4f5b73492b572e5a54a8c28228b88bfcfbe506fb0f0052921d11105c43",
+  "scheduled_post_id": "6b071a2962d7482cbcb75638"
 }

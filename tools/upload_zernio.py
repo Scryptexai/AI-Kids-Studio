@@ -615,6 +615,12 @@ def main():
     log.write_text(json.dumps(results, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     print(f"\nlog tersimpan: {log.relative_to(ROOT)}")
 
+    if args.send and any(not r.get("skipped") for r in results):
+        try:
+            lookup(limit=50)
+        except Exception as exc:
+            print(f"  ! gagal memperbarui zernio-posts.json pasca-unggah: {exc}")
+
     if os.environ.get("GITHUB_STEP_SUMMARY"):
         lines = [
             "## Jadwal & Upload YouTube via Zernio (4 Slot / Hari)",
