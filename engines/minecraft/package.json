@@ -1,0 +1,39 @@
+{
+  "name": "minecraft-engine",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Minecraft-style voxel renderer for vertical shorts: three.js + React Three Fiber inside Remotion. Ships without any Minecraft textures; you extract them from your own copy of the game.",
+  "scripts": {
+    "studio": "remotion studio src/index.ts",
+    "mc": "node --experimental-strip-types src/director/mc.ts",
+    "fx": "python scripts/mc_fx_textures.py",
+    "demo": "python demo/build_demo.py",
+    "typecheck": "tsc --noEmit"
+  },
+  "engines": {
+    "node": ">=22.6.0"
+  },
+  "dependencies": {
+    "@react-three/fiber": "9.8.2",
+    "@react-three/postprocessing": "3.0.4",
+    "@remotion/bundler": "4.0.540",
+    "@remotion/cli": "4.0.540",
+    "@remotion/renderer": "4.0.540",
+    "@remotion/three": "4.0.540",
+    "postprocessing": "6.36.6",
+    "react": "19.3.1",
+    "react-dom": "19.3.1",
+    "remotion": "4.0.540",
+    "three": "0.170.0",
+    "zod": "4.6.7"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "@types/react": "^19.3.0",
+    "@types/three": "^0.170.0",
+    "typescript": "^7.0.2"
+  },
+  "overrides": {
+    "n8ao": "1.10.3"
+  }
+}

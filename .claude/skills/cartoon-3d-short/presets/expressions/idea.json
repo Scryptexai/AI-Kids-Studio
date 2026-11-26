@@ -1,0 +1,44 @@
+{
+  "name": "idea",
+  "use": "the moment the plan clicks (the 'aha' before the payoff)",
+  "layers": {
+    "face": {
+      "expr": "idea",
+      "v3": {
+        "white": true,
+        "pupil": 1,
+        "brow": [
+          -8,
+          -7
+        ],
+        "mouth": {
+          "w": 11,
+          "c": 0.9,
+          "open": 0.5,
+          "teeth": 1
+        },
+        "fx": [
+          "ticks"
+        ]
+      }
+    },
+    "body": [
+      {
+        "at": 1,
+        "len": 7,
+        "action": "body.raise"
+      }
+    ],
+    "timing": {
+      "lead": 3,
+      "morph": 7,
+      "blinkOnSwap": true,
+      "holdMin": 9,
+      "settleTo": "biggrin"
+    }
+  },
+  "readsAs": "white eyes, big pupils, brows high, open smile, ticks",
+  "avoid": [
+    "holding it longer than ~12 frames: go straight to biggrin/joy"
+  ]
+}

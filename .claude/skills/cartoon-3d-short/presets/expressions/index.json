@@ -1,0 +1,17 @@
+{
+  "note": "one layer set per emotion; `layers.face.v3` equals toon.ts EXPR_FACES[expr] (test: minecraft-presets.test.ts)",
+  "emotions": {
+    "determined": "working, committing to a risky move (digging, before a jump)",
+    "fear": "looking at a danger before acting (on the rim, looking down into the pit)",
+    "terror": "the hit: a monster appears, an arrow lands beside you",
+    "shock": "close-up surprise only (face fills > 25 % of the frame height)",
+    "idea": "the moment the plan clicks (the 'aha' before the payoff)",
+    "biggrin": "triumph, showing off the result (the payoff line)",
+    "joy": "warm happiness, a win that is not cocky",
+    "smile": "calm content, the moment before a turn (smile -> fear)",
+    "nervous": "unsure, about to try something",
+    "sad": "loss, a plan failing",
+    "angry": "frustration at a mob or a failure",
+    "relief": "danger passed"
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "version": 1, "fps": 30, "total_frames": 4050, "spacing": 256,
+  "sets": {
+    "street": {
+      "origin": [0, 64, 0], "size": [24, 12, 20], "front": "-z",
+      "story": "jalan depan rumah Ruby",
+      "anchors": {
+        "ruby_door":  { "kind": "landmark",  "at": [12, 1, 14], "note": "pintu oak di dinding utara" },
+        "ruby_mark":  { "kind": "actor",     "at": [12, 1, 10], "facing": "-z" },
+        "cam_front":  { "kind": "cam_entry", "at": [12, 2, 3] }
+      }
+    },
+    "well": {
+      "origin": [512, 64, 0], "size": [16, 10, 16], "front": "-z",
+      "story": "sumur desa",
+      "anchors": {
+        "well":      { "kind": "landmark",  "at": [8, 1, 8] },
+        "kid_mark":  { "kind": "actor",     "at": [5, 1, 8], "facing": "+x" },
+        "cam_well":  { "kind": "cam_entry", "at": [6, 2, 3] }
+      }
+    }
+  }
+}

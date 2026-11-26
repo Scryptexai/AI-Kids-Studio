@@ -1,0 +1,100 @@
+{
+  "version": 1,
+  "about": "Cast-card gestures for Minecraft mode (2D ink card 'you' in a voxel world), tuned on the Mob Farm hook (r8-r11). Frames at 30 fps, relative to the preset's start. `events` are McShort cast actions; `expr` names a presets/expressions/<emotion>.json (its face plus its body beats unless beats: false); `path` keys move the card: where = origin (the character's spot) | to (the `to` param) | [dx,dy,dz] offset from origin; squash > 0 crouch, < 0 stretch; arc = jump height. `repeat` repeats `events` every n frames. Expanded by src/director/minecraft/presets.ts.",
+  "presets": {
+    "chop_quick": {
+      "use": "digging / mining fast: repeated short pick chops, the tool stays beside the head (card faces the lens)",
+      "len": 4,
+      "anticipation": "wind 2 frames (smooth ease-in, top held 2 frames)",
+      "followThrough": "strike overshoots (back 2.2) then settles in 2 frames",
+      "easing": "wind: smoothstep; strike: back(2.2) out; settle: smoothstep",
+      "events": [{ "at": 0, "len": 2, "action": "body.reach_forward", "params": { "k": 1, "wind": 2, "rest": 2, "lift": 0.3 }, "intensity": 1.1 }],
+      "repeat": { "every": 4, "count": 6 },
+      "expr": [{ "at": 0, "len": 30, "emotion": "determined", "beats": false }],
+      "notes": "Start the first chop ON frame 0-3 so the shot opens mid-strike; pair each strike with a block break (dig) + burst."
+    },
+    "chop_heavy": {
+      "use": "one big deliberate swing (first blow, breaking something important)",
+      "len": 14,
+      "anticipation": "wind 9 frames, tool raised fully overhead (lift 1)",
+      "followThrough": "rest 12 frames: the arm drifts back to idle",
+      "easing": "wind: smoothstep; strike: back(2.2) out; settle: smoothstep",
+      "events": [{ "at": 9, "len": 3, "action": "body.reach_forward", "params": { "k": 1, "wind": 9, "rest": 12, "lift": 1 }, "intensity": 1.3 }],
+      "shake": [{ "at": 10, "amp": 0.06, "len": 6 }]
+    },
+    "startle_hop": {
+      "use": "a jump-scare reaction on the spot: a small hop back, terror face, arms up",
+      "len": 12,
+      "anticipation": "none (it is a reflex): the stretch starts on frame 0",
+      "followThrough": "lands with a squash 0.18 and settles in 4 frames",
+      "easing": "hop: linear arc; land: cubicOut",
+      "expr": [{ "at": 0, "len": 12, "emotion": "terror" }],
+      "path": [{ "at": 0, "where": "origin", "squash": 0 }, { "at": 2, "where": [0.45, 0, 0.05], "arc": 0.18, "ease": "linear", "squash": -0.08 },
+        { "at": 4, "where": [0.25, 0, 0.1], "arc": 0.18, "ease": "linear", "squash": 0.18 }, { "at": 8, "where": [0.25, 0, 0.1], "squash": 0 }]
+    },
+    "gulp_fear": {
+      "use": "looking at a danger before acting (on the rim): glance down, blink, two gulps",
+      "len": 22,
+      "anticipation": "the glance down starts 3 frames early",
+      "followThrough": "each gulp is a 10-frame squash bump with a head dip",
+      "easing": "smoothstep bumps",
+      "expr": [{ "at": 0, "len": 22, "emotion": "fear" }],
+      "notes": "Two gulps read; one is lost at Shorts size. Open with 'smile' for 4-6 frames when the shot cuts in so the turn to fear is seen."
+    },
+    "nod_commit": {
+      "use": "the decision beat right before a risky move",
+      "len": 6,
+      "anticipation": "none",
+      "followThrough": "the face morphs to determined over 7 frames",
+      "easing": "sine nod",
+      "events": [{ "at": 0, "len": 3, "action": "body.nod", "params": { "n": 1 } }],
+      "expr": [{ "at": 2, "len": 18, "emotion": "determined", "beats": false }]
+    },
+    "jump_into": {
+      "use": "jumping down into a pit / off a ledge to the `to` point",
+      "len": 21,
+      "params": { "to": "landing point [x,y,z] (feet)" },
+      "anticipation": "crouch squash 0.34 over 5 frames (cubicOut), then a stretch -0.16 on take-off (expoOut, 2 frames)",
+      "followThrough": "land squash 0.32 (cubicOut, 3 frames) then settle to 0 over 4; landing shake + stone burst",
+      "easing": "crouch cubicOut, take-off expoOut, flight linear arc 1.5, land cubicOut",
+      "path": [{ "at": 0, "where": "origin", "squash": 0 }, { "at": 5, "where": "origin", "squash": 0.34, "ease": "cubicOut" },
+        { "at": 7, "where": [-0.3, 0.3, 0.2], "squash": -0.16, "ease": "expoOut" }, { "at": 14, "where": "to", "arc": 1.5, "ease": "linear", "squash": -0.08 },
+        { "at": 17, "where": "to", "squash": 0.32, "ease": "cubicOut" }, { "at": 21, "where": "to", "squash": 0 }],
+      "shake": [{ "at": 14, "amp": 0.1, "len": 9 }],
+      "bursts": [{ "at": 14, "where": "to", "colors": "stone", "n": 24, "speed": 3.0, "size": 0.1 }],
+      "notes": "Land ON the word (the landing is at +14): r11 landed 5 frames late. Keep the crouch in view: no camera move during frames 0-5."
+    },
+    "flinch_recoil": {
+      "use": "something hits / lands right beside you: flinch back with a small hop, terror, gulp",
+      "len": 14,
+      "params": { "to": "optional: where the hop ends (default 0.4 back)" },
+      "anticipation": "none (reflex)",
+      "followThrough": "flinch overshoot then a 10-frame settle; gulp at +7",
+      "easing": "flinch back(2.2) out; hop cubicOut",
+      "expr": [{ "at": 0, "len": 14, "emotion": "terror" }],
+      "path": [{ "at": 0, "where": "origin", "squash": 0 }, { "at": 3, "where": [0.4, 0, 0.25], "arc": 0.22, "ease": "cubicOut", "squash": 0.12 }, { "at": 7, "where": [0.4, 0, 0.25], "squash": 0 }]
+    },
+    "idea_pop": {
+      "use": "the plan clicks: idea face, a quick arm pop",
+      "len": 10,
+      "anticipation": "2 frames early on the arm",
+      "followThrough": "arm holds then drops over 8 frames",
+      "easing": "back(2.2) out up, smoothstep down",
+      "expr": [{ "at": 0, "len": 10, "emotion": "idea" }]
+    },
+    "triumph_pump": {
+      "use": "payoff / showing off: big grin, fist pumps and chuckles, never still",
+      "len": 32,
+      "anticipation": "the first pump starts 2 frames before its frame",
+      "followThrough": "each raise settles over 8 frames into the next chuckle",
+      "easing": "back(2.2) out up, smoothstep down, sine chuckle",
+      "expr": [{ "at": 0, "len": 32, "emotion": "biggrin" }],
+      "path": [{ "at": 0, "where": "origin", "squash": 0 }, { "at": 3, "where": [-0.5, 0, -0.1], "arc": 0.14, "ease": "linear", "squash": 0.14 }, { "at": 7, "where": [-0.5, 0, -0.1], "squash": 0 }]
+    },
+    "blink": {
+      "use": "a single blink (inferred life, or across a hold)",
+      "len": 5,
+      "events": [{ "at": 0, "len": 2, "action": "face.blink" }]
+    }
+  }
+}

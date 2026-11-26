@@ -1,14 +1,20 @@
 {
   "episode": "KT-R05",
   "engine": "ai-kids-studio-3d-cpp",
-  "entrypoint": "src/knot_shorts_engine.py",
-  "video_filename": "KT-R05_1080x1920_master.mp4",
-  "master_sha256": "2dd45f8219abeb560055ec2d89bda21a08c8e2bda073ee9ae5864ea61fbbebd0",
-  "size_bytes": 6199348,
-  "duration_seconds": 49.37,
+  "entrypoint": "src/knot_v5_director.py",
+  "skill_pipeline": [
+    "cartoon-3d-short",
+    "captions"
+  ],
+  "video_filename": "KT-R05_1080x1920_v5_master.mp4",
+  "master_sha256": "fc717d9ba1250f0231c1d2480e0e0af193a0db46c7028f60973d291e76388f3e",
+  "size_bytes": 14570172,
+  "duration_seconds": 52.68,
   "resolution": "1080x1920",
-  "fps": 24,
+  "fps": 30,
+  "loudness_lufs": -14.0,
   "voice_id": "voice-00",
-  "drive_file_id": "1ySxtBFEEkoNX-f_fOAyNEx_4omBqPB9E",
-  "director_version": "v4_multi_scene_interior_exterior_white_button_cta"
+  "drive_file_id": "1AgsUzKhOVQnQsNCFdqW2mpRg_4PYO3dJ",
+  "superseded_drive_file_id": "1ySxtBFEEkoNX-f_fOAyNEx_4omBqPB9E",
+  "director_version": "v5_cartoon_3d_short_phrase_locked_14lufs"
 }

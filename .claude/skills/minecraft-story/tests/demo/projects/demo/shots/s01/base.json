@@ -1,0 +1,2 @@
+{ "shot": "s01", "order": 1, "title": "establish street", "beat": "B01", "set": "street", "tag": "[BBS]", "size": "WS",
+  "subject": "ruby", "must_see": ["ruby_door"], "cast": ["ruby"], "action": "Ruby berdiri di depan pintunya", "intent": "dunia + tokoh", "transition": "cut", "sfx": [], "est_frames": 90 }

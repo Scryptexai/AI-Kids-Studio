@@ -1,0 +1,63 @@
+{
+  "name": "fear",
+  "use": "looking at a danger before acting (on the rim, looking down into the pit)",
+  "layers": {
+    "face": {
+      "expr": "fear",
+      "v3": {
+        "white": true,
+        "pupil": 0.7,
+        "brow": [
+          -8,
+          1
+        ],
+        "mouth": {
+          "w": 10,
+          "c": -0.4,
+          "open": 0.4,
+          "teeth": 1
+        },
+        "fx": [
+          "sweat"
+        ]
+      }
+    },
+    "body": [
+      {
+        "at": 0,
+        "len": 6,
+        "action": "body.glance_down",
+        "intensity": 1.3
+      },
+      {
+        "at": 3,
+        "len": 2,
+        "action": "face.blink"
+      },
+      {
+        "at": 4,
+        "len": 6,
+        "action": "body.gulp",
+        "intensity": 1.4
+      },
+      {
+        "at": 10,
+        "len": 6,
+        "action": "body.gulp",
+        "intensity": 1.6
+      }
+    ],
+    "timing": {
+      "lead": 3,
+      "morph": 7,
+      "blinkOnSwap": true,
+      "holdMin": 14,
+      "settleTo": "determined"
+    }
+  },
+  "readsAs": "white eyes, small pupils, brows up in the middle, sweat drop",
+  "avoid": [
+    "a single gulp: two gulps read, one is lost",
+    "fear with no glance at the danger"
+  ]
+}

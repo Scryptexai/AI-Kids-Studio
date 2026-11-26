@@ -1,0 +1,11 @@
+{
+  "episode_id": "KT-R03",
+  "master_mp4": "/home/user/AI-Kids-Studio/output/KT-R03_master.mp4",
+  "thumbnail_jpg": "/home/user/AI-Kids-Studio/upload/thumbs/KT-R03_thumbnail.jpg",
+  "duration_s": 51.302,
+  "total_frames": 1539,
+  "fps": 30,
+  "bytes": 12874259,
+  "sha256": "54c3d54db952213637ad2d191488376e7bcc0bd01be8583df4d161dd41d97810",
+  "qa_headline": "SPECS 1080x1920 30/1 fps, 1539 frames, 51.300 s; audio: aac 48000 Hz 2ch | LOUDNESS I:         -14.0 LUFS | LRA:         2.0 LU | Peak:       -1.0 dBFS | SILENCES none | FRAMES 1539; black []; unplanned white []; frozen spans >=12f []"
+}

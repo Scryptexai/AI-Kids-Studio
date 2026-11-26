@@ -1,11 +1,11 @@
 {
   "episode": "KT-R04",
   "slot_label": "MALAM_SHORT",
-  "video": "KT-R04_1080x1920_master.mp4",
+  "video": "KT-R04_1080x1920_v5_master.mp4",
   "thumbnail": "KT-R04_thumbnail.jpg",
-  "drive_file_id": "1bXFwFULUvKjtkM5k7Vq3KKwjyUFm7QkD",
-  "size_bytes": 6695668,
-  "sha256": "c4d246fc8eb87370743f1048c797093594564cdee5dbda340cb8d65dd4f4f68f",
+  "drive_file_id": "1YJn5bg0nvXsfC5FpUKh5TksZIRJQK3E2",
+  "size_bytes": 12254223,
+  "sha256": "d6fda29490dc9dfab7192fa4f6c6dacea76e64472a56523c0c21237b73e8224b",
   "title": "Kenapa Aspal di Sekeliling Tutup Manhole Jalan Sering Ambles Duluan? #Shorts",
   "hook": "Kenapa di banyak jalan raya, tutup besi manhole menonjol tinggi sementara aspal sekitarnya ambles?",
   "description": "Kenapa di banyak jalan raya, tutup besi manhole menonjol tinggi sementara aspal sekitarnya ambles?\n\nSebenarnya bukan tutup besinya yang naik, melainkan lapisan jalan di sekelilingnya yang turun. Cerobong beton manhole berdiri kaku di fondasi dalam, sedangkan aspal menumpang di tanah urug. Tepi melingkar cerobong sulit digilas alat berat, sehingga memadat saat dihantam truk ribuan kali. Apalagi bila sambungan pipa bawah bocor halus, butiran tanah tergerus air dan aspal makin turun. Batasnya, amblesan ini dipengaruhi kepadatan urugan, drainase, hingga beban kendaraan berlebih.\n\nBatas Akurasi: Sering menghindar tutup manhole menonjol begini? Tulis di komentar, dan tekan tombol putih di bawah agar dapat hal yang gak disangka!\nReferensi: FHWA Utility Cut & Manhole Backfill Compaction Guidelines • Differential Settlement\n\nPertanyaan diskusi: Sering harus menghindar tutup besi menonjol di jalan kota? Tulis di komentar: Hampir Tiap Hari atau Jarang Ketemu! (TIAP HARI! vs JARANG KETEMU)\nTekan tombol putih di bawah agar mendapatkan hal-hal yang gak disangka setiap hari!\n\n#KnotTheory #InfrastrukturTersembunyi #CaraKerjaMesin #SainsSehariHari #Shorts",
@@ -30,7 +30,7 @@
   "timezone": "Asia/Makassar",
   "render_provenance": {
     "engine": "ai-kids-studio-3d-cpp",
-    "entrypoint": "src/knot_shorts_engine.py",
+    "entrypoint": "src/knot_v5_director.py",
     "manifest": "upload/provenance/KT-R04.json"
   }
 }

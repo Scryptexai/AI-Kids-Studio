@@ -1,0 +1,63 @@
+{
+  "name": "biggrin",
+  "use": "triumph, showing off the result (the payoff line)",
+  "layers": {
+    "face": {
+      "expr": "biggrin",
+      "v3": {
+        "lid": 0.5,
+        "low": 0.2,
+        "brow": [
+          8,
+          -6
+        ],
+        "mouth": {
+          "w": 16,
+          "c": 0.6,
+          "open": 0.9,
+          "teeth": 1,
+          "tongue": 1,
+          "tilt": 2
+        }
+      }
+    },
+    "body": [
+      {
+        "at": 2,
+        "len": 9,
+        "action": "body.raise",
+        "params": {
+          "pump": 1
+        }
+      },
+      {
+        "at": 12,
+        "len": 7,
+        "action": "body.chuckle"
+      },
+      {
+        "at": 19,
+        "len": 8,
+        "action": "body.raise",
+        "params": {
+          "pump": 1
+        }
+      },
+      {
+        "at": 27,
+        "len": 5,
+        "action": "body.chuckle"
+      }
+    ],
+    "timing": {
+      "lead": 3,
+      "morph": 7,
+      "blinkOnSwap": true,
+      "holdMin": 18
+    }
+  },
+  "readsAs": "cocky brows, wide grin with teeth and tongue",
+  "avoid": [
+    "a still grin: always pump/chuckle under it"
+  ]
+}

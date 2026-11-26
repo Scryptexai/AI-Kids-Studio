@@ -1,0 +1,41 @@
+{
+  "name": "sad",
+  "use": "loss, a plan failing",
+  "layers": {
+    "face": {
+      "expr": "sad",
+      "v3": {
+        "lid": 0.5,
+        "brow": [
+          -8,
+          8
+        ],
+        "look": [
+          0,
+          0.6
+        ],
+        "mouth": {
+          "w": 7,
+          "c": -0.75,
+          "tilt": -1
+        }
+      }
+    },
+    "body": [
+      {
+        "at": 0,
+        "len": 8,
+        "action": "body.glance_down",
+        "intensity": 0.8
+      }
+    ],
+    "timing": {
+      "lead": 3,
+      "morph": 7,
+      "blinkOnSwap": true,
+      "holdMin": 16
+    }
+  },
+  "readsAs": "brows up inside, down-turned mouth, looking down",
+  "avoid": []
+}

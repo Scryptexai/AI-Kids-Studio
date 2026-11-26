@@ -1,0 +1,87 @@
+{
+  "episode_id": "KT-S10",
+  "duration_s": 50.891,
+  "fps": 30,
+  "total_frames": 1527,
+  "speech_islands": 18,
+  "clauses": 14,
+  "beats": [
+    {
+      "index": 0,
+      "id": "hook",
+      "callout": "MCB SENGAJA TUNDA PUTUS",
+      "cam": "low_angle_hero",
+      "text": "Sakelar pemutus listrik MCB di rumahmu ternyata sengaja menunggu sebelum mematikan arus!",
+      "speech_start_s": 0.0,
+      "speech_end_s": 5.962,
+      "start_s": 0.0,
+      "end_s": 6.205
+    },
+    {
+      "index": 1,
+      "id": "appliances",
+      "callout": "LONJAKAN KULKAS & POMPA AIR",
+      "cam": "establishing_wide",
+      "text": "Kalau langsung putus tiap sepersekian detik, listrik mati terus saat kulkas atau pompa baru nyala.",
+      "speech_start_s": 6.449,
+      "speech_end_s": 12.845,
+      "start_s": 6.205,
+      "end_s": 13.067
+    },
+    {
+      "index": 2,
+      "id": "dual_guard",
+      "callout": "2 PENJAGA DI DALAM MCB",
+      "cam": "macro_cutaway",
+      "text": "Karena itu di dalamnya bekerja dua penjaga berbeda.",
+      "speech_start_s": 13.29,
+      "speech_end_s": 16.935,
+      "start_s": 13.067,
+      "end_s": 17.096
+    },
+    {
+      "index": 3,
+      "id": "bimetal_vs_solenoid",
+      "callout": "BIMETAL PELAN • MAGNET KILAT",
+      "cam": "split_compare",
+      "text": "Saat beban lebih ringan, keping bimetal memanas dan melengkung pelan melepas pengait, tapi saat korsleting besar, koil magnet menyambar tuas seketika.",
+      "speech_start_s": 17.257,
+      "speech_end_s": 26.836,
+      "start_s": 17.096,
+      "end_s": 26.993
+    },
+    {
+      "index": 4,
+      "id": "boundary",
+      "callout": "WAJIB TEKNISI LISTRIK RESMI",
+      "cam": "orbit_inspect",
+      "text": "Jangan pernah memodifikasi panel atau menaikkan ukuran MCB tanpa teknisi berizin.",
+      "speech_start_s": 27.15,
+      "speech_end_s": 32.542,
+      "start_s": 26.993,
+      "end_s": 32.82
+    },
+    {
+      "index": 5,
+      "id": "closer",
+      "callout": "JEDA AMAN VS PUTUS KILAT",
+      "cam": "push_in",
+      "text": "Oh, jadi bimetal sengaja memberi jeda lonjakan wajar sementara magnet memutus korsleting sekejap.",
+      "speech_start_s": 33.097,
+      "speech_end_s": 39.551,
+      "start_s": 32.82,
+      "end_s": 39.734
+    },
+    {
+      "index": 6,
+      "id": "cta",
+      "callout": "KOMEN & TOMBOL PUTIH!",
+      "cam": "cta_lock",
+      "text": "Di rumahmu MCB paling sering jeglek gara-gara alat apa nyala barengan? Komen ya, dan tekan tombol putih di bawah agar dapat hal-hal yang nggak disangka!",
+      "speech_start_s": 39.917,
+      "speech_end_s": 50.244,
+      "start_s": 39.734,
+      "end_s": 50.891
+    }
+  ]
+}

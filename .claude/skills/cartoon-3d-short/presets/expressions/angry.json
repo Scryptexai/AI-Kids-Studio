@@ -1,0 +1,41 @@
+{
+  "name": "angry",
+  "use": "frustration at a mob or a failure",
+  "layers": {
+    "face": {
+      "expr": "angry",
+      "v3": {
+        "lid": 0.4,
+        "brow": [
+          10,
+          -6
+        ],
+        "mouth": {
+          "w": 12,
+          "c": -0.4,
+          "open": 0.4,
+          "teeth": 2
+        }
+      }
+    },
+    "body": [
+      {
+        "at": 0,
+        "len": 4,
+        "action": "body.nod",
+        "params": {
+          "n": 1
+        },
+        "intensity": 1.2
+      }
+    ],
+    "timing": {
+      "lead": 3,
+      "morph": 7,
+      "blinkOnSwap": true,
+      "holdMin": 12
+    }
+  },
+  "readsAs": "brows down to the nose, gritted teeth",
+  "avoid": []
+}

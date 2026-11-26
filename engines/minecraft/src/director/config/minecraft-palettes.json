@@ -1,0 +1,44 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "PalettePresets",
+  "themes": {
+    "village": {
+      "ground": "grass_block", "dirt": "dirt", "path": "coarse_dirt", "stone": "cobblestone",
+      "wall": "oak_planks", "pillar": "oak_log", "beam": "stripped_oak_log", "floor": "spruce_planks", "roof": "dark_oak_planks",
+      "glass": "glass", "light": "glowstone", "flora": "short_grass", "flower": "poppy", "flower_alt": "dandelion",
+      "log": "oak_log", "leaves": "oak_leaves", "water": "water", "accent": "hay_block"
+    },
+    "forest": {
+      "ground": "grass_block", "dirt": "dirt", "path": "podzol", "stone": "mossy_stone_bricks",
+      "log": "oak_log", "leaves": "oak_leaves", "log_alt": "spruce_log", "leaves_alt": "spruce_leaves",
+      "log_light": "birch_log", "leaves_light": "birch_leaves", "flora": "short_grass", "fern": "fern",
+      "flower": "poppy", "moss": "moss_block", "water": "water", "light": "shroomlight"
+    },
+    "cave": {
+      "ground": "stone", "wall": "stone", "deep": "deepslate", "deep_alt": "cobbled_deepslate", "rubble": "gravel",
+      "speckle": "andesite", "speckle_alt": "tuff", "ore": "coal_ore", "ore_alt": "iron_ore", "moss": "moss_block",
+      "water": "water", "lava": "lava", "light": "glowstone"
+    },
+    "desert": {
+      "ground": "sand", "ground_alt": "red_sand", "stone": "sandstone", "wall": "cut_sandstone", "floor": "smooth_sandstone",
+      "trim": "chiseled_sandstone", "roof": "orange_terracotta", "clay": "terracotta", "flora": "dead_bush",
+      "water": "water", "light": "glowstone"
+    },
+    "nether": {
+      "ground": "netherrack", "crimson": "crimson_nylium", "warped": "warped_nylium", "wall": "nether_bricks",
+      "wall_alt": "red_nether_bricks", "pillar": "basalt", "pillar_alt": "polished_basalt", "stone": "blackstone",
+      "soul": "soul_sand", "soul_alt": "soul_soil", "hot": "magma_block", "lava": "lava", "light": "glowstone",
+      "log": "crimson_stem", "leaves": "nether_wart_block", "flora": "crimson_roots", "flora_alt": "warped_roots"
+    },
+    "end": {
+      "ground": "end_stone", "wall": "end_stone_bricks", "wall_alt": "purpur_block", "pillar": "purpur_pillar",
+      "tower": "obsidian", "tower_alt": "crying_obsidian", "light": "pearlescent_froglight"
+    },
+    "castle": {
+      "ground": "grass_block", "path": "gravel", "wall": "stone_bricks", "wall_old": "mossy_stone_bricks",
+      "wall_broken": "cracked_stone_bricks", "trim": "chiseled_stone_bricks", "floor": "smooth_stone", "stone": "cobblestone",
+      "beam": "dark_oak_log", "planks": "dark_oak_planks", "glass": "glass", "banner": "red_wool", "light": "glowstone",
+      "water": "water"
+    }
+  }
+}

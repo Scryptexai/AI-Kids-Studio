@@ -127,17 +127,17 @@
       "quality_revision": "v3_uplevel_human_rig_white_button_cta"
     },
     "KT-S08": {
-      "video": "KT-S08_1080x1920_master.mp4",
+      "video": "KT-S08_1080x1920_v5_master.mp4",
       "thumbnail": "KT-S08_thumbnail.jpg",
-      "drive_file_id": "1BpLXA4-jeyVjMh9Fnsxo_wu40rONMxZq",
-      "size_bytes": 8566463,
-      "sha256": "af25bca4145c83cb6bf168d7f4b16d7f83872c1fbe3b9052f763a21f96d5736d",
-      "duration_seconds": 52.33,
+      "drive_file_id": "1HZY-iy-_Z5GX9SttTHCp_eiWeKFvxYOn",
+      "size_bytes": 8632610,
+      "sha256": "874a9b121199907ce9dd55967a22a89a8535277146557779611c5004520c4def",
+      "duration_seconds": 45.78,
       "resolution": "1080x1920",
       "slot": "SIANG_SHORT",
       "scheduledFor": "2026-11-28T12:30:00",
       "timezone": "Asia/Makassar",
-      "quality_revision": "v3_uplevel_human_rig_white_button_cta"
+      "quality_revision": "v5_cartoon_3d_short_phrase_locked_14lufs"
     },
     "KT-S09": {
       "video": "KT-S09_1080x1920_master.mp4",
@@ -153,17 +153,17 @@
       "quality_revision": "v3_uplevel_human_rig_white_button_cta"
     },
     "KT-S10": {
-      "video": "KT-S10_1080x1920_master.mp4",
+      "video": "KT-S10_1080x1920_v5_master.mp4",
       "thumbnail": "KT-S10_thumbnail.jpg",
-      "drive_file_id": "1a6Yhlj-8J8K76ueAaO7t4sT035HmEpkC",
-      "size_bytes": 6406478,
-      "sha256": "e6bf375beb8b3fad315fa3ae98160565b86f8ece741591a531f36628e5fdd933",
-      "duration_seconds": 50.28,
+      "drive_file_id": "1eicM7rbEQcLlm5Wl0S3pcc2QSp5bZ3Cy",
+      "size_bytes": 10554656,
+      "sha256": "7acb9c6c5cbb37c09847dca89fb76fa3734227c932390a9b5f814a54f03191ec",
+      "duration_seconds": 50.89,
       "resolution": "1080x1920",
       "slot": "PAGI_SHORT",
       "scheduledFor": "2026-11-29T08:00:00",
       "timezone": "Asia/Makassar",
-      "quality_revision": "v3_uplevel_human_rig_white_button_cta"
+      "quality_revision": "v5_cartoon_3d_short_phrase_locked_14lufs"
     },
     "KT-S11": {
       "video": "KT-S11_1080x1920_master.mp4",
@@ -192,30 +192,30 @@
       "quality_revision": "v3_uplevel_human_rig_white_button_cta"
     },
     "KT-S13": {
-      "video": "KT-S13_1080x1920_master.mp4",
+      "video": "KT-S13_1080x1920_v5_master.mp4",
       "thumbnail": "KT-S13_thumbnail.jpg",
-      "drive_file_id": "1QCybShvAl_iHIvlvkECdKhhj0Wmm28aC",
-      "size_bytes": 9299088,
-      "sha256": "386309396b2acab8afe4df9a3d0fde6203a0474972f8c8d21220f151ea563791",
-      "duration_seconds": 50.08,
+      "drive_file_id": "1it8JkJBEl_etzWlYbnQyhvvvAQ43yK9y",
+      "size_bytes": 10670441,
+      "sha256": "306528a6dc13e6ae4fdc827685a3d7da554ea575c6eabab93e5ba1ec5cc47bad",
+      "duration_seconds": 47.05,
       "resolution": "1080x1920",
       "slot": "PAGI_SHORT",
       "scheduledFor": "2026-11-30T08:00:00",
       "timezone": "Asia/Makassar",
-      "quality_revision": "v3_uplevel_human_rig_white_button_cta"
+      "quality_revision": "v5_cartoon_3d_short_phrase_locked_14lufs"
     },
     "KT-S14": {
-      "video": "KT-S14_1080x1920_master.mp4",
+      "video": "KT-S14_1080x1920_v5_master.mp4",
       "thumbnail": "KT-S14_thumbnail.jpg",
-      "drive_file_id": "1h2X4wdc7tnyuc27AG8kv9EvVCr4tSzcD",
-      "size_bytes": 7674046,
-      "sha256": "96e1ee19131414b289a878a00342a892fa81f0d1b21a7775dfaeb780da7e1fb8",
-      "duration_seconds": 48.42,
+      "drive_file_id": "1t7AFL2GlpXJg9tFuZ2MXG7vG4hjzqT3U",
+      "size_bytes": 9702851,
+      "sha256": "4156296f1dc5070dce685cac83b0f8971e6c00724d7974310016d267ec1dfedf",
+      "duration_seconds": 42.76,
       "resolution": "1080x1920",
       "slot": "SIANG_SHORT",
       "scheduledFor": "2026-11-30T12:30:00",
       "timezone": "Asia/Makassar",
-      "quality_revision": "v3_uplevel_human_rig_white_button_cta"
+      "quality_revision": "v5_cartoon_3d_short_phrase_locked_14lufs"
     },
     "KT-L03": {
       "video": "KT-L03_1920x1080_master.mp4",
@@ -231,82 +231,82 @@
       "quality_revision": "v4_multi_scene_interior_exterior_white_button_cta"
     },
     "KT-R01": {
-      "video": "KT-R01_1080x1920_master.mp4",
+      "video": "KT-R01_1080x1920_v5_master.mp4",
       "thumbnail": "KT-R01_thumbnail.jpg",
-      "drive_file_id": "1xFb7ZB8GaaRKDAUTYsdu7RIkEsY7rP_V",
-      "size_bytes": 6038500,
-      "sha256": "8755591bf0fcd156cd226080165c75150db680bb3fccc45f45f49fa8ab8c119a",
-      "duration_seconds": 48.74,
+      "drive_file_id": "1d2gNNjHuohv2L0q8Wrjyh1qVY3Yn-mFm",
+      "size_bytes": 13087448,
+      "sha256": "cdedcc598906e2e9b4bdf6e0d6e494827f606c6a65257313386d1d76fab07264",
+      "duration_seconds": 53.96,
       "resolution": "1080x1920",
       "slot": "MALAM_SHORT",
       "scheduledFor": "2026-11-30T20:30:00",
       "timezone": "Asia/Makassar",
-      "quality_revision": "v4_multi_scene_interior_exterior_white_button_cta"
+      "quality_revision": "v5_cartoon_3d_short_phrase_locked_14lufs"
     },
     "KT-R02": {
-      "video": "KT-R02_1080x1920_master.mp4",
+      "video": "KT-R02_1080x1920_v5_master.mp4",
       "thumbnail": "KT-R02_thumbnail.jpg",
-      "drive_file_id": "1KQUmwmbmOT1kacE1Cit4U2eSUJockvYt",
-      "size_bytes": 10623922,
-      "sha256": "337df9fc1bb6f10d615e1283a6865b509c21b2b2d2cf6c79fb5de7b5b5537715",
-      "duration_seconds": 49.5,
+      "drive_file_id": "12QpQJtHqObD40XLqGhd45uOPCmmhZiGb",
+      "size_bytes": 13119101,
+      "sha256": "bf3d4ae7d062a5ab08006739f7d694f1b8f7dedef311d6ff570be5dfd5343975",
+      "duration_seconds": 48.1,
       "resolution": "1080x1920",
       "slot": "PAGI_SHORT",
       "scheduledFor": "2026-12-01T08:00:00",
       "timezone": "Asia/Makassar",
-      "quality_revision": "v4_multi_scene_interior_exterior_white_button_cta"
+      "quality_revision": "v5_cartoon_3d_short_phrase_locked_14lufs"
     },
     "KT-R03": {
-      "video": "KT-R03_1080x1920_master.mp4",
+      "video": "KT-R03_1080x1920_v5_master.mp4",
       "thumbnail": "KT-R03_thumbnail.jpg",
-      "drive_file_id": "19TgN3O5oSPTC8LINojhTQt9vCpyOZTHm",
-      "size_bytes": 7741523,
-      "sha256": "2f72d4f7e7172fa8e78297db103245a63f56f2fcd0247d92c0b2ded5a8eca1e6",
-      "duration_seconds": 50.16,
+      "drive_file_id": "1sJAbTK5HegLUNYa5OPoWBUJdY1hfBd3P",
+      "size_bytes": 12874259,
+      "sha256": "54c3d54db952213637ad2d191488376e7bcc0bd01be8583df4d161dd41d97810",
+      "duration_seconds": 51.3,
       "resolution": "1080x1920",
       "slot": "SIANG_SHORT",
       "scheduledFor": "2026-12-01T12:30:00",
       "timezone": "Asia/Makassar",
-      "quality_revision": "v4_multi_scene_interior_exterior_white_button_cta"
+      "quality_revision": "v5_cartoon_3d_short_phrase_locked_14lufs"
     },
     "KT-R04": {
-      "video": "KT-R04_1080x1920_master.mp4",
+      "video": "KT-R04_1080x1920_v5_master.mp4",
       "thumbnail": "KT-R04_thumbnail.jpg",
-      "drive_file_id": "1bXFwFULUvKjtkM5k7Vq3KKwjyUFm7QkD",
-      "size_bytes": 6695668,
-      "sha256": "c4d246fc8eb87370743f1048c797093594564cdee5dbda340cb8d65dd4f4f68f",
-      "duration_seconds": 52.04,
+      "drive_file_id": "1YJn5bg0nvXsfC5FpUKh5TksZIRJQK3E2",
+      "size_bytes": 12254223,
+      "sha256": "d6fda29490dc9dfab7192fa4f6c6dacea76e64472a56523c0c21237b73e8224b",
+      "duration_seconds": 52.23,
       "resolution": "1080x1920",
       "slot": "MALAM_SHORT",
       "scheduledFor": "2026-12-01T20:30:00",
       "timezone": "Asia/Makassar",
-      "quality_revision": "v4_multi_scene_interior_exterior_white_button_cta"
+      "quality_revision": "v5_cartoon_3d_short_phrase_locked_14lufs"
     },
     "KT-R05": {
-      "video": "KT-R05_1080x1920_master.mp4",
+      "video": "KT-R05_1080x1920_v5_master.mp4",
       "thumbnail": "KT-R05_thumbnail.jpg",
-      "drive_file_id": "1ySxtBFEEkoNX-f_fOAyNEx_4omBqPB9E",
-      "size_bytes": 6199348,
-      "sha256": "2dd45f8219abeb560055ec2d89bda21a08c8e2bda073ee9ae5864ea61fbbebd0",
-      "duration_seconds": 49.37,
+      "drive_file_id": "1AgsUzKhOVQnQsNCFdqW2mpRg_4PYO3dJ",
+      "size_bytes": 14570172,
+      "sha256": "fc717d9ba1250f0231c1d2480e0e0af193a0db46c7028f60973d291e76388f3e",
+      "duration_seconds": 52.68,
       "resolution": "1080x1920",
       "slot": "PAGI_SHORT",
       "scheduledFor": "2026-12-02T08:00:00",
       "timezone": "Asia/Makassar",
-      "quality_revision": "v4_multi_scene_interior_exterior_white_button_cta"
+      "quality_revision": "v5_cartoon_3d_short_phrase_locked_14lufs"
     },
     "KT-R06": {
-      "video": "KT-R06_1080x1920_master.mp4",
+      "video": "KT-R06_1080x1920_v5_master.mp4",
       "thumbnail": "KT-R06_thumbnail.jpg",
-      "drive_file_id": "1J64j7BnhT-yTUnTGb9FAZuEOEb7oVZoU",
-      "size_bytes": 8835619,
-      "sha256": "37ac1e3dd06ac2fa9c299aeaf1dcd5c40ae26f161937b0bf4c15da43013daeb3",
-      "duration_seconds": 47.58,
+      "drive_file_id": "1grexD8xZRmeXLbhikwx6L9kbjzwMLmRZ",
+      "size_bytes": 18963758,
+      "sha256": "2ec76a1b359392e92dc63821ede9c181b5aee3ad412ec79d0103edc334e4c615",
+      "duration_seconds": 52.12,
       "resolution": "1080x1920",
       "slot": "SIANG_SHORT",
       "scheduledFor": "2026-12-02T12:30:00",
       "timezone": "Asia/Makassar",
-      "quality_revision": "v4_multi_scene_interior_exterior_white_button_cta"
+      "quality_revision": "v5_cartoon_3d_short_phrase_locked_14lufs"
     },
     "KT-R07": {
       "video": "KT-R07_1080x1920_master.mp4",

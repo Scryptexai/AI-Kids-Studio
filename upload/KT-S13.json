@@ -1,11 +1,11 @@
 {
   "episode": "KT-S13",
   "slot_label": "PAGI_SHORT",
-  "video": "KT-S13_1080x1920_master.mp4",
+  "video": "KT-S13_1080x1920_v5_master.mp4",
   "thumbnail": "KT-S13_thumbnail.jpg",
-  "drive_file_id": "1QCybShvAl_iHIvlvkECdKhhj0Wmm28aC",
-  "size_bytes": 9299088,
-  "sha256": "386309396b2acab8afe4df9a3d0fde6203a0474972f8c8d21220f151ea563791",
+  "drive_file_id": "1it8JkJBEl_etzWlYbnQyhvvvAQ43yK9y",
+  "size_bytes": 10670441,
+  "sha256": "306528a6dc13e6ae4fdc827685a3d7da554ea575c6eabab93e5ba1ec5cc47bad",
   "title": "Air di Kaki Bendungan Sengaja Dibuat Bergolak Hebat, Ini Alasannya #Shorts",
   "hook": "Air super deras dari pelimpah bendungan ini sengaja dipaksa bergolak hebat tepat di kakinya!",
   "description": "Air super deras dari pelimpah bendungan ini sengaja dipaksa bergolak hebat tepat di kakinya!\n\nGulungan ombak putih yang tampak ganas di ujung bawah pelimpah bendungan ternyata bukan efek samping yang tak terkendali—melainkan peredam energi yang dirancang presisi.\n\nAir yang meluncur dari puncak bendungan membawa energi kinetik raksasa yang sanggup menggerus tanah fondasi sungai. Kolam olak (stilling basin) memicu fenomena Loncatan Hidrolik (Hydraulic Jump) untuk membenturkan aliran cepat menjadi pusaran turbulen terkendali sehingga energinya habis sebelum mengalir tenang ke hilir.\n\nBatas Akurasi: Bentuk blok penghadang dan ambang ujung kolam olak disesuaikan dengan bilangan Froude aliran.\nReferensi: USBR Engineering Monograph No. 25 — Hydraulic Design of Stilling Basins.\n\nPertanyaan diskusi: Pernah perhatiin cincin air tenang waktu keran jatuh ke dasar wastafel? (LANGSUNG COBA! vs FISIKA KEREN!)\nTekan tombol putih di bawah agar mendapatkan hal-hal yang gak disangka setiap hari!\n\n#KnotTheory #InfrastrukturTersembunyi #CaraKerjaMesin #SainsSehariHari #Shorts",
@@ -30,7 +30,7 @@
   "timezone": "Asia/Makassar",
   "render_provenance": {
     "engine": "ai-kids-studio-3d-cpp",
-    "entrypoint": "src/knot_shorts_engine.py",
+    "entrypoint": "src/knot_v5_director.py",
     "manifest": "upload/provenance/KT-S13.json"
   }
 }

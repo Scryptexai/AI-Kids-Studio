@@ -1,0 +1,76 @@
+{
+  "version": 1,
+  "about": "Mob motion for Minecraft mode, tuned on the Mob Farm hook. A preset is applied to one or more mobs; `phase` gives each mob's frame offset in the order they are listed (stagger: never two mobs on the same frame). keys: at = frame (or \"arrive\" = when a walk at `walkSpeed` blocks/frame reaches its point); where = origin (the mob's spot) | to (the `to` param, one point per mob or one for all) | target (the `target` id's spot) | above (origin + [0, drop, 0]) | back (origin moved `recoil` blocks away from `to`) | [dx,dy,dz]; facing = number (Minecraft yaw: 0 +z, -90 +x, 90 -x, 180 -z) | \"target\" | \"to\" | \"keep\" (default) with sway = +-degrees; look = \"target\" (its head) | null | \"keep\". Idle (breathing, head looks) is drawn by the renderer at all times: mobs are never frozen. Expanded by src/director/minecraft/presets.ts.",
+  "presets": {
+    "spawn_drop": {
+      "use": "mobs spawn: drop in from above, squash-land with a puff, eyes snap on",
+      "phase": [0, 3, 6],
+      "params": { "drop": 2.8 },
+      "anticipation": "appear small (scale 0.35) above the spot",
+      "followThrough": "land overshoots to scale 1.18 then settles to 1 in 4 frames",
+      "easing": "fall expoIn, settle inOut",
+      "keys": [{ "at": -1, "where": "origin", "hidden": true }, { "at": 0, "where": "above", "scale": 0.35 },
+        { "at": 7, "where": "origin", "scale": 1.18, "ease": "expoIn" }, { "at": 11, "where": "origin", "scale": 1 }],
+      "eyes": [[6, 0], [7, 1.5], [13, 1]],
+      "bursts": [{ "at": 7, "where": "origin", "colors": "puff", "n": 24, "speed": 2.4, "size": 0.12 }],
+      "shake": [{ "at": 7, "amp": 0.08, "len": 8 }],
+      "notes": "Land the first mob ON its word (monsters / spawn); the others follow on the phase offsets."
+    },
+    "eyes_snap": {
+      "use": "glowing eyes open in the dark (tease optional)",
+      "phase": [0, 2, 4],
+      "keys": [],
+      "eyes": [[-1, 0], [0, 1.5], [6, 1]]
+    },
+    "stagger_wander": {
+      "use": "mobs wander aimlessly: each walks to its own `to` point, start times staggered, facing sways",
+      "phase": [0, 4, 9],
+      "params": { "to": "one point per mob" },
+      "walkSpeed": 0.15,
+      "sway": 12,
+      "keys": [{ "at": 0, "where": "origin", "facing": "to", "look": null }, { "at": "arrive", "where": "to", "facing": "to", "look": null, "ease": "linear" }],
+      "notes": "Cross the mobs' paths in depth (one near, one far) so the frame never shows a line-up."
+    },
+    "wall_bump": {
+      "use": "a mob walks into a wall and recoils (comedy beat: they are dumb in the dark)",
+      "phase": [0],
+      "params": { "to": "the point against the wall", "recoil": 0.5 },
+      "walkSpeed": 0.08,
+      "keys": [{ "at": 0, "where": "origin", "facing": "to", "look": null }, { "at": "arrive", "where": "to", "facing": "to", "ease": "linear" },
+        { "at": "arrive+4", "where": "back", "facing": "to", "ease": "cubicOut" }, { "at": "arrive+10", "where": "back", "facing": 150, "look": null }],
+      "notes": "The recoil frames are cubicOut (snap back, slow stop)."
+    },
+    "turn_to_look": {
+      "use": "a mob notices the target: head first, body 2 frames later",
+      "phase": [0, 2, 5],
+      "params": { "target": "id" },
+      "keys": [{ "at": 0, "where": "origin", "look": "target" }, { "at": 2, "where": "origin", "facing": "target", "look": "target", "ease": "backOut" }]
+    },
+    "menace_approach": {
+      "use": "mobs close in on the target slowly, swaying (zombie shuffle), stopping short",
+      "phase": [0, 3, 6],
+      "params": { "target": "id", "to": "stop points (one per mob)" },
+      "walkSpeed": 0.11,
+      "sway": 25,
+      "keys": [{ "at": 0, "where": "origin", "facing": "to", "look": "target" }, { "at": "arrive", "where": "to", "facing": "target", "look": "target", "ease": "linear" },
+        { "at": "arrive+6", "where": [0.1, 0, 0.05], "facing": "target", "look": "target" }],
+      "notes": "Sway: facing alternates +-25 deg every 6 frames while walking (r8 note: straight walks read as robots)."
+    },
+    "bow_draw_fire": {
+      "use": "a skeleton turns, draws, fires an arrow that streaks and sticks at `to`",
+      "phase": [0],
+      "params": { "target": "id", "to": "where the arrow sticks (beside the target, never in the face)" },
+      "anticipation": "turn to the target with backOut (2 frames), draw aim 0.2 -> 1 over 5 frames cubicOut, hold 1",
+      "followThrough": "release snaps aim to 0.3 (expoOut, 2 frames), redraws to 0.8 by +14",
+      "easing": "turn backOut, draw cubicOut, release expoOut",
+      "keys": [{ "at": 0, "where": "origin", "facing": "target", "look": "target", "aim": 0.2, "ease": "backOut" },
+        { "at": 5, "where": "origin", "facing": "target", "look": "target", "aim": 1, "ease": "cubicOut" },
+        { "at": 6, "where": "origin", "facing": "target", "look": "target", "aim": 1 },
+        { "at": 8, "where": "origin", "facing": "target", "look": "target", "aim": 0.3, "ease": "expoOut" },
+        { "at": 14, "where": "origin", "facing": "target", "look": "target", "aim": 0.8 }],
+      "arrow": { "release": 6, "flight": 4, "from": [0.3, 1.4, 0], "trail": { "color": "#fff1c8", "len": 4 }, "quiver": [0.28, -0.2, 0.12, -0.05, 0] },
+      "bursts": [{ "at": 10, "where": "to", "colors": "stone", "n": 14, "speed": 2.4, "size": 0.08 }],
+      "shake": [{ "at": 10, "amp": 0.08, "len": 8 }]
+    }
+  }
+}

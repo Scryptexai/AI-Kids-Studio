@@ -1,0 +1,38 @@
+{
+  "name": "joy",
+  "use": "warm happiness, a win that is not cocky",
+  "layers": {
+    "face": {
+      "expr": "joy",
+      "v3": {
+        "low": 0.45,
+        "brow": [
+          -3,
+          -3
+        ],
+        "mouth": {
+          "w": 11,
+          "c": 0.8,
+          "open": 0.45,
+          "teeth": 1,
+          "tilt": 1
+        }
+      }
+    },
+    "body": [
+      {
+        "at": 0,
+        "len": 6,
+        "action": "body.chuckle"
+      }
+    ],
+    "timing": {
+      "lead": 3,
+      "morph": 7,
+      "blinkOnSwap": true,
+      "holdMin": 14
+    }
+  },
+  "readsAs": "cheeks up, open smile",
+  "avoid": []
+}

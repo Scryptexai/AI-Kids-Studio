@@ -1,0 +1,87 @@
+{
+  "episode_id": "KT-S13",
+  "duration_s": 47.048,
+  "fps": 30,
+  "total_frames": 1411,
+  "speech_islands": 16,
+  "clauses": 13,
+  "beats": [
+    {
+      "index": 0,
+      "id": "hook",
+      "callout": "GEJOLAK AIR KAKI BENDUNGAN",
+      "cam": "establishing_wide",
+      "text": "Air super deras dari pelimpah bendungan ini sengaja dipaksa bergolak hebat tepat di kakinya!",
+      "speech_start_s": 0.164,
+      "speech_end_s": 5.335,
+      "start_s": 0.0,
+      "end_s": 5.609
+    },
+    {
+      "index": 1,
+      "id": "scour_hazard",
+      "callout": "BAHAYA GERUSAN FONDASI",
+      "cam": "macro_cutaway",
+      "text": "Kalau luncuran secepat itu langsung menyapu sungai, dasar tanah tergerus dalam hingga mengancam fondasi.",
+      "speech_start_s": 5.883,
+      "speech_end_s": 11.822,
+      "start_s": 5.609,
+      "end_s": 12.035
+    },
+    {
+      "index": 2,
+      "id": "sink_plate",
+      "callout": "CINCIN AIR KERAN DI PIRING",
+      "cam": "overhead_reveal",
+      "text": "Fisika serupa tampak saat air keran jatuh ke piring lalu membentuk cincin air tebal yang melambat.",
+      "speech_start_s": 12.249,
+      "speech_end_s": 18.797,
+      "start_s": 12.035,
+      "end_s": 19.123
+    },
+    {
+      "index": 3,
+      "id": "stilling_basin",
+      "callout": "STILLING BASIN & LOMPATAN AIR",
+      "cam": "low_angle_hero",
+      "text": "Di kolam stilling basin, balok beton memaksa aliran cepat melompat jadi aliran tebal lambat bernama lompatan hidraulik.",
+      "speech_start_s": 19.45,
+      "speech_end_s": 27.28,
+      "start_s": 19.123,
+      "end_s": 27.52
+    },
+    {
+      "index": 4,
+      "id": "boundary",
+      "callout": "SESUAI BATUAN LEMBAH SUNGAI",
+      "cam": "orbit_inspect",
+      "text": "Tipe pelimpah bendungan pun bervariasi menurut batuan lembahnya.",
+      "speech_start_s": 27.761,
+      "speech_end_s": 31.593,
+      "start_s": 27.52,
+      "end_s": 31.779
+    },
+    {
+      "index": 5,
+      "id": "closer",
+      "callout": "REM AIR ALAMI BENDUNGAN",
+      "cam": "push_in",
+      "text": "Oh, jadi pergolakan di kaki bendungan adalah rem air alami pelindung dasar sungai.",
+      "speech_start_s": 31.964,
+      "speech_end_s": 36.598,
+      "start_s": 31.779,
+      "end_s": 36.782
+    },
+    {
+      "index": 6,
+      "id": "cta",
+      "callout": "KOMEN & TOMBOL PUTIH!",
+      "cam": "cta_lock",
+      "text": "Coba cek cincin air waktu buka keran wastafel hari ini—mirip kan? Tulis di komentar, dan tekan tombol putih di bawah agar dapat hal-hal yang nggak disangka!",
+      "speech_start_s": 36.967,
+      "speech_end_s": 46.418,
+      "start_s": 36.782,
+      "end_s": 47.048
+    }
+  ]
+}

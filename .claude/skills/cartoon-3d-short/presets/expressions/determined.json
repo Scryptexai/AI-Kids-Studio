@@ -1,0 +1,41 @@
+{
+  "name": "determined",
+  "use": "working, committing to a risky move (digging, before a jump)",
+  "layers": {
+    "face": {
+      "expr": "determined",
+      "v3": {
+        "lid": 0.3,
+        "brow": [
+          7,
+          -3
+        ],
+        "mouth": {
+          "w": 8,
+          "c": -0.15,
+          "tilt": -1
+        }
+      }
+    },
+    "body": [
+      {
+        "at": 0,
+        "len": 3,
+        "action": "body.nod",
+        "params": {
+          "n": 1
+        }
+      }
+    ],
+    "timing": {
+      "lead": 3,
+      "morph": 7,
+      "blinkOnSwap": true,
+      "holdMin": 12
+    }
+  },
+  "readsAs": "focused, lids low, brows down to the nose, flat mouth",
+  "avoid": [
+    "holding it over a reaction beat: swap to fear/terror on the hit"
+  ]
+}

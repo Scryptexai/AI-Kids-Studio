@@ -1,0 +1,98 @@
+{
+  "episode_id": "KT-R06",
+  "duration_s": 52.122,
+  "fps": 30,
+  "total_frames": 1564,
+  "speech_islands": 15,
+  "clauses": 16,
+  "beats": [
+    {
+      "index": 0,
+      "id": "hook",
+      "callout": "BOLA 660 TON DI PUNCAK MENARA",
+      "cam": "low_angle_hero",
+      "text": "Di puncak pencakar langit, tergantung bola baja ratusan ton yang sengaja dibiarkan berayun!",
+      "speech_start_s": 0.0,
+      "speech_end_s": 6.096,
+      "start_s": 0.0,
+      "end_s": 6.38
+    },
+    {
+      "index": 1,
+      "id": "wind_vortex",
+      "callout": "ANGIN TOPAN BIKIN LANTAI GOYANG",
+      "cam": "establishing_wide",
+      "text": "Saat angin topan menghantam menara tinggi, pusaran udara memicu goyangan yang bikin penghuni atas pusing.",
+      "speech_start_s": 6.664,
+      "speech_end_s": 13.904,
+      "start_s": 6.38,
+      "end_s": 14.064
+    },
+    {
+      "index": 2,
+      "id": "tmd_tuning",
+      "callout": "TUNED MASS DAMPER SELARAS",
+      "cam": "orbit_inspect",
+      "text": "Bola Tuned Mass Damper ini digantung kabel baja agar frekuensinya selaras dengan ayunan gedung.",
+      "speech_start_s": 14.224,
+      "speech_end_s": 19.969,
+      "start_s": 14.064,
+      "end_s": 20.142
+    },
+    {
+      "index": 3,
+      "id": "counter_sway",
+      "callout": "GEDUNG KE KIRI • BOLA KE KANAN",
+      "cam": "split_compare",
+      "text": "Saat angin mendorong gedung ke kiri, inersia bola tertinggal ke kanan menarik silinder hidraulik.",
+      "speech_start_s": 20.316,
+      "speech_end_s": 26.086,
+      "start_s": 20.142,
+      "end_s": 26.263
+    },
+    {
+      "index": 4,
+      "id": "hydraulic_heat",
+      "callout": "GOYANGAN JADI PANAS OLI",
+      "cam": "macro_cutaway",
+      "text": "Silinder itu mengubah energi goyangan gedung menjadi panas halus di dalam cairan peredam.",
+      "speech_start_s": 26.44,
+      "speech_end_s": 32.019,
+      "start_s": 26.263,
+      "end_s": 32.24
+    },
+    {
+      "index": 5,
+      "id": "boundary",
+      "callout": "PEREDAM ANGIN ≠ RANGKA GEMPA",
+      "cam": "dolly_pan",
+      "text": "Batasnya, bandul ini utama meredam angin, bukan pengganti rangka tahan gempa utama.",
+      "speech_start_s": 32.462,
+      "speech_end_s": 38.314,
+      "start_s": 32.24,
+      "end_s": 38.314
+    },
+    {
+      "index": 6,
+      "id": "closer",
+      "callout": "BANDUL LAWAN ARAH ANGIN",
+      "cam": "push_in",
+      "text": "Oh, jadi bola raksasa itu mengayun lawan arah angin untuk mengisap energi goyangan menara.",
+      "speech_start_s": 38.314,
+      "speech_end_s": 44.574,
+      "start_s": 38.314,
+      "end_s": 44.694
+    },
+    {
+      "index": 7,
+      "id": "cta",
+      "callout": "KOMEN & TOMBOL PUTIH!",
+      "cam": "cta_lock",
+      "text": "Berani nonton bola ini bergoyang saat badai? Tulis di komentar, dan tekan tombol putih di bawah agar dapat hal yang gak disangka!",
+      "speech_start_s": 44.813,
+      "speech_end_s": 51.445,
+      "start_s": 44.694,
+      "end_s": 52.122
+    }
+  ]
+}

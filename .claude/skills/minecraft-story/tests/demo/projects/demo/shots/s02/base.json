@@ -1,0 +1,2 @@
+{ "shot": "s02", "order": 2, "title": "ruby close", "beat": "B01", "set": "street", "tag": "[BBS]", "size": "CU",
+  "subject": "ruby", "must_see": [], "cast": ["ruby"], "action": "Ruby menatap kamera", "start_word": { "word": "door", "nth": 1 }, "transition": "cut", "sfx": [], "est_frames": 90 }

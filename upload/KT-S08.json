@@ -1,11 +1,11 @@
 {
   "episode": "KT-S08",
   "slot_label": "SIANG_SHORT",
-  "video": "KT-S08_1080x1920_master.mp4",
+  "video": "KT-S08_1080x1920_v5_master.mp4",
   "thumbnail": "KT-S08_thumbnail.jpg",
-  "drive_file_id": "1BpLXA4-jeyVjMh9Fnsxo_wu40rONMxZq",
-  "size_bytes": 8566463,
-  "sha256": "af25bca4145c83cb6bf168d7f4b16d7f83872c1fbe3b9052f763a21f96d5736d",
+  "drive_file_id": "1HZY-iy-_Z5GX9SttTHCp_eiWeKFvxYOn",
+  "size_bytes": 8632610,
+  "sha256": "874a9b121199907ce9dd55967a22a89a8535277146557779611c5004520c4def",
   "title": "Helm Masih Mulus Setelah Jatuh? Di Dalamnya Sudah Menyerah #Shorts",
   "hook": "Helm ini tampak mulus mengilap habis kecelakaan, padahal dalamnya sudah menyerah!",
   "description": "Helm ini tampak mulus mengilap habis kecelakaan, padahal dalamnya sudah menyerah!\n\nBanyak pengendara mengira helm yang kulit luarnya mulus tanpa retak masih aman dipakai lagi setelah benturan keras. Padahal penyelamat utama kepala justru ada di balik cangkang luar itu.\n\nLapisan busa padat EPS (Expanded Polystyrene) dirancang remuk permanen satu kali pakai untuk memperpanjang waktu perlambatan tengkorak beberapa milidetik dan menyerap energi kejut. Setelah sel mikroskopis EPS memadat, ruang redamnya hilang meskipun cat luar tampak mengilap.\n\nBatas Akurasi: Standar uji keselamatan menilai batas akselerasi kepala (g-force) pada titik impak terukur.\nReferensi: Standar Helm UN ECE 22.06 & SNI 1811.\n\nPertanyaan diskusi: Habis benturan keras, kamu cek busa dalam helm atau luarnya aja? (LANGSUNG GANTI vs BARU TAHU EPS!)\nTekan tombol putih di bawah agar mendapatkan hal-hal yang gak disangka setiap hari!\n\n#KnotTheory #InfrastrukturTersembunyi #CaraKerjaMesin #SainsSehariHari #Shorts",
@@ -30,7 +30,7 @@
   "timezone": "Asia/Makassar",
   "render_provenance": {
     "engine": "ai-kids-studio-3d-cpp",
-    "entrypoint": "src/knot_shorts_engine.py",
+    "entrypoint": "src/knot_v5_director.py",
     "manifest": "upload/provenance/KT-S08.json"
   }
 }

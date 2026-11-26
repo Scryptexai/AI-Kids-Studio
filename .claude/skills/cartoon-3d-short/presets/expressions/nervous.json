@@ -1,0 +1,38 @@
+{
+  "name": "nervous",
+  "use": "unsure, about to try something",
+  "layers": {
+    "face": {
+      "expr": "nervous",
+      "v3": {
+        "brow": [
+          -6,
+          4
+        ],
+        "look": [
+          0.5,
+          0
+        ],
+        "mouth": {
+          "w": 9,
+          "wave": 1
+        }
+      }
+    },
+    "body": [
+      {
+        "at": 2,
+        "len": 6,
+        "action": "body.gulp"
+      }
+    ],
+    "timing": {
+      "lead": 3,
+      "morph": 7,
+      "blinkOnSwap": true,
+      "holdMin": 12
+    }
+  },
+  "readsAs": "brows up in the middle, wavy mouth, sweat",
+  "avoid": []
+}

@@ -1,0 +1,11 @@
+node_modules/
+out/
+# Mojang's textures and sounds: extracted from YOUR OWN game, never committed or shared
+mc-assets/
+public/mc-preview/
+*.png
+*.ogg
+*.wav
+*.mp4
+__pycache__/
+.cache/

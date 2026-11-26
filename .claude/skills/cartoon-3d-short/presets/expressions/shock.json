@@ -1,0 +1,40 @@
+{
+  "name": "shock",
+  "use": "close-up surprise only (face fills > 25 % of the frame height)",
+  "layers": {
+    "face": {
+      "expr": "shock",
+      "v3": {
+        "white": true,
+        "pupil": 0.55,
+        "brow": [
+          -8,
+          -7
+        ],
+        "mouth": {
+          "w": 9,
+          "open": 0.9,
+          "round": 1
+        }
+      }
+    },
+    "body": [
+      {
+        "at": 0,
+        "len": 8,
+        "action": "body.flinch",
+        "intensity": 0.8
+      }
+    ],
+    "timing": {
+      "lead": 3,
+      "morph": 7,
+      "blinkOnSwap": true,
+      "holdMin": 8
+    }
+  },
+  "readsAs": "white eyes + round O mouth",
+  "avoid": [
+    "medium or wide shots: the O mouth and small pupils read as sleepy; use terror"
+  ]
+}

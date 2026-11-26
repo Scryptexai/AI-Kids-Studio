@@ -1,0 +1,98 @@
+{
+  "episode_id": "KT-R05",
+  "duration_s": 52.682,
+  "fps": 30,
+  "total_frames": 1580,
+  "speech_islands": 21,
+  "clauses": 16,
+  "beats": [
+    {
+      "index": 0,
+      "id": "hook",
+      "callout": "REL LAS PANJANG BISA MELIPAT",
+      "cam": "establishing_wide",
+      "text": "Rel kereta modern dilas panjang tanpa celah, tapi saat terik ekstrem bisa melengkung bagai ular!",
+      "speech_start_s": 0.163,
+      "speech_end_s": 5.943,
+      "start_s": 0.0,
+      "end_s": 6.188
+    },
+    {
+      "index": 1,
+      "id": "solar_compression",
+      "callout": "TEKANAN MUAI PANAS TERPERANGKAP",
+      "cam": "macro_cutaway",
+      "text": "Saat baja terpanggang matahari tanpa ruang muai, gaya tekan raksasa terperangkap di batang rel.",
+      "speech_start_s": 6.434,
+      "speech_end_s": 11.951,
+      "start_s": 6.188,
+      "end_s": 12.084
+    },
+    {
+      "index": 2,
+      "id": "track_buckling",
+      "callout": "TRACK BUCKLING KE SAMPING",
+      "cam": "overhead_reveal",
+      "text": "Bila batu kricak samping bantalan kurang padat, rel melepas tekanan dengan melipat ke samping.",
+      "speech_start_s": 12.217,
+      "speech_end_s": 18.219,
+      "start_s": 12.084,
+      "end_s": 18.419
+    },
+    {
+      "index": 3,
+      "id": "rail_tensor",
+      "callout": "TARIKAN SUHU NETRAL & KLIP BAJA",
+      "cam": "low_angle_hero",
+      "text": "Maka insinyur menarik rel memakai dongkrak hidraulik lalu menguncinya pada suhu netral rancangan.",
+      "speech_start_s": 18.619,
+      "speech_end_s": 25.231,
+      "start_s": 18.419,
+      "end_s": 25.417
+    },
+    {
+      "index": 4,
+      "id": "ballast_shoulder",
+      "callout": "BAHU BATU BALAS PENGUNCI",
+      "cam": "dolly_pan",
+      "text": "Bahu batu balas juga dipadatkan lebar demi menahan bantalan beton agar tak bergeser.",
+      "speech_start_s": 25.603,
+      "speech_end_s": 31.248,
+      "start_s": 25.417,
+      "end_s": 31.418
+    },
+    {
+      "index": 5,
+      "id": "boundary",
+      "callout": "BATAS KECEPATAN CUACA PANAS",
+      "cam": "orbit_inspect",
+      "text": "Batasnya, saat panas lewat ambang desain, operator memberlakukan batas kecepatan darurat.",
+      "speech_start_s": 31.587,
+      "speech_end_s": 37.118,
+      "start_s": 31.418,
+      "end_s": 37.404
+    },
+    {
+      "index": 6,
+      "id": "closer",
+      "callout": "DIKUNCI TEGANG & BATU BALAS",
+      "cam": "push_in",
+      "text": "Oh, jadi rel tanpa celah tetap lurus berkat tarikan suhu netral dan kuncian batu balas.",
+      "speech_start_s": 37.691,
+      "speech_end_s": 43.607,
+      "start_s": 37.404,
+      "end_s": 43.767
+    },
+    {
+      "index": 7,
+      "id": "cta",
+      "callout": "KOMEN & TOMBOL PUTIH!",
+      "cam": "cta_lock",
+      "text": "Kangen bunyi jeglek rel lama atau suka rel mulus? Tulis di komentar, dan tekan tombol putih di bawah agar dapat hal yang gak disangka!",
+      "speech_start_s": 43.927,
+      "speech_end_s": 52.018,
+      "start_s": 43.767,
+      "end_s": 52.682
+    }
+  ]
+}

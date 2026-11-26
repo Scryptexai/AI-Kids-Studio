@@ -1,0 +1,11 @@
+{
+  "episode_id": "KT-R05",
+  "master_mp4": "/home/user/AI-Kids-Studio/output/KT-R05_master.mp4",
+  "thumbnail_jpg": "/home/user/AI-Kids-Studio/upload/thumbs/KT-R05_thumbnail.jpg",
+  "duration_s": 52.682,
+  "total_frames": 1580,
+  "fps": 30,
+  "bytes": 14570172,
+  "sha256": "fc717d9ba1250f0231c1d2480e0e0af193a0db46c7028f60973d291e76388f3e",
+  "qa_headline": "SPECS 1080x1920 30/1 fps, 1580 frames, 52.667 s; audio: aac 48000 Hz 2ch | LOUDNESS I:         -14.0 LUFS | LRA:         2.1 LU | Peak:       -1.0 dBFS | SILENCES none | FRAMES 1580; black []; unplanned white []; frozen spans >=12f []"
+}

@@ -1,0 +1,32 @@
+{
+  "name": "smile",
+  "use": "calm content, the moment before a turn (smile -> fear)",
+  "layers": {
+    "face": {
+      "expr": "smile",
+      "v3": {
+        "low": 0.3,
+        "brow": [
+          0,
+          -1
+        ],
+        "mouth": {
+          "w": 7,
+          "c": 0.6,
+          "tilt": 2.5
+        }
+      }
+    },
+    "body": [],
+    "timing": {
+      "lead": 3,
+      "morph": 7,
+      "blinkOnSwap": true,
+      "holdMin": 6
+    }
+  },
+  "readsAs": "soft smile, lower lid up",
+  "avoid": [
+    "as a reaction: too weak to read"
+  ]
+}

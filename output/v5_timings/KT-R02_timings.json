@@ -1,0 +1,98 @@
+{
+  "episode_id": "KT-R02",
+  "duration_s": 48.097,
+  "fps": 30,
+  "total_frames": 1443,
+  "speech_islands": 17,
+  "clauses": 17,
+  "beats": [
+    {
+      "index": 0,
+      "id": "hook",
+      "callout": "CELAH RAHASIA ANTAR GEDUNG",
+      "cam": "establishing_wide",
+      "text": "Saat dua gedung tinggi dibangun berdampingan, kenapa di antaranya disisakan celah tertutup pelat lipat?",
+      "speech_start_s": 0.0,
+      "speech_end_s": 5.924,
+      "start_s": 0.0,
+      "end_s": 6.175
+    },
+    {
+      "index": 1,
+      "id": "out_of_phase",
+      "callout": "AYUNAN GEMPA BEDA IRAMA",
+      "cam": "split_compare",
+      "text": "Ketika gempa mengguncang, gedung rendah kaku dan menara tinggi lentur mengayun dengan irama berbeda.",
+      "speech_start_s": 6.425,
+      "speech_end_s": 12.675,
+      "start_s": 6.175,
+      "end_s": 12.856
+    },
+    {
+      "index": 2,
+      "id": "pounding",
+      "callout": "BAHAYA SEISMIC POUNDING",
+      "cam": "low_angle_hero",
+      "text": "Jika dindingnya rapat, keduanya saling menghantam keras—disebut seismic pounding.",
+      "speech_start_s": 13.037,
+      "speech_end_s": 17.388,
+      "start_s": 12.856,
+      "end_s": 17.683
+    },
+    {
+      "index": 3,
+      "id": "seismic_gap",
+      "callout": "JARAK AMAN AYUNAN PUNCAK",
+      "cam": "dolly_pan",
+      "text": "Insinyur menghitung celah pemisah gempa agar puncak kedua gedung bebas mengayun aman.",
+      "speech_start_s": 17.977,
+      "speech_end_s": 22.626,
+      "start_s": 17.683,
+      "end_s": 22.867
+    },
+    {
+      "index": 4,
+      "id": "accordion_bridge",
+      "callout": "PELAT AKORDEON JEMBATAN MAL",
+      "cam": "macro_cutaway",
+      "text": "Di jembatan mal, celah itu ditutup pelat akordeon fleksibel yang ikut bergeser.",
+      "speech_start_s": 23.108,
+      "speech_end_s": 27.909,
+      "start_s": 22.867,
+      "end_s": 28.116
+    },
+    {
+      "index": 5,
+      "id": "boundary",
+      "callout": "STANDAR GEMPA SNI 1726",
+      "cam": "orbit_inspect",
+      "text": "Batasnya, lebar celah dihitung menurut tinggi gedung dan zona gempa standar SNI 1726.",
+      "speech_start_s": 28.323,
+      "speech_end_s": 34.77,
+      "start_s": 28.116,
+      "end_s": 34.989
+    },
+    {
+      "index": 6,
+      "id": "closer",
+      "callout": "RUANG GOYANG ANTI BENTURAN",
+      "cam": "push_in",
+      "text": "Oh, jadi celah antar gedung adalah ruang goyang aman agar dua menara tak berbenturan.",
+      "speech_start_s": 35.208,
+      "speech_end_s": 40.161,
+      "start_s": 34.989,
+      "end_s": 40.346
+    },
+    {
+      "index": 7,
+      "id": "cta",
+      "callout": "KOMEN & TOMBOL PUTIH!",
+      "cam": "cta_lock",
+      "text": "Pernah injak pelat celah ini di mal? Komen ya, dan tekan tombol putih di bawah agar dapat hal yang gak disangka!",
+      "speech_start_s": 40.531,
+      "speech_end_s": 47.424,
+      "start_s": 40.346,
+      "end_s": 48.097
+    }
+  ]
+}

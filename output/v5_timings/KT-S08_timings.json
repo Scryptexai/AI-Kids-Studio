@@ -1,0 +1,87 @@
+{
+  "episode_id": "KT-S08",
+  "duration_s": 45.777,
+  "fps": 30,
+  "total_frames": 1373,
+  "speech_islands": 15,
+  "clauses": 14,
+  "beats": [
+    {
+      "index": 0,
+      "id": "hook",
+      "callout": "LUAR MULUS ≠ AMAN",
+      "cam": "low_angle_hero",
+      "text": "Helm ini tampak mulus mengilap habis kecelakaan, padahal dalamnya sudah menyerah!",
+      "speech_start_s": 0.0,
+      "speech_end_s": 4.316,
+      "start_s": 0.0,
+      "end_s": 4.482
+    },
+    {
+      "index": 1,
+      "id": "illusion",
+      "callout": "ILUSI CANGKANG LUAR",
+      "cam": "orbit_inspect",
+      "text": "Banyak pengendara merasa aman memakai helm lama selama cangkang luarnya tidak retak.",
+      "speech_start_s": 4.647,
+      "speech_end_s": 8.95,
+      "start_s": 4.482,
+      "end_s": 9.106
+    },
+    {
+      "index": 2,
+      "id": "cutaway",
+      "callout": "LAPISAN BUSA EPS PADAT",
+      "cam": "macro_cutaway",
+      "text": "Padahal peredam kejut utamanya adalah busa padat EPS di bagian dalam, bukan sekadar cangkang kerasnya.",
+      "speech_start_s": 9.262,
+      "speech_end_s": 15.321,
+      "start_s": 9.106,
+      "end_s": 15.553
+    },
+    {
+      "index": 3,
+      "id": "crush_vs_sponge",
+      "callout": "EPS PENYOK VS SPONS MEMBAL",
+      "cam": "split_compare",
+      "text": "Saat benturan keras dengan kepala di dalam, jutaan sel busa EPS sengaja penyok permanen menyerap energi dan tidak membal seperti spons.",
+      "speech_start_s": 15.786,
+      "speech_end_s": 24.621,
+      "start_s": 15.553,
+      "end_s": 24.831
+    },
+    {
+      "index": 4,
+      "id": "parking_drop",
+      "callout": "JATUH KOSONG ≠ TABRAKAN",
+      "cam": "establishing_wide",
+      "text": "Kasus helm jatuh kosong di parkiran berbeda dengan benturan kecelakaan, jadi ikuti panduan produsen.",
+      "speech_start_s": 25.042,
+      "speech_end_s": 30.662,
+      "start_s": 24.831,
+      "end_s": 30.662
+    },
+    {
+      "index": 5,
+      "id": "closer",
+      "callout": "REMUK SEKALI DEMI SELAMAT",
+      "cam": "push_in",
+      "text": "Oh, jadi busa dalam helm menyelamatkan kepala justru dengan remuk satu kali.",
+      "speech_start_s": 30.662,
+      "speech_end_s": 35.676,
+      "start_s": 30.662,
+      "end_s": 35.906
+    },
+    {
+      "index": 6,
+      "id": "cta",
+      "callout": "KOMEN & TOMBOL PUTIH!",
+      "cam": "cta_lock",
+      "text": "Kamu selama ini cuma cek mulus luar helm atau bagian dalamnya juga? Komen ya, dan tekan tombol putih di bawah agar dapat hal-hal yang nggak disangka!",
+      "speech_start_s": 36.135,
+      "speech_end_s": 45.147,
+      "start_s": 35.906,
+      "end_s": 45.777
+    }
+  ]
+}

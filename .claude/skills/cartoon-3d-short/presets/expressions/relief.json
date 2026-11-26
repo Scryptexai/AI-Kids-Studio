@@ -1,0 +1,36 @@
+{
+  "name": "relief",
+  "use": "danger passed",
+  "layers": {
+    "face": {
+      "expr": "relief",
+      "v3": {
+        "eye": "happy",
+        "brow": [
+          -2,
+          3
+        ],
+        "mouth": {
+          "w": 11,
+          "c": 0.75,
+          "tilt": 1
+        }
+      }
+    },
+    "body": [
+      {
+        "at": 0,
+        "len": 2,
+        "action": "face.blink"
+      }
+    ],
+    "timing": {
+      "lead": 3,
+      "morph": 7,
+      "blinkOnSwap": true,
+      "holdMin": 12
+    }
+  },
+  "readsAs": "closed happy eyes, smile",
+  "avoid": []
+}

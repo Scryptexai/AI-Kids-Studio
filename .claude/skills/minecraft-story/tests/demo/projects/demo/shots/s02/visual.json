@@ -1,0 +1,3 @@
+{ "time": 6000, "weather": "clear", "light": [],
+  "actors": [ { "id": "ruby", "fake": "Ruby", "anchor": "ruby_mark", "off": [0, 0, 0], "facing": "-z" } ],
+  "scarpet": [] }

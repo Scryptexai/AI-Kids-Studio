@@ -1,0 +1,52 @@
+{
+  "name": "terror",
+  "use": "the hit: a monster appears, an arrow lands beside you",
+  "layers": {
+    "face": {
+      "expr": "terror",
+      "v3": {
+        "white": true,
+        "pupil": 0.4,
+        "brow": [
+          -8,
+          -3
+        ],
+        "mouth": {
+          "w": 13,
+          "c": -0.6,
+          "open": 0.9,
+          "teeth": 2
+        },
+        "fx": [
+          "sweat",
+          "ticks"
+        ]
+      }
+    },
+    "body": [
+      {
+        "at": 0,
+        "len": 8,
+        "action": "body.flinch",
+        "intensity": 1.3
+      },
+      {
+        "at": 8,
+        "len": 6,
+        "action": "body.gulp",
+        "intensity": 1.3
+      }
+    ],
+    "timing": {
+      "lead": 3,
+      "morph": 7,
+      "blinkOnSwap": true,
+      "holdMin": 10,
+      "peak": "flinch overshoot on frame 2-3"
+    }
+  },
+  "readsAs": "huge white eyes, pinpoint pupils, wide open gritted mouth, sweat + shock ticks",
+  "avoid": [
+    "`shock` for a reaction at medium/wide size: it read as sleepy (r10); use terror"
+  ]
+}

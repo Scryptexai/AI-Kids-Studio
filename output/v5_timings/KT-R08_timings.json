@@ -1,0 +1,98 @@
+{
+  "episode_id": "KT-R08",
+  "duration_s": 53.844,
+  "fps": 30,
+  "total_frames": 1615,
+  "speech_islands": 19,
+  "clauses": 16,
+  "beats": [
+    {
+      "index": 0,
+      "id": "hook",
+      "callout": "AIR AMAN DI HOTEL 50 LANTAI",
+      "cam": "establishing_wide",
+      "text": "Di hotel lima puluh lantai, kenapa semburan kran lantai bawah tetap aman tanpa meledakkan pipa?",
+      "speech_start_s": 0.144,
+      "speech_end_s": 5.943,
+      "start_s": 0.0,
+      "end_s": 6.192
+    },
+    {
+      "index": 1,
+      "id": "hydrostatic_gain",
+      "callout": "+1 ATM TIAP TURUN 10 METER",
+      "cam": "dolly_pan",
+      "text": "Tiap sepuluh meter kolom air menambah satu atmosfer tekanan hidrostatik ke dasar pipa.",
+      "speech_start_s": 6.441,
+      "speech_end_s": 12.115,
+      "start_s": 6.192,
+      "end_s": 12.306
+    },
+    {
+      "index": 2,
+      "id": "pipe_burst",
+      "callout": "PIPA LURUS = KRAN BAWAH JEBOL",
+      "cam": "low_angle_hero",
+      "text": "Kalau pipa lurus disambung dari puncak ke dasar, kran lantai bawah dihantam tekanan raksasa hingga jebol.",
+      "speech_start_s": 12.496,
+      "speech_end_s": 18.328,
+      "start_s": 12.306,
+      "end_s": 18.543
+    },
+    {
+      "index": 3,
+      "id": "break_tank",
+      "callout": "TANGKI PEMUTUS LANTAI TENGAH",
+      "cam": "macro_cutaway",
+      "text": "Maka gedung tinggi dibagi zona vertikal dengan tangki pemutus tekanan di lantai mekanikal tengah.",
+      "speech_start_s": 18.758,
+      "speech_end_s": 23.819,
+      "start_s": 18.543,
+      "end_s": 23.997
+    },
+    {
+      "index": 4,
+      "id": "prv_bathroom",
+      "callout": "KATUP PRV KLOSET & SHOWER",
+      "cam": "split_compare",
+      "text": "Katup pengurang tekanan PRV menjaga aliran air kamar tetap stabil bagi kloset, wastafel, dan shower.",
+      "speech_start_s": 24.175,
+      "speech_end_s": 30.571,
+      "start_s": 23.997,
+      "end_s": 30.931
+    },
+    {
+      "index": 5,
+      "id": "boundary",
+      "callout": "STANDAR PLAMBING SNI 8153",
+      "cam": "orbit_inspect",
+      "text": "Batasnya, pembagian zona mengikuti batas tekanan kerja pipa standar plambing SNI 8153.",
+      "speech_start_s": 31.291,
+      "speech_end_s": 38.857,
+      "start_s": 30.931,
+      "end_s": 39.03
+    },
+    {
+      "index": 6,
+      "id": "closer",
+      "callout": "RESET TEKANAN TIAP ZONA",
+      "cam": "push_in",
+      "text": "Oh, jadi tangki tengah dan katup PRV mereset tekanan air agar pipa lantai bawah tak pecah.",
+      "speech_start_s": 39.203,
+      "speech_end_s": 44.452,
+      "start_s": 39.03,
+      "end_s": 44.726
+    },
+    {
+      "index": 7,
+      "id": "cta",
+      "callout": "KOMEN & TOMBOL PUTIH!",
+      "cam": "cta_lock",
+      "text": "Pernah lihat lantai tanpa jendela di tengah gedung? Tulis di komentar, dan tekan tombol putih di bawah agar dapat hal yang gak disangka!",
+      "speech_start_s": 45.0,
+      "speech_end_s": 53.148,
+      "start_s": 44.726,
+      "end_s": 53.844
+    }
+  ]
+}

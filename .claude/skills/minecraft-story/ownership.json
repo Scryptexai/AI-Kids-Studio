@@ -1,0 +1,21 @@
+{
+  "_doc": "Satu sumber wilayah file per agent. Dibaca oleh scripts/guard_paths.mjs (hook PreToolUse) dan scripts/check_ownership.mjs. Path relatif ke projects/<slug>/. Glob: * = satu segmen, ** = banyak segmen. Tiap agent otomatis juga boleh menulis REQUESTS/<agent>__*.md.",
+  "agents": {
+    "formula-analyst":     { "own": ["FORMULA.md"],                                   "read": ["refs/**", "<SKILL>/RULES.md"] },
+    "script-writer":       { "own": ["SCRIPT.md"],                                    "read": ["FORMULA.md", "<SKILL>/RULES.md"] },
+    "originality-checker": { "own": ["ORIGINALITY.md"],                               "read": ["SCRIPT.md", "FORMULA.md", "refs/**"] },
+    "storyboard-director": { "own": ["SHOTLIST.md", "LAYOUT.json", "shots/*/base.json"], "read": ["SCRIPT.md", "CAST.md", "<SKILL>/RULES.md", "<SKILL>/PIPELINE.md"] },
+    "set-builder":         { "own": ["sets/*/**", "shots/*/world.json"],              "read": ["LAYOUT.json", "SHOTLIST.md", "shots/*/base.json", "LOOK.md"] },
+    "visual-director":     { "own": ["LOOK.md", "shots/*/visual.json"],               "read": ["LAYOUT.json", "SHOTLIST.md", "CAST.md", "shots/*/base.json", "sets/*/SPEC.md"] },
+    "camera-director":     { "own": ["shots/*/camera.json"],                          "read": ["LAYOUT.json", "SHOTLIST.md", "shots/*/base.json", "sets/*/SPEC.md", "LOOK.md"] },
+    "continuity-checker":  { "own": [],                                               "read": ["**"] },
+    "packager-qa":         { "own": ["PUBLISH.md", "captions.srt", "QA.md"],          "read": ["**"] },
+    "compile_shots":       { "own": ["shots/*.json", ".wave/compile.json"],           "read": ["**"] }
+  },
+  "orchestrator_doc": "Tidak dipakai script. File yang ditulis orchestrator (bukan agent): CAST.md, CONTINUITY.md, REQUESTS.md, MODLIST.txt, assets/skins/**, audio/** (vo.wav, TIMING.md, words.json, mix.wav), captures/**, final.mp4 (scripts/assemble.mjs).",
+  "wave": ["set-builder", "visual-director", "camera-director"],
+  "readonly_after_gate5": ["SCRIPT.md", "CAST.md", "SHOTLIST.md", "LAYOUT.json", "shots/*/base.json", "assets/skins/**"],
+  "bash_forbidden": {
+    "set-builder": ["rcon\\.mjs", "shot\\.mjs[^\\n]*--run", "\\bmcrcon\\b"]
+  }
+}

@@ -1,0 +1,3 @@
+{ "time": 6000, "weather": "clear", "light": ["setblock 520 66 4 minecraft:light[level=12]"],
+  "actors": [ { "id": "kid1", "type": "minecraft:villager", "anchor": "kid_mark", "off": [0, 0, 0], "face": "well", "nbt": "{Age:-24000}" } ],
+  "scarpet": [ { "app": "crowd", "fn": "wander", "args": ["minecraft:villager", 3, { "anchor": "well", "off": [0, 0, 0] }, 5, 2] } ] }

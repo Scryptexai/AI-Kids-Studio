@@ -1,0 +1,5 @@
+{"fps": 30, "size": [1080, 1920], "final": [1440, 2560], "xfade_f": 12, "cam_speed_peak_px_f": 77,
+ "store_compare_shot": {"fov": 58, "note": "front camera on the lift, stairs behind; runner enters on the comparison word"},
+ "crowd_walk_in": {"ease_out_f": 24, "stagger_f": 5, "from_offscreen_m": 2.2},
+ "mix_lufs": {"voice": -16, "music": -25, "sfx": -29, "master": -15, "true_peak_dbtp": -1.0},
+ "render": {"draft_concurrency": 3, "final_concurrency": 2, "gate_frames": [1330, 1990]}}

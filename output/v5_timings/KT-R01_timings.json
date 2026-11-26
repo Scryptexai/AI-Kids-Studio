@@ -1,0 +1,98 @@
+{
+  "episode_id": "KT-R01",
+  "duration_s": 53.956,
+  "fps": 30,
+  "total_frames": 1619,
+  "speech_islands": 21,
+  "clauses": 18,
+  "beats": [
+    {
+      "index": 0,
+      "id": "hook_sill",
+      "callout": "2 REL TERPISAH DI CELAH LIFT",
+      "cam": "low_angle_hero",
+      "text": "Saat pintu lift terbuka, lihat celah bawahnya: ada dua pasang pintu terpisah yang bergerak serempak!",
+      "speech_start_s": 0.173,
+      "speech_end_s": 6.639,
+      "start_s": 0.0,
+      "end_s": 6.8
+    },
+    {
+      "index": 1,
+      "id": "inner_vs_outer",
+      "callout": "PINTU KABIN VS PINTU LANTAI",
+      "cam": "split_compare",
+      "text": "Satu menempel di sangkar kabin, sedangkan pintu luar menempel tetap pada tembok tiap lantai.",
+      "speech_start_s": 6.962,
+      "speech_end_s": 12.576,
+      "start_s": 6.8,
+      "end_s": 12.728
+    },
+    {
+      "index": 2,
+      "id": "empty_shaft",
+      "callout": "BAHAYA RUANG LUNCUR KOSONG",
+      "cam": "establishing_wide",
+      "text": "Tanpa pengunci otomatis, pintu lantai bisa terbuka ke ruang luncur kosong yang amat berbahaya.",
+      "speech_start_s": 12.88,
+      "speech_end_s": 18.254,
+      "start_s": 12.728,
+      "end_s": 18.477
+    },
+    {
+      "index": 3,
+      "id": "interlock_hook",
+      "callout": "KAIT MEKANIS INTERLOCK",
+      "cam": "macro_cutaway",
+      "text": "Maka pintu luar tidak bermotor sendiri, melainkan dikunci kait mekanis interlock dari dalam ruang luncur.",
+      "speech_start_s": 18.7,
+      "speech_end_s": 24.479,
+      "start_s": 18.477,
+      "end_s": 24.621
+    },
+    {
+      "index": 4,
+      "id": "clutch_vane",
+      "callout": "BILAH KABIN MENGAIT RODA",
+      "cam": "push_in",
+      "text": "Hanya saat sangkar sejajar lantai, bilah kabin mengait roda kunci lalu menyeret pintu luar terbuka.",
+      "speech_start_s": 24.763,
+      "speech_end_s": 30.71,
+      "start_s": 24.621,
+      "end_s": 31.047
+    },
+    {
+      "index": 5,
+      "id": "boundary",
+      "callout": "STANDAR LIFT ASME A17.1",
+      "cam": "orbit_inspect",
+      "text": "Batasnya, pemeriksaan kait dan sensor wajib mengikuti standar keselamatan lift ASME A17.1.",
+      "speech_start_s": 31.384,
+      "speech_end_s": 38.38,
+      "start_s": 31.047,
+      "end_s": 38.38
+    },
+    {
+      "index": 6,
+      "id": "closer",
+      "callout": "TERBUKA HANYA SAAT KABIN TIBA",
+      "cam": "dolly_pan",
+      "text": "Oh, jadi pintu lantai lift sengaja digandeng kabin supaya mustahil terbuka saat kabin belum tiba.",
+      "speech_start_s": 38.38,
+      "speech_end_s": 45.924,
+      "start_s": 38.38,
+      "end_s": 46.203
+    },
+    {
+      "index": 7,
+      "id": "cta",
+      "callout": "KOMEN & TOMBOL PUTIH!",
+      "cam": "cta_lock",
+      "text": "Pernah sadar dua lapis pintu ini? Tulis di komentar, dan tekan tombol putih di bawah agar dapat hal yang gak disangka!",
+      "speech_start_s": 46.483,
+      "speech_end_s": 53.306,
+      "start_s": 46.203,
+      "end_s": 53.956
+    }
+  ]
+}

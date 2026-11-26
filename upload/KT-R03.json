@@ -1,11 +1,11 @@
 {
   "episode": "KT-R03",
   "slot_label": "SIANG_SHORT",
-  "video": "KT-R03_1080x1920_master.mp4",
+  "video": "KT-R03_1080x1920_v5_master.mp4",
   "thumbnail": "KT-R03_thumbnail.jpg",
-  "drive_file_id": "19TgN3O5oSPTC8LINojhTQt9vCpyOZTHm",
-  "size_bytes": 7741523,
-  "sha256": "2f72d4f7e7172fa8e78297db103245a63f56f2fcd0247d92c0b2ded5a8eca1e6",
+  "drive_file_id": "1sJAbTK5HegLUNYa5OPoWBUJdY1hfBd3P",
+  "size_bytes": 12874259,
+  "sha256": "54c3d54db952213637ad2d191488376e7bcc0bd01be8583df4d161dd41d97810",
   "title": "Asal Bunyi 'Tok-Tok' Saat Ban Mobil Melintas di Ujung Jembatan #Shorts",
   "hook": "Setiap lewat ujung jalan layang, ban mobil pasti berbunyi tok-tok di atas pelat besi bergerigi.",
   "description": "Setiap lewat ujung jalan layang, ban mobil pasti berbunyi tok-tok di atas pelat besi bergerigi.\n\nBentang jembatan beton dan baja terus memanjang saat terik siang lalu menyusut saat malam dingin. Kalau ujung jembatan dicor mati ke tanah, dorongan muai raksasa akan meretakkan kepala jembatan. Maka dipasang expansion joint berupa jari baja saling silang yang bergeser sambil menopang roda. Namun bila bunyinya jadi dentuman logam kasar, itu tanda baut atau karet peredamnya mulai aus. Batasnya, lebar celah tergantung panjang bentang dan suhu sesuai pedoman jembatan Bina Marga.\n\nBatas Akurasi: Lebih sering dengar ketukan halus atau keras? Jawab di komentar, dan tekan tombol putih di bawah agar dapat hal yang gak disangka!\nReferensi: SNI 1725 / AASHTO LRFD Bridge Design Specifications • Bridge Expansion Joints\n\nPertanyaan diskusi: Bunyi mana yang paling sering kamu dengar di jalan layang? Pilih di komentar: Ketukan Halus atau Dentuman Keras! (KETUKAN HALUS vs DENTUMAN KERAS)\nTekan tombol putih di bawah agar mendapatkan hal-hal yang gak disangka setiap hari!\n\n#KnotTheory #InfrastrukturTersembunyi #CaraKerjaMesin #SainsSehariHari #Shorts",
@@ -30,7 +30,7 @@
   "timezone": "Asia/Makassar",
   "render_provenance": {
     "engine": "ai-kids-studio-3d-cpp",
-    "entrypoint": "src/knot_shorts_engine.py",
+    "entrypoint": "src/knot_v5_director.py",
     "manifest": "upload/provenance/KT-R03.json"
   }
 }

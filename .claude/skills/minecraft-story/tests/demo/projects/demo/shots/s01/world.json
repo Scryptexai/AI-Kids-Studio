@@ -1,0 +1,1 @@
+{ "set": "street", "build": { "mode": "file", "file": "sets/street/build/street.mcfunction" }, "delta": [] }

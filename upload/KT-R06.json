@@ -1,11 +1,11 @@
 {
   "episode": "KT-R06",
   "slot_label": "SIANG_SHORT",
-  "video": "KT-R06_1080x1920_master.mp4",
+  "video": "KT-R06_1080x1920_v5_master.mp4",
   "thumbnail": "KT-R06_thumbnail.jpg",
-  "drive_file_id": "1J64j7BnhT-yTUnTGb9FAZuEOEb7oVZoU",
-  "size_bytes": 8835619,
-  "sha256": "37ac1e3dd06ac2fa9c299aeaf1dcd5c40ae26f161937b0bf4c15da43013daeb3",
+  "drive_file_id": "1grexD8xZRmeXLbhikwx6L9kbjzwMLmRZ",
+  "size_bytes": 18963758,
+  "sha256": "2ec76a1b359392e92dc63821ede9c181b5aee3ad412ec79d0103edc334e4c615",
   "title": "Bola Baja Ratusan Ton yang Sengaja Bergoyang di Puncak Pencakar Langit #Shorts",
   "hook": "Di puncak beberapa pencakar langit dunia, tergantung bola baja ratusan ton yang sengaja dibiarkan berayun.",
   "description": "Di puncak beberapa pencakar langit dunia, tergantung bola baja ratusan ton yang sengaja dibiarkan berayun.\n\nSaat angin topan menghantam menara tinggi, pusaran udara memicu goyangan yang membuat penghuni atas pusing. Bola Tuned Mass Damper ini digantung kabel presisi agar frekuensinya selaras dengan ayunan gedung. Ketika angin mendorong gedung ke kiri, inersia bola tertinggal ke kanan menarik silinder hidrolik. Silinder itu mengubah energi goyangan gedung menjadi panas halus di dalam cairan peredam. Batasnya, alat ini utama meredam angin, bukan pengganti rangka tahan gempa utama.\n\nBatas Akurasi: Berani nonton bola ini bergoyang saat badai? Tulis di komentar, dan tekan tombol putih di bawah agar dapat hal yang gak disangka!\nReferensi: CTBUH Damping Technologies for Tall Buildings • Tuned Mass Damper (TMD)\n\nPertanyaan diskusi: Berani berdiri menonton bola ratusan ton ini bergoyang saat badai? Jawab di komentar: Berani Nonton atau Pilih Turun Lift! (BERANI NONTON! vs TURUN LIFT AJA)\nTekan tombol putih di bawah agar mendapatkan hal-hal yang gak disangka setiap hari!\n\n#KnotTheory #InfrastrukturTersembunyi #CaraKerjaMesin #SainsSehariHari #Shorts",
@@ -30,7 +30,7 @@
   "timezone": "Asia/Makassar",
   "render_provenance": {
     "engine": "ai-kids-studio-3d-cpp",
-    "entrypoint": "src/knot_shorts_engine.py",
+    "entrypoint": "src/knot_v5_director.py",
     "manifest": "upload/provenance/KT-R06.json"
   }
 }

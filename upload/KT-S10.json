@@ -1,11 +1,11 @@
 {
   "episode": "KT-S10",
   "slot_label": "PAGI_SHORT",
-  "video": "KT-S10_1080x1920_master.mp4",
+  "video": "KT-S10_1080x1920_v5_master.mp4",
   "thumbnail": "KT-S10_thumbnail.jpg",
-  "drive_file_id": "1a6Yhlj-8J8K76ueAaO7t4sT035HmEpkC",
-  "size_bytes": 6406478,
-  "sha256": "e6bf375beb8b3fad315fa3ae98160565b86f8ece741591a531f36628e5fdd933",
+  "drive_file_id": "1eicM7rbEQcLlm5Wl0S3pcc2QSp5bZ3Cy",
+  "size_bytes": 10554656,
+  "sha256": "7acb9c6c5cbb37c09847dca89fb76fa3734227c932390a9b5f814a54f03191ec",
   "title": "Kenapa MCB Listrik Sengaja Menunggu Sebelum Memutus Arus? #Shorts",
   "hook": "Sakelar pemutus listrik MCB di rumahmu ternyata sengaja menunggu sebelum mematikan arus!",
   "description": "Sakelar pemutus listrik MCB di rumahmu ternyata sengaja menunggu sebelum mematikan arus!\n\nKenapa MCB kadang baru turun beberapa menit saat kita menyalakan terlalu banyak alat elektronik, tapi langsung jeglek dalam hitungan milidetik saat terjadi korsleting?\n\nDi dalam satu kotak MCB tersembunyi dua mekanisme berbeda: keping dwilogam (bimetal) termal yang melengkung perlahan pada beban berlebih ringan agar lonjakan awal motor kulkas/AC tidak memadamkan rumah, serta kumparan elektromagnetik yang langsung memukul tuas trip seketika saat arus hubung singkat melonjak berkali-kali lipat.\n\nBatas Akurasi: Kurva waktu-arus mengikuti tipe karakteristik MCB (B, C, atau D).\nReferensi: Standar Pemutus Sirkit Arus Lebih IEC 60898-1 / PUIL.\n\nPertanyaan diskusi: Listrik rumahmu paling sering turun gara-gara alat apa nyala barengan? (POMPA & SETRIKA vs AC & DISPENSER)\nTekan tombol putih di bawah agar mendapatkan hal-hal yang gak disangka setiap hari!\n\n#KnotTheory #InfrastrukturTersembunyi #CaraKerjaMesin #SainsSehariHari #Shorts",
@@ -30,7 +30,7 @@
   "timezone": "Asia/Makassar",
   "render_provenance": {
     "engine": "ai-kids-studio-3d-cpp",
-    "entrypoint": "src/knot_shorts_engine.py",
+    "entrypoint": "src/knot_v5_director.py",
     "manifest": "upload/provenance/KT-S10.json"
   }
 }

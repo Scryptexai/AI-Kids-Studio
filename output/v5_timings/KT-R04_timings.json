@@ -1,0 +1,98 @@
+{
+  "episode_id": "KT-R04",
+  "duration_s": 52.23,
+  "fps": 30,
+  "total_frames": 1567,
+  "speech_islands": 19,
+  "clauses": 19,
+  "beats": [
+    {
+      "index": 0,
+      "id": "hook",
+      "callout": "TUTUP NONGOL • ASPAL AMBLES",
+      "cam": "establishing_wide",
+      "text": "Kenapa di banyak jalan raya, tutup besi manhole menonjol tinggi sementara aspal sekitarnya ambles?",
+      "speech_start_s": 0.158,
+      "speech_end_s": 6.152,
+      "start_s": 0.0,
+      "end_s": 6.322
+    },
+    {
+      "index": 1,
+      "id": "illusion",
+      "callout": "ASPAL TURUN, BUKAN BESI NAIK",
+      "cam": "low_angle_hero",
+      "text": "Sebenarnya bukan tutup besinya yang naik, melainkan lapisan jalan di sekelilingnya yang turun.",
+      "speech_start_s": 6.493,
+      "speech_end_s": 12.19,
+      "start_s": 6.322,
+      "end_s": 12.367
+    },
+    {
+      "index": 2,
+      "id": "shaft_vs_soil",
+      "callout": "CEROBONG KAKU VS TANAH URUG",
+      "cam": "split_compare",
+      "text": "Cerobong beton manhole berdiri kaku di fondasi dalam, sedangkan aspal menumpang di tanah urug.",
+      "speech_start_s": 12.544,
+      "speech_end_s": 18.271,
+      "start_s": 12.367,
+      "end_s": 18.566
+    },
+    {
+      "index": 3,
+      "id": "roller_compaction",
+      "callout": "SULIT DIGILAS MESIN ROLLER",
+      "cam": "dolly_pan",
+      "text": "Tepi melingkar cerobong sulit digilas alat berat, sehingga memadat saat dihantam truk ribuan kali.",
+      "speech_start_s": 18.86,
+      "speech_end_s": 24.779,
+      "start_s": 18.566,
+      "end_s": 24.976
+    },
+    {
+      "index": 4,
+      "id": "pipe_leak_erosion",
+      "callout": "BOCOR PIPA GERUS TANAH BAWAH",
+      "cam": "macro_cutaway",
+      "text": "Apalagi bila sambungan pipa bawah bocor halus, butiran tanah tergerus air dan aspal makin turun.",
+      "speech_start_s": 25.172,
+      "speech_end_s": 30.58,
+      "start_s": 24.976,
+      "end_s": 30.778
+    },
+    {
+      "index": 5,
+      "id": "boundary",
+      "callout": "URUGAN • DRAINASE • BEBAN TRUK",
+      "cam": "orbit_inspect",
+      "text": "Batasnya, amblesan ini dipengaruhi kepadatan urugan, drainase, hingga beban kendaraan berlebih.",
+      "speech_start_s": 30.976,
+      "speech_end_s": 37.182,
+      "start_s": 30.778,
+      "end_s": 37.356
+    },
+    {
+      "index": 6,
+      "id": "closer",
+      "callout": "BEDA KEKAKUAN DUA FONDASI",
+      "cam": "push_in",
+      "text": "Oh, jadi tutup manhole tampak nongol karena cerobongnya kaku sementara tanah aspalnya ikut turun.",
+      "speech_start_s": 37.53,
+      "speech_end_s": 43.356,
+      "start_s": 37.356,
+      "end_s": 43.486
+    },
+    {
+      "index": 7,
+      "id": "cta",
+      "callout": "KOMEN & TOMBOL PUTIH!",
+      "cam": "cta_lock",
+      "text": "Sering menghindar tutup manhole menonjol begini? Tulis di komentar, dan tekan tombol putih di bawah agar dapat hal yang gak disangka!",
+      "speech_start_s": 43.616,
+      "speech_end_s": 51.615,
+      "start_s": 43.486,
+      "end_s": 52.23
+    }
+  ]
+}

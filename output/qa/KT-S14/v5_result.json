@@ -1,0 +1,11 @@
+{
+  "episode_id": "KT-S14",
+  "master_mp4": "/home/user/AI-Kids-Studio/output/KT-S14_master.mp4",
+  "thumbnail_jpg": "/home/user/AI-Kids-Studio/upload/thumbs/KT-S14_thumbnail.jpg",
+  "duration_s": 42.757,
+  "total_frames": 1283,
+  "fps": 30,
+  "bytes": 9702851,
+  "sha256": "4156296f1dc5070dce685cac83b0f8971e6c00724d7974310016d267ec1dfedf",
+  "qa_headline": "SPECS 1080x1920 30/1 fps, 1282 frames, 42.757 s; audio: aac 48000 Hz 2ch | LOUDNESS I:         -14.0 LUFS | LRA:         1.7 LU | Peak:       -1.4 dBFS | SILENCES none | FRAMES 1282; black []; unplanned white []; frozen spans >=12f []"
+}

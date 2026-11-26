@@ -1,0 +1,98 @@
+{
+  "episode_id": "KT-R07",
+  "duration_s": 53.933,
+  "fps": 30,
+  "total_frames": 1618,
+  "speech_islands": 22,
+  "clauses": 16,
+  "beats": [
+    {
+      "index": 0,
+      "id": "hook_underpass",
+      "callout": "BALOK TOL TAK NEMPEL TIANG",
+      "cam": "low_angle_hero",
+      "text": "Kalau mendongak ke kolong tol layang, balok beton raksasa ternyata tak menempel langsung di kepala tiang!",
+      "speech_start_s": 0.0,
+      "speech_end_s": 5.926,
+      "start_s": 0.0,
+      "end_s": 6.021
+    },
+    {
+      "index": 1,
+      "id": "black_pad",
+      "callout": "BANTAL HITAM PENAHAN RIBUAN TON",
+      "cam": "push_in",
+      "text": "Di antaranya terselip kotak hitam setebal bantal yang sanggup memikul ribuan ton truk tanpa gepeng.",
+      "speech_start_s": 6.115,
+      "speech_end_s": 12.342,
+      "start_s": 6.021,
+      "end_s": 12.505
+    },
+    {
+      "index": 2,
+      "id": "rigid_crack",
+      "callout": "DIBAUT MATI = KEPALA TIANG PECAH",
+      "cam": "split_compare",
+      "text": "Jika balok jembatan dibaut mati ke tiang beton, lengkungan truk dan muai panas akan memecahkan tiang.",
+      "speech_start_s": 12.667,
+      "speech_end_s": 19.04,
+      "start_s": 12.505,
+      "end_s": 19.268
+    },
+    {
+      "index": 3,
+      "id": "laminated_cutaway",
+      "callout": "KARET + PELAT BAJA VULKANISASI",
+      "cam": "macro_cutaway",
+      "text": "Kotak itu elastomeric bearing: lapis karet sintetis dan pelat baja tipis yang divulkanisasi menyatu.",
+      "speech_start_s": 19.497,
+      "speech_end_s": 26.285,
+      "start_s": 19.268,
+      "end_s": 26.429
+    },
+    {
+      "index": 4,
+      "id": "shear_flex",
+      "callout": "BAJA MENAHAN • KARET BERGESER",
+      "cam": "dolly_pan",
+      "text": "Pelat baja menahan karet agar tak meluber, sedangkan lapis karetnya lentur bergeser maju-mundur.",
+      "speech_start_s": 26.573,
+      "speech_end_s": 31.456,
+      "start_s": 26.429,
+      "end_s": 31.66
+    },
+    {
+      "index": 5,
+      "id": "pot_bearing",
+      "callout": "POT BEARING BENTANG RAKSASA",
+      "cam": "orbit_inspect",
+      "text": "Batasnya, jembatan bentang raksasa atau zona gempa ekstrem memakai bantalan pot baja khusus.",
+      "speech_start_s": 31.864,
+      "speech_end_s": 37.565,
+      "start_s": 31.66,
+      "end_s": 37.744
+    },
+    {
+      "index": 6,
+      "id": "closer",
+      "callout": "KUAT TEGAK • LENTUR MENDATAR",
+      "cam": "establishing_wide",
+      "text": "Oh, jadi bantal karet berlapis baja membuat jembatan kuat menopang truk sekaligus lentur bergerak.",
+      "speech_start_s": 37.923,
+      "speech_end_s": 44.527,
+      "start_s": 37.744,
+      "end_s": 44.755
+    },
+    {
+      "index": 7,
+      "id": "cta",
+      "callout": "KOMEN & TOMBOL PUTIH!",
+      "cam": "cta_lock",
+      "text": "Pernah sadar ada bantal hitam ini di atas tiang tol? Tulis di komentar, dan tekan tombol putih di bawah agar dapat hal yang gak disangka!",
+      "speech_start_s": 44.982,
+      "speech_end_s": 53.325,
+      "start_s": 44.755,
+      "end_s": 53.933
+    }
+  ]
+}

@@ -1,0 +1,2 @@
+{"rounds": 2, "look": 8, "acting": 8, "story": 8, "audit": "SHIP", "readability": 8,
+ "agents": ["animation-reviewer (Opus 5.5) x2"], "tokens_est": 1400000}

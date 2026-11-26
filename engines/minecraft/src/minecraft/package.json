@@ -1,0 +1,5 @@
+{
+  "name": "minecraft-render",
+  "private": true,
+  "type": "module"
+}

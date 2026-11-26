@@ -13,9 +13,19 @@ __pycache__/
 # Heavy rendered video/audio binaries & temporary staging directories
 media/
 output/*.mp4
+output/**/*.mp4
+output/qa/**/*.png
+output/qa/**/*.npz
 assets/audio/**/*.wav
 upload/upload-log/*-dryrun.json
 tmp_render/
 google_drive/
 Unselected files/
 .cache/
+
+# Node & Remotion / Minecraft engine local assets (never commit Mojang textures)
+node_modules/
+engines/minecraft/mc-assets/
+engines/minecraft/public/mc-preview/
+engines/minecraft/out/
+

@@ -1,0 +1,11 @@
+{
+  "episode_id": "KT-S10",
+  "master_mp4": "/home/user/AI-Kids-Studio/output/KT-S10_master.mp4",
+  "thumbnail_jpg": "/home/user/AI-Kids-Studio/upload/thumbs/KT-S10_thumbnail.jpg",
+  "duration_s": 50.891,
+  "total_frames": 1527,
+  "fps": 30,
+  "bytes": 10554656,
+  "sha256": "7acb9c6c5cbb37c09847dca89fb76fa3734227c932390a9b5f814a54f03191ec",
+  "qa_headline": "SPECS 1080x1920 30/1 fps, 1526 frames, 50.891 s; audio: aac 48000 Hz 2ch | LOUDNESS I:         -14.0 LUFS | LRA:         2.4 LU | Peak:       -1.4 dBFS | SILENCES none | FRAMES 1526; black []; unplanned white []; frozen spans >=12f []"
+}

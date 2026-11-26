@@ -1,0 +1,87 @@
+{
+  "episode_id": "KT-S14",
+  "duration_s": 42.757,
+  "fps": 30,
+  "total_frames": 1283,
+  "speech_islands": 15,
+  "clauses": 13,
+  "beats": [
+    {
+      "index": 0,
+      "id": "hook",
+      "callout": "SUMBAT LELEH VELG PESAWAT",
+      "cam": "macro_cutaway",
+      "text": "Di dalam velg roda pesawat, ada sumbat logam kecil yang sengaja dirancang meleleh saat kepanasan!",
+      "speech_start_s": 0.0,
+      "speech_end_s": 5.571,
+      "start_s": 0.0,
+      "end_s": 5.686
+    },
+    {
+      "index": 1,
+      "id": "rto_braking",
+      "callout": "REM MEMBARA BATAL TERBANG",
+      "cam": "establishing_wide",
+      "text": "Saat pesawat mengerem keras atau batal lepas landas, rem di dalam velg membara memanaskan gas tekan di ban.",
+      "speech_start_s": 5.802,
+      "speech_end_s": 11.945,
+      "start_s": 5.686,
+      "end_s": 12.079
+    },
+    {
+      "index": 2,
+      "id": "burst_hazard",
+      "callout": "BAHAYA LEDAKAN BAN DI SAYAP",
+      "cam": "low_angle_hero",
+      "text": "Bila tekanan terus melonjak, ban berisiko meledak membahayakan sayap dan kru darat.",
+      "speech_start_s": 12.214,
+      "speech_end_s": 16.932,
+      "start_s": 12.079,
+      "end_s": 17.089
+    },
+    {
+      "index": 3,
+      "id": "fusible_plug",
+      "callout": "THERMAL FUSIBLE PLUG LELEH",
+      "cam": "push_in",
+      "text": "Maka velg memakai thermal fusible plug yang inti logamnya meleleh lebih dulu agar ban kempis terkendali.",
+      "speech_start_s": 17.246,
+      "speech_end_s": 23.025,
+      "start_s": 17.089,
+      "end_s": 23.2
+    },
+    {
+      "index": 4,
+      "id": "boundary",
+      "callout": "KIPAS PENDINGIN & SOP KRU",
+      "cam": "orbit_inspect",
+      "text": "Fitur ini bergantung desain tiap pesawat dan bukan pengganti prosedur pendinginan maskapai.",
+      "speech_start_s": 23.375,
+      "speech_end_s": 28.384,
+      "start_s": 23.2,
+      "end_s": 28.624
+    },
+    {
+      "index": 5,
+      "id": "closer",
+      "callout": "KEMPIS AMAN TANPA MELEDAK",
+      "cam": "dolly_pan",
+      "text": "Oh, jadi sumbat roda sengaja meleleh supaya ban mengempis aman daripada meledak.",
+      "speech_start_s": 28.864,
+      "speech_end_s": 33.594,
+      "start_s": 28.624,
+      "end_s": 33.727
+    },
+    {
+      "index": 6,
+      "id": "cta",
+      "callout": "KOMEN & TOMBOL PUTIH!",
+      "cam": "cta_lock",
+      "text": "Komponen apa lagi yang sengaja mengalah demi selamat? Komen ya, dan tekan tombol putih di bawah agar dapat hal-hal yang nggak disangka!",
+      "speech_start_s": 33.859,
+      "speech_end_s": 42.148,
+      "start_s": 33.727,
+      "end_s": 42.757
+    }
+  ]
+}
