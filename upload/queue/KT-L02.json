@@ -1,0 +1,11 @@
+{
+  "episode": "KT-L02",
+  "status": "requested",
+  "approved": true,
+  "slot": "SORE_LONG",
+  "scheduledFor": "2026-11-27T16:30:00",
+  "timezone": "Asia/Makassar",
+  "visibility": "public",
+  "revision": "v3_uplevel_human_rig_white_button_cta",
+  "master_sha256": "ad3f2963fb755b83fde94db0ff07dfe61f10c7649b97eccf5a56cd62be92f465"
+}

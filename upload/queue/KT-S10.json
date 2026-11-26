@@ -1,0 +1,11 @@
+{
+  "episode": "KT-S10",
+  "status": "requested",
+  "approved": true,
+  "slot": "PAGI_SHORT",
+  "scheduledFor": "2026-11-29T08:00:00",
+  "timezone": "Asia/Makassar",
+  "visibility": "public",
+  "revision": "v3_uplevel_human_rig_white_button_cta",
+  "master_sha256": "e6bf375beb8b3fad315fa3ae98160565b86f8ece741591a531f36628e5fdd933"
+}

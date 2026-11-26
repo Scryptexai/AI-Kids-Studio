@@ -1,0 +1,632 @@
+1
+00:00:04,600 --> 00:00:08,946
+Pernahkah kamu membayangkan apa yang terjadi jika pesawat berbadan
+
+2
+00:00:08,946 --> 00:00:11,091
+lebar yang baru menyentuh landasan,
+
+3
+00:00:11,091 --> 00:00:13,467
+kereta peluru berkecepatan tinggi,
+
+4
+00:00:13,467 --> 00:00:17,407
+atau kapal kontainer ratusan ribu ton mencoba berhenti hanya
+
+5
+00:00:17,407 --> 00:00:20,508
+mengandalkan kampas rem gesek seperti mobil biasa?
+
+6
+00:00:20,508 --> 00:00:24,680
+Jawabannya bukan sekadar kampas cepat tipis—logam cakramnya akan
+
+7
+00:00:24,680 --> 00:00:27,897
+membara hingga meleleh, percikan apinya menyembur,
+
+8
+00:00:27,897 --> 00:00:31,722
+dan remnya habis terbakar jauh sebelum kendaraan raksasa itu
+
+9
+00:00:31,722 --> 00:00:35,981
+sempat berhenti! Akar masalahnya terletak pada satu rumus fisika
+
+10
+00:00:35,981 --> 00:00:38,966
+yang tidak bisa ditawar oleh insinyur mana pun:
+
+11
+00:00:38,966 --> 00:00:42,993
+energi kinetik tumbuh sebanding dengan massa dikalikan kuadrat
+
+12
+00:00:42,993 --> 00:00:47,282
+kecepatan. Artinya ketika bobot kendaraan naik ratusan kali lipat
+
+13
+00:00:47,282 --> 00:00:49,368
+dan kecepatannya berlipat ganda,
+
+14
+00:00:49,368 --> 00:00:53,511
+energi gerak yang wajib dilenyapkan melonjak berkali-kali lipat
+
+15
+00:00:53,511 --> 00:00:57,133
+menjadi setara panas ribuan kompor yang menyala serentak.
+
+16
+00:00:57,133 --> 00:01:00,669
+Pada sepeda motor atau mobil penumpang harian di jalan
+
+17
+00:01:00,669 --> 00:01:04,493
+kota, menjepit piringan besi dengan kampas gesek sudah sangat
+
+18
+00:01:04,493 --> 00:01:08,608
+memadai karena aliran udara sekitar sanggup membuang panasnya.
+
+19
+00:01:08,608 --> 00:01:11,853
+Namun pada empat raksasa transportasi dunia modern,
+
+20
+00:01:11,853 --> 00:01:16,200
+mengandalkan gesekan satu tahap sama saja dengan menyalakan tungku
+
+21
+00:01:16,200 --> 00:01:18,663
+peleburan di kolong kendaraan sendiri.
+
+22
+00:01:18,663 --> 00:01:21,444
+Di episode dokumenter Knot Theory kali ini,
+
+23
+00:01:21,444 --> 00:01:25,878
+kita akan membedah penampang tiga dimensi bagaimana para insinyur
+
+24
+00:01:25,878 --> 00:01:28,775
+menghentikan kereta cepat tanpa menyentuh rel,
+
+25
+00:01:28,775 --> 00:01:32,223
+menjinakkan pendaratan pesawat jet di landasan pendek,
+
+26
+00:01:32,223 --> 00:01:35,324
+menahan kereta tambang ribuan ton di lereng gunung,
+
+27
+00:01:35,324 --> 00:01:39,322
+hingga membalik dorongan kapal kargo raksasa di tengah samudra!
+
+28
+00:01:48,522 --> 00:01:51,713
+Mari kita mulai dari lintasan rel kecepatan tinggi:
+
+29
+00:01:51,713 --> 00:01:56,014
+bagaimana rangkaian kereta cepat melaju membelah kota lalu melambat
+
+30
+00:01:56,014 --> 00:01:58,706
+mulus ke peron tanpa membakar habis rodanya?
+
+31
+00:01:58,706 --> 00:02:02,563
+Kunci pertamanya adalah membalik fungsi motor traksi listrik di
+
+32
+00:02:02,563 --> 00:02:07,225
+setiap kereta menjadi generator pembangkit lewat pengereman regeneratif.
+
+33
+00:02:07,225 --> 00:02:09,750
+Begitu masinis menarik tuas perlambatan,
+
+34
+00:02:09,750 --> 00:02:12,330
+putaran roda tidak langsung dijepit kampas,
+
+35
+00:02:12,330 --> 00:02:16,215
+melainkan dipaksa memutar medan magnet motor untuk menghasilkan
+
+36
+00:02:16,215 --> 00:02:19,767
+listrik balik ke kabel jaringan atas agar dipakai kereta
+
+37
+00:02:19,767 --> 00:02:23,374
+lain. Tetapi saat kereta harus mengerem kuat dari kecepatan
+
+38
+00:02:23,374 --> 00:02:27,508
+sangat tinggi, pengereman motor saja belum cukup sehingga beberapa
+
+39
+00:02:27,508 --> 00:02:31,226
+generasi kereta cepat menambahkan rem arus pusar atau eddy
+
+40
+00:02:31,226 --> 00:02:34,251
+current brake. Di kolong bogie di antara roda baja,
+
+41
+00:02:34,251 --> 00:02:38,330
+terpasang balok elektromagnet memanjang yang diturunkan mendekati
+
+42
+00:02:38,330 --> 00:02:42,298
+permukaan rel hingga menyisakan celah tipis beberapa milimeter
+
+43
+00:02:42,298 --> 00:02:44,268
+tanpa menyentuh rel sama sekali!
+
+44
+00:02:44,268 --> 00:02:47,237
+Saat magnet kuat itu menyapu batang rel baja dengan
+
+45
+00:02:47,237 --> 00:02:51,038
+kecepatan tinggi, hukum induksi elektromagnetik menciptakan
+
+46
+00:02:51,038 --> 00:02:54,202
+pusaran arus listrik melingkar di dalam logam rel yang
+
+47
+00:02:54,202 --> 00:02:57,920
+melahirkan gaya lawan dahsyat bagai ditarik jangkar magnet tak
+
+48
+00:02:57,920 --> 00:03:01,999
+kasatmata. Energi gerak kereta pun berubah menjadi hangat ringan
+
+49
+00:03:01,999 --> 00:03:05,828
+yang tersebar merata di sepanjang berkilo-kilometer batang rel
+
+50
+00:03:05,828 --> 00:03:08,159
+di belakangnya, bukan menumpuk di roda.
+
+51
+00:03:08,159 --> 00:03:12,238
+Barulah ketika laju kereta sudah turun rendah mendekati stasiun,
+
+52
+00:03:12,238 --> 00:03:16,233
+rem cakram mekanis menjepit halus untuk mengunci posisi berhenti
+
+53
+00:03:16,233 --> 00:03:17,843
+tepat di garis pintu peron.
+
+54
+00:03:27,043 --> 00:03:30,525
+Sekarang kita berpindah ke ujung landasan pacu bandara:
+
+55
+00:03:30,525 --> 00:03:32,025
+tempat ratusan ton logam,
+
+56
+00:03:32,025 --> 00:03:35,536
+bahan bakar, dan penumpang menyentuh aspal dengan ruang henti
+
+57
+00:03:35,536 --> 00:03:39,584
+yang sangat terbatas. Kesalahan umum penonton dari jendela kabin
+
+58
+00:03:39,584 --> 00:03:44,171
+adalah mengira roda pesawat langsung mengerem sendiri begitu menyentuh
+
+59
+00:03:44,171 --> 00:03:47,596
+tanah, padahal rem roda tidak berguna bila sayap masih
+
+60
+00:03:47,596 --> 00:03:51,475
+mengangkat badan pesawat. Karena itu dalam hitungan detik saat
+
+61
+00:03:51,475 --> 00:03:55,042
+roda mendarat, deretan panel spoiler di atas sayap langsung
+
+62
+00:03:55,042 --> 00:03:59,317
+tegak berdiri mematahkan aliran udara angkat sekaligus menekan
+
+63
+00:03:59,317 --> 00:04:02,431
+seluruh bobot pesawat erat ke permukaan landasan.
+
+64
+00:04:02,431 --> 00:04:06,480
+Detik berikutnya terdengar deru keras ketika selubung mesin jet
+
+65
+00:04:06,480 --> 00:04:10,273
+bergeser membuka pintu thrust reverser—bukan membalik putaran
+
+66
+00:04:10,273 --> 00:04:14,294
+kipas mesin, melainkan membelokkan semburan udara deras ke arah
+
+67
+00:04:14,294 --> 00:04:16,813
+depan sebagai perisai rem aerodinamis.
+
+68
+00:04:16,813 --> 00:04:20,211
+Sementara itu di dalam tiap velg roda pendarat utama,
+
+69
+00:04:20,211 --> 00:04:24,231
+bekerja tumpukan keping stator dan rotor rem komposit karbon-karbon
+
+70
+00:04:24,231 --> 00:04:27,487
+yang saling menjepit di bawah tekanan hidraulik tinggi.
+
+71
+00:04:27,487 --> 00:04:30,233
+Berbeda dari baja yang melunak saat membara,
+
+72
+00:04:30,233 --> 00:04:33,687
+komposit karbon justru tetap kuat pada suhu ekstrem dengan
+
+73
+00:04:33,687 --> 00:04:35,046
+bobot jauh lebih ringan.
+
+74
+00:04:35,046 --> 00:04:39,858
+Seluruh cengkeraman itu dikawal komputer anti-selip yang melepas-kencangkan
+
+75
+00:04:39,858 --> 00:04:43,312
+tekanan puluhan kali per detik agar ban tidak mengunci
+
+76
+00:04:43,312 --> 00:04:46,681
+di aspal hujan, dilengkapi sumbat leleh pengaman di velg.
+
+77
+00:04:46,681 --> 00:04:49,144
+Perpaduan serempak antara spoiler sayap,
+
+78
+00:04:49,144 --> 00:04:52,796
+pembalik semburan mesin, dan cakram karbon inilah yang sanggup
+
+79
+00:04:52,796 --> 00:04:57,071
+menghentikan pesawat besar dengan aman sebelum lampu ujung landasan.
+
+80
+00:05:06,271 --> 00:05:10,387
+Uniknya, ujian pengereman paling kejam di daratan justru terjadi
+
+81
+00:05:10,387 --> 00:05:14,128
+pada laju lambat: rangkaian kereta barang dan tambang bermuatan
+
+82
+00:05:14,128 --> 00:05:18,214
+ribuan ton yang merayap menuruni jalur pegunungan curam selama
+
+83
+00:05:18,214 --> 00:05:22,358
+berjam-jam tanpa henti. Gravitasi terus-menerus mendorong puluhan
+
+84
+00:05:22,358 --> 00:05:24,084
+gerbong berat dari belakang,
+
+85
+00:05:24,084 --> 00:05:27,797
+sehingga bila sepatu rem gesek ditahan sepanjang turunan,
+
+86
+00:05:27,797 --> 00:05:31,451
+roda baja bisa kepanasan dan kehilangan daya cengkeram.
+
+87
+00:05:31,451 --> 00:05:35,710
+Untuk menaklukkannya, lokomotif diesel-elektrik modern mengandalkan
+
+88
+00:05:35,710 --> 00:05:39,193
+sistem pengereman dinamik resistif atau dynamic braking.
+
+89
+00:05:39,193 --> 00:05:40,977
+Sama seperti kereta cepat,
+
+90
+00:05:40,977 --> 00:05:44,603
+motor listrik besar di setiap gandar roda lokomotif diubah
+
+91
+00:05:44,603 --> 00:05:49,236
+perannya menjadi generator penahan putaran roda sehingga menimbulkan
+
+92
+00:05:49,236 --> 00:05:52,200
+gaya hambat magnetik yang stabil sepanjang lereng.
+
+93
+00:05:52,200 --> 00:05:56,315
+Namun jalur pegunungan terpencil tidak memiliki jaringan kabel
+
+94
+00:05:56,315 --> 00:06:00,516
+listrik atas untuk menampung kiriman listrik raksasa tersebut—jadi
+
+95
+00:06:00,516 --> 00:06:04,056
+ke mana arus sebesar pembangkit kecil itu harus dibuang
+
+96
+00:06:04,056 --> 00:06:07,768
+setiap detiknya? Insinyur menyalurkannya langsung ke deretan
+
+97
+00:06:07,768 --> 00:06:11,078
+kisi pita logam resistor tahan panas di bagian atas
+
+98
+00:06:11,078 --> 00:06:15,135
+atap lokomotif, persis seperti elemen pemanggang roti raksasa!
+
+99
+00:06:15,135 --> 00:06:18,704
+Begitu kisi logam itu memanas oleh arus listrik dari
+
+100
+00:06:18,704 --> 00:06:22,675
+roda, kipas pendingin berdiameter besar mengisap udara luar dan
+
+101
+00:06:22,675 --> 00:06:27,135
+meniupkannya ke atas hingga tampak fatamorgana udara panas bergetar
+
+102
+00:06:27,135 --> 00:06:28,718
+di atas atap lokomotif.
+
+103
+00:06:28,718 --> 00:06:32,718
+Dengan membuang tarikan gravitasi menjadi angin panas ke langit,
+
+104
+00:06:32,718 --> 00:06:35,970
+rem udara mekanis gerbong tetap dingin dan siap sedia
+
+105
+00:06:35,970 --> 00:06:38,387
+kapan pun kereta harus berhenti total.
+
+106
+00:06:47,587 --> 00:06:50,754
+Kini bayangkan tantangan puncak di samudra lepas:
+
+107
+00:06:50,754 --> 00:06:54,937
+bagaimana menghentikan kapal kontainer raksasa sepanjang empat
+
+108
+00:06:54,937 --> 00:06:58,552
+lapangan sepak bola yang sama sekali tidak punya roda,
+
+109
+00:06:58,552 --> 00:07:01,122
+kampas, ataupun aspal untuk dicengkeram?
+
+110
+00:07:01,122 --> 00:07:04,498
+Di atas air, gesekan fluida terhadap lambung baja yang
+
+111
+00:07:04,498 --> 00:07:08,830
+hidrodinamis sangatlah kecil dibandingkan momentum ratusan ribu
+
+112
+00:07:08,830 --> 00:07:11,967
+ton muatan, sehingga meski mesin dimatikan penuh,
+
+113
+00:07:11,967 --> 00:07:15,492
+kapal masih terus meluncur berkilo-kilometer jauhnya.
+
+114
+00:07:15,492 --> 00:07:18,629
+Dalam jadwal sandar normal mendekati pelabuhan,
+
+115
+00:07:18,629 --> 00:07:22,424
+nakhoda sudah memangkas putaran mesin jauh di luar perairan
+
+116
+00:07:22,424 --> 00:07:26,696
+dangkal lalu menyerahkan kendali akhir pada tarikan kapal-kapal
+
+117
+00:07:26,696 --> 00:07:30,819
+tunda bertenaga besar. Namun saat darurat menghindari tabrakan
+
+118
+00:07:30,819 --> 00:07:34,554
+di laut, ruang mesin menjalankan manuver ekstrem bernama crash
+
+119
+00:07:34,554 --> 00:07:38,079
+astern! Pertama, pasokan bahan bakar ke mesin diesel dua
+
+120
+00:07:38,079 --> 00:07:42,412
+tak raksasa setinggi gedung beberapa lantai langsung diputus agar
+
+121
+00:07:42,412 --> 00:07:46,296
+laju kapal turun hingga batas aman bagi poros baling-baling.
+
+122
+00:07:46,296 --> 00:07:50,568
+Kemudian katup udara tekan bertekanan tinggi ditembakkan masuk
+
+123
+00:07:50,568 --> 00:07:54,631
+ke dalam silinder untuk mengerem putaran maju piston raksasa,
+
+124
+00:07:54,631 --> 00:07:57,290
+katup pengatur digeser ke posisi balik,
+
+125
+00:07:57,290 --> 00:08:01,563
+lalu mesin dinyalakan ulang berputar kencang ke arah berlawanan!
+
+126
+00:08:01,563 --> 00:08:05,686
+Baling-baling perunggu raksasa di buritan pun memutar semburan
+
+127
+00:08:05,686 --> 00:08:08,942
+air ke arah haluan melawan arus laju kapal hingga
+
+128
+00:08:08,942 --> 00:08:12,826
+buritan berguncang hebat dikelilingi buih kavitasi putih.
+
+129
+00:08:12,826 --> 00:08:14,798
+Meski mesin sudah mundur penuh,
+
+130
+00:08:14,798 --> 00:08:18,802
+inersia membuat kapal tetap butuh jarak henti panjang sehingga
+
+131
+00:08:18,802 --> 00:08:21,849
+nakhoda mengutamakan manuver belok terukur.
+
+132
+00:08:31,049 --> 00:08:35,095
+Setelah membedah keempat raksasa transportasi tadi berdampingan,
+
+133
+00:08:35,095 --> 00:08:39,112
+kita menemukan satu prinsip rekayasa yang mengubah cara kita
+
+134
+00:08:39,112 --> 00:08:43,359
+memandang kata mengerem. Hukum kekekalan energi menegaskan bahwa
+
+135
+00:08:43,359 --> 00:08:47,434
+energi gerak jutaan joule tidak pernah bisa dimusnahkan begitu
+
+136
+00:08:47,434 --> 00:08:51,853
+saja—setiap sistem rem sejatinya adalah mesin pengubah wujud energi
+
+137
+00:08:51,853 --> 00:08:54,005
+ke media pembuangan yang paling aman!
+
+138
+00:08:54,005 --> 00:08:58,223
+Kereta peluru memindahkan energi geraknya menjadi arus listrik
+
+139
+00:08:58,223 --> 00:09:01,638
+jaringan serta medan magnet tanpa gesekan di batang rel
+
+140
+00:09:01,638 --> 00:09:05,741
+baja. Pesawat komersial membagi beban pengeremannya ke hambatan
+
+141
+00:09:05,741 --> 00:09:09,041
+udara spoiler sayap, dorongan balik udara mesin jet,
+
+142
+00:09:09,041 --> 00:09:11,939
+dan tumpukan cakram komposit karbon tahan pijar.
+
+143
+00:09:11,939 --> 00:09:15,669
+Lokomotif pengangkut ribuan ton hasil tambang membuang energi
+
+144
+00:09:15,669 --> 00:09:19,715
+turunan gunung menjadi tiupan udara panas lewat kisi resistor
+
+145
+00:09:19,715 --> 00:09:23,675
+atap, sedangkan kapal samudra memindahkan momentum raksasanya
+
+146
+00:09:23,675 --> 00:09:27,061
+langsung ke pusaran massa air laut lewat baling-baling yang
+
+147
+00:09:27,061 --> 00:09:31,767
+diputar terbalik. Seluruh kombinasi teknologi ini tentu dioperasikan
+
+148
+00:09:31,767 --> 00:09:35,842
+dalam batas keselamatan ketat sesuai regulasi perkeretaapian,
+
+149
+00:09:35,842 --> 00:09:38,481
+penerbangan, dan pelayaran internasional.
+
+150
+00:09:38,481 --> 00:09:42,355
+Jadi saat pesawat mendarat mulus atau kereta cepat berhenti
+
+151
+00:09:42,355 --> 00:09:46,086
+tepat di peron, ada orkestra fisika yang sedang menjinakkan
+
+152
+00:09:46,086 --> 00:09:50,476
+energi raksasa. Dari empat raksasa di episode ini—kereta magnet
+
+153
+00:09:50,476 --> 00:09:52,714
+tanpa sentuh, pesawat tiga lapis rem,
+
+154
+00:09:52,714 --> 00:09:56,903
+lokomotif pemanggang udara, atau kapal manuver putar balik—mana
+
+155
+00:09:56,903 --> 00:09:58,309
+yang paling bikin takjub?
+
+156
+00:09:58,309 --> 00:10:00,146
+Tulis pilihanmu di komentar,
+
+157
+00:10:00,146 --> 00:10:03,159
+dan tekan tombol putih di bawah agar dapat hal-hal
+
+158
+00:10:03,159 --> 00:10:04,221
+yang nggak disangka!
+

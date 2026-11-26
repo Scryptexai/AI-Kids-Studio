@@ -18,3 +18,4 @@ upload/upload-log/*-dryrun.json
 tmp_render/
 google_drive/
 Unselected files/
+.cache/

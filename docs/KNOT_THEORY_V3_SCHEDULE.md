@@ -23,13 +23,13 @@ Dokumen ini memadukan **14 Ide Shorts Terkuat + 8 Cadangan** dari `Knot_Theory_V
 3. **16:30 WITA (`KT-L01` — Long 11+ Menit, Luar PDF):** *5 Mesin Raksasa di Bawah Kota yang Bekerja Diam-Diam Saat Badai dan Mati Lampu* — *Immersed Tube Tunnel*, *TBM EPB*, *Maeslantkering Rotterdam*, *G-Cans Tokyo*, *Grid Black Start*, & *Hyperboloid Cooling Tower*.
 4. **20:30 WITA (`KT-S03` — Short, PDF #03):** *Hamparan Batu Kerikil di Gardu Listrik Ini Bukan Hiasan Taman* — Gradien tegangan tanah, tegangan langkah & sentuh (IEEE Std 80).
 
-### Hari 2 — Jumat, 27 November 2026 *(Shorts 100% Rendered, Drive Public, Approved Queue Ready)*
+### Hari 2 — Jumat, 27 November 2026 *(100% Rendered, Drive Public, Scheduled via Zernio)*
 1. **08:00 WITA (`KT-S04` — Short, PDF #04):** *Sabuk Pengaman Mobil Sengaja Mengalah Sedikit Saat Tabrakan* — Tahap *pretensioner* mengunci vs *torsion bar load limiter* (UN ECE R16).
 2. **12:30 WITA (`KT-S05` — Short, PDF #05):** *Toilet Kamar Tamu Bau Setelah Lama Kosong? Bukan Pipanya yang Rusak.* — Penguapan segel air *P-trap* & pipa ventilasi atap (UPC / SNI Plumbing).
-3. **16:30 WITA (`KT-L02` — Long 12–15 Menit, Luar PDF — *Planned Next Session*):** *Bagaimana Pesawat, Kereta Cepat, dan Kapal Raksasa Berhenti Tanpa Kampas Rem Habis Terbakar?* (*Eddy Current Brake* Shinkansen, *Thrust Reverser & Carbon Brake*, *Dynamic Braking* Lokomotif, & Manuver *Crash Astern* Kapal Kontainer).
+3. **16:30 WITA (`KT-L02` — Long 10m 17d V3 Ultra, Luar PDF):** *Bagaimana Pesawat, Kereta Cepat, dan Kapal Raksasa Berhenti Tanpa Kampas Habis Terbakar?* (*Eddy Current Brake* Shinkansen, *Thrust Reverser & Carbon Brake*, *Dynamic Braking* Lokomotif, & Manuver *Crash Astern* Kapal Kontainer).
 4. **20:30 WITA (`KT-S06` — Short, PDF #06):** *Batang Setir Mobil Sengaja Dirancang Supaya Bisa Memendek* — Kolom kemudi *collapsible* teleskopik & kisi baja lipat (FMVSS 204 / UN R12).
 
-### Hari 3 s/d Hari 5 — Antrean Lanjutan PDF V3 (`KT-S07`..`KT-S14` + Cadangan + Long `KT-L03`..`KT-L05`)
+### Hari 3 s/d Hari 5 — Batch 2 V3 Ultra (`KT-S07`..`KT-S14` 100% Rendered, Drive Public, Scheduled via Zernio + Antrean Long `KT-L03`..`KT-L05`)
 - **Hari 3 (`2026-11-28`):**
   - Pagi `08:00`: **`KT-S07`** (PDF #07) — *Kabel Internet Bawah Laut Tidak Sama Tebal di Sepanjang Jalurnya* (ICPC).
   - Siang `12:30`: **`KT-S08`** (PDF #08) — *Helm Ini Masih Mulus Setelah Kecelakaan. Di Dalamnya Sudah Menyerah.* (EPS Liner, ECE 22.06).

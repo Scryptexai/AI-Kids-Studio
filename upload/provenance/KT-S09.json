@@ -1,0 +1,14 @@
+{
+  "episode": "KT-S09",
+  "engine": "ai-kids-studio-3d-cpp",
+  "entrypoint": "src/knot_shorts_engine.py",
+  "video_filename": "KT-S09_1080x1920_master.mp4",
+  "master_sha256": "01f1d32de89a09850d328be536fb613f8ff4c6fd281ae4ae1954c0060a732a02",
+  "size_bytes": 23158636,
+  "duration_seconds": 48.88,
+  "resolution": "1080x1920",
+  "fps": 24,
+  "voice_id": "voice-00",
+  "drive_file_id": "1FrE949_V0Y20d14kg8jBTmRjWFTp7bNU",
+  "director_version": "v3_uplevel_human_rig_white_button_cta"
+}

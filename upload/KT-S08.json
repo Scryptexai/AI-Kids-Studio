@@ -1,0 +1,36 @@
+{
+  "episode": "KT-S08",
+  "slot_label": "SIANG_SHORT",
+  "video": "KT-S08_1080x1920_master.mp4",
+  "thumbnail": "KT-S08_thumbnail.jpg",
+  "drive_file_id": "1BpLXA4-jeyVjMh9Fnsxo_wu40rONMxZq",
+  "size_bytes": 8566463,
+  "sha256": "af25bca4145c83cb6bf168d7f4b16d7f83872c1fbe3b9052f763a21f96d5736d",
+  "title": "Helm Masih Mulus Setelah Jatuh? Di Dalamnya Sudah Menyerah #Shorts",
+  "hook": "Helm ini tampak mulus mengilap habis kecelakaan, padahal dalamnya sudah menyerah!",
+  "description": "Helm ini tampak mulus mengilap habis kecelakaan, padahal dalamnya sudah menyerah!\n\nBanyak pengendara mengira helm yang kulit luarnya mulus tanpa retak masih aman dipakai lagi setelah benturan keras. Padahal penyelamat utama kepala justru ada di balik cangkang luar itu.\n\nLapisan busa padat EPS (Expanded Polystyrene) dirancang remuk permanen satu kali pakai untuk memperpanjang waktu perlambatan tengkorak beberapa milidetik dan menyerap energi kejut. Setelah sel mikroskopis EPS memadat, ruang redamnya hilang meskipun cat luar tampak mengilap.\n\nBatas Akurasi: Standar uji keselamatan menilai batas akselerasi kepala (g-force) pada titik impak terukur.\nReferensi: Standar Helm UN ECE 22.06 & SNI 1811.\n\nPertanyaan diskusi: Habis benturan keras, kamu cek busa dalam helm atau luarnya aja? (LANGSUNG GANTI vs BARU TAHU EPS!)\nTekan tombol putih di bawah agar mendapatkan hal-hal yang gak disangka setiap hari!\n\n#KnotTheory #InfrastrukturTersembunyi #CaraKerjaMesin #SainsSehariHari #Shorts",
+  "tags": [
+    "Knot Theory",
+    "busa EPS helm",
+    "helm setelah jatuh",
+    "keselamatan berkendara",
+    "ECE 22.06",
+    "fisika benturan",
+    "edukasi sains",
+    "shorts indonesia"
+  ],
+  "categoryId": "28",
+  "visibility": "public",
+  "madeForKids": false,
+  "containsSyntheticMedia": false,
+  "defaultLanguage": "id",
+  "defaultAudioLanguage": "id",
+  "first_comment": "Habis benturan keras, kamu cek busa dalam helm atau luarnya aja? (LANGSUNG GANTI vs BARU TAHU EPS!) — Tulis jawabanmu di komentar & tekan tombol putih di bawah ya!",
+  "scheduledFor": "2026-11-28T12:30:00",
+  "timezone": "Asia/Makassar",
+  "render_provenance": {
+    "engine": "ai-kids-studio-3d-cpp",
+    "entrypoint": "src/knot_shorts_engine.py",
+    "manifest": "upload/provenance/KT-S08.json"
+  }
+}

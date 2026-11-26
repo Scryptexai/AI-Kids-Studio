@@ -1,0 +1,36 @@
+{
+  "episode": "KT-S07",
+  "slot_label": "PAGI_SHORT",
+  "video": "KT-S07_1080x1920_master.mp4",
+  "thumbnail": "KT-S07_thumbnail.jpg",
+  "drive_file_id": "1OvHgJ8nMwEXdSLz_OxI6bP1ZXPLZosKl",
+  "size_bytes": 7436586,
+  "sha256": "945ae9d7d3b807f1225fb5d9f0495c8e11233533dc6cfd39c1cbc1c23d44169a",
+  "title": "Kabel Internet Bawah Laut Tidak Sama Tebal di Sepanjang Jalurnya #Shorts",
+  "hook": "Dua potongan kabel internet bawah laut ini satu jalur, tapi tebalnya beda jauh!",
+  "description": "Dua potongan kabel internet bawah laut ini satu jalur, tapi tebalnya beda jauh!\n\nHampir 99% trafik internet antarbenua berjalan di dasar samudra—bukan lewat satelit. Namun kabel bawah laut sengaja tidak dibuat setebal baja di sepanjang jalurnya.\n\nDi perairan dangkal dekat pantai yang rawan jangkar kapal dan pukat ikan, serat optik dilindungi lapis baja ganda (double-armored) dan ditanam di bawah dasar laut. Sebaliknya di laut dalam ribuan meter yang tenang, kabelnya justru ramping seukuran selang taman agar cukup ringan ditahan kapal pemasang.\n\nBatas Akurasi: Desain lapis pelindung menyesuaikan profil kedalaman, arus dasar, dan risiko aktivitas maritim setempat.\nReferensi: International Cable Protection Committee (ICPC) Submarine Cable Design Guidelines.\n\nPertanyaan diskusi: Gimana cara kapal nyambung kabel putus di dasar laut gelap gulita? (ANGKAT KE KAPAL vs ROBOT SELAM!)\nTekan tombol putih di bawah agar mendapatkan hal-hal yang gak disangka setiap hari!\n\n#KnotTheory #InfrastrukturTersembunyi #CaraKerjaMesin #SainsSehariHari #Shorts",
+  "tags": [
+    "Knot Theory",
+    "kabel bawah laut",
+    "internet dasar laut",
+    "serat optik",
+    "ICPC",
+    "infrastruktur tersembunyi",
+    "edukasi sains",
+    "shorts indonesia"
+  ],
+  "categoryId": "28",
+  "visibility": "public",
+  "madeForKids": false,
+  "containsSyntheticMedia": false,
+  "defaultLanguage": "id",
+  "defaultAudioLanguage": "id",
+  "first_comment": "Gimana cara kapal nyambung kabel putus di dasar laut gelap gulita? (ANGKAT KE KAPAL vs ROBOT SELAM!) — Tulis jawabanmu di komentar & tekan tombol putih di bawah ya!",
+  "scheduledFor": "2026-11-28T08:00:00",
+  "timezone": "Asia/Makassar",
+  "render_provenance": {
+    "engine": "ai-kids-studio-3d-cpp",
+    "entrypoint": "src/knot_shorts_engine.py",
+    "manifest": "upload/provenance/KT-S07.json"
+  }
+}

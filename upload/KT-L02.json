@@ -1,0 +1,38 @@
+{
+  "episode": "KT-L02",
+  "slot_label": "SORE_LONG",
+  "video": "KT-L02_1920x1080_master.mp4",
+  "thumbnail": "KT-L02_thumbnail.jpg",
+  "drive_file_id": "1MLhnUMfQKZqjgbGsvx5B6GeOqssKJ3yz",
+  "size_bytes": 69365614,
+  "sha256": "ad3f2963fb755b83fde94db0ff07dfe61f10c7649b97eccf5a56cd62be92f465",
+  "title": "Bagaimana Pesawat, Kereta Cepat, dan Kapal Raksasa Berhenti Tanpa Kampas Habis Terbakar?",
+  "hook": "Saat mobil mengerem, kampas menjepit cakram baja dan mengubah gerak menjadi panas. Tapi bagaimana kereta cepat 300 km/jam, pesawat jet ratusan ton, lokomotif gunung, dan kapal kontainer raksasa berhenti tanpa kampasnya meleleh terbakar?",
+  "description": "Saat mobil mengerem, kampas menjepit cakram baja dan mengubah gerak menjadi panas. Tapi bagaimana kereta cepat 300 km/jam, pesawat jet ratusan ton, lokomotif gunung, dan kapal kontainer raksasa berhenti tanpa kampasnya meleleh terbakar?\n\nDi episode dokumenter panjang Knot Theory V3 ini, kita membedah penampang 3D sistem pengereman empat mesin raksasa dunia nyata:\n\n00:00 Cold Open — Musuh Bernama Energi Kinetik (Ek = 1/2 m v²)\n00:05 Bab 1: Kenapa Kampas Gesek Biasa Akan Meleleh pada Mesin Raksasa?\n01:45 Bab 2: Kereta Peluru — Pengereman Regeneratif & Eddy Current Tanpa Sentuh\n03:24 Bab 3: Pesawat Jet — Spoiler Sayap, Thrust Reverser, & Cakram Komposit Karbon\n05:03 Bab 4: Lokomotif Gunung — Dynamic Braking & Kisi Pemanggang Resistor Atap\n06:45 Bab 5: Kapal Kontainer — Kapal Tunda & Manuver Darurat Crash Astern\n08:28 Bab 6: Sintesis Hukum Kekekalan Energi & Pertanyaan Diskusi Penonton\n\nBatas Akurasi & Referensi Teknis:\n• Kereta cepat mengombinasikan pengereman regeneratif motor traksi, eddy current/elektromagnetik, dan cakram mekanis kecepatan rendah (UIC).\n• Sertifikasi pengereman pesawat komersial (FAA/EASA CS-25) menguji kondisi Rejected Takeoff beban penuh dengan rem karbon tanpa bantuan thrust reverser pada uji sertifikasi maksimum.\n• Lokomotif diesel-elektrik tetap memakai rem udara tekan sebagai pengaman kecepatan rendah dan henti penuh (AAR).\n• Jarak henti darurat Crash Astern kapal besar diatur dalam standar uji manuver IMO MSC.137(76).\n\nTekan tombol putih di bawah agar terus mendapatkan hal-hal rekayasa yang gak disangka setiap hari!\n\n#KnotTheory #DokumenterSains #CaraKerjaMesin #KeretaCepat #PesawatTerbang #TeknikMesin #EdukasiFisika",
+  "tags": [
+    "Knot Theory",
+    "cara pesawat mengerem",
+    "rem kereta cepat shinkansen",
+    "eddy current brake",
+    "thrust reverser pesawat",
+    "rem karbon pesawat",
+    "dynamic braking lokomotif",
+    "kapal kontainer berhenti",
+    "dokumenter teknik",
+    "edukasi fisika"
+  ],
+  "categoryId": "28",
+  "visibility": "public",
+  "madeForKids": false,
+  "containsSyntheticMedia": false,
+  "defaultLanguage": "id",
+  "defaultAudioLanguage": "id",
+  "first_comment": "Dari 4 sistem rem raksasa di video ini—Kereta Magnet Tanpa Sentuh, Pesawat Rem Karbon, Lokomotif Pemanggang Angin, atau Kapal Crash Astern—mana yang paling bikin kamu takjub? Tulis di komentar & tekan tombol putihnya!",
+  "scheduledFor": "2026-11-27T16:30:00",
+  "timezone": "Asia/Makassar",
+  "render_provenance": {
+    "engine": "ai-kids-studio-3d-cpp",
+    "entrypoint": "src/knot_long_ep02.py",
+    "manifest": "upload/provenance/KT-L02.json"
+  }
+}

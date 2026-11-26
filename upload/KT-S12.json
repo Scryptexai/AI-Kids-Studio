@@ -1,0 +1,36 @@
+{
+  "episode": "KT-S12",
+  "slot_label": "MALAM_SHORT",
+  "video": "KT-S12_1080x1920_master.mp4",
+  "thumbnail": "KT-S12_thumbnail.jpg",
+  "drive_file_id": "1wHVtZXwyKH6Oep4CpQNCslTeHgG4gFX5",
+  "size_bytes": 6938129,
+  "sha256": "3f339ce56962db38d79c1035dd6d1e1c840e61dfec484c5b981644d5ec532379",
+  "title": "Atap Tangki BBM Raksasa Ini Ikut Turun Saat Isinya Dipompa Keluar #Shorts",
+  "hook": "Atap tangki BBM raksasa ini tidak ambruk—atap bajanya sengaja ikut turun saat isinya dipompa keluar!",
+  "description": "Atap tangki BBM raksasa ini tidak ambruk—atap bajanya sengaja ikut turun saat isinya dipompa keluar!\n\nBanyak tangki minyak raksasa di kilang dan terminal BBM ternyata tidak memiliki atap kubah yang dilas mati di puncak dindingnya.\n\nTangki ini menggunakan External Floating Roof: pelat atap baja berponton pelampung yang mengapung langsung di atas permukaan cairan dan ikut naik-turun mengikuti volume BBM. Tujuannya menghilangkan ruang udara kosong di atas bahan bakar agar uap hidrokarbon mudah terbakar tidak berkumpul.\n\nBatas Akurasi: Digunakan khusus untuk cairan volatil tertentu dengan sistem segel keliling dan drainase air hujan atap.\nReferensi: Standar Tangki Penyimpanan Baja Las API Standard 650.\n\nPertanyaan diskusi: Waktu lewat dekat depot BBM, pernah sadar atap tangkinya turun? (KIRA ATAP MATI! vs BARU NGEH SEKARANG)\nTekan tombol putih di bawah agar mendapatkan hal-hal yang gak disangka setiap hari!\n\n#KnotTheory #InfrastrukturTersembunyi #CaraKerjaMesin #SainsSehariHari #Shorts",
+  "tags": [
+    "Knot Theory",
+    "tangki BBM kilang",
+    "floating roof tank",
+    "teknik perminyakan",
+    "API 650",
+    "keselamatan kilang",
+    "edukasi sains",
+    "shorts indonesia"
+  ],
+  "categoryId": "28",
+  "visibility": "public",
+  "madeForKids": false,
+  "containsSyntheticMedia": false,
+  "defaultLanguage": "id",
+  "defaultAudioLanguage": "id",
+  "first_comment": "Waktu lewat dekat depot BBM, pernah sadar atap tangkinya turun? (KIRA ATAP MATI! vs BARU NGEH SEKARANG) — Tulis jawabanmu di komentar & tekan tombol putih di bawah ya!",
+  "scheduledFor": "2026-11-29T20:30:00",
+  "timezone": "Asia/Makassar",
+  "render_provenance": {
+    "engine": "ai-kids-studio-3d-cpp",
+    "entrypoint": "src/knot_shorts_engine.py",
+    "manifest": "upload/provenance/KT-S12.json"
+  }
+}

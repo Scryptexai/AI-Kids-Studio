@@ -1,0 +1,11 @@
+{
+  "episode": "KT-S12",
+  "status": "requested",
+  "approved": true,
+  "slot": "MALAM_SHORT",
+  "scheduledFor": "2026-11-29T20:30:00",
+  "timezone": "Asia/Makassar",
+  "visibility": "public",
+  "revision": "v3_uplevel_human_rig_white_button_cta",
+  "master_sha256": "3f339ce56962db38d79c1035dd6d1e1c840e61dfec484c5b981644d5ec532379"
+}

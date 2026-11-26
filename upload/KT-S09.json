@@ -1,0 +1,36 @@
+{
+  "episode": "KT-S09",
+  "slot_label": "MALAM_SHORT",
+  "video": "KT-S09_1080x1920_master.mp4",
+  "thumbnail": "KT-S09_thumbnail.jpg",
+  "drive_file_id": "1FrE949_V0Y20d14kg8jBTmRjWFTp7bNU",
+  "size_bytes": 23158636,
+  "sha256": "01f1d32de89a09850d328be536fb613f8ff4c6fd281ae4ae1954c0060a732a02",
+  "title": "Air Menyembur dari Tutup Selokan Tanpa Pompa, Dari Mana Tenaganya? #Shorts",
+  "hook": "Air menyembur tinggi dari lubang selokan jalan ini tanpa satu pun mesin pompa di bawahnya!",
+  "description": "Air menyembur tinggi dari lubang selokan jalan ini tanpa satu pun mesin pompa di bawahnya!\n\nSaat hujan deras, tutup lubang kontrol drainase di jalan datar bisa terangkat dan menyemburkan air padahal tidak ada mesin pompa di bawahnya.\n\nPenyebabnya adalah Garis Gradien Hidrolik (Hydraulic Grade Line / HGL). Ketika limpasan air dari kawasan hulu yang lebih tinggi memadati pipa bawah tanah hingga berubah menjadi aliran bertekanan penuh (surcharge), tekanan hidrostatik mendorong air keluar di bukaan jalan yang elevasinya berada di bawah garis HGL.\n\nBatas Akurasi: Tinggi semburan dipengaruhi beda elevasi hulu, kemiringan pipa, dan rugi gesek saluran.\nReferensi: FHWA Urban Drainage Design Manual HEC-22.\n\nPertanyaan diskusi: Pernah lihat tutup drainase jalan terangkat air waktu hujan lebat? (PERNAH LIHAT! vs SEREM JUGA YA)\nTekan tombol putih di bawah agar mendapatkan hal-hal yang gak disangka setiap hari!\n\n#KnotTheory #InfrastrukturTersembunyi #CaraKerjaMesin #SainsSehariHari #Shorts",
+  "tags": [
+    "Knot Theory",
+    "banjir perkotaan",
+    "hydraulic grade line",
+    "tutup gorong gorong",
+    "teknik sipil",
+    "drainase kota",
+    "edukasi sains",
+    "shorts indonesia"
+  ],
+  "categoryId": "28",
+  "visibility": "public",
+  "madeForKids": false,
+  "containsSyntheticMedia": false,
+  "defaultLanguage": "id",
+  "defaultAudioLanguage": "id",
+  "first_comment": "Pernah lihat tutup drainase jalan terangkat air waktu hujan lebat? (PERNAH LIHAT! vs SEREM JUGA YA) — Tulis jawabanmu di komentar & tekan tombol putih di bawah ya!",
+  "scheduledFor": "2026-11-28T20:30:00",
+  "timezone": "Asia/Makassar",
+  "render_provenance": {
+    "engine": "ai-kids-studio-3d-cpp",
+    "entrypoint": "src/knot_shorts_engine.py",
+    "manifest": "upload/provenance/KT-S09.json"
+  }
+}

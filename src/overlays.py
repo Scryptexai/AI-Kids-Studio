@@ -210,13 +210,13 @@ class OverlayCompositor:
                 active_chunk = ch
                 break
 
-        if active_chunk is not None and time_s < self.cta_start:
+        if active_chunk is not None:
             self._draw_subtitle_chunk(draw, active_chunk, time_s)
 
-        # 5. Interactive Ending Comment CTA Card
+        # 5. Interactive Ending Comment + White-Button Subscribe CTA Card
         if time_s >= self.cta_start:
             u = smoothstep(self.cta_start, self.cta_start + 0.40, time_s)
-            self._draw_cta_card(draw, u)
+            self._draw_cta_card(draw, u, time_s=time_s)
 
         out = Image.alpha_composite(base, ui).convert("RGB")
         return np.asarray(out, dtype=np.uint8)
@@ -270,10 +270,10 @@ class OverlayCompositor:
                     draw.text((cur_x, cur_y + 2), wt.word, font=self.f_sub, fill=(255, 255, 255, 255))
                 cur_x += ww + space_w
 
-    def _draw_cta_card(self, draw: ImageDraw.ImageDraw, u: float):
-        a = int(round(242 * u))
-        x0, y0, x1, y1 = 78, 200, self.w - 78, 520
-        draw.rounded_rectangle([x0 + 6, y0 + 8, x1 + 6, y1 + 8], radius=30, fill=(0, 0, 0, int(120 * u)))
+    def _draw_cta_card(self, draw: ImageDraw.ImageDraw, u: float, time_s: float = 0.0):
+        a = int(round(244 * u))
+        x0, y0, x1, y1 = 72, 188, self.w - 72, 496
+        draw.rounded_rectangle([x0 + 6, y0 + 8, x1 + 6, y1 + 8], radius=30, fill=(0, 0, 0, int(130 * u)))
         draw.rounded_rectangle(
             [x0, y0, x1, y1],
             radius=30,
@@ -283,7 +283,7 @@ class OverlayCompositor:
         )
 
         # Top yellow pill tag "TULIS DI KOMENTAR!"
-        tag = "TULIS DI KOMENTAR!"
+        tag = "JAWAB DI KOMENTAR!"
         tb = draw.textbbox((0, 0), tag, font=self.f_cta_tag)
         tw = (tb[2] - tb[0]) + 56
         tx0 = (self.w - tw) // 2
@@ -293,39 +293,108 @@ class OverlayCompositor:
         # Question lines
         q1b = draw.textbbox((0, 0), self.cta_q1, font=self.f_cta_q)
         q2b = draw.textbbox((0, 0), self.cta_q2, font=self.f_cta_q)
-        draw.text(((self.w - (q1b[2] - q1b[0])) // 2, y0 + 52), self.cta_q1, font=self.f_cta_q, fill=(255, 255, 255, int(255 * u)))
-        draw.text(((self.w - (q2b[2] - q2b[0])) // 2, y0 + 104), self.cta_q2, font=self.f_cta_q, fill=(255, 255, 255, int(255 * u)))
+        draw.text(((self.w - (q1b[2] - q1b[0])) // 2, y0 + 48), self.cta_q1, font=self.f_cta_q, fill=(255, 255, 255, int(255 * u)))
+        draw.text(((self.w - (q2b[2] - q2b[0])) // 2, y0 + 98), self.cta_q2, font=self.f_cta_q, fill=(255, 255, 255, int(255 * u)))
 
         # Two choice buttons
-        bw, bh = 418, 86
-        ly0 = y0 + 184
-        lx0 = x0 + 28
-        rx0 = x1 - 28 - bw
+        bw, bh = 424, 82
+        ly0 = y0 + 178
+        lx0 = x0 + 26
+        rx0 = x1 - 26 - bw
         draw.rounded_rectangle(
             [lx0, ly0, lx0 + bw, ly0 + bh],
             radius=20,
-            fill=(8, 56, 78, int(235 * u)),
+            fill=(8, 56, 78, int(238 * u)),
             outline=(34, 211, 238, int(245 * u)),
             width=3,
         )
         draw.rounded_rectangle(
             [rx0, ly0, rx0 + bw, ly0 + bh],
             radius=20,
-            fill=(78, 52, 12, int(235 * u)),
+            fill=(78, 52, 12, int(238 * u)),
             outline=(245, 158, 11, int(245 * u)),
             width=3,
         )
         lb = draw.textbbox((0, 0), self.cta_opt_left, font=self.f_cta_btn)
         rb = draw.textbbox((0, 0), self.cta_opt_right, font=self.f_cta_btn)
         draw.text(
-            (lx0 + (bw - (lb[2] - lb[0])) // 2, ly0 + 25),
+            (lx0 + (bw - (lb[2] - lb[0])) // 2, ly0 + 23),
             self.cta_opt_left,
             font=self.f_cta_btn,
             fill=(224, 247, 250, int(255 * u)),
         )
         draw.text(
-            (rx0 + (bw - (rb[2] - rb[0])) // 2, ly0 + 25),
+            (rx0 + (bw - (rb[2] - rb[0])) // 2, ly0 + 23),
             self.cta_opt_right,
             font=self.f_cta_btn,
             fill=(254, 243, 199, int(255 * u)),
         )
+
+        # Signature Animated "TOMBOL PUTIH DI BAWAH" Subscribe Pill + Surprise Tagline
+        pulse = 0.5 + 0.5 * math.sin(time_s * 7.0)
+        press_px = int(round(3.0 * max(0.0, math.sin(time_s * 5.2))))
+        wb_w, wb_h = 840, 92
+        wx0 = (self.w - wb_w) // 2
+        wy0 = 524 + press_px
+        wx1, wy1 = wx0 + wb_w, wy0 + wb_h
+
+        # Expanding outer glow ring around the White Button
+        halo_pad = int(round(6 + 10 * pulse))
+        draw.rounded_rectangle(
+            [wx0 - halo_pad, wy0 - halo_pad, wx1 + halo_pad, wy1 + halo_pad],
+            radius=48 + halo_pad // 2,
+            fill=(56, 189, 248, int(72 * u * (1.0 - 0.4 * pulse))),
+            outline=(255, 255, 255, int(190 * u * (1.0 - 0.3 * pulse))),
+            width=3,
+        )
+        # Drop shadow + crisp pure WHITE button pill
+        draw.rounded_rectangle([wx0 + 4, wy0 + 7, wx1 + 4, wy1 + 7], radius=46, fill=(0, 0, 0, int(150 * u)))
+        draw.rounded_rectangle(
+            [wx0, wy0, wx1, wy1],
+            radius=46,
+            fill=(255, 255, 255, int(252 * u)),
+            outline=(226, 232, 240, int(255 * u)),
+            width=3,
+        )
+        # Bell / Play accent circle on left of White Button
+        cx_icon, cy_icon = wx0 + 58, wy0 + wb_h // 2
+        draw.ellipse([cx_icon - 28, cy_icon - 28, cx_icon + 28, cy_icon + 28], fill=(15, 23, 42, int(255 * u)))
+        draw.polygon(
+            [(cx_icon - 8, cy_icon - 13), (cx_icon - 8, cy_icon + 13), (cx_icon + 14, cy_icon)],
+            fill=(250, 204, 21, int(255 * u)),
+        )
+        btn_txt = "TEKAN TOMBOL PUTIH DI BAWAH!"
+        bt_b = draw.textbbox((0, 0), btn_txt, font=self.f_cta_tag)
+        draw.text(
+            (wx0 + 104 + (wb_w - 132 - (bt_b[2] - bt_b[0])) // 2, wy0 + 29),
+            btn_txt,
+            font=self.f_cta_tag,
+            fill=(11, 18, 33, int(255 * u)),
+        )
+
+        # Sub-banner pointing down toward YouTube's actual bottom white Subscribe button
+        sub_tag = "Dapat Hal-Hal yang Gak Disangka Setiap Hari!"
+        sb_b = draw.textbbox((0, 0), sub_tag, font=self.f_call_sub)
+        sb_w = (sb_b[2] - sb_b[0]) + 104
+        sx0 = (self.w - sb_w) // 2
+        sy0 = 634 + int(round(5.0 * math.sin(time_s * 6.5)))
+        draw.rounded_rectangle(
+            [sx0, sy0, sx0 + sb_w, sy0 + 48],
+            radius=24,
+            fill=(13, 22, 40, int(232 * u)),
+            outline=(56, 189, 248, int(225 * u)),
+            width=2,
+        )
+        draw.text(
+            ((self.w - (sb_b[2] - sb_b[0])) // 2, sy0 + 10),
+            sub_tag,
+            font=self.f_call_sub,
+            fill=(250, 204, 21, int(255 * u)),
+        )
+        # Crisp vector downward arrows on left & right of sub-banner
+        for ax in (sx0 + 28, sx0 + sb_w - 28):
+            ay = sy0 + 24
+            draw.polygon(
+                [(ax - 9, ay - 6), (ax + 9, ay - 6), (ax, ay + 8)],
+                fill=(56, 189, 248, int(255 * u)),
+            )

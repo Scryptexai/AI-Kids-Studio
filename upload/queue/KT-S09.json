@@ -1,0 +1,11 @@
+{
+  "episode": "KT-S09",
+  "status": "requested",
+  "approved": true,
+  "slot": "MALAM_SHORT",
+  "scheduledFor": "2026-11-28T20:30:00",
+  "timezone": "Asia/Makassar",
+  "visibility": "public",
+  "revision": "v3_uplevel_human_rig_white_button_cta",
+  "master_sha256": "01f1d32de89a09850d328be536fb613f8ff4c6fd281ae4ae1954c0060a732a02"
+}

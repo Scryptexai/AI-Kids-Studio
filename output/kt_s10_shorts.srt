@@ -1,0 +1,100 @@
+1
+00:00:00,280 --> 00:00:01,999
+Sakelar pemutus listrik MCB di
+
+2
+00:00:01,999 --> 00:00:04,126
+rumahmu ternyata sengaja menunggu
+
+3
+00:00:04,126 --> 00:00:05,654
+sebelum mematikan arus!
+
+4
+00:00:06,102 --> 00:00:08,351
+Kalau langsung putus tiap sepersekian
+
+5
+00:00:08,351 --> 00:00:10,132
+detik, listrik mati terus saat
+
+6
+00:00:10,132 --> 00:00:12,002
+kulkas atau pompa baru nyala.
+
+7
+00:00:12,366 --> 00:00:14,269
+Karena itu di dalamnya bekerja
+
+8
+00:00:14,269 --> 00:00:15,427
+dua penjaga berbeda.
+
+9
+00:00:15,754 --> 00:00:17,273
+Saat beban lebih ringan,
+
+10
+00:00:17,273 --> 00:00:19,836
+keping bimetal memanas dan melengkung
+
+11
+00:00:19,836 --> 00:00:21,324
+pelan melepas pengait,
+
+12
+00:00:21,324 --> 00:00:23,064
+tapi saat korsleting besar,
+
+13
+00:00:23,064 --> 00:00:25,437
+koil magnet menyambar tuas seketika.
+
+14
+00:00:25,875 --> 00:00:28,218
+Jangan pernah memodifikasi panel
+
+15
+00:00:28,218 --> 00:00:30,287
+atau menaikkan ukuran MCB tanpa
+
+16
+00:00:30,287 --> 00:00:31,443
+teknisi berizin.
+
+17
+00:00:32,033 --> 00:00:34,321
+Oh, jadi bimetal sengaja memberi
+
+18
+00:00:34,321 --> 00:00:36,883
+jeda lonjakan wajar sementara magnet
+
+19
+00:00:36,883 --> 00:00:38,713
+memutus korsleting sekejap.
+
+20
+00:00:39,057 --> 00:00:40,702
+Di rumahmu MCB paling sering
+
+21
+00:00:40,702 --> 00:00:42,837
+jeglek gara-gara alat apa nyala
+
+22
+00:00:42,837 --> 00:00:43,962
+barengan? Komen ya,
+
+23
+00:00:43,962 --> 00:00:45,491
+dan tekan tombol putih di
+
+24
+00:00:45,491 --> 00:00:47,222
+bawah agar dapat hal-hal yang
+
+25
+00:00:47,222 --> 00:00:48,059
+nggak disangka!
+

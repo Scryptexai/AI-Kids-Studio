@@ -1,0 +1,11 @@
+{
+  "episode": "KT-S13",
+  "status": "requested",
+  "approved": true,
+  "slot": "PAGI_SHORT",
+  "scheduledFor": "2026-11-30T08:00:00",
+  "timezone": "Asia/Makassar",
+  "visibility": "public",
+  "revision": "v3_uplevel_human_rig_white_button_cta",
+  "master_sha256": "386309396b2acab8afe4df9a3d0fde6203a0474972f8c8d21220f151ea563791"
+}

@@ -1,0 +1,14 @@
+{
+  "episode": "KT-S14",
+  "engine": "ai-kids-studio-3d-cpp",
+  "entrypoint": "src/knot_shorts_engine.py",
+  "video_filename": "KT-S14_1080x1920_master.mp4",
+  "master_sha256": "96e1ee19131414b289a878a00342a892fa81f0d1b21a7775dfaeb780da7e1fb8",
+  "size_bytes": 7674046,
+  "duration_seconds": 48.42,
+  "resolution": "1080x1920",
+  "fps": 24,
+  "voice_id": "voice-00",
+  "drive_file_id": "1h2X4wdc7tnyuc27AG8kv9EvVCr4tSzcD",
+  "director_version": "v3_uplevel_human_rig_white_button_cta"
+}

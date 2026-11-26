@@ -1,0 +1,11 @@
+{
+  "episode": "KT-S11",
+  "status": "requested",
+  "approved": true,
+  "slot": "SIANG_SHORT",
+  "scheduledFor": "2026-11-29T12:30:00",
+  "timezone": "Asia/Makassar",
+  "visibility": "public",
+  "revision": "v3_uplevel_human_rig_white_button_cta",
+  "master_sha256": "0a3c337aad21523c6cb3924b2bf537ac08d998ffc97fcdb129c2e1416b8fecb6"
+}

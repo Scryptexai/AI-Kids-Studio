@@ -1,0 +1,11 @@
+{
+  "episode": "KT-S07",
+  "status": "requested",
+  "approved": true,
+  "slot": "PAGI_SHORT",
+  "scheduledFor": "2026-11-28T08:00:00",
+  "timezone": "Asia/Makassar",
+  "visibility": "public",
+  "revision": "v3_uplevel_human_rig_white_button_cta",
+  "master_sha256": "945ae9d7d3b807f1225fb5d9f0495c8e11233533dc6cfd39c1cbc1c23d44169a"
+}

@@ -372,8 +372,18 @@ def align_subtitles_and_mix_short(
         _add_clip(sfx_mix, thud * 0.18, total_dur * 0.25)
         _add_clip(sfx_mix, _sfx_buzzer_wrong(0.36, vol=0.12), total_dur * 0.27)
         _add_clip(sfx_mix, thud * 0.16, total_dur * 0.47)
+    elif ep_code in ("KT-S07", "KT-S09", "KT-S11", "KT-S13"):
+        _add_clip(sfx_mix, _sfx_whoosh(0.85, 140, 880, vol=0.14), total_dur * 0.14)
+        _add_clip(sfx_mix, thud * 0.14, total_dur * 0.45)
+        _add_clip(sfx_mix, _sfx_whoosh(0.70, 260, 1280, vol=0.13), total_dur * 0.62)
+    elif ep_code in ("KT-S08", "KT-S10", "KT-S12", "KT-S14"):
+        _add_clip(sfx_mix, thud * 0.17, total_dur * 0.44)
+        _add_clip(sfx_mix, _sfx_buzzer_wrong(0.32, vol=0.11), total_dur * 0.28)
+        _add_clip(sfx_mix, _sfx_chime([659.25, 987.77], dur=0.38, vol=0.13), total_dur * 0.58)
 
-    _add_clip(sfx_mix, _sfx_chime([523.25, 659.25, 783.99, 1046.5], dur=0.55, vol=0.14), total_dur * 0.85)
+    _add_clip(sfx_mix, _sfx_chime([523.25, 659.25, 783.99, 1046.5], dur=0.55, vol=0.14), total_dur * 0.82)
+    # Crisp White-Button Subscribe Chime Pop during CTA!
+    _add_clip(sfx_mix, _sfx_chime([783.99, 1174.66, 1567.98], dur=0.42, vol=0.15), total_dur * 0.90)
 
     master = sfx_mix.copy()
     master[:, 0] += vo_track
@@ -393,11 +403,18 @@ def align_subtitles_and_mix_short(
     return chunks, total_dur
 
 
+from src.knot_batch2_scripts import SHORTS_BATCH2_SPECS
+from src.knot_director_batch2 import KnotShortDirectorBatch2
 from src.knot_director_v2 import KnotShortDirectorV2
 
+SHORTS_SPECS.update(SHORTS_BATCH2_SPECS)
 
-class KnotShortDirector(KnotShortDirectorV2):
-    """Gold-standard EP02/EP03-caliber multi-act 3D diorama director for KT-S01..KT-S06."""
 
-    def __init__(self, ep_code: str, subtitles: Sequence[SubtitleChunk], total_dur: float, ssaa: float = 1.0):
-        super().__init__(ep_code, SHORTS_SPECS[ep_code], subtitles, total_dur, ssaa=ssaa)
+class KnotShortDirector:
+    """Unified factory/wrapper dispatching KT-S01..S06 to V2 and KT-S07..S14 to V3 Ultra-Diorama Batch2."""
+
+    def __new__(cls, ep_code: str, subtitles: Sequence[SubtitleChunk], total_dur: float, ssaa: float = 1.0):
+        spec = SHORTS_SPECS[ep_code]
+        if ep_code in SHORTS_BATCH2_SPECS:
+            return KnotShortDirectorBatch2(ep_code, spec, subtitles, total_dur, ssaa=ssaa)
+        return KnotShortDirectorV2(ep_code, spec, subtitles, total_dur, ssaa=ssaa)

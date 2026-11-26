@@ -1,0 +1,36 @@
+{
+  "episode": "KT-S11",
+  "slot_label": "SIANG_SHORT",
+  "video": "KT-S11_1080x1920_master.mp4",
+  "thumbnail": "KT-S11_thumbnail.jpg",
+  "drive_file_id": "1PpiMeb3jkAL41iyCb5goxOWjAa8XA57f",
+  "size_bytes": 8129632,
+  "sha256": "0a3c337aad21523c6cb3924b2bf537ac08d998ffc97fcdb129c2e1416b8fecb6",
+  "title": "Kolam Limbah Ini Ditiup Udara 24 Jam untuk Memberi Napas Bakteri #Shorts",
+  "hook": "Kolam limbah ini ditiup udara dua puluh empat jam bukan buat dingin, tapi memberi napas triliunan bakteri!",
+  "description": "Kolam limbah ini ditiup udara dua puluh empat jam bukan buat dingin, tapi memberi napas triliunan bakteri!\n\nGelembung udara yang terus mendidih di kolam Instalasi Pengolahan Air Limbah (IPAL) bukan sekadar pengaduk air kotor.\n\nSistem Lumpur Aktif (Activated Sludge) memelihara miliaran mikroorganisme aerob yang memakan polutan organik terlarut. Blower meniupkan udara 24 jam melalui diffuser dasar kolam untuk menjaga kadar oksigen terlarut agar koloni bakteri tetap bernapas, menggumpalkan limbah menjadi flok lumpur, lalu mengendapkannya di tangki penjernih.\n\nBatas Akurasi: Pengolahan limbah tertentu juga mengombinasikan zona anaerob/anoksik sesuai jenis beban pencemar.\nReferensi: Rekayasa Proses Lumpur Aktif Aerobik US EPA / Metcalf & Eddy.\n\nPertanyaan diskusi: Nyangka nggak air kotor kota dibersihkan pasukan bakteri lapar? (GAK NYANGKA! vs JENIUS BIOLOGINYA)\nTekan tombol putih di bawah agar mendapatkan hal-hal yang gak disangka setiap hari!\n\n#KnotTheory #InfrastrukturTersembunyi #CaraKerjaMesin #SainsSehariHari #Shorts",
+  "tags": [
+    "Knot Theory",
+    "pengolahan air limbah",
+    "kolam aerasi IPAL",
+    "bakteri aerob",
+    "activated sludge",
+    "teknik lingkungan",
+    "edukasi sains",
+    "shorts indonesia"
+  ],
+  "categoryId": "28",
+  "visibility": "public",
+  "madeForKids": false,
+  "containsSyntheticMedia": false,
+  "defaultLanguage": "id",
+  "defaultAudioLanguage": "id",
+  "first_comment": "Nyangka nggak air kotor kota dibersihkan pasukan bakteri lapar? (GAK NYANGKA! vs JENIUS BIOLOGINYA) — Tulis jawabanmu di komentar & tekan tombol putih di bawah ya!",
+  "scheduledFor": "2026-11-29T12:30:00",
+  "timezone": "Asia/Makassar",
+  "render_provenance": {
+    "engine": "ai-kids-studio-3d-cpp",
+    "entrypoint": "src/knot_shorts_engine.py",
+    "manifest": "upload/provenance/KT-S11.json"
+  }
+}

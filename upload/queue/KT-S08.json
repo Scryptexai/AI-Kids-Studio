@@ -1,0 +1,11 @@
+{
+  "episode": "KT-S08",
+  "status": "requested",
+  "approved": true,
+  "slot": "SIANG_SHORT",
+  "scheduledFor": "2026-11-28T12:30:00",
+  "timezone": "Asia/Makassar",
+  "visibility": "public",
+  "revision": "v3_uplevel_human_rig_white_button_cta",
+  "master_sha256": "af25bca4145c83cb6bf168d7f4b16d7f83872c1fbe3b9052f763a21f96d5736d"
+}
