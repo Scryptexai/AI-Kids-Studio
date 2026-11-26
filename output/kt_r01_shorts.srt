@@ -1,0 +1,100 @@
+1
+00:00:00,282 --> 00:00:01,717
+Saat pintu lift terbuka,
+
+2
+00:00:01,717 --> 00:00:03,092
+lihat celah bawahnya:
+
+3
+00:00:03,092 --> 00:00:05,036
+ada dua pasang pintu terpisah
+
+4
+00:00:05,036 --> 00:00:06,471
+yang bergerak serempak.
+
+5
+00:00:06,982 --> 00:00:08,790
+Satu menempel di sangkar kabin,
+
+6
+00:00:08,790 --> 00:00:10,843
+sedangkan pintu luar menempel tetap
+
+7
+00:00:10,843 --> 00:00:12,158
+pada tembok tiap lantai.
+
+8
+00:00:12,617 --> 00:00:14,207
+Tanpa pengunci otomatis,
+
+9
+00:00:14,207 --> 00:00:15,991
+pintu lantai bisa terbuka ke
+
+10
+00:00:15,991 --> 00:00:17,581
+ruang luncur kosong yang amat
+
+11
+00:00:17,581 --> 00:00:18,278
+berbahaya.
+
+12
+00:00:19,056 --> 00:00:20,949
+Maka pintu luar tidak bermotor
+
+13
+00:00:20,949 --> 00:00:22,871
+sendiri, melainkan dikunci kait
+
+14
+00:00:22,871 --> 00:00:25,166
+mekanis interlock dari dalam sangkar.
+
+15
+00:00:25,622 --> 00:00:27,810
+Hanya saat sangkar sejajar lantai,
+
+16
+00:00:27,810 --> 00:00:29,903
+bilah kabin mengait roda kunci
+
+17
+00:00:29,903 --> 00:00:32,186
+lalu menyeret pintu luar terbuka.
+
+18
+00:00:32,581 --> 00:00:35,278
+Batasnya, pemeriksaan kait dan sensor
+
+19
+00:00:35,278 --> 00:00:38,259
+wajib mengikuti standar keselamatan
+
+20
+00:00:38,259 --> 00:00:39,252
+lift ASME A17.1.
+
+21
+00:00:39,547 --> 00:00:41,268
+Pernah sadar dua lapis pintu
+
+22
+00:00:41,268 --> 00:00:42,701
+ini? Tulis di komentar,
+
+23
+00:00:42,701 --> 00:00:44,221
+dan tekan tombol putih di
+
+24
+00:00:44,221 --> 00:00:45,741
+bawah agar dapat hal yang
+
+25
+00:00:45,741 --> 00:00:46,515
+gak disangka!
+

@@ -1,0 +1,36 @@
+{
+  "episode": "KT-R05",
+  "slot_label": "PAGI_SHORT",
+  "video": "KT-R05_1080x1920_master.mp4",
+  "thumbnail": "KT-R05_thumbnail.jpg",
+  "drive_file_id": "1ySxtBFEEkoNX-f_fOAyNEx_4omBqPB9E",
+  "size_bytes": 6199348,
+  "sha256": "2dd45f8219abeb560055ec2d89bda21a08c8e2bda073ee9ae5864ea61fbbebd0",
+  "title": "Rel Kereta Baja Bisa Melengkung Seperti Ular Saat Cuaca Panas Ekstrem #Shorts",
+  "hook": "Rel kereta modern dilas panjang tanpa celah agar mulus, tapi saat terik ekstrem bisa melengkung bagai ular.",
+  "description": "Rel kereta modern dilas panjang tanpa celah agar mulus, tapi saat terik ekstrem bisa melengkung bagai ular.\n\nKetika baja terpanggang matahari tanpa ruang muai, gaya tekan raksasa terperangkap di batang rel. Jika batu kricak samping bantalan kurang padat, rel melepas tekanan dengan melipat ke samping—track buckling. Untuk mencegahnya, insinyur menarik dan mengunci rel pada suhu netral rancangan dalam tarikan aman. Bahu batu balas juga dipadatkan lebar demi mengunci bantalan beton agar tak bergeser sedikit pun. Batasnya, saat gelombang panas lewat ambang desain, operator memberlakukan batas kecepatan darurat.\n\nBatas Akurasi: Kangen bunyi jeglek rel lama atau suka rel mulus? Tulis di komentar, dan tekan tombol putih di bawah agar dapat hal yang gak disangka!\nReferensi: UIC Code 720 / AREMA Continuous Welded Rail (CWR) Neutral Temperature & Track Buckling\n\nPertanyaan diskusi: Pernah merasakan kereta lama berbunyi jeglek-jeglek di sambungan rel? Pilih di komentar: Kangen Bunyinya atau Suka Rel Mulus! (KANGEN BUNYINYA vs SUKA REL MULUS)\nTekan tombol putih di bawah agar mendapatkan hal-hal yang gak disangka setiap hari!\n\n#KnotTheory #InfrastrukturTersembunyi #CaraKerjaMesin #SainsSehariHari #Shorts",
+  "tags": [
+    "Knot Theory",
+    "rel kereta melengkung",
+    "track buckling panas",
+    "rel las menerus CWR",
+    "cara kerja kereta api",
+    "infrastruktur tersembunyi",
+    "edukasi sains",
+    "shorts indonesia"
+  ],
+  "categoryId": "28",
+  "visibility": "public",
+  "madeForKids": false,
+  "containsSyntheticMedia": false,
+  "defaultLanguage": "id",
+  "defaultAudioLanguage": "id",
+  "first_comment": "Pernah merasakan kereta lama berbunyi jeglek-jeglek di sambungan rel? Pilih di komentar: Kangen Bunyinya atau Suka Rel Mulus! (KANGEN BUNYINYA vs SUKA REL MULUS) — Tulis jawabanmu di komentar & tekan tombol putih di bawah ya!",
+  "scheduledFor": "2026-12-02T08:00:00",
+  "timezone": "Asia/Makassar",
+  "render_provenance": {
+    "engine": "ai-kids-studio-3d-cpp",
+    "entrypoint": "src/knot_shorts_engine.py",
+    "manifest": "upload/provenance/KT-R05.json"
+  }
+}

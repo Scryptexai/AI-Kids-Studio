@@ -1,0 +1,11 @@
+{
+  "episode": "KT-R07",
+  "status": "requested",
+  "approved": true,
+  "slot": "MALAM_SHORT",
+  "scheduledFor": "2026-12-02T20:30:00",
+  "timezone": "Asia/Makassar",
+  "visibility": "public",
+  "revision": "v4_multi_scene_interior_exterior_white_button_cta",
+  "master_sha256": "d602510122f4fdfb06bcd7bf7ab9374a8e473bf0f95c7d3a6d8cd57aec392c0e"
+}

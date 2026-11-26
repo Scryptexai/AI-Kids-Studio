@@ -1,0 +1,38 @@
+{
+  "episode": "KT-L03",
+  "slot_label": "SORE_LONG",
+  "video": "KT-L03_1920x1080_master.mp4",
+  "thumbnail": "KT-L03_thumbnail.jpg",
+  "drive_file_id": "1pQ1rlJKI6RtcUG9mU3UPUIYRboWJdIQz",
+  "size_bytes": 67520324,
+  "sha256": "6a57dd239793a8387f5390808bf7d62a1f8bdb4e9061cd7f382903677c415cc5",
+  "title": "5 Sistem Darurat Bandara & Pesawat Komersial yang Diam-Diam Menjaga Penumpang",
+  "hook": "Pernahkah kamu duduk di dekat jendela pesawat saat mendarat di tengah hujan lebat, lalu melihat hamparan kotak-kotak kuning di ujung pagar landasan? Di bandara kota padat yang ujung landasannya langsung berbatasan dengan jalan tol atau laut, pesawat yang gagal berhenti tepat waktu menghadapi bahaya fatal.",
+  "description": "Pernahkah kamu duduk di dekat jendela pesawat saat mendarat di tengah hujan lebat, lalu melihat hamparan kotak-kotak kuning di ujung pagar landasan? Di bandara kota padat yang ujung landasannya langsung berbatasan dengan jalan tol atau laut, pesawat yang gagal berhenti tepat waktu menghadapi bahaya fatal.\n\nDi episode dokumenter panjang Knot Theory V4 ini, kita membedah eksterior pesawat, ruang kabin penumpang, tangki sayap, hingga kokpit pendaratan otomatis secara 3D:\n\n00:00 Cold Open — Ilusi Ketenangan di Ketinggian 11 Kilometer\n00:05 Bab 1: Redundansi Berlapis Penerbangan Modern\n01:46 Bab 2: EMAS Arrestor Bed — Beton Semen Rapuh Penangkap Roda di Ujung Landasan\n03:30 Bab 3: Bleed Air & Outflow Valve — Bagaimana Kabin Bernapas & Masker Oksigen Darurat\n05:15 Bab 4: OBIGGS — Menyuntikkan Gas Nitrogen Anti-Ledakan ke Tangki Sayap\n06:58 Bab 5: ILS Kategori III & Autoland — Mendarat Mulus di Tengah Kabut Buta\n08:45 Bab 6: Ram Air Turbine (RAT) — Kincir Angin Darurat Terakhir di Perut Pesawat\n\nBatas Akurasi & Referensi Teknis:\n• EMAS dirancang menahan pesawat overrun kecepatan sedang hingga sekitar 70 knot sesuai FAA AC 150/5220-22B.\n• Tekanan kabin dijaga setara ketinggian sekitar 1.800–2.400 meter; generator oksigen kimia kabin menyediakan suplai darurat hingga pesawat turun ke ketinggian aman.\n• Sistem OBIGGS menjaga kadar oksigen ruang uap tangki tengah di bawah ambang nyala (FAA FTFR).\n• Operasi pendaratan instrumen Kategori III menuntut sertifikasi ganda pada pesawat, kru, dan fasilitas pemancar bandara (ICAO Annex 10).\n\nTekan tombol putih di bawah agar terus mendapatkan hal-hal rekayasa yang gak disangka setiap hari!\n\n#KnotTheory #DokumenterPesawat #CaraKerjaPesawat #TeknologiBandara #EdukasiSains #Penerbangan #TeknikDirgantara",
+  "tags": [
+    "Knot Theory",
+    "sistem darurat pesawat",
+    "cara kerja pesawat terbang",
+    "EMAS bandara",
+    "tekanan kabin pesawat",
+    "OBIGGS nitrogen",
+    "ILS autoland pesawat",
+    "Ram Air Turbine RAT",
+    "dokumenter penerbangan",
+    "edukasi sains"
+  ],
+  "categoryId": "28",
+  "visibility": "public",
+  "madeForKids": false,
+  "containsSyntheticMedia": false,
+  "defaultLanguage": "id",
+  "defaultAudioLanguage": "id",
+  "first_comment": "Dari 5 sistem darurat penerbangan di video ini—Beton EMAS, Katup Kabin, Nitrogen OBIGGS, Autoland Kabut, atau Kincir RAT—mana yang paling cerdas menurutmu? Tulis di komentar & tekan tombol putihnya!",
+  "scheduledFor": "2026-11-28T16:30:00",
+  "timezone": "Asia/Makassar",
+  "render_provenance": {
+    "engine": "ai-kids-studio-3d-cpp",
+    "entrypoint": "src/knot_long_ep03.py",
+    "manifest": "upload/provenance/KT-L03.json"
+  }
+}

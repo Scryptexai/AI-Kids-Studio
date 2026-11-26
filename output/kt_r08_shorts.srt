@@ -1,0 +1,100 @@
+1
+00:00:00,280 --> 00:00:01,928
+Di hotel lima puluh lantai,
+
+2
+00:00:01,928 --> 00:00:04,003
+kenapa semburan kran lantai bawah
+
+3
+00:00:04,003 --> 00:00:06,163
+tetap aman tanpa meledakkan pipa?
+
+4
+00:00:06,461 --> 00:00:08,144
+Tiap sepuluh meter kolom air
+
+5
+00:00:08,144 --> 00:00:10,894
+menambah satu atmosfer tekanan hidrostatik
+
+6
+00:00:10,894 --> 00:00:11,763
+ke dasar pipa.
+
+7
+00:00:12,053 --> 00:00:14,072
+Kalau pipa lurus disambung dari
+
+8
+00:00:14,072 --> 00:00:15,010
+puncak ke dasar,
+
+9
+00:00:15,010 --> 00:00:17,114
+kran lantai bawah dihantam tekanan
+
+10
+00:00:17,114 --> 00:00:18,422
+raksasa hingga jebol.
+
+11
+00:00:18,783 --> 00:00:20,807
+Maka gedung tinggi dibagi beberapa
+
+12
+00:00:20,807 --> 00:00:22,756
+zona vertikal dengan tangki pemutus
+
+13
+00:00:22,756 --> 00:00:24,680
+tekanan di lantai mekanikal tengah.
+
+14
+00:00:25,162 --> 00:00:27,876
+Katup pengurang tekanan PRV menjaga
+
+15
+00:00:27,876 --> 00:00:29,983
+aliran air tiap kamar tetap
+
+16
+00:00:29,983 --> 00:00:32,161
+stabil bagi kloset dan shower.
+
+17
+00:00:32,428 --> 00:00:34,982
+Batasnya, pembagian lantai per zona
+
+18
+00:00:34,982 --> 00:00:37,881
+mengikuti tekanan kerja pipa standar
+
+19
+00:00:37,881 --> 00:00:38,813
+plambing SNI 8153.
+
+20
+00:00:39,114 --> 00:00:41,418
+Pernah lihat lantai tanpa jendela
+
+21
+00:00:41,418 --> 00:00:42,491
+di tengah gedung?
+
+22
+00:00:42,491 --> 00:00:43,722
+Tulis di komentar,
+
+23
+00:00:43,722 --> 00:00:45,394
+dan tekan tombol putih di
+
+24
+00:00:45,394 --> 00:00:47,067
+bawah agar dapat hal yang
+
+25
+00:00:47,067 --> 00:00:47,919
+gak disangka!
+

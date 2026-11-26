@@ -380,6 +380,11 @@ def align_subtitles_and_mix_short(
         _add_clip(sfx_mix, thud * 0.17, total_dur * 0.44)
         _add_clip(sfx_mix, _sfx_buzzer_wrong(0.32, vol=0.11), total_dur * 0.28)
         _add_clip(sfx_mix, _sfx_chime([659.25, 987.77], dur=0.38, vol=0.13), total_dur * 0.58)
+    elif ep_code.startswith("KT-R"):
+        _add_clip(sfx_mix, thud * 0.16, total_dur * 0.26)
+        _add_clip(sfx_mix, _sfx_buzzer_wrong(0.32, vol=0.11), total_dur * 0.30)
+        _add_clip(sfx_mix, _sfx_whoosh(0.65, 220, 1320, vol=0.13), total_dur * 0.50)
+        _add_clip(sfx_mix, _sfx_chime([659.25, 987.77], dur=0.38, vol=0.13), total_dur * 0.60)
 
     _add_clip(sfx_mix, _sfx_chime([523.25, 659.25, 783.99, 1046.5], dur=0.55, vol=0.14), total_dur * 0.82)
     # Crisp White-Button Subscribe Chime Pop during CTA!
@@ -404,17 +409,22 @@ def align_subtitles_and_mix_short(
 
 
 from src.knot_batch2_scripts import SHORTS_BATCH2_SPECS
+from src.knot_batch3_scripts import SHORTS_BATCH3_SPECS
 from src.knot_director_batch2 import KnotShortDirectorBatch2
+from src.knot_director_batch3 import KnotShortDirectorBatch3
 from src.knot_director_v2 import KnotShortDirectorV2
 
 SHORTS_SPECS.update(SHORTS_BATCH2_SPECS)
+SHORTS_SPECS.update(SHORTS_BATCH3_SPECS)
 
 
 class KnotShortDirector:
-    """Unified factory/wrapper dispatching KT-S01..S06 to V2 and KT-S07..S14 to V3 Ultra-Diorama Batch2."""
+    """Unified factory/wrapper dispatching KT-S01..S06 (V2), KT-S07..S14 (V3), and KT-R01..R08 (V4)."""
 
     def __new__(cls, ep_code: str, subtitles: Sequence[SubtitleChunk], total_dur: float, ssaa: float = 1.0):
         spec = SHORTS_SPECS[ep_code]
+        if ep_code in SHORTS_BATCH3_SPECS:
+            return KnotShortDirectorBatch3(ep_code, spec, subtitles, total_dur, ssaa=ssaa)
         if ep_code in SHORTS_BATCH2_SPECS:
             return KnotShortDirectorBatch2(ep_code, spec, subtitles, total_dur, ssaa=ssaa)
         return KnotShortDirectorV2(ep_code, spec, subtitles, total_dur, ssaa=ssaa)

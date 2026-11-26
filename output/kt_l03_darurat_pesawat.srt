@@ -1,0 +1,612 @@
+1
+00:00:04,200 --> 00:00:07,925
+Pernahkah kamu duduk di dekat jendela pesawat saat mendarat
+
+2
+00:00:07,925 --> 00:00:09,233
+di tengah hujan lebat,
+
+3
+00:00:09,233 --> 00:00:13,300
+lalu melihat hamparan kotak-kotak kuning di ujung pagar landasan?
+
+4
+00:00:13,300 --> 00:00:17,281
+Di bandara kota padat yang ujung landasannya langsung berbatasan
+
+5
+00:00:17,281 --> 00:00:18,817
+dengan jalan tol atau laut,
+
+6
+00:00:18,817 --> 00:00:22,883
+pesawat yang gagal berhenti tepat waktu menghadapi bahaya fatal.
+
+7
+00:00:22,883 --> 00:00:26,353
+Kalau hamparan ujung itu dibuat dari beton keras biasa,
+
+8
+00:00:26,353 --> 00:00:30,504
+pesawat yang tergelincir akan meluncur terus menembus pagar dengan
+
+9
+00:00:30,504 --> 00:00:34,400
+kecepatan tinggi. Sebaliknya jika ujungnya diisi pasir gembur
+
+10
+00:00:34,400 --> 00:00:38,097
+atau lumpur dalam, roda depan bisa menancap mendadak hingga
+
+11
+00:00:38,097 --> 00:00:40,628
+patah dan membuat badan pesawat terjungkal.
+
+12
+00:00:40,628 --> 00:00:42,562
+Untuk memecahkan dilema itu,
+
+13
+00:00:42,562 --> 00:00:46,770
+insinyur penerbangan merancang EMAS—Engineered Materials Arresting
+
+14
+00:00:46,770 --> 00:00:50,496
+System. Hamparan ini disusun dari ribuan balok beton seluler
+
+15
+00:00:50,496 --> 00:00:54,591
+berpori khusus atau silika busa yang kekuatannya dihitung sangat
+
+16
+00:00:54,591 --> 00:00:58,970
+presisi. Begitu roda pendarat pesawat seberat ratusan ton menggilas
+
+17
+00:00:58,970 --> 00:01:03,008
+permukaan EMAS, balok-balok itu sengaja remuk dan ambles seperti
+
+18
+00:01:03,008 --> 00:01:06,648
+menginjak biskuit tebal. Proses penghancuran pori-pori balok
+
+19
+00:01:06,648 --> 00:01:10,999
+di sepanjang lintasan memakan energi kinetik pesawat secara mulus
+
+20
+00:01:10,999 --> 00:01:13,274
+tanpa mematahkan tiang roda pendarat.
+
+21
+00:01:13,274 --> 00:01:15,492
+Penumpang tetap duduk aman di kabin,
+
+22
+00:01:15,492 --> 00:01:19,530
+sementara pesawat berhenti total hanya dalam hitungan puluhan
+
+23
+00:01:19,530 --> 00:01:21,947
+meter sebelum menyentuh pagar bandara.
+
+24
+00:01:21,947 --> 00:01:26,014
+Batasnya, sistem EMAS dirancang untuk kecepatan overrun darurat
+
+25
+00:01:26,014 --> 00:01:27,578
+terukur sesuai panduan FAA,
+
+26
+00:01:27,578 --> 00:01:30,308
+dan blok yang hancur tinggal diganti modul baru.
+
+27
+00:01:46,508 --> 00:01:50,590
+Saat pesawat komersial menjelajah tenang di ketinggian tiga puluh
+
+28
+00:01:50,590 --> 00:01:54,006
+lima ribu kaki, udara di luar jendela bersuhu minus
+
+29
+00:01:54,006 --> 00:01:56,959
+lima puluh derajat dengan tekanan amat tipis.
+
+30
+00:01:56,959 --> 00:02:01,069
+Manusia tidak mungkin bernapas sadar lebih dari beberapa detik
+
+31
+00:02:01,069 --> 00:02:02,604
+di udara setipis itu,
+
+32
+00:02:02,604 --> 00:02:06,685
+namun pesawat juga tidak membawa tabung oksigen raksasa untuk
+
+33
+00:02:06,685 --> 00:02:10,709
+berjam-jam terbang. Lalu dari mana ratusan penumpang mendapatkan
+
+34
+00:02:10,709 --> 00:02:14,849
+udara hangat segar setiap menit selama penerbangan lintas benua?
+
+35
+00:02:14,849 --> 00:02:17,078
+Pada mayoritas pesawat jet modern,
+
+36
+00:02:17,078 --> 00:02:21,189
+udara itu disadap langsung dari tahap kompresor mesin turbofan
+
+37
+00:02:21,189 --> 00:02:24,923
+sebelum ruang pembakaran bahan bakar—disebut sistem bleed air.
+
+38
+00:02:24,923 --> 00:02:27,558
+Karena baru dimampatkan bilah kompresor,
+
+39
+00:02:27,558 --> 00:02:31,148
+udara murni tersebut sangat panas dan bertekanan tinggi,
+
+40
+00:02:31,148 --> 00:02:34,824
+sehingga dialirkan dulu ke unit pendingin air cycle machine
+
+41
+00:02:34,824 --> 00:02:37,256
+di perut sayap. Setelah suhunya nyaman,
+
+42
+00:02:37,256 --> 00:02:41,251
+udara segar disemprotkan masuk ke kabin penumpang dan dicampur
+
+43
+00:02:41,251 --> 00:02:44,406
+udara sirkulasi yang telah disaring filter HEPA.
+
+44
+00:02:44,406 --> 00:02:48,170
+Rahasia sesungguhnya ada di bagian belakang badan pesawat:
+
+45
+00:02:48,170 --> 00:02:51,528
+sebuah katup pintar bermotor yang disebut outflow valve.
+
+46
+00:02:51,528 --> 00:02:55,552
+Katup ini membuka dan menutup celah pembuangan udara secara
+
+47
+00:02:55,552 --> 00:02:59,807
+otomatis untuk menjaga tekanan di dalam kabin setara ketinggian
+
+48
+00:02:59,807 --> 00:03:03,484
+pegunungan sejuk sekitar enam hingga delapan ribu kaki.
+
+49
+00:03:03,484 --> 00:03:07,508
+Batasnya, beberapa pesawat generasi terbaru seperti Boeing 787
+
+50
+00:03:07,508 --> 00:03:11,184
+memakai kompresor listrik tersendiri tanpa menyadap mesin,
+
+51
+00:03:11,184 --> 00:03:14,456
+dan masker oksigen plafon hanyalah cadangan darurat.
+
+52
+00:03:30,656 --> 00:03:34,946
+Banyak orang mengira tangki bahan bakar pesawat paling berbahaya
+
+53
+00:03:34,946 --> 00:03:37,865
+saat terisi penuh sesak sebelum lepas landas.
+
+54
+00:03:37,865 --> 00:03:40,100
+Padahal dalam fisika kebakaran,
+
+55
+00:03:40,100 --> 00:03:43,735
+cairan avtur dingin justru sulit menyala; yang paling mudah
+
+56
+00:03:43,735 --> 00:03:47,369
+meledak adalah campuran uap bahan bakar dan oksigen di
+
+57
+00:03:47,369 --> 00:03:49,097
+ruang tangki yang mulai kosong.
+
+58
+00:03:49,097 --> 00:03:52,613
+Terutama pada tangki tengah di bawah lantai kabin yang
+
+59
+00:03:52,613 --> 00:03:56,367
+duduk berdekatan dengan mesin pendingin udara yang hangat.
+
+60
+00:03:56,367 --> 00:04:00,716
+Setelah insiden bersejarah pada akhir dekade sembilan puluhan,
+
+61
+00:04:00,716 --> 00:04:04,738
+dunia penerbangan mengubah total cara mengamankan ruang kosong
+
+62
+00:04:04,738 --> 00:04:08,850
+tangki pesawat. Alih-alih mencoba menghilangkan uap bahan bakar
+
+63
+00:04:08,850 --> 00:04:13,200
+yang mustahil dicegah, insinyur memilih menyingkirkan unsur ketiga
+
+64
+00:04:13,200 --> 00:04:17,817
+segitiga api: oksigen. Pesawat komersial modern dilengkapi perangkat
+
+65
+00:04:17,817 --> 00:04:21,750
+bernama On-Board Inert Gas Generation System dengan membran serat
+
+66
+00:04:21,750 --> 00:04:26,189
+berongga khusus. Saat udara bertekanan melewati ribuan serat halus
+
+67
+00:04:26,189 --> 00:04:29,913
+itu, molekul oksigen merembes keluar terbuang ke atmosfer,
+
+68
+00:04:29,913 --> 00:04:32,744
+menyisakan udara kaya gas nitrogen murni.
+
+69
+00:04:32,744 --> 00:04:36,855
+Gas nitrogen lembam ini terus dipompakan memenuhi ruang kosong
+
+70
+00:04:36,855 --> 00:04:40,788
+di atas permukaan bahan bakar seiring berkurangnya isi avtur
+
+71
+00:04:40,788 --> 00:04:44,691
+selama terbang. Dengan kadar oksigen ditekan di bawah ambang
+
+72
+00:04:44,691 --> 00:04:46,657
+nyala sekitar dua belas persen,
+
+73
+00:04:46,657 --> 00:04:50,530
+percikan listrik sekecil apa pun tidak akan sanggup memicu
+
+74
+00:04:50,530 --> 00:04:52,079
+ledakan di dalam tangki.
+
+75
+00:04:52,079 --> 00:04:56,518
+Batasnya, sistem inerting ini bekerja berdampingan dengan isolasi
+
+76
+00:04:56,518 --> 00:04:59,378
+kabel ketat dan pelindung petir struktur sayap.
+
+77
+00:05:15,578 --> 00:05:19,213
+Bayangkan kokpit pesawat yang melaju dua ratus lima puluh
+
+78
+00:05:19,213 --> 00:05:22,963
+kilometer per jam menembus kabut susu begitu pekat hingga
+
+79
+00:05:22,963 --> 00:05:25,290
+ujung hidung pesawat pun tak terlihat.
+
+80
+00:05:25,290 --> 00:05:29,186
+Mengandalkan GPS satelit biasa saja belum cukup presisi untuk
+
+81
+00:05:29,186 --> 00:05:32,733
+menaruh roda pendarat tepat di garis tengah pada detik
+
+82
+00:05:32,733 --> 00:05:36,745
+sentuhan akhir. Di sinilah bandara internasional mengaktifkan
+
+83
+00:05:36,745 --> 00:05:40,903
+penuntun radio darat super akurat bernama Instrument Landing System
+
+84
+00:05:40,903 --> 00:05:42,502
+atau ILS Kategori Tiga.
+
+85
+00:05:42,502 --> 00:05:46,515
+Sistem ini memancarkan dua berkas gelombang radio berbeda dari
+
+86
+00:05:46,515 --> 00:05:49,946
+sekitar landasan langsung ke antena di hidung pesawat.
+
+87
+00:05:49,946 --> 00:05:54,510
+Berkas pertama bernama Localizer dipancarkan dari ujung jauh landasan
+
+88
+00:05:54,510 --> 00:05:58,814
+untuk menjaga pesawat terkunci lurus sempurna di sumbu kiri-kanan.
+
+89
+00:05:58,814 --> 00:06:02,826
+Berkas kedua bernama Glideslope dipancarkan dari samping zona
+
+90
+00:06:02,826 --> 00:06:06,693
+sentuh untuk membentuk jalur luncur turun miring tiga derajat
+
+91
+00:06:06,693 --> 00:06:10,531
+yang mulus. Saat pesawat turun melewati ketinggian lima puluh
+
+92
+00:06:10,531 --> 00:06:11,781
+kaki di atas aspal,
+
+93
+00:06:11,781 --> 00:06:15,503
+radar altimeter di perut pesawat mengukur jarak nyata ke
+
+94
+00:06:15,503 --> 00:06:18,439
+permukaan landasan hingga hitungan sentimeter.
+
+95
+00:06:18,439 --> 00:06:23,121
+Tiga komputer autopilot independen bekerja serempak saling mengawasi:
+
+96
+00:06:23,121 --> 00:06:26,028
+mengangkat hidung sedikit untuk manuver flare,
+
+97
+00:06:26,028 --> 00:06:30,273
+mengecilkan gas otomatis, lalu menjaga roda tetap lurus setelah
+
+98
+00:06:30,273 --> 00:06:34,344
+menyentuh aspal. Batasnya, pendaratan otomatis Kategori Tiga
+
+99
+00:06:34,344 --> 00:06:38,589
+wajib memenuhi sertifikasi ganda—baik peralatan darat bandara,
+
+100
+00:06:38,589 --> 00:06:42,252
+sistem redundan pesawat, maupun lisensi khusus awak kokpit.
+
+101
+00:06:58,452 --> 00:07:01,245
+Pertanyaan paling menegangkan bagi penumpang:
+
+102
+00:07:01,245 --> 00:07:05,259
+jika kedua mesin jet pesawat tiba-tiba mati total sekaligus
+
+103
+00:07:05,259 --> 00:07:08,808
+di tengah langit, apakah kemudi pesawat ikut lumpuh dan
+
+104
+00:07:08,808 --> 00:07:11,455
+jatuh bebas? Pada pesawat komersial besar,
+
+105
+00:07:11,455 --> 00:07:15,353
+bidang kemudi di sayap dan ekor digerakkan tenaga hidrolik
+
+106
+00:07:15,353 --> 00:07:19,076
+serta komputer terbang listrik yang disuplai mesin utama dan
+
+107
+00:07:19,076 --> 00:07:23,265
+generator APU. Jika seluruh generator mesin dan cadangan ikut
+
+108
+00:07:23,265 --> 00:07:26,901
+padam karena kehabisan bahan bakar atau gangguan ekstrem,
+
+109
+00:07:26,901 --> 00:07:30,537
+pesawat masih menyimpan satu kartu truf mekanis terakhir.
+
+110
+00:07:30,537 --> 00:07:33,911
+Sebuah pintu kecil di bawah perut badan pesawat atau
+
+111
+00:07:33,911 --> 00:07:37,664
+pangkal sayap akan terbuka otomatis dalam hitungan detik,
+
+112
+00:07:37,664 --> 00:07:41,504
+menjatuhkan kincir angin logam kecil bernama Ram Air Turbine.
+
+113
+00:07:41,504 --> 00:07:43,394
+Meskipun kedua mesin jet mati,
+
+114
+00:07:43,394 --> 00:07:47,525
+badan pesawat besar tetap meluncur maju seperti pesawat layang
+
+115
+00:07:47,525 --> 00:07:51,656
+raksasa menembus angin berkecepatan ratusan kilometer per jam.
+
+116
+00:07:51,656 --> 00:07:55,437
+Terjangan angin kencang itulah yang langsung memutar dua bilah
+
+117
+00:07:55,437 --> 00:07:59,306
+baling-baling Ram Air Turbine dengan putaran ribuan rotasi per
+
+118
+00:07:59,306 --> 00:08:03,466
+menit. Putaran kincir kecil ini sanggup memompa tekanan hidrolik
+
+119
+00:08:03,466 --> 00:08:07,829
+darurat ke sirip kemudi sekaligus membangkitkan listrik bagi layar
+
+120
+00:08:07,829 --> 00:08:09,981
+navigasi utama dan radio pilot.
+
+121
+00:08:09,981 --> 00:08:12,076
+Dalam sejarah penerbangan nyata,
+
+122
+00:08:12,076 --> 00:08:16,526
+kincir darurat seukuran kipas meja ini berkali-kali menyelamatkan
+
+123
+00:08:16,526 --> 00:08:20,541
+ratusan nyawa hingga pilot berhasil mendaratkan pesawat tanpa
+
+124
+00:08:20,541 --> 00:08:24,439
+mesin. Batasnya, RAT hanya menyuplai sistem kemudi dan instrumen
+
+125
+00:08:24,439 --> 00:08:28,395
+paling vital, bukan menyalakan lampu kabin penuh atau hiburan
+
+126
+00:08:28,395 --> 00:08:29,384
+kursi penumpang.
+
+127
+00:08:45,584 --> 00:08:48,716
+Kalau kita merangkai kelima sistem rahasia tadi,
+
+128
+00:08:48,716 --> 00:08:52,567
+terlihat jelas kenapa penerbangan komersial dirancang dengan
+
+129
+00:08:52,567 --> 00:08:55,125
+filosofi pertahanan berlapis. Di darat,
+
+130
+00:08:55,125 --> 00:08:58,861
+hamparan beton rapuh EMAS siap menangkap roda pesawat jika
+
+131
+00:08:58,861 --> 00:09:01,533
+landasan licin membuat pengereman meleset.
+
+132
+00:09:01,533 --> 00:09:04,579
+Di ketinggian jelajah, sistem bleed air dan katup buang
+
+133
+00:09:04,579 --> 00:09:06,850
+menjaga kabin tetap nyaman bernapas,
+
+134
+00:09:06,850 --> 00:09:10,988
+sementara generator membran nitrogen mengunci tangki sayap dari
+
+135
+00:09:10,988 --> 00:09:15,069
+ancaman percikan api. Saat cuaca menutup pandangan mata manusia
+
+136
+00:09:15,069 --> 00:09:18,345
+dengan kabut pekat, pancaran kembar radio ILS dan radar
+
+137
+00:09:18,345 --> 00:09:22,771
+altimeter menuntun tiga komputer autopilot mendarat tepat di garis
+
+138
+00:09:22,771 --> 00:09:26,593
+tengah. Dan bahkan dalam skenario paling langka ketika seluruh
+
+139
+00:09:26,593 --> 00:09:28,490
+mesin utama padam di udara,
+
+140
+00:09:28,490 --> 00:09:32,139
+kincir angin lipat Ram Air Turbine jatuh menangkap hembusan
+
+141
+00:09:32,139 --> 00:09:34,352
+angin untuk menjaga kendali pilot.
+
+142
+00:09:34,352 --> 00:09:38,347
+Prinsip besar rekayasa penerbangan tidak pernah mengasumsikan
+
+143
+00:09:38,347 --> 00:09:40,157
+mesin bebas dari kegagalan,
+
+144
+00:09:40,157 --> 00:09:44,066
+melainkan memastikan satu gangguan tunggal tidak pernah berubah
+
+145
+00:09:44,066 --> 00:09:47,974
+menjadi bencana. Nah, dari lima sistem penyelamat tak terlihat
+
+146
+00:09:47,974 --> 00:09:50,359
+tadi—Beton Rapuh EMAS, Udara Bleed Air,
+
+147
+00:09:50,359 --> 00:09:52,285
+Tangki Nitrogen, Autoland Kabut,
+
+148
+00:09:52,285 --> 00:09:55,877
+atau Kincir Darurat RAT—mana yang paling bikin kamu takjub?
+
+149
+00:09:55,877 --> 00:09:59,325
+Tulis pilihanmu di kolom komentar di bawah agar kita
+
+150
+00:09:59,325 --> 00:10:01,682
+bahas bareng di episode berikutnya!
+
+151
+00:10:01,682 --> 00:10:04,901
+Dan jangan lupa tekan tombol putih di bawah sekarang
+
+152
+00:10:04,901 --> 00:10:09,096
+juga, supaya kamu terus mendapatkan hal-hal rekayasa dunia nyata
+
+153
+00:10:09,096 --> 00:10:10,849
+yang gak disangka setiap hari!
+

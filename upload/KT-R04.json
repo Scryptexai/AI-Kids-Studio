@@ -1,0 +1,36 @@
+{
+  "episode": "KT-R04",
+  "slot_label": "MALAM_SHORT",
+  "video": "KT-R04_1080x1920_master.mp4",
+  "thumbnail": "KT-R04_thumbnail.jpg",
+  "drive_file_id": "1bXFwFULUvKjtkM5k7Vq3KKwjyUFm7QkD",
+  "size_bytes": 6695668,
+  "sha256": "c4d246fc8eb87370743f1048c797093594564cdee5dbda340cb8d65dd4f4f68f",
+  "title": "Kenapa Aspal di Sekeliling Tutup Manhole Jalan Sering Ambles Duluan? #Shorts",
+  "hook": "Kenapa di banyak jalan raya, tutup besi manhole menonjol tinggi sementara aspal sekitarnya ambles?",
+  "description": "Kenapa di banyak jalan raya, tutup besi manhole menonjol tinggi sementara aspal sekitarnya ambles?\n\nSebenarnya bukan tutup besinya yang naik, melainkan lapisan jalan di sekelilingnya yang turun. Cerobong beton manhole berdiri kaku di fondasi dalam, sedangkan aspal menumpang di tanah urug. Tepi melingkar cerobong sulit digilas alat berat, sehingga memadat saat dihantam truk ribuan kali. Apalagi bila sambungan pipa bawah bocor halus, butiran tanah tergerus air dan aspal makin turun. Batasnya, amblesan ini dipengaruhi kepadatan urugan, drainase, hingga beban kendaraan berlebih.\n\nBatas Akurasi: Sering menghindar tutup manhole menonjol begini? Tulis di komentar, dan tekan tombol putih di bawah agar dapat hal yang gak disangka!\nReferensi: FHWA Utility Cut & Manhole Backfill Compaction Guidelines • Differential Settlement\n\nPertanyaan diskusi: Sering harus menghindar tutup besi menonjol di jalan kota? Tulis di komentar: Hampir Tiap Hari atau Jarang Ketemu! (TIAP HARI! vs JARANG KETEMU)\nTekan tombol putih di bawah agar mendapatkan hal-hal yang gak disangka setiap hari!\n\n#KnotTheory #InfrastrukturTersembunyi #CaraKerjaMesin #SainsSehariHari #Shorts",
+  "tags": [
+    "Knot Theory",
+    "tutup manhole jalan",
+    "aspal ambles manhole",
+    "differential settlement",
+    "teknik jalan raya",
+    "infrastruktur tersembunyi",
+    "edukasi sains",
+    "shorts indonesia"
+  ],
+  "categoryId": "28",
+  "visibility": "public",
+  "madeForKids": false,
+  "containsSyntheticMedia": false,
+  "defaultLanguage": "id",
+  "defaultAudioLanguage": "id",
+  "first_comment": "Sering harus menghindar tutup besi menonjol di jalan kota? Tulis di komentar: Hampir Tiap Hari atau Jarang Ketemu! (TIAP HARI! vs JARANG KETEMU) — Tulis jawabanmu di komentar & tekan tombol putih di bawah ya!",
+  "scheduledFor": "2026-12-01T20:30:00",
+  "timezone": "Asia/Makassar",
+  "render_provenance": {
+    "engine": "ai-kids-studio-3d-cpp",
+    "entrypoint": "src/knot_shorts_engine.py",
+    "manifest": "upload/provenance/KT-R04.json"
+  }
+}

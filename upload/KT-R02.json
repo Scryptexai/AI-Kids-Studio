@@ -1,0 +1,36 @@
+{
+  "episode": "KT-R02",
+  "slot_label": "PAGI_SHORT",
+  "video": "KT-R02_1080x1920_master.mp4",
+  "thumbnail": "KT-R02_thumbnail.jpg",
+  "drive_file_id": "1KQUmwmbmOT1kacE1Cit4U2eSUJockvYt",
+  "size_bytes": 10623922,
+  "sha256": "337df9fc1bb6f10d615e1283a6865b509c21b2b2d2cf6c79fb5de7b5b5537715",
+  "title": "Kenapa Dua Gedung Tinggi Bersebelahan Sengaja Diberi Celah Kosong? #Shorts",
+  "hook": "Saat dua gedung tinggi dibangun berdampingan, kenapa di antaranya disisakan celah tertutup pelat lipat?",
+  "description": "Saat dua gedung tinggi dibangun berdampingan, kenapa di antaranya disisakan celah tertutup pelat lipat?\n\nKetika gempa mengguncang, gedung rendah kaku dan menara tinggi lentur mengayun dengan irama berbeda. Jika dindingnya menempel rapat, keduanya akan saling menghantam keras—disebut seismic pounding. Insinyur menghitung jarak celah pemisah gempa agar puncak kedua gedung bebas mengayun aman. Di lorong penghubung, celah itu ditutup sambungan akordeon fleksibel yang ikut bergeser. Batasnya, lebar celah dihitung menurut tinggi gedung dan zona gempa pada standar SNI 1726.\n\nBatas Akurasi: Pernah injak pelat celah ini di mal? Tulis di komentar, lalu tekan tombol putih di bawah agar dapat hal yang gak disangka!\nReferensi: SNI 1726 Tata Cara Perencanaan Ketahanan Gempa Struktur Gedung • Seismic Separation Joint\n\nPertanyaan diskusi: Pernah melihat pelat penutup celah di lorong mal gandeng? Tulis di komentar: Pernah Lewat atau Belum Pernah! (PERNAH LEWAT vs BELUM PERNAH)\nTekan tombol putih di bawah agar mendapatkan hal-hal yang gak disangka setiap hari!\n\n#KnotTheory #InfrastrukturTersembunyi #CaraKerjaMesin #SainsSehariHari #Shorts",
+  "tags": [
+    "Knot Theory",
+    "celah gedung gempa",
+    "seismic pounding",
+    "expansion joint gedung",
+    "teknik sipil",
+    "infrastruktur tersembunyi",
+    "edukasi sains",
+    "shorts indonesia"
+  ],
+  "categoryId": "28",
+  "visibility": "public",
+  "madeForKids": false,
+  "containsSyntheticMedia": false,
+  "defaultLanguage": "id",
+  "defaultAudioLanguage": "id",
+  "first_comment": "Pernah melihat pelat penutup celah di lorong mal gandeng? Tulis di komentar: Pernah Lewat atau Belum Pernah! (PERNAH LEWAT vs BELUM PERNAH) — Tulis jawabanmu di komentar & tekan tombol putih di bawah ya!",
+  "scheduledFor": "2026-12-01T08:00:00",
+  "timezone": "Asia/Makassar",
+  "render_provenance": {
+    "engine": "ai-kids-studio-3d-cpp",
+    "entrypoint": "src/knot_shorts_engine.py",
+    "manifest": "upload/provenance/KT-R02.json"
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "episode": "KT-R03",
+  "slot_label": "SIANG_SHORT",
+  "video": "KT-R03_1080x1920_master.mp4",
+  "thumbnail": "KT-R03_thumbnail.jpg",
+  "drive_file_id": "19TgN3O5oSPTC8LINojhTQt9vCpyOZTHm",
+  "size_bytes": 7741523,
+  "sha256": "2f72d4f7e7172fa8e78297db103245a63f56f2fcd0247d92c0b2ded5a8eca1e6",
+  "title": "Asal Bunyi 'Tok-Tok' Saat Ban Mobil Melintas di Ujung Jembatan #Shorts",
+  "hook": "Setiap lewat ujung jalan layang, ban mobil pasti berbunyi tok-tok di atas pelat besi bergerigi.",
+  "description": "Setiap lewat ujung jalan layang, ban mobil pasti berbunyi tok-tok di atas pelat besi bergerigi.\n\nBentang jembatan beton dan baja terus memanjang saat terik siang lalu menyusut saat malam dingin. Kalau ujung jembatan dicor mati ke tanah, dorongan muai raksasa akan meretakkan kepala jembatan. Maka dipasang expansion joint berupa jari baja saling silang yang bergeser sambil menopang roda. Namun bila bunyinya jadi dentuman logam kasar, itu tanda baut atau karet peredamnya mulai aus. Batasnya, lebar celah tergantung panjang bentang dan suhu sesuai pedoman jembatan Bina Marga.\n\nBatas Akurasi: Lebih sering dengar ketukan halus atau keras? Jawab di komentar, dan tekan tombol putih di bawah agar dapat hal yang gak disangka!\nReferensi: SNI 1725 / AASHTO LRFD Bridge Design Specifications • Bridge Expansion Joints\n\nPertanyaan diskusi: Bunyi mana yang paling sering kamu dengar di jalan layang? Pilih di komentar: Ketukan Halus atau Dentuman Keras! (KETUKAN HALUS vs DENTUMAN KERAS)\nTekan tombol putih di bawah agar mendapatkan hal-hal yang gak disangka setiap hari!\n\n#KnotTheory #InfrastrukturTersembunyi #CaraKerjaMesin #SainsSehariHari #Shorts",
+  "tags": [
+    "Knot Theory",
+    "bunyi sambungan jembatan",
+    "expansion joint jembatan",
+    "muai panas jembatan",
+    "teknik sipil",
+    "infrastruktur tersembunyi",
+    "edukasi sains",
+    "shorts indonesia"
+  ],
+  "categoryId": "28",
+  "visibility": "public",
+  "madeForKids": false,
+  "containsSyntheticMedia": false,
+  "defaultLanguage": "id",
+  "defaultAudioLanguage": "id",
+  "first_comment": "Bunyi mana yang paling sering kamu dengar di jalan layang? Pilih di komentar: Ketukan Halus atau Dentuman Keras! (KETUKAN HALUS vs DENTUMAN KERAS) — Tulis jawabanmu di komentar & tekan tombol putih di bawah ya!",
+  "scheduledFor": "2026-12-01T12:30:00",
+  "timezone": "Asia/Makassar",
+  "render_provenance": {
+    "engine": "ai-kids-studio-3d-cpp",
+    "entrypoint": "src/knot_shorts_engine.py",
+    "manifest": "upload/provenance/KT-R03.json"
+  }
+}

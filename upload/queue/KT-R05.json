@@ -1,0 +1,11 @@
+{
+  "episode": "KT-R05",
+  "status": "requested",
+  "approved": true,
+  "slot": "PAGI_SHORT",
+  "scheduledFor": "2026-12-02T08:00:00",
+  "timezone": "Asia/Makassar",
+  "visibility": "public",
+  "revision": "v4_multi_scene_interior_exterior_white_button_cta",
+  "master_sha256": "2dd45f8219abeb560055ec2d89bda21a08c8e2bda073ee9ae5864ea61fbbebd0"
+}

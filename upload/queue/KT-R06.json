@@ -1,0 +1,11 @@
+{
+  "episode": "KT-R06",
+  "status": "requested",
+  "approved": true,
+  "slot": "SIANG_SHORT",
+  "scheduledFor": "2026-12-02T12:30:00",
+  "timezone": "Asia/Makassar",
+  "visibility": "public",
+  "revision": "v4_multi_scene_interior_exterior_white_button_cta",
+  "master_sha256": "37ac1e3dd06ac2fa9c299aeaf1dcd5c40ae26f161937b0bf4c15da43013daeb3"
+}

@@ -1,0 +1,11 @@
+{
+  "episode": "KT-L03",
+  "status": "requested",
+  "approved": true,
+  "slot": "SORE_LONG",
+  "scheduledFor": "2026-11-28T16:30:00",
+  "timezone": "Asia/Makassar",
+  "visibility": "public",
+  "revision": "v4_multi_scene_interior_exterior_white_button_cta",
+  "master_sha256": "6a57dd239793a8387f5390808bf7d62a1f8bdb4e9061cd7f382903677c415cc5"
+}

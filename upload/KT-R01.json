@@ -1,0 +1,36 @@
+{
+  "episode": "KT-R01",
+  "slot_label": "MALAM_SHORT",
+  "video": "KT-R01_1080x1920_master.mp4",
+  "thumbnail": "KT-R01_thumbnail.jpg",
+  "drive_file_id": "1xFb7ZB8GaaRKDAUTYsdu7RIkEsY7rP_V",
+  "size_bytes": 6038500,
+  "sha256": "8755591bf0fcd156cd226080165c75150db680bb3fccc45f45f49fa8ab8c119a",
+  "title": "Kenapa Pintu Lift Selalu Dua Lapis dan Terbuka Barengan? #Shorts",
+  "hook": "Saat pintu lift terbuka, lihat celah bawahnya: ada dua pasang pintu terpisah yang bergerak serempak.",
+  "description": "Saat pintu lift terbuka, lihat celah bawahnya: ada dua pasang pintu terpisah yang bergerak serempak.\n\nSatu menempel di sangkar kabin, sedangkan pintu luar menempel tetap pada tembok tiap lantai. Tanpa pengunci otomatis, pintu lantai bisa terbuka ke ruang luncur kosong yang amat berbahaya. Maka pintu luar tidak bermotor sendiri, melainkan dikunci kait mekanis interlock dari dalam sangkar. Hanya saat sangkar sejajar lantai, bilah kabin mengait roda kunci lalu menyeret pintu luar terbuka. Batasnya, pemeriksaan kait dan sensor wajib mengikuti standar keselamatan lift ASME A17.1.\n\nBatas Akurasi: Pernah sadar dua lapis pintu ini? Tulis di komentar, dan tekan tombol putih di bawah agar dapat hal yang gak disangka!\nReferensi: ASME A17.1 / EN 81-20 Elevator Landing Door Mechanical Interlock Standards\n\nPertanyaan diskusi: Pernah mengintip dua bilah pintu saat masuk lift? Tulis di komentar: Sering Perhatikan atau Baru Sadar! (SERING LIHAT vs BARU SADAR!)\nTekan tombol putih di bawah agar mendapatkan hal-hal yang gak disangka setiap hari!\n\n#KnotTheory #InfrastrukturTersembunyi #CaraKerjaMesin #SainsSehariHari #Shorts",
+  "tags": [
+    "Knot Theory",
+    "pintu lift dua lapis",
+    "cara kerja lift",
+    "interlock pintu lift",
+    "keselamatan gedung",
+    "infrastruktur tersembunyi",
+    "edukasi sains",
+    "shorts indonesia"
+  ],
+  "categoryId": "28",
+  "visibility": "public",
+  "madeForKids": false,
+  "containsSyntheticMedia": false,
+  "defaultLanguage": "id",
+  "defaultAudioLanguage": "id",
+  "first_comment": "Pernah mengintip dua bilah pintu saat masuk lift? Tulis di komentar: Sering Perhatikan atau Baru Sadar! (SERING LIHAT vs BARU SADAR!) — Tulis jawabanmu di komentar & tekan tombol putih di bawah ya!",
+  "scheduledFor": "2026-11-30T20:30:00",
+  "timezone": "Asia/Makassar",
+  "render_provenance": {
+    "engine": "ai-kids-studio-3d-cpp",
+    "entrypoint": "src/knot_shorts_engine.py",
+    "manifest": "upload/provenance/KT-R01.json"
+  }
+}
