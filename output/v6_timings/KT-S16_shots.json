@@ -1,0 +1,158 @@
+{
+  "shots": [
+    {
+      "id": 1,
+      "name": "s01_jet_climb_clouds",
+      "a": 0,
+      "b": 71,
+      "note": "JELAJAH 35.000 KAKI"
+    },
+    {
+      "id": 2,
+      "name": "s02_cabin_seat_peek",
+      "a": 71,
+      "b": 155,
+      "note": "LUBANG MUNGIL KACA"
+    },
+    {
+      "id": 3,
+      "name": "s03_outside_vs_inside_p",
+      "a": 155,
+      "b": 242,
+      "note": "UDARA LUAR -55°C"
+    },
+    {
+      "id": 4,
+      "name": "s04_cabin_pressure_high",
+      "a": 242,
+      "b": 334,
+      "note": "KABIN HANGAT 0.8 BAR"
+    },
+    {
+      "id": 5,
+      "name": "s05_fail_single_pane",
+      "a": 334,
+      "b": 420,
+      "note": "BAHAYA KACA TUNGGAL"
+    },
+    {
+      "id": 6,
+      "name": "s06_three_pane_exploded",
+      "a": 420,
+      "b": 496,
+      "note": "TIGA LAPIS AKRILIK"
+    },
+    {
+      "id": 7,
+      "name": "s07_inner_scratch_pane",
+      "a": 496,
+      "b": 564,
+      "note": "TAMENG GORES DALAM"
+    },
+    {
+      "id": 8,
+      "name": "s08_middle_bleed_zoom",
+      "a": 564,
+      "b": 630,
+      "note": "BLEED HOLE TENGAH"
+    },
+    {
+      "id": 9,
+      "name": "s09_pressure_equalize_gap",
+      "a": 630,
+      "b": 696,
+      "note": "ALIRKAN UDARA CELAH"
+    },
+    {
+      "id": 10,
+      "name": "s10_outer_carries_load",
+      "a": 696,
+      "b": 771,
+      "note": "KACA LUAR PIKUL 100%"
+    },
+    {
+      "id": 11,
+      "name": "s11_middle_fresh_reserve",
+      "a": 771,
+      "b": 846,
+      "note": "CADANGAN BEBAS LELAH"
+    },
+    {
+      "id": 12,
+      "name": "s12_outer_crack_failsafe",
+      "a": 846,
+      "b": 927,
+      "note": "AMBIL ALIH DARURAT!"
+    },
+    {
+      "id": 13,
+      "name": "s13_anti_fog_frost_ring",
+      "a": 927,
+      "b": 1004,
+      "note": "CEGAH EMBUN BEKU"
+    },
+    {
+      "id": 14,
+      "name": "s14_hangar_inspection",
+      "a": 1004,
+      "b": 1093,
+      "note": "CEK DI HANGGAR"
+    },
+    {
+      "id": 15,
+      "name": "s15_cockpit_interior_wide",
+      "a": 1093,
+      "b": 1186,
+      "note": "BATAS AKURASI: KOKPIT"
+    },
+    {
+      "id": 16,
+      "name": "s16_cockpit_heated_glass",
+      "a": 1186,
+      "b": 1274,
+      "note": "KACA PEMANAS LISTRIK"
+    },
+    {
+      "id": 17,
+      "name": "s17_dreamliner_electro",
+      "a": 1274,
+      "b": 1365,
+      "note": "JENDELA GELAP ELEKTRIK"
+    },
+    {
+      "id": 18,
+      "name": "s18_split_recap",
+      "a": 1365,
+      "b": 1446,
+      "note": "UTAMA & PENYELAMAT"
+    },
+    {
+      "id": 19,
+      "name": "s19_oh_jadi_window",
+      "a": 1446,
+      "b": 1534,
+      "note": "INTI REKAYASA"
+    },
+    {
+      "id": 20,
+      "name": "s20_ab_poll_stage",
+      "a": 1534,
+      "b": 1603,
+      "note": "PILIH DI KOMENTAR!"
+    },
+    {
+      "id": 21,
+      "name": "s21_comment_wave",
+      "a": 1603,
+      "b": 1652,
+      "note": "DISKUSI TEKNIK"
+    },
+    {
+      "id": 22,
+      "name": "s22_cta_white_stage",
+      "a": 1652,
+      "b": 1714,
+      "note": "TOMBOL PUTIH!"
+    }
+  ]
+}

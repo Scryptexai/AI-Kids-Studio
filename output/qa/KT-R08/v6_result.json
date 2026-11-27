@@ -1,0 +1,11 @@
+{
+  "episode_id": "KT-R08",
+  "master_mp4": "/home/user/AI-Kids-Studio/output/KT-R08_master.mp4",
+  "thumbnail_jpg": "/home/user/AI-Kids-Studio/upload/thumbs/KT-R08_thumbnail.jpg",
+  "duration_s": 54.85,
+  "total_frames": 1645,
+  "fps": 30,
+  "bytes": 18119893,
+  "sha256": "b1a407f1eb371bab00047197a3996426d647f0e7c108451108021ce6afd4858e",
+  "qa_headline": "SPECS 1080x1920 30/1 fps, 1645 frames, 54.833 s; audio: aac 48000 Hz 2ch | LOUDNESS I:         -14.0 LUFS | LRA:         2.3 LU | Peak:       -1.3 dBFS | SILENCES none | FRAMES 1645; black []; unplanned white []; frozen spans >=12f []"
+}

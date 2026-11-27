@@ -1,0 +1,158 @@
+{
+  "shots": [
+    {
+      "id": 1,
+      "name": "s01_wide_establish",
+      "a": 0,
+      "b": 77,
+      "note": "JALAN TOL LAYANG"
+    },
+    {
+      "id": 2,
+      "name": "s02_dolly_reveal",
+      "a": 77,
+      "b": 159,
+      "note": "CELAH KEPALA PILAR"
+    },
+    {
+      "id": 3,
+      "name": "s03_macro_zoom",
+      "a": 159,
+      "b": 240,
+      "note": "BLOK HITAM TIPIS"
+    },
+    {
+      "id": 4,
+      "name": "s04_heat_noon",
+      "a": 240,
+      "b": 312,
+      "note": "SIANG TERIK 38°C"
+    },
+    {
+      "id": 5,
+      "name": "s05_cold_night",
+      "a": 312,
+      "b": 386,
+      "note": "MALAM DINGIN 18°C"
+    },
+    {
+      "id": 6,
+      "name": "s06_fail_rigid",
+      "a": 386,
+      "b": 466,
+      "note": "TUMPUAN KAKU RETAK"
+    },
+    {
+      "id": 7,
+      "name": "s07_truck_deflect",
+      "a": 466,
+      "b": 538,
+      "note": "LENDUTAN RODA TRUK"
+    },
+    {
+      "id": 8,
+      "name": "s08_fail_raw_rubber",
+      "a": 538,
+      "b": 605,
+      "note": "KARET POLOS ROBEK!"
+    },
+    {
+      "id": 9,
+      "name": "s09_cutaway_reveal",
+      "a": 605,
+      "b": 673,
+      "note": "LAMINATED BEARING"
+    },
+    {
+      "id": 10,
+      "name": "s10_macro_layers",
+      "a": 673,
+      "b": 745,
+      "note": "BAJA + NEOPRENA"
+    },
+    {
+      "id": 11,
+      "name": "s11_factory_press",
+      "a": 745,
+      "b": 846,
+      "note": "VULKANISASI PANAS"
+    },
+    {
+      "id": 12,
+      "name": "s12_vertical_lock",
+      "a": 846,
+      "b": 915,
+      "note": "KUNCI MEKAR SAMPING"
+    },
+    {
+      "id": 13,
+      "name": "s13_horizontal_shear",
+      "a": 915,
+      "b": 990,
+      "note": "GESER HORIZONTAL"
+    },
+    {
+      "id": 14,
+      "name": "s14_rotational_flex",
+      "a": 990,
+      "b": 1060,
+      "note": "REDAM ROTASI SUDUT"
+    },
+    {
+      "id": 15,
+      "name": "s15_inspector_walk",
+      "a": 1060,
+      "b": 1128,
+      "note": "INSPEKSI KOLONG TOL"
+    },
+    {
+      "id": 16,
+      "name": "s16_boundary_cable_bridge",
+      "a": 1128,
+      "b": 1210,
+      "note": "BATAS AKURASI"
+    },
+    {
+      "id": 17,
+      "name": "s17_boundary_pot_ptfe",
+      "a": 1210,
+      "b": 1287,
+      "note": "POT BEARING PTFE"
+    },
+    {
+      "id": 18,
+      "name": "s18_split_recap",
+      "a": 1287,
+      "b": 1353,
+      "note": "KAKU ATAS · LENTUR SAMPING"
+    },
+    {
+      "id": 19,
+      "name": "s19_oh_jadi_glide",
+      "a": 1353,
+      "b": 1442,
+      "note": "INTI REKAYASA"
+    },
+    {
+      "id": 20,
+      "name": "s20_ab_poll_stage",
+      "a": 1442,
+      "b": 1519,
+      "note": "PILIH DI KOMENTAR!"
+    },
+    {
+      "id": 21,
+      "name": "s21_comment_wave",
+      "a": 1519,
+      "b": 1575,
+      "note": "DISKUSI TEKNIK"
+    },
+    {
+      "id": 22,
+      "name": "s22_cta_white_stage",
+      "a": 1575,
+      "b": 1646,
+      "note": "TOMBOL PUTIH!"
+    }
+  ]
+}

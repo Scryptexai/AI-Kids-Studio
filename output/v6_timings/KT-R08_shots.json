@@ -1,0 +1,158 @@
+{
+  "shots": [
+    {
+      "id": 1,
+      "name": "s01_wide_establish",
+      "a": 0,
+      "b": 66,
+      "note": "MENARA 90 LANTAI"
+    },
+    {
+      "id": 2,
+      "name": "s02_dolly_louver",
+      "a": 66,
+      "b": 136,
+      "note": "LANTAI TANPA JENDELA"
+    },
+    {
+      "id": 3,
+      "name": "s03_penthouse_sink",
+      "a": 136,
+      "b": 210,
+      "note": "KERAN LANTAI ATAS"
+    },
+    {
+      "id": 4,
+      "name": "s04_xray_500m_pipe",
+      "a": 210,
+      "b": 285,
+      "note": "JIKA PIPA LURUS 500M"
+    },
+    {
+      "id": 5,
+      "name": "s05_gauge_50bar",
+      "a": 285,
+      "b": 367,
+      "note": "TIAP 10M = +1 BAR!"
+    },
+    {
+      "id": 6,
+      "name": "s06_fail_pipe_burst",
+      "a": 367,
+      "b": 438,
+      "note": "SAMBUNGAN PIPA JEBOL!"
+    },
+    {
+      "id": 7,
+      "name": "s07_fail_pump_overload",
+      "a": 438,
+      "b": 510,
+      "note": "POMPA BAWAH OVERLOAD"
+    },
+    {
+      "id": 8,
+      "name": "s08_mech_floor_reveal",
+      "a": 510,
+      "b": 579,
+      "note": "LANTAI MEKANIKAL"
+    },
+    {
+      "id": 9,
+      "name": "s09_relay_pump_z1",
+      "a": 579,
+      "b": 647,
+      "note": "POMPA ESTAFET ZONA 1"
+    },
+    {
+      "id": 10,
+      "name": "s10_break_tank_cutaway",
+      "a": 647,
+      "b": 721,
+      "note": "VENTILASI UDARA BEBAS"
+    },
+    {
+      "id": 11,
+      "name": "s11_dual_gauge_reset",
+      "a": 721,
+      "b": 802,
+      "note": "RESET JADI 0 BAR!"
+    },
+    {
+      "id": 12,
+      "name": "s12_zone2_relay_up",
+      "a": 802,
+      "b": 872,
+      "note": "ESTAFET KE PUNCAK"
+    },
+    {
+      "id": 13,
+      "name": "s13_prv_station",
+      "a": 872,
+      "b": 964,
+      "note": "KATUP KUNINGAN PRV"
+    },
+    {
+      "id": 14,
+      "name": "s14_prv_cutaway",
+      "a": 964,
+      "b": 1040,
+      "note": "PEGAS & DIAFRAGMA"
+    },
+    {
+      "id": 15,
+      "name": "s15_shower_comfort",
+      "a": 1040,
+      "b": 1132,
+      "note": "SHOWER AMAN MERATA"
+    },
+    {
+      "id": 16,
+      "name": "s16_mep_full_room",
+      "a": 1132,
+      "b": 1204,
+      "note": "MESIN AHU & HIDRAN"
+    },
+    {
+      "id": 17,
+      "name": "s17_boundary_lowrise",
+      "a": 1204,
+      "b": 1320,
+      "note": "BATAS AKURASI"
+    },
+    {
+      "id": 18,
+      "name": "s18_boundary_lowrise_pipe",
+      "a": 1320,
+      "b": 1367,
+      "note": "CUKUP TOREN ATAP"
+    },
+    {
+      "id": 19,
+      "name": "s19_oh_jadi_tower",
+      "a": 1367,
+      "b": 1439,
+      "note": "INTI REKAYASA"
+    },
+    {
+      "id": 20,
+      "name": "s20_ab_poll_stage",
+      "a": 1439,
+      "b": 1522,
+      "note": "PILIH DI KOMENTAR!"
+    },
+    {
+      "id": 21,
+      "name": "s21_comment_wave",
+      "a": 1522,
+      "b": 1574,
+      "note": "DISKUSI TEKNIK"
+    },
+    {
+      "id": 22,
+      "name": "s22_cta_white_stage",
+      "a": 1574,
+      "b": 1645,
+      "note": "TOMBOL PUTIH!"
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "episode": "KT-S16",
+  "slot_label": "MALAM_SHORT",
+  "video": "KT-S16_1080x1920_v6_master.mp4",
+  "thumbnail": "KT-S16_thumbnail.jpg",
+  "drive_file_id": "17o_Bixi-tLlrKNi0MuNULO1ochOyHp2T",
+  "size_bytes": 12986531,
+  "sha256": "81e60aabce73b87ae49c6ab38657932db9a6ff98b26aa9ef111eb960925388d3",
+  "title": "Kenapa Lubang Kecil di Jendela Pesawat Justru Menyelamatkan Kaca Utama? #Shorts",
+  "hook": "Saat terbang di tiga puluh lima ribu kaki, di bawah kaca jendela ada lubang seujung pena!",
+  "description": "Saat terbang di tiga puluh lima ribu kaki, di bawah kaca jendela ada lubang seujung pena! Di luar sana udara minus lima puluh lima derajat, sedangkan kabin dipompa hangat bertekanan tinggi. Satu kaca tergores saja berisiko pecah keluar! Maka jendela pesawat dibuat tiga lapis akrilik! Kaca paling dalam hanyalah pelindung goresan. Lubang Bleed Hole dibor di kaca lapis tengah! Lubang ini menyamakan tekanan di celah luar. Kaca paling luar pun memikul penuh beban kabin, sementara kaca tengah bebas dari kelelahan tekan! Jika kaca luar retak, kaca tengah ambil alih! Alirannya juga mencegah embun menutup jendela. Di hanggar, mekanik mengecek lubang bebas debu.\n\nBatas akurasi: kaca depan kokpit tak berlubang! Kokpit memakai kaca laminasi berpemanas listrik. Jendela redup elektrik pun tetap berlapis ganda. Satu lubang kecil membagi tugas kaca cadangan.\n\nOh, jadi lubang itu menjaga kaca cadangan segar!\n\nReferensi: Regulasi Kelaikan Jendela Kabin Bertekanan FAA 14 CFR § 25.775 & EASA CS-25.\n\nPertanyaan diskusi: Detail kabin pesawat mana yang paling gak disangka fungsinya? (LUBANG KECIL JENDELA vs SUMBAT RODA PESAWAT)\n\nTekan tombol putih di bawah agar mendapatkan hal-hal yang gak disangka setiap hari!\n\n#KnotTheory #InfrastrukturTersembunyi #CaraKerjaMesin #SainsSehariHari #Shorts",
+  "tags": [
+    "Knot Theory",
+    "jendela pesawat",
+    "bleed hole pesawat",
+    "kabin pesawat",
+    "keselamatan penerbangan",
+    "teknik dirgantara",
+    "edukasi sains",
+    "shorts indonesia"
+  ],
+  "categoryId": "28",
+  "visibility": "public",
+  "madeForKids": false,
+  "containsSyntheticMedia": false,
+  "defaultLanguage": "id",
+  "defaultAudioLanguage": "id",
+  "first_comment": "Detail kabin pesawat mana yang paling gak disangka fungsinya? (LUBANG KECIL JENDELA vs SUMBAT RODA PESAWAT) — Tulis jawabanmu di komentar & tekan tombol putih di bawah ya!",
+  "scheduledFor": "2026-12-03T20:30:00",
+  "timezone": "Asia/Makassar",
+  "render_provenance": {
+    "engine": "ai-kids-studio-3d-cpp",
+    "entrypoint": "src/knot_v6_director.py",
+    "manifest": "upload/provenance/KT-S16.json"
+  }
+}

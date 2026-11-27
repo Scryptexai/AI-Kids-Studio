@@ -1,0 +1,582 @@
+{
+  "episode_id": "KT-S16",
+  "duration_s": 57.132,
+  "fps": 30,
+  "total_frames": 1714,
+  "shot_count": 22,
+  "shots": [
+    {
+      "index": 0,
+      "id": "s01",
+      "recipe": "jet_climb_clouds",
+      "badge": "JELAJAH 35.000 KAKI",
+      "text": "Saat terbang di tiga puluh lima ribu kaki,",
+      "ptr": [
+        [
+          0.0,
+          1.35,
+          0.0
+        ],
+        "JELAJAH DI ATAS AWAN"
+      ],
+      "objects": [
+        "stratosphere_sky_dome",
+        "cumulus_cloud_sea",
+        "airliner_fuselage_jet",
+        "swept_wing_winglets",
+        "turbofan_nacelle_pair",
+        "tail_stabilizer_fin"
+      ],
+      "speech_start_s": 0.0,
+      "speech_end_s": 2.288,
+      "start_s": 0.0,
+      "end_s": 2.372,
+      "frame_a": 0,
+      "frame_b": 71
+    },
+    {
+      "index": 1,
+      "id": "s02",
+      "recipe": "cabin_seat_peek",
+      "badge": "LUBANG MUNGIL KACA",
+      "text": "di bawah kaca jendela ada lubang seujung pena!",
+      "ptr": [
+        [
+          0.18,
+          1.02,
+          0.22
+        ],
+        "LUBANG MUNGIL (BLEED HOLE)"
+      ],
+      "objects": [
+        "cabin_interior_wall",
+        "passenger_window_bezel",
+        "economy_seat_row",
+        "folding_tray_table",
+        "coffee_cup_on_tray",
+        "overhead_luggage_bin",
+        "psu_reading_light_panel",
+        "window_passenger_rig"
+      ],
+      "speech_start_s": 2.456,
+      "speech_end_s": 5.07,
+      "start_s": 2.372,
+      "end_s": 5.152,
+      "frame_a": 71,
+      "frame_b": 155
+    },
+    {
+      "index": 2,
+      "id": "s03",
+      "recipe": "outside_vs_inside_p",
+      "badge": "UDARA LUAR -55°C",
+      "text": "Di luar sana udara minus lima puluh lima derajat,",
+      "ptr": [
+        [
+          -0.42,
+          1.1,
+          0.0
+        ],
+        "LUAR: -55°C · 0.24 BAR"
+      ],
+      "objects": [
+        "outside_cryo_thermometer",
+        "barometer_outside_low",
+        "ice_wind_streamlines"
+      ],
+      "speech_start_s": 5.233,
+      "speech_end_s": 7.99,
+      "start_s": 5.152,
+      "end_s": 8.07,
+      "frame_a": 155,
+      "frame_b": 242
+    },
+    {
+      "index": 3,
+      "id": "s04",
+      "recipe": "cabin_pressure_high",
+      "badge": "KABIN HANGAT 0.8 BAR",
+      "text": "sedangkan kabin dipompa hangat bertekanan tinggi.",
+      "ptr": [
+        [
+          0.42,
+          1.1,
+          0.0
+        ],
+        "KABIN: +22°C · 0.80 BAR"
+      ],
+      "objects": [
+        "cabin_pressure_gauge_08",
+        "bleed_air_supply_duct",
+        "flight_attendant_rig",
+        "beverage_service_cart"
+      ],
+      "speech_start_s": 8.151,
+      "speech_end_s": 11.06,
+      "start_s": 8.07,
+      "end_s": 11.147,
+      "frame_a": 242,
+      "frame_b": 334
+    },
+    {
+      "index": 4,
+      "id": "s05",
+      "recipe": "fail_single_pane",
+      "badge": "BAHAYA KACA TUNGGAL",
+      "text": "Satu kaca tergores saja berisiko pecah keluar!",
+      "ptr": [
+        [
+          0.0,
+          0.95,
+          0.2
+        ],
+        "1 KACA -> BAHAYA PECAH!"
+      ],
+      "objects": [
+        "single_pane_window_bad",
+        "diamond_ring_scratch_hand",
+        "explosive_decompression_arrows"
+      ],
+      "speech_start_s": 11.234,
+      "speech_end_s": 13.907,
+      "start_s": 11.147,
+      "end_s": 13.99,
+      "frame_a": 334,
+      "frame_b": 420
+    },
+    {
+      "index": 5,
+      "id": "s06",
+      "recipe": "three_pane_exploded",
+      "badge": "TIGA LAPIS AKRILIK",
+      "text": "Maka jendela pesawat dibuat tiga lapis akrilik!",
+      "ptr": [
+        [
+          0.0,
+          0.92,
+          0.0
+        ],
+        "3 LAPIS PANEL AKRILIK"
+      ],
+      "objects": [
+        "fuselage_aluminum_skin_frame",
+        "rubber_window_seal_gasket",
+        "outer_structural_acrylic",
+        "middle_failsafe_acrylic",
+        "inner_scratch_shield_pane"
+      ],
+      "speech_start_s": 14.073,
+      "speech_end_s": 16.452,
+      "start_s": 13.99,
+      "end_s": 16.532,
+      "frame_a": 420,
+      "frame_b": 496
+    },
+    {
+      "index": 6,
+      "id": "s07",
+      "recipe": "inner_scratch_pane",
+      "badge": "TAMENG GORES DALAM",
+      "text": "Kaca paling dalam hanyalah pelindung goresan.",
+      "ptr": [
+        [
+          0.32,
+          0.88,
+          0.18
+        ],
+        "TAMENG GORES PENUMPANG"
+      ],
+      "objects": [
+        "sliding_window_sunshade",
+        "passenger_finger_touch"
+      ],
+      "speech_start_s": 16.611,
+      "speech_end_s": 18.729,
+      "start_s": 16.532,
+      "end_s": 18.81,
+      "frame_a": 496,
+      "frame_b": 564
+    },
+    {
+      "index": 7,
+      "id": "s08",
+      "recipe": "middle_bleed_zoom",
+      "badge": "BLEED HOLE TENGAH",
+      "text": "Lubang Bleed Hole dibor di kaca lapis tengah!",
+      "ptr": [
+        [
+          0.0,
+          0.78,
+          0.22
+        ],
+        "BLEED HOLE DI LAPIS TENGAH"
+      ],
+      "objects": [
+        "laser_drilled_bleed_nozzle",
+        "air_gap_chamber_cavity",
+        "caliper_2mm_scale"
+      ],
+      "speech_start_s": 18.892,
+      "speech_end_s": 20.906,
+      "start_s": 18.81,
+      "end_s": 20.984,
+      "frame_a": 564,
+      "frame_b": 630
+    },
+    {
+      "index": 8,
+      "id": "s09",
+      "recipe": "pressure_equalize_gap",
+      "badge": "ALIRKAN UDARA CELAH",
+      "text": "Lubang ini menyamakan tekanan di celah luar.",
+      "ptr": [
+        [
+          0.0,
+          0.85,
+          0.15
+        ],
+        "SAMAKAN TEKANAN CELAH"
+      ],
+      "objects": [
+        "equalizing_airflow_stream",
+        "gap_manometer_equal"
+      ],
+      "speech_start_s": 21.063,
+      "speech_end_s": 23.112,
+      "start_s": 20.984,
+      "end_s": 23.192,
+      "frame_a": 630,
+      "frame_b": 696
+    },
+    {
+      "index": 9,
+      "id": "s10",
+      "recipe": "outer_carries_load",
+      "badge": "KACA LUAR PIKUL 100%",
+      "text": "Kaca paling luar pun memikul penuh beban kabin,",
+      "ptr": [
+        [
+          -0.28,
+          0.92,
+          0.15
+        ],
+        "KACA LUAR PIKUL 100%"
+      ],
+      "objects": [
+        "outer_pane_stress_vectors",
+        "structural_forged_window_ring"
+      ],
+      "speech_start_s": 23.273,
+      "speech_end_s": 25.603,
+      "start_s": 23.192,
+      "end_s": 25.688,
+      "frame_a": 696,
+      "frame_b": 771
+    },
+    {
+      "index": 10,
+      "id": "s11",
+      "recipe": "middle_fresh_reserve",
+      "badge": "CADANGAN BEBAS LELAH",
+      "text": "sementara kaca tengah bebas dari kelelahan tekan!",
+      "ptr": [
+        [
+          0.05,
+          0.92,
+          0.15
+        ],
+        "KACA TENGAH 0% LELAH!"
+      ],
+      "objects": [
+        "zero_stress_green_halo",
+        "flight_cycle_counter_board"
+      ],
+      "speech_start_s": 25.773,
+      "speech_end_s": 28.115,
+      "start_s": 25.688,
+      "end_s": 28.2,
+      "frame_a": 771,
+      "frame_b": 846
+    },
+    {
+      "index": 11,
+      "id": "s12",
+      "recipe": "outer_crack_failsafe",
+      "badge": "AMBIL ALIH DARURAT!",
+      "text": "Jika kaca luar retak, kaca tengah ambil alih!",
+      "ptr": [
+        [
+          0.0,
+          0.92,
+          0.2
+        ],
+        "KACA TENGAH TAHAN KABIN!"
+      ],
+      "objects": [
+        "hailstone_impact_chunk",
+        "cracked_outer_pane_mesh",
+        "controlled_micro_leak_arrow"
+      ],
+      "speech_start_s": 28.285,
+      "speech_end_s": 30.837,
+      "start_s": 28.2,
+      "end_s": 30.916,
+      "frame_a": 846,
+      "frame_b": 927
+    },
+    {
+      "index": 12,
+      "id": "s13",
+      "recipe": "anti_fog_frost_ring",
+      "badge": "CEGAH EMBUN BEKU",
+      "text": "Alirannya juga mencegah embun menutup jendela.",
+      "ptr": [
+        [
+          0.0,
+          0.78,
+          0.24
+        ],
+        "CEGAH EMBUN JENDELA"
+      ],
+      "objects": [
+        "frost_crystal_halo_ring",
+        "clear_scenic_window_view"
+      ],
+      "speech_start_s": 30.995,
+      "speech_end_s": 33.372,
+      "start_s": 30.916,
+      "end_s": 33.451,
+      "frame_a": 927,
+      "frame_b": 1004
+    },
+    {
+      "index": 13,
+      "id": "s14",
+      "recipe": "hangar_inspection",
+      "badge": "CEK DI HANGGAR",
+      "text": "Di hanggar, mekanik mengecek lubang bebas debu.",
+      "ptr": [
+        [
+          0.12,
+          0.95,
+          0.2
+        ],
+        "INSPEKSI LUBANG BERSIH"
+      ],
+      "objects": [
+        "maintenance_hangar_bay",
+        "aircraft_mechanic_rig",
+        "borescope_inspection_lamp",
+        "rolling_service_stairs"
+      ],
+      "speech_start_s": 33.531,
+      "speech_end_s": 36.342,
+      "start_s": 33.451,
+      "end_s": 36.422,
+      "frame_a": 1004,
+      "frame_b": 1093
+    },
+    {
+      "index": 14,
+      "id": "s15",
+      "recipe": "cockpit_interior_wide",
+      "badge": "BATAS AKURASI: KOKPIT",
+      "text": "Batas akurasi: kaca depan kokpit tak berlubang!",
+      "ptr": [
+        [
+          0.0,
+          1.15,
+          0.15
+        ],
+        "KACA KOKPIT TANPA LUBANG"
+      ],
+      "objects": [
+        "cockpit_flight_deck",
+        "pilot_captain_rig",
+        "glare_shield_avionics_pfd",
+        "control_yoke_throttle"
+      ],
+      "speech_start_s": 36.503,
+      "speech_end_s": 39.453,
+      "start_s": 36.422,
+      "end_s": 39.539,
+      "frame_a": 1093,
+      "frame_b": 1186
+    },
+    {
+      "index": 15,
+      "id": "s16",
+      "recipe": "cockpit_heated_glass",
+      "badge": "KACA PEMANAS LISTRIK",
+      "text": "Kokpit memakai kaca laminasi berpemanas listrik.",
+      "ptr": [
+        [
+          0.0,
+          0.95,
+          0.22
+        ],
+        "LAMINASI + PEMANAS LISTRIK"
+      ],
+      "objects": [
+        "laminated_windshield_cutaway",
+        "gold_ito_heating_film",
+        "pvb_tough_interlayer"
+      ],
+      "speech_start_s": 39.625,
+      "speech_end_s": 42.376,
+      "start_s": 39.539,
+      "end_s": 42.456,
+      "frame_a": 1186,
+      "frame_b": 1274
+    },
+    {
+      "index": 16,
+      "id": "s17",
+      "recipe": "dreamliner_electro",
+      "badge": "JENDELA GELAP ELEKTRIK",
+      "text": "Jendela redup elektrik pun tetap berlapis ganda.",
+      "ptr": [
+        [
+          0.0,
+          0.95,
+          0.18
+        ],
+        "TOMBOL REDUP + 3 LAPIS"
+      ],
+      "objects": [
+        "electrochromic_dimmer_button",
+        "tinted_gel_layer_pane"
+      ],
+      "speech_start_s": 42.536,
+      "speech_end_s": 45.417,
+      "start_s": 42.456,
+      "end_s": 45.498,
+      "frame_a": 1274,
+      "frame_b": 1365
+    },
+    {
+      "index": 17,
+      "id": "s18",
+      "recipe": "split_recap",
+      "badge": "UTAMA & PENYELAMAT",
+      "text": "Satu lubang kecil membagi tugas kaca cadangan.",
+      "ptr": [
+        [
+          0.0,
+          0.85,
+          0.0
+        ],
+        "LUAR KERJA · TENGAH SIAGA"
+      ],
+      "objects": [
+        "safety_redundancy_scale"
+      ],
+      "speech_start_s": 45.58,
+      "speech_end_s": 48.126,
+      "start_s": 45.498,
+      "end_s": 48.207,
+      "frame_a": 1365,
+      "frame_b": 1446
+    },
+    {
+      "index": 18,
+      "id": "s19",
+      "recipe": "oh_jadi_window",
+      "badge": "INTI REKAYASA",
+      "text": "Oh, jadi lubang itu menjaga kaca cadangan segar!",
+      "ptr": [
+        [
+          0.0,
+          0.92,
+          0.18
+        ],
+        "CADANGAN TETAP SEGAR!"
+      ],
+      "objects": [
+        "sunset_wingtip_clouds"
+      ],
+      "speech_start_s": 48.289,
+      "speech_end_s": 51.039,
+      "start_s": 48.207,
+      "end_s": 51.12,
+      "frame_a": 1446,
+      "frame_b": 1534
+    },
+    {
+      "index": 19,
+      "id": "s20",
+      "recipe": "ab_poll_stage",
+      "badge": "PILIH DI KOMENTAR!",
+      "text": "Unik lubang jendela ini atau sumbat roda pesawat?",
+      "ptr": [
+        [
+          0.0,
+          0.75,
+          0.0
+        ],
+        "A: LUBANG JENDELA  vs  B: SUMBAT RODA"
+      ],
+      "objects": [
+        "poll_plinth_window",
+        "poll_plinth_wheel_plug"
+      ],
+      "speech_start_s": 51.2,
+      "speech_end_s": 53.34,
+      "start_s": 51.12,
+      "end_s": 53.422,
+      "frame_a": 1534,
+      "frame_b": 1603
+    },
+    {
+      "index": 20,
+      "id": "s21",
+      "recipe": "comment_wave",
+      "badge": "DISKUSI TEKNIK",
+      "text": "Tulis pilihanmu di kolom komentar ya!",
+      "ptr": [
+        [
+          0.0,
+          1.15,
+          0.0
+        ],
+        "KOMEN A ATAU B DI BAWAH!"
+      ],
+      "objects": [
+        "hangar_tool_cabinet",
+        "aviation_badge_crest"
+      ],
+      "speech_start_s": 53.503,
+      "speech_end_s": 54.966,
+      "start_s": 53.422,
+      "end_s": 55.052,
+      "frame_a": 1603,
+      "frame_b": 1652
+    },
+    {
+      "index": 21,
+      "id": "s22",
+      "recipe": "cta_white_stage",
+      "badge": "TOMBOL PUTIH!",
+      "text": "Tekan tombol putih di bawah sekarang ya!",
+      "ptr": [
+        [
+          0.0,
+          0.65,
+          0.0
+        ],
+        "TEKAN TOMBOL PUTIH!"
+      ],
+      "objects": [
+        "cta_pedestal_s16",
+        "white_subscribe_3d_s16",
+        "cursor_click_hand_s16"
+      ],
+      "speech_start_s": 55.137,
+      "speech_end_s": 56.682,
+      "start_s": 55.052,
+      "end_s": 57.132,
+      "frame_a": 1652,
+      "frame_b": 1714
+    }
+  ]
+}

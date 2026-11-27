@@ -1,0 +1,36 @@
+{
+  "episode": "KT-S15",
+  "slot_label": "SIANG_SHORT",
+  "video": "KT-S15_1080x1920_v6_master.mp4",
+  "thumbnail": "KT-S15_thumbnail.jpg",
+  "drive_file_id": "1GXruPtgpncm7YeGJjLTfLHfsZfZ_kjle",
+  "size_bytes": 14824973,
+  "sha256": "01884844a6fea9ec50485fc20fd19d01a2d44561daa8f48c020f345fb39db222",
+  "title": "Kenapa Jalur Penyelamat Truk Rem Blong Diisi Kerikil Bulat Dalam, Bukan Pasir? #Shorts",
+  "hook": "Di turunan tol gunung ada jalur merah-putih.",
+  "description": "Di turunan tol gunung ada jalur merah-putih. Saat truk menurun lama, tromol rem membara! Di kabin, pedal rem mendadak terasa kosong. Sopir langsung banting setir ke jalur darurat! Di aspal mulus, truk bisa meluncur mundur! Pasir halus basah memadat keras menjungkirkan truk! Batu pecah tajam pun saling mengunci keras. Kuncinya: kerikil sungai bulat sedalam semeter! Tanpa sudut tajam, kerikil bergulir bagai kelereng. Roda truk langsung ambles sebatas poros! Jutaan kerikil menyingkir menguras laju truk. Pipa drainase dasar membuang air hujan cepat. Saat berhenti, kerikil mengunci ban dari mundur! Di sebelahnya ada jalur derek dan jangkar baja. Petugas lalu menggaruk kerikil agar gembur lagi.\n\nBatas akurasi: di tebing sempit tanpa lahan, dipasang jaring baja peredam tarik darurat. Batu bulat sederhana menyelamatkan puluhan ton.\n\nOh, jadi kerikil bulat menenggelamkan ban lembut!\n\nReferensi: Standar Desain Runaway Truck Ramp AASHTO Green Book & FHWA Technical Advisory T5040.29.\n\nPertanyaan diskusi: Penyelamat jalan raya mana yang paling jenius? (KOLAM KERIKIL REM BLONG vs PAGAR GUARDRAIL LENTUR)\n\nTekan tombol putih di bawah agar mendapatkan hal-hal yang gak disangka setiap hari!\n\n#KnotTheory #InfrastrukturTersembunyi #CaraKerjaMesin #SainsSehariHari #Shorts",
+  "tags": [
+    "Knot Theory",
+    "jalur penyelamat",
+    "truk rem blong",
+    "arrester bed",
+    "keselamatan jalan tol",
+    "teknik sipil",
+    "edukasi sains",
+    "shorts indonesia"
+  ],
+  "categoryId": "28",
+  "visibility": "public",
+  "madeForKids": false,
+  "containsSyntheticMedia": false,
+  "defaultLanguage": "id",
+  "defaultAudioLanguage": "id",
+  "first_comment": "Penyelamat jalan raya mana yang paling jenius? (KOLAM KERIKIL REM BLONG vs PAGAR GUARDRAIL LENTUR) — Tulis jawabanmu di komentar & tekan tombol putih di bawah ya!",
+  "scheduledFor": "2026-12-03T12:30:00",
+  "timezone": "Asia/Makassar",
+  "render_provenance": {
+    "engine": "ai-kids-studio-3d-cpp",
+    "entrypoint": "src/knot_v6_director.py",
+    "manifest": "upload/provenance/KT-S15.json"
+  }
+}

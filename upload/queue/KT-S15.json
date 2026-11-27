@@ -1,0 +1,11 @@
+{
+  "episode": "KT-S15",
+  "status": "requested",
+  "approved": true,
+  "slot": "SIANG_SHORT",
+  "scheduledFor": "2026-12-03T12:30:00",
+  "timezone": "Asia/Makassar",
+  "visibility": "public",
+  "revision": "v6_high_density_22shot_50plus_objects_14lufs",
+  "master_sha256": "01884844a6fea9ec50485fc20fd19d01a2d44561daa8f48c020f345fb39db222"
+}

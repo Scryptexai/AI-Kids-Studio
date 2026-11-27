@@ -1,0 +1,11 @@
+{
+  "episode": "KT-S16",
+  "status": "requested",
+  "approved": true,
+  "slot": "MALAM_SHORT",
+  "scheduledFor": "2026-12-03T20:30:00",
+  "timezone": "Asia/Makassar",
+  "visibility": "public",
+  "revision": "v6_high_density_22shot_50plus_objects_14lufs",
+  "master_sha256": "81e60aabce73b87ae49c6ab38657932db9a6ff98b26aa9ef111eb960925388d3"
+}

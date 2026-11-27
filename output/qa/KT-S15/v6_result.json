@@ -1,0 +1,11 @@
+{
+  "episode_id": "KT-S15",
+  "master_mp4": "/home/user/AI-Kids-Studio/output/KT-S15_master.mp4",
+  "thumbnail_jpg": "/home/user/AI-Kids-Studio/upload/thumbs/KT-S15_thumbnail.jpg",
+  "duration_s": 55.224,
+  "total_frames": 1657,
+  "fps": 30,
+  "bytes": 14824973,
+  "sha256": "01884844a6fea9ec50485fc20fd19d01a2d44561daa8f48c020f345fb39db222",
+  "qa_headline": "SPECS 1080x1920 30/1 fps, 1656 frames, 55.224 s; audio: aac 48000 Hz 2ch | LOUDNESS I:         -14.0 LUFS | LRA:         2.3 LU | Peak:       -1.5 dBFS | SILENCES none | FRAMES 1656; black []; unplanned white []; frozen spans >=12f []"
+}

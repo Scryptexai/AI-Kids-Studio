@@ -1,0 +1,25 @@
+{
+  "episode": "KT-S16",
+  "engine": "ai-kids-studio-3d-cpp",
+  "entrypoint": "src/knot_v6_director.py",
+  "scene_builders": "src/knot_v6_objects.py",
+  "script": "src/knot_v6_scripts.py",
+  "skill_pipeline": [
+    "cartoon-3d-short",
+    "captions"
+  ],
+  "video_filename": "KT-S16_1080x1920_v6_master.mp4",
+  "master_sha256": "81e60aabce73b87ae49c6ab38657932db9a6ff98b26aa9ef111eb960925388d3",
+  "size_bytes": 12986531,
+  "duration_seconds": 57.13,
+  "resolution": "1080x1920",
+  "fps": 30,
+  "loudness_lufs": -14.0,
+  "voice_id": "voice-00",
+  "shots": 22,
+  "unique_3d_objects": 72,
+  "density_qa": "tools/v6_density_qa.py",
+  "drive_file_id": "17o_Bixi-tLlrKNi0MuNULO1ochOyHp2T",
+  "superseded_drive_file_id": null,
+  "director_version": "v6_high_density_22shot_50plus_objects_14lufs"
+}

@@ -1,0 +1,58 @@
+[
+  {
+    "episode_id": "KT-R07",
+    "master_mp4": "/home/user/AI-Kids-Studio/output/KT-R07_master.mp4",
+    "thumbnail_jpg": "/home/user/AI-Kids-Studio/upload/thumbs/KT-R07_thumbnail.jpg",
+    "duration_s": 54.855,
+    "total_frames": 1646,
+    "fps": 30,
+    "bytes": 14751758,
+    "sha256": "65c3d92e38e5f68983e43220f72ee5a04d7d71aca591dfae8f970e34f0455acd",
+    "qa_headline": "SPECS 1080x1920 30/1 fps, 1645 frames, 54.855 s; audio: aac 48000 Hz 2ch | LOUDNESS I:         -14.0 LUFS | LRA:         3.5 LU | Peak:       -1.4 dBFS | SILENCES none | FRAMES 1645; black []; unplanned white []; frozen spans >=12f []",
+    "shots": 22,
+    "unique_objects": 84,
+    "density_pass": true
+  },
+  {
+    "episode_id": "KT-R08",
+    "master_mp4": "/home/user/AI-Kids-Studio/output/KT-R08_master.mp4",
+    "thumbnail_jpg": "/home/user/AI-Kids-Studio/upload/thumbs/KT-R08_thumbnail.jpg",
+    "duration_s": 54.85,
+    "total_frames": 1645,
+    "fps": 30,
+    "bytes": 18119893,
+    "sha256": "b1a407f1eb371bab00047197a3996426d647f0e7c108451108021ce6afd4858e",
+    "qa_headline": "SPECS 1080x1920 30/1 fps, 1645 frames, 54.833 s; audio: aac 48000 Hz 2ch | LOUDNESS I:         -14.0 LUFS | LRA:         2.3 LU | Peak:       -1.3 dBFS | SILENCES none | FRAMES 1645; black []; unplanned white []; frozen spans >=12f []",
+    "shots": 22,
+    "unique_objects": 82,
+    "density_pass": true
+  },
+  {
+    "episode_id": "KT-S15",
+    "master_mp4": "/home/user/AI-Kids-Studio/output/KT-S15_master.mp4",
+    "thumbnail_jpg": "/home/user/AI-Kids-Studio/upload/thumbs/KT-S15_thumbnail.jpg",
+    "duration_s": 55.224,
+    "total_frames": 1657,
+    "fps": 30,
+    "bytes": 14824973,
+    "sha256": "01884844a6fea9ec50485fc20fd19d01a2d44561daa8f48c020f345fb39db222",
+    "qa_headline": "SPECS 1080x1920 30/1 fps, 1656 frames, 55.224 s; audio: aac 48000 Hz 2ch | LOUDNESS I:         -14.0 LUFS | LRA:         2.3 LU | Peak:       -1.5 dBFS | SILENCES none | FRAMES 1656; black []; unplanned white []; frozen spans >=12f []",
+    "shots": 22,
+    "unique_objects": 76,
+    "density_pass": true
+  },
+  {
+    "episode_id": "KT-S16",
+    "master_mp4": "/home/user/AI-Kids-Studio/output/KT-S16_master.mp4",
+    "thumbnail_jpg": "/home/user/AI-Kids-Studio/upload/thumbs/KT-S16_thumbnail.jpg",
+    "duration_s": 57.132,
+    "total_frames": 1714,
+    "fps": 30,
+    "bytes": 12986531,
+    "sha256": "81e60aabce73b87ae49c6ab38657932db9a6ff98b26aa9ef111eb960925388d3",
+    "qa_headline": "SPECS 1080x1920 30/1 fps, 1713 frames, 57.132 s; audio: aac 48000 Hz 2ch | LOUDNESS I:         -14.0 LUFS | LRA:         2.3 LU | Peak:       -1.3 dBFS | SILENCES none | FRAMES 1713; black []; unplanned white []; frozen spans >=12f []",
+    "shots": 22,
+    "unique_objects": 72,
+    "density_pass": true
+  }
+]

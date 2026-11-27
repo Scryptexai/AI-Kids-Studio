@@ -1,0 +1,586 @@
+{
+  "episode_id": "KT-S15",
+  "duration_s": 55.224,
+  "fps": 30,
+  "total_frames": 1657,
+  "shot_count": 22,
+  "shots": [
+    {
+      "index": 0,
+      "id": "s01",
+      "recipe": "mountain_grade_wide",
+      "badge": "TURUNAN TOL GUNUNG",
+      "text": "Di turunan tol gunung ada jalur merah-putih.",
+      "ptr": [
+        [
+          0.55,
+          1.15,
+          -0.5
+        ],
+        "JALUR PENYELAMAT MERAH-PUTIH"
+      ],
+      "objects": [
+        "mountain_ridge_terrain",
+        "steep_asphalt_downgrade",
+        "escape_ramp_lane",
+        "red_white_checker_wall",
+        "pine_forest_slope",
+        "wbeam_steel_guardrail",
+        "warning_gantry_sign",
+        "family_mpv_car"
+      ],
+      "speech_start_s": 0.0,
+      "speech_end_s": 2.468,
+      "start_s": 0.0,
+      "end_s": 2.547,
+      "frame_a": 0,
+      "frame_b": 76
+    },
+    {
+      "index": 1,
+      "id": "s02",
+      "recipe": "smoking_brakes_truck",
+      "badge": "TROMOL REM MEMBARA!",
+      "text": "Saat truk menurun lama, tromol rem membara!",
+      "ptr": [
+        [
+          0.0,
+          0.48,
+          0.35
+        ],
+        "TROMOL REM > 500°C!"
+      ],
+      "objects": [
+        "heavy_18w_semi_truck",
+        "glowing_red_brake_drum",
+        "brake_fade_smoke_trail",
+        "cargo_steel_coils"
+      ],
+      "speech_start_s": 2.626,
+      "speech_end_s": 5.185,
+      "start_s": 2.547,
+      "end_s": 5.269,
+      "frame_a": 76,
+      "frame_b": 158
+    },
+    {
+      "index": 2,
+      "id": "s03",
+      "recipe": "cab_pedal_floor",
+      "badge": "PEDAL REM NGEMPOS",
+      "text": "Di kabin, pedal rem mendadak terasa kosong.",
+      "ptr": [
+        [
+          0.12,
+          0.55,
+          0.2
+        ],
+        "PEDAL REM NGEMPOS!"
+      ],
+      "objects": [
+        "truck_cockpit_interior",
+        "steering_wheel_column",
+        "brake_pedal_floored",
+        "air_pressure_dash_gauge",
+        "truck_driver_rig",
+        "windshield_mountain_view"
+      ],
+      "speech_start_s": 5.353,
+      "speech_end_s": 7.709,
+      "start_s": 5.269,
+      "end_s": 7.791,
+      "frame_a": 158,
+      "frame_b": 234
+    },
+    {
+      "index": 3,
+      "id": "s04",
+      "recipe": "swerve_into_ramp",
+      "badge": "MASUK JALUR DARURAT",
+      "text": "Sopir langsung banting setir ke jalur darurat!",
+      "ptr": [
+        [
+          0.25,
+          0.75,
+          0.0
+        ],
+        "MASUK JALUR PENYELAMAT!"
+      ],
+      "objects": [
+        "chevron_curve_board",
+        "emergency_sos_callbox",
+        "amber_flashing_beacon",
+        "tire_skid_marks"
+      ],
+      "speech_start_s": 7.874,
+      "speech_end_s": 10.183,
+      "start_s": 7.791,
+      "end_s": 10.264,
+      "frame_a": 234,
+      "frame_b": 308
+    },
+    {
+      "index": 4,
+      "id": "s05",
+      "recipe": "fail_asphalt_ramp",
+      "badge": "ASPAL MULUS GAGAL!",
+      "text": "Di aspal mulus, truk bisa meluncur mundur!",
+      "ptr": [
+        [
+          0.0,
+          0.85,
+          0.0
+        ],
+        "MELUNCUR MUNDUR LAGI!"
+      ],
+      "objects": [
+        "plain_asphalt_ramp_bad",
+        "rollback_danger_arrows",
+        "concrete_end_stop_block"
+      ],
+      "speech_start_s": 10.346,
+      "speech_end_s": 12.859,
+      "start_s": 10.264,
+      "end_s": 12.942,
+      "frame_a": 308,
+      "frame_b": 388
+    },
+    {
+      "index": 5,
+      "id": "s06",
+      "recipe": "fail_wet_sand",
+      "badge": "PASIR BASAH KERAS!",
+      "text": "Pasir halus basah memadat keras menjungkirkan truk!",
+      "ptr": [
+        [
+          0.0,
+          0.92,
+          0.15
+        ],
+        "PASIR KERAS -> TERJUNGKAL!"
+      ],
+      "objects": [
+        "rain_cloud_shower_3d",
+        "compacted_sand_mound_bad",
+        "nose_vaulting_truck_cab"
+      ],
+      "speech_start_s": 13.025,
+      "speech_end_s": 15.826,
+      "start_s": 12.942,
+      "end_s": 15.909,
+      "frame_a": 388,
+      "frame_b": 477
+    },
+    {
+      "index": 6,
+      "id": "s07",
+      "recipe": "fail_crushed_stone",
+      "badge": "BATU PECAH MENGUNCI",
+      "text": "Batu pecah tajam pun saling mengunci keras.",
+      "ptr": [
+        [
+          0.0,
+          0.42,
+          0.18
+        ],
+        "SUDUT TAJAM MENGUNCI"
+      ],
+      "objects": [
+        "angular_crushed_rock_pile",
+        "interlocked_jagged_stones",
+        "magnifying_inspection_ring"
+      ],
+      "speech_start_s": 15.992,
+      "speech_end_s": 18.247,
+      "start_s": 15.909,
+      "end_s": 18.326,
+      "frame_a": 477,
+      "frame_b": 550
+    },
+    {
+      "index": 7,
+      "id": "s08",
+      "recipe": "pea_gravel_reveal",
+      "badge": "KERIKIL KACANG BULAT",
+      "text": "Kuncinya: kerikil sungai bulat sedalam semeter!",
+      "ptr": [
+        [
+          0.0,
+          0.45,
+          0.15
+        ],
+        "KERIKIL BULAT SEDALAM 1M"
+      ],
+      "objects": [
+        "arrester_trench_cutaway",
+        "rounded_pea_gravel_bed",
+        "depth_ruler_1meter"
+      ],
+      "speech_start_s": 18.406,
+      "speech_end_s": 21.093,
+      "start_s": 18.326,
+      "end_s": 21.179,
+      "frame_a": 550,
+      "frame_b": 635
+    },
+    {
+      "index": 8,
+      "id": "s09",
+      "recipe": "macro_ball_bearings",
+      "badge": "BERGULIR BAGAI KELERENG",
+      "text": "Tanpa sudut tajam, kerikil bergulir bagai kelereng.",
+      "ptr": [
+        [
+          0.0,
+          0.48,
+          0.2
+        ],
+        "BERGULIR BEBAS TAK MEMADAT"
+      ],
+      "objects": [
+        "macro_round_pebbles_cluster",
+        "void_air_spaces_glow",
+        "sieve_grading_screen"
+      ],
+      "speech_start_s": 21.265,
+      "speech_end_s": 24.224,
+      "start_s": 21.179,
+      "end_s": 24.309,
+      "frame_a": 635,
+      "frame_b": 729
+    },
+    {
+      "index": 9,
+      "id": "s10",
+      "recipe": "wheel_sink_plow",
+      "badge": "RODA AMBLES KE POROS",
+      "text": "Roda truk langsung ambles sebatas poros!",
+      "ptr": [
+        [
+          0.0,
+          0.42,
+          0.25
+        ],
+        "BAN AMBLES SAMPAI POROS!"
+      ],
+      "objects": [
+        "sinking_dual_truck_wheel",
+        "gravel_bow_wave_mound",
+        "flying_pebble_spray"
+      ],
+      "speech_start_s": 24.395,
+      "speech_end_s": 26.644,
+      "start_s": 24.309,
+      "end_s": 26.727,
+      "frame_a": 729,
+      "frame_b": 802
+    },
+    {
+      "index": 10,
+      "id": "s11",
+      "recipe": "momentum_transfer",
+      "badge": "KURAS ENERGI GERAK",
+      "text": "Jutaan kerikil menyingkir menguras laju truk.",
+      "ptr": [
+        [
+          0.15,
+          0.65,
+          0.15
+        ],
+        "ENERGI DIKURAS LEMBUT"
+      ],
+      "objects": [
+        "kinetic_energy_bar_drop",
+        "momentum_scatter_arrows",
+        "safe_deceleration_g_meter"
+      ],
+      "speech_start_s": 26.809,
+      "speech_end_s": 29.119,
+      "start_s": 26.727,
+      "end_s": 29.202,
+      "frame_a": 802,
+      "frame_b": 876
+    },
+    {
+      "index": 11,
+      "id": "s12",
+      "recipe": "drainage_subbase",
+      "badge": "PIPA DRAINASE DASAR",
+      "text": "Pipa drainase dasar membuang air hujan cepat.",
+      "ptr": [
+        [
+          0.0,
+          0.22,
+          0.2
+        ],
+        "DRAINASE BAWAH KERIKIL"
+      ],
+      "objects": [
+        "perforated_underdrain_pipe",
+        "geotextile_filter_sheet",
+        "stormwater_outfall_ditch"
+      ],
+      "speech_start_s": 29.285,
+      "speech_end_s": 31.432,
+      "start_s": 29.202,
+      "end_s": 31.521,
+      "frame_a": 876,
+      "frame_b": 946
+    },
+    {
+      "index": 12,
+      "id": "s13",
+      "recipe": "stopped_safe_truck",
+      "badge": "BERHENTI & TERKUNCI",
+      "text": "Saat berhenti, kerikil mengunci ban dari mundur!",
+      "ptr": [
+        [
+          0.0,
+          0.58,
+          0.2
+        ],
+        "TERKUNCI TANPA MUNDUR"
+      ],
+      "objects": [
+        "halted_truck_in_gravel",
+        "relieved_driver_stepping_out",
+        "wheel_cradle_pocket"
+      ],
+      "speech_start_s": 31.611,
+      "speech_end_s": 34.075,
+      "start_s": 31.521,
+      "end_s": 34.156,
+      "frame_a": 946,
+      "frame_b": 1025
+    },
+    {
+      "index": 13,
+      "id": "s14",
+      "recipe": "tow_service_lane",
+      "badge": "JALUR DEREK & JANGKAR",
+      "text": "Di sebelahnya ada jalur derek dan jangkar baja.",
+      "ptr": [
+        [
+          -0.55,
+          0.65,
+          0.15
+        ],
+        "MOBIL DEREK + JANGKAR"
+      ],
+      "objects": [
+        "paved_service_shoulder",
+        "heavy_wrecker_tow_truck",
+        "winch_steel_cable_hook",
+        "concrete_deadman_anchor",
+        "highway_patrol_suv"
+      ],
+      "speech_start_s": 34.237,
+      "speech_end_s": 36.589,
+      "start_s": 34.156,
+      "end_s": 36.668,
+      "frame_a": 1025,
+      "frame_b": 1100
+    },
+    {
+      "index": 14,
+      "id": "s15",
+      "recipe": "rake_fluff_crew",
+      "badge": "DIGARU LONGGAR LAGI",
+      "text": "Petugas lalu menggaruk kerikil agar gembur lagi.",
+      "ptr": [
+        [
+          0.15,
+          0.55,
+          0.2
+        ],
+        "DIGARU RATA KEMBALI"
+      ],
+      "objects": [
+        "road_maintenance_worker",
+        "gravel_leveling_rake",
+        "mini_skid_steer_loader"
+      ],
+      "speech_start_s": 36.748,
+      "speech_end_s": 39.067,
+      "start_s": 36.668,
+      "end_s": 39.156,
+      "frame_a": 1100,
+      "frame_b": 1175
+    },
+    {
+      "index": 15,
+      "id": "s16",
+      "recipe": "boundary_urban_space",
+      "badge": "BATAS AKURASI",
+      "text": "Batas akurasi: di tebing sempit tanpa lahan,",
+      "ptr": [
+        [
+          0.0,
+          0.95,
+          0.0
+        ],
+        "TEBING SEMPIT"
+      ],
+      "objects": [
+        "narrow_cliff_viaduct",
+        "rock_cut_retaining_wall"
+      ],
+      "speech_start_s": 39.245,
+      "speech_end_s": 41.795,
+      "start_s": 39.156,
+      "end_s": 41.879,
+      "frame_a": 1175,
+      "frame_b": 1256
+    },
+    {
+      "index": 16,
+      "id": "s17",
+      "recipe": "boundary_drag_net",
+      "badge": "JARING BAJA PENANGKAP",
+      "text": "dipasang jaring baja peredam tarik darurat.",
+      "ptr": [
+        [
+          0.0,
+          0.72,
+          0.18
+        ],
+        "JARING BAJA PENANGKAP"
+      ],
+      "objects": [
+        "steel_cable_catcher_net",
+        "rotary_friction_energy_drums",
+        "breakaway_support_posts"
+      ],
+      "speech_start_s": 41.963,
+      "speech_end_s": 44.101,
+      "start_s": 41.879,
+      "end_s": 44.181,
+      "frame_a": 1256,
+      "frame_b": 1325
+    },
+    {
+      "index": 17,
+      "id": "s18",
+      "recipe": "split_recap",
+      "badge": "BULAT vs PASIR PADAT",
+      "text": "Batu bulat sederhana menyelamatkan puluhan ton.",
+      "ptr": [
+        [
+          0.0,
+          0.55,
+          0.0
+        ],
+        "KERIKIL BULAT vs PASIR KERAS"
+      ],
+      "objects": [
+        "comparison_divider_arch"
+      ],
+      "speech_start_s": 44.262,
+      "speech_end_s": 46.53,
+      "start_s": 44.181,
+      "end_s": 46.53,
+      "frame_a": 1325,
+      "frame_b": 1396
+    },
+    {
+      "index": 18,
+      "id": "s19",
+      "recipe": "oh_jadi_ramp",
+      "badge": "INTI REKAYASA",
+      "text": "Oh, jadi kerikil bulat menenggelamkan ban lembut!",
+      "ptr": [
+        [
+          0.0,
+          0.78,
+          0.0
+        ],
+        "TENGGELAM LEMBUT & AMAN!"
+      ],
+      "objects": [
+        "solar_road_stud_lights"
+      ],
+      "speech_start_s": 46.53,
+      "speech_end_s": 49.354,
+      "start_s": 46.53,
+      "end_s": 49.439,
+      "frame_a": 1396,
+      "frame_b": 1483
+    },
+    {
+      "index": 19,
+      "id": "s20",
+      "recipe": "ab_poll_stage",
+      "badge": "PILIH DI KOMENTAR!",
+      "text": "Jenius kolam kerikil ini atau pagar rel tol?",
+      "ptr": [
+        [
+          0.0,
+          0.75,
+          0.0
+        ],
+        "A: KOLAM KERIKIL  vs  B: GUARDRAIL"
+      ],
+      "objects": [
+        "poll_plinth_gravel",
+        "poll_plinth_guardrail"
+      ],
+      "speech_start_s": 49.524,
+      "speech_end_s": 51.404,
+      "start_s": 49.439,
+      "end_s": 51.49,
+      "frame_a": 1483,
+      "frame_b": 1545
+    },
+    {
+      "index": 20,
+      "id": "s21",
+      "recipe": "comment_wave",
+      "badge": "DISKUSI TEKNIK",
+      "text": "Tulis pilihanmu di kolom komentar ya!",
+      "ptr": [
+        [
+          0.0,
+          1.15,
+          0.0
+        ],
+        "TULIS A ATAU B DI BAWAH!"
+      ],
+      "objects": [
+        "highway_ops_console",
+        "engineering_globe_emblem"
+      ],
+      "speech_start_s": 51.576,
+      "speech_end_s": 53.007,
+      "start_s": 51.49,
+      "end_s": 53.09,
+      "frame_a": 1545,
+      "frame_b": 1593
+    },
+    {
+      "index": 21,
+      "id": "s22",
+      "recipe": "cta_white_stage",
+      "badge": "TOMBOL PUTIH!",
+      "text": "Tekan tombol putih di bawah sekarang ya!",
+      "ptr": [
+        [
+          0.0,
+          0.65,
+          0.0
+        ],
+        "TEKAN TOMBOL PUTIH!"
+      ],
+      "objects": [
+        "cta_pedestal_s15",
+        "white_subscribe_3d_s15",
+        "cursor_click_hand_s15"
+      ],
+      "speech_start_s": 53.174,
+      "speech_end_s": 54.774,
+      "start_s": 53.09,
+      "end_s": 55.224,
+      "frame_a": 1593,
+      "frame_b": 1657
+    }
+  ]
+}

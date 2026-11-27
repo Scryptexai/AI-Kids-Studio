@@ -18,6 +18,25 @@ Setiap episode dalam *playbook* ini dipecah per segmen waktu (total durasi targe
 - **Pencahayaan:** Terang merata (*sunlight* + *ambient occlusion*), tanpa bayangan hitam pekat agar komponen mekanis terbaca jelas.
 - **Color-Coding:** Objek latar belakang menggunakan warna netral/pastel (abu-abu aspal, hijau daun kalem). Komponen yang sedang dijelaskan wajib diberi material **Emission / Highlight** warna kontras (kuning menyala, merah, atau biru neon).
 
+### Standar Kepadatan Ilustrasi V6 (WAJIB untuk semua konten baru)
+
+Setiap klausa narasi wajib punya shot sendiri, dan setiap kata benda / alat / konteks / mekanisme yang disebut wajib dibangun sebagai objek 3D bernama — tidak boleh ada narasi yang lewat tanpa ilustrasi.
+
+| Aturan | Short ~60 detik | Long Video |
+| :--- | :--- | :--- |
+| Jumlah shot minimum | **≥ 20 shot** (standar: 22, ~2,5 detik/shot) | proporsional: ≥ 20 shot per 60 detik |
+| Objek 3D bernama yang berbeda | **≥ 50 objek** per video (V6: 72–84) | proporsional: ≥ 50 per 60 detik |
+| Objek narasi per shot terlihat di layar | ≥ 85% (kamera auto-framing) | sama |
+| Objek per shot | ≥ 10 (shot close-up/studio diberi properti konteks yang relevan, prefix `ctx_`) | sama |
+
+Pipeline V6:
+1. `src/knot_v6_scripts.py` — naskah per klausa (1 klausa = 1 shot) + daftar `objects` per shot; `verify_script_density()` menolak naskah < 20 shot / < 50 objek.
+2. `tools/prepare_v6_audio.py` — VO `voice-00`, timing shot frame-exact, mix `-14.0 LUFS` 48 kHz stereo, caption word-pop `--max-width 0.63`.
+3. `src/knot_v6_objects.py` — `SceneObjectRegistry` + builder 3D per shot; `build_v6_shot_scene` gagal (assert) bila ada objek narasi yang tidak dibangun. `add_context_props` menambah properti konteks relevan pada shot yang < 10 objek.
+4. `src/knot_v6_director.py` — 14 sub-state animasi geometri per shot, kamera kontinu 30 fps dengan auto-framing (semua objek narasi muat di antara badge atas dan zona caption), callout pointer 3D→layar, kartu A/B, tombol putih.
+5. `tools/render_v6_batch.py` — render (maks 2 worker) → `short_qa.py` → `tools/v6_density_qa.py` (gerbang ≥ 20 shot, ≥ 50 objek, ≥ 85% objek narasi on-screen).
+6. Storyboard 22 shot (`output/qa/v6_storyboards/`) + cek 360px wajib dilihat sebelum unggah, lalu `tools/update_v6_upload_manifests.py`.
+
 ---
 
 ## Bagian 2: Tools yang Wajib Di-install & Digunakan

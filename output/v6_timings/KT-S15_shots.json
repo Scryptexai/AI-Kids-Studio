@@ -1,0 +1,158 @@
+{
+  "shots": [
+    {
+      "id": 1,
+      "name": "s01_mountain_grade_wide",
+      "a": 0,
+      "b": 76,
+      "note": "TURUNAN TOL GUNUNG"
+    },
+    {
+      "id": 2,
+      "name": "s02_smoking_brakes_truck",
+      "a": 76,
+      "b": 158,
+      "note": "TROMOL REM MEMBARA!"
+    },
+    {
+      "id": 3,
+      "name": "s03_cab_pedal_floor",
+      "a": 158,
+      "b": 234,
+      "note": "PEDAL REM NGEMPOS"
+    },
+    {
+      "id": 4,
+      "name": "s04_swerve_into_ramp",
+      "a": 234,
+      "b": 308,
+      "note": "MASUK JALUR DARURAT"
+    },
+    {
+      "id": 5,
+      "name": "s05_fail_asphalt_ramp",
+      "a": 308,
+      "b": 388,
+      "note": "ASPAL MULUS GAGAL!"
+    },
+    {
+      "id": 6,
+      "name": "s06_fail_wet_sand",
+      "a": 388,
+      "b": 477,
+      "note": "PASIR BASAH KERAS!"
+    },
+    {
+      "id": 7,
+      "name": "s07_fail_crushed_stone",
+      "a": 477,
+      "b": 550,
+      "note": "BATU PECAH MENGUNCI"
+    },
+    {
+      "id": 8,
+      "name": "s08_pea_gravel_reveal",
+      "a": 550,
+      "b": 635,
+      "note": "KERIKIL KACANG BULAT"
+    },
+    {
+      "id": 9,
+      "name": "s09_macro_ball_bearings",
+      "a": 635,
+      "b": 729,
+      "note": "BERGULIR BAGAI KELERENG"
+    },
+    {
+      "id": 10,
+      "name": "s10_wheel_sink_plow",
+      "a": 729,
+      "b": 802,
+      "note": "RODA AMBLES KE POROS"
+    },
+    {
+      "id": 11,
+      "name": "s11_momentum_transfer",
+      "a": 802,
+      "b": 876,
+      "note": "KURAS ENERGI GERAK"
+    },
+    {
+      "id": 12,
+      "name": "s12_drainage_subbase",
+      "a": 876,
+      "b": 946,
+      "note": "PIPA DRAINASE DASAR"
+    },
+    {
+      "id": 13,
+      "name": "s13_stopped_safe_truck",
+      "a": 946,
+      "b": 1025,
+      "note": "BERHENTI & TERKUNCI"
+    },
+    {
+      "id": 14,
+      "name": "s14_tow_service_lane",
+      "a": 1025,
+      "b": 1100,
+      "note": "JALUR DEREK & JANGKAR"
+    },
+    {
+      "id": 15,
+      "name": "s15_rake_fluff_crew",
+      "a": 1100,
+      "b": 1175,
+      "note": "DIGARU LONGGAR LAGI"
+    },
+    {
+      "id": 16,
+      "name": "s16_boundary_urban_space",
+      "a": 1175,
+      "b": 1256,
+      "note": "BATAS AKURASI"
+    },
+    {
+      "id": 17,
+      "name": "s17_boundary_drag_net",
+      "a": 1256,
+      "b": 1325,
+      "note": "JARING BAJA PENANGKAP"
+    },
+    {
+      "id": 18,
+      "name": "s18_split_recap",
+      "a": 1325,
+      "b": 1396,
+      "note": "BULAT vs PASIR PADAT"
+    },
+    {
+      "id": 19,
+      "name": "s19_oh_jadi_ramp",
+      "a": 1396,
+      "b": 1483,
+      "note": "INTI REKAYASA"
+    },
+    {
+      "id": 20,
+      "name": "s20_ab_poll_stage",
+      "a": 1483,
+      "b": 1545,
+      "note": "PILIH DI KOMENTAR!"
+    },
+    {
+      "id": 21,
+      "name": "s21_comment_wave",
+      "a": 1545,
+      "b": 1593,
+      "note": "DISKUSI TEKNIK"
+    },
+    {
+      "id": 22,
+      "name": "s22_cta_white_stage",
+      "a": 1593,
+      "b": 1657,
+      "note": "TOMBOL PUTIH!"
+    }
+  ]
+}

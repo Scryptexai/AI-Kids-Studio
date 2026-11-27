@@ -1,0 +1,70 @@
+=== PHASE 1: RENDERING 4/4 EPISODES (2 workers) ===
+  Already fresh: []
+  -> spawned KT-R07 (pid=2403)
+  -> spawned KT-R08 (pid=2404)
+[KT-R07] frame 0/1646 shot 1/22
+  [KT-R07] frame 150/1646 shot 2/22
+  [KT-R07] frame 300/1646 shot 4/22
+  [KT-R07] frame 450/1646 shot 6/22
+  [KT-R07] frame 600/1646 shot 8/22
+  [KT-R07] frame 750/1646 shot 11/22
+  [KT-R07] frame 900/1646 shot 12/22
+  [KT-R07] frame 1050/1646 shot 14/22
+  [KT-R07] frame 1200/1646 shot 16/22
+  [KT-R07] frame 1350/1646 shot 18/22
+  [KT-R07] frame 1500/1646 shot 20/22
+[RENDERED KT-R07] 409.3s | 14.75 MB
+  -> spawned KT-S15 (pid=5266)
+[KT-R08] frame 0/1645 shot 1/22
+  [KT-R08] frame 150/1645 shot 3/22
+  [KT-R08] frame 300/1645 shot 5/22
+  [KT-R08] frame 450/1645 shot 7/22
+  [KT-R08] frame 600/1645 shot 9/22
+  [KT-R08] frame 750/1645 shot 11/22
+  [KT-R08] frame 900/1645 shot 13/22
+  [KT-R08] frame 1050/1645 shot 15/22
+  [KT-R08] frame 1200/1645 shot 16/22
+  [KT-R08] frame 1350/1645 shot 18/22
+  [KT-R08] frame 1500/1645 shot 20/22
+[RENDERED KT-R08] 486.1s | 18.12 MB
+  -> spawned KT-S16 (pid=5298)
+[KT-S15] frame 0/1657 shot 1/22
+  [KT-S15] frame 150/1657 shot 2/22
+  [KT-S15] frame 300/1657 shot 4/22
+  [KT-S15] frame 450/1657 shot 6/22
+  [KT-S15] frame 600/1657 shot 8/22
+  [KT-S15] frame 750/1657 shot 10/22
+  [KT-S15] frame 900/1657 shot 12/22
+  [KT-S15] frame 1050/1657 shot 14/22
+  [KT-S15] frame 1200/1657 shot 16/22
+  [KT-S15] frame 1350/1657 shot 18/22
+  [KT-S15] frame 1500/1657 shot 20/22
+  [KT-S15] frame 1650/1657 shot 22/22
+[RENDERED KT-S15] 400.4s | 14.82 MB
+[KT-S16] frame 0/1714 shot 1/22
+  [KT-S16] frame 150/1714 shot 2/22
+  [KT-S16] frame 300/1714 shot 4/22
+  [KT-S16] frame 450/1714 shot 6/22
+  [KT-S16] frame 600/1714 shot 8/22
+  [KT-S16] frame 750/1714 shot 10/22
+  [KT-S16] frame 900/1714 shot 12/22
+  [KT-S16] frame 1050/1714 shot 14/22
+  [KT-S16] frame 1200/1714 shot 16/22
+  [KT-S16] frame 1350/1714 shot 17/22
+  [KT-S16] frame 1500/1714 shot 19/22
+  [KT-S16] frame 1650/1714 shot 21/22
+[RENDERED KT-S16] 393.8s | 12.99 MB
+
+=== PHASE 2: SEQUENTIAL `short_qa.py` GATE ACROSS ALL 4 EPISODES ===
+Traceback (most recent call last):
+  File "/home/user/AI-Kids-Studio/tools/render_v6_batch.py", line 166, in <module>
+    main()
+  File "/home/user/AI-Kids-Studio/tools/render_v6_batch.py", line 151, in main
+    results.append(run_qa_single(ep))
+                   ^^^^^^^^^^^^^^^^^
+  File "/home/user/AI-Kids-Studio/tools/render_v6_batch.py", line 71, in run_qa_single
+    pr = subprocess.run(
+         ^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['/home/user/AI-Kids-Studio/.venv/bin/python', '/home/user/AI-Kids-Studio/.claude/skills/cartoon-3d-short/templates/scripts/short_qa.py', '/home/user/AI-Kids-Studio/output/KT-R07_master.mp4', '/home/user/AI-Kids-Studio/output/qa/KT-R07', '/home/user/AI-Kids-Studio/output/v6_timings/KT-R07_shots.json']' returned non-zero exit status 1.

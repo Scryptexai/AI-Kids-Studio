@@ -59,3 +59,12 @@ Dokumen ini memadukan **14 Ide Shorts Terkuat + 8 Cadangan** dari `Knot_Theory_V
    - Memverifikasi ukuran byte + `SHA-256` + provenance render `ai-kids-studio-3d-cpp` + thumbnail JPEG `< 2 MB`,
    - Meminta URL `POST /media/presign`, mengunggah MP4 & thumbnail via `PUT`, lalu memanggil `POST /posts` lengkap dengan `Idempotency-Key` dan `scheduledFor` + `timezone: "Asia/Makassar"`,
    - Zernio langsung mengunggah ke YouTube sebagai *scheduled private* dengan `publishAt` asli YouTube pada jam **Pagi (`08:00`), Siang (`12:30`), Sore Long (`16:30`), dan Malam (`20:30`) WITA**, lalu mencatat statusnya ke `upload/published.json`!
+
+### Batch V6 — Kepadatan Ilustrasi Tinggi (≥ 20 shot & ≥ 50 objek 3D per Short)
+
+| Episode | Jadwal (WITA) | Topik | Shot | Objek 3D unik | Drive |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| `KT-R07` (V6, menggantikan V4) | 2026-12-02 20:30 | Bantalan karet berlapis baja jembatan tol | 22 | 84 | `1bBWjZv9efvDbOFXT2nltCC8GoUaUcdjj` |
+| `KT-R08` (V6, menggantikan V4) | 2026-12-03 08:00 | Lantai mekanikal break tank & PRV gedung tinggi | 22 | 82 | `1cLOEpdZL8nK-n7Z4YPBr7TD5Wt_sN5rf` |
+| `KT-S15` (baru) | 2026-12-03 12:30 | Jalur penyelamat truk rem blong (kerikil bulat) | 22 | 76 | `1GXruPtgpncm7YeGJjLTfLHfsZfZ_kjle` |
+| `KT-S16` (baru) | 2026-12-03 20:30 | Lubang kecil (bleed hole) jendela pesawat | 22 | 72 | `17o_Bixi-tLlrKNi0MuNULO1ochOyHp2T` |
