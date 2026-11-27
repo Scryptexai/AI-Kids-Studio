@@ -1,25 +1,25 @@
 {
   "episode": "KT-R08",
   "engine": "ai-kids-studio-3d-cpp",
-  "entrypoint": "src/knot_v6_director.py",
+  "entrypoint": "src/knot_v7_director.py",
   "scene_builders": "src/knot_v6_objects.py",
-  "script": "src/knot_v6_scripts.py",
+  "script": "src/knot_v7_story_scripts.py",
   "skill_pipeline": [
     "cartoon-3d-short",
     "captions"
   ],
-  "video_filename": "KT-R08_1080x1920_v6_master.mp4",
-  "master_sha256": "b1a407f1eb371bab00047197a3996426d647f0e7c108451108021ce6afd4858e",
-  "size_bytes": 18119893,
+  "video_filename": "KT-R08_1080x1920_v7_master.mp4",
+  "master_sha256": "32d12e4cbd6a1186158a7f21df6ac68ed7482b957cef2c076d25abe5aead055a",
+  "size_bytes": 17731109,
   "duration_seconds": 54.85,
   "resolution": "1080x1920",
   "fps": 30,
   "loudness_lufs": -14.0,
   "voice_id": "voice-00",
-  "shots": 22,
+  "shots": 23,
   "unique_3d_objects": 82,
-  "density_qa": "tools/v6_density_qa.py",
-  "drive_file_id": "1cLOEpdZL8nK-n7Z4YPBr7TD5Wt_sN5rf",
-  "superseded_drive_file_id": "1_ppSNrFBTnwLAEZQ10sTKlKcA5kstXjV",
-  "director_version": "v6_high_density_22shot_50plus_objects_14lufs"
+  "density_qa": "tools/v7_density_qa.py",
+  "drive_file_id": "14Y-JbhNhl72MKGVWBCjiIBzLOZ4gRvVN",
+  "superseded_drive_file_id": "1cLOEpdZL8nK-n7Z4YPBr7TD5Wt_sN5rf",
+  "director_version": "v7_storytelling_20plus_shots_50plus_objects_14lufs"
 }

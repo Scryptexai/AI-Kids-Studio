@@ -1,0 +1,172 @@
+{
+  "shots": [
+    {
+      "id": 1,
+      "name": "t01_cab_pedal_floor",
+      "a": 0,
+      "b": 58,
+      "note": "PEDAL REM KOSONG!"
+    },
+    {
+      "id": 2,
+      "name": "t02_smoking_brakes_truck",
+      "a": 58,
+      "b": 113,
+      "note": "TRUK 30 TON"
+    },
+    {
+      "id": 3,
+      "name": "t03_smoking_brakes_truck",
+      "a": 113,
+      "b": 177,
+      "note": "TROMOL 500°C"
+    },
+    {
+      "id": 4,
+      "name": "t04_mountain_grade_wide",
+      "a": 177,
+      "b": 223,
+      "note": "TURUNAN 7 KM"
+    },
+    {
+      "id": 5,
+      "name": "t05_swerve_into_ramp",
+      "a": 223,
+      "b": 297,
+      "note": "SATU-SATUNYA HARAPAN"
+    },
+    {
+      "id": 6,
+      "name": "t06_oh_jadi_ramp",
+      "a": 297,
+      "b": 354,
+      "note": "ISINYA KERIKIL?"
+    },
+    {
+      "id": 7,
+      "name": "t07_fail_asphalt_ramp",
+      "a": 354,
+      "b": 409,
+      "note": "KALAU ASPAL..."
+    },
+    {
+      "id": 8,
+      "name": "t08_fail_wet_sand",
+      "a": 409,
+      "b": 497,
+      "note": "KALAU PASIR..."
+    },
+    {
+      "id": 9,
+      "name": "t09_fail_crushed_stone",
+      "a": 497,
+      "b": 567,
+      "note": "KALAU BATU PECAH..."
+    },
+    {
+      "id": 10,
+      "name": "t10_pea_gravel_reveal",
+      "a": 567,
+      "b": 632,
+      "note": "KERIKIL SUNGAI BULAT"
+    },
+    {
+      "id": 11,
+      "name": "t11_macro_ball_bearings",
+      "a": 632,
+      "b": 700,
+      "note": "TAK BISA MENGUNCI"
+    },
+    {
+      "id": 12,
+      "name": "t12_wheel_sink_plow",
+      "a": 700,
+      "b": 793,
+      "note": "BRAK! AMBLES!"
+    },
+    {
+      "id": 13,
+      "name": "t13_momentum_transfer",
+      "a": 793,
+      "b": 885,
+      "note": "TENAGA TERSEDOT"
+    },
+    {
+      "id": 14,
+      "name": "t14_drainage_subbase",
+      "a": 885,
+      "b": 981,
+      "note": "TAK PERNAH MEMADAT"
+    },
+    {
+      "id": 15,
+      "name": "t15_stopped_safe_truck",
+      "a": 981,
+      "b": 1041,
+      "note": "BERHENTI TOTAL"
+    },
+    {
+      "id": 16,
+      "name": "t16_stopped_safe_truck",
+      "a": 1041,
+      "b": 1131,
+      "note": "SELAMAT"
+    },
+    {
+      "id": 17,
+      "name": "t17_tow_service_lane",
+      "a": 1131,
+      "b": 1194,
+      "note": "DEREK & JANGKAR"
+    },
+    {
+      "id": 18,
+      "name": "t18_rake_fluff_crew",
+      "a": 1194,
+      "b": 1262,
+      "note": "SIAP LAGI"
+    },
+    {
+      "id": 19,
+      "name": "t19_boundary_urban_space",
+      "a": 1262,
+      "b": 1297,
+      "note": "TEBING SEMPIT"
+    },
+    {
+      "id": 20,
+      "name": "t20_boundary_drag_net",
+      "a": 1297,
+      "b": 1351,
+      "note": "JARING BAJA"
+    },
+    {
+      "id": 21,
+      "name": "t21_split_recap",
+      "a": 1351,
+      "b": 1430,
+      "note": "BATU BIASA, NYAWA NYATA"
+    },
+    {
+      "id": 22,
+      "name": "t22_ab_poll_stage",
+      "a": 1430,
+      "b": 1522,
+      "note": "KAMU PILIH MANA?"
+    },
+    {
+      "id": 23,
+      "name": "t23_comment_wave",
+      "a": 1522,
+      "b": 1563,
+      "note": "TULIS DI KOMENTAR"
+    },
+    {
+      "id": 24,
+      "name": "t24_cta_white_stage",
+      "a": 1563,
+      "b": 1645,
+      "note": "TOMBOL PUTIH!"
+    }
+  ]
+}

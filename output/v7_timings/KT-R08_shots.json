@@ -1,0 +1,165 @@
+{
+  "shots": [
+    {
+      "id": 1,
+      "name": "t01_fail_pipe_burst",
+      "a": 0,
+      "b": 68,
+      "note": "PIPA JEBOL!"
+    },
+    {
+      "id": 2,
+      "name": "t02_wide_establish",
+      "a": 68,
+      "b": 112,
+      "note": "GEDUNG 500 METER"
+    },
+    {
+      "id": 3,
+      "name": "t03_xray_500m_pipe",
+      "a": 112,
+      "b": 195,
+      "note": "SATU PIPA LURUS"
+    },
+    {
+      "id": 4,
+      "name": "t04_gauge_50bar",
+      "a": 195,
+      "b": 311,
+      "note": "TIAP 10M = +1 BAR"
+    },
+    {
+      "id": 5,
+      "name": "t05_fail_pipe_burst",
+      "a": 311,
+      "b": 401,
+      "note": "KERAN MENYEMBUR"
+    },
+    {
+      "id": 6,
+      "name": "t06_fail_pump_overload",
+      "a": 401,
+      "b": 473,
+      "note": "POMPA DARI BAWAH?"
+    },
+    {
+      "id": 7,
+      "name": "t07_dolly_louver",
+      "a": 473,
+      "b": 546,
+      "note": "LANTAI ANEH"
+    },
+    {
+      "id": 8,
+      "name": "t08_mech_floor_reveal",
+      "a": 546,
+      "b": 616,
+      "note": "LANTAI MESIN"
+    },
+    {
+      "id": 9,
+      "name": "t09_relay_pump_z1",
+      "a": 616,
+      "b": 699,
+      "note": "POMPA ESTAFET"
+    },
+    {
+      "id": 10,
+      "name": "t10_break_tank_cutaway",
+      "a": 699,
+      "b": 747,
+      "note": "SENTUH UDARA BEBAS"
+    },
+    {
+      "id": 11,
+      "name": "t11_dual_gauge_reset",
+      "a": 747,
+      "b": 817,
+      "note": "30 BAR → 0 BAR!"
+    },
+    {
+      "id": 12,
+      "name": "t12_zone2_relay_up",
+      "a": 817,
+      "b": 874,
+      "note": "ESTAFET KE ATAS"
+    },
+    {
+      "id": 13,
+      "name": "t13_prv_station",
+      "a": 874,
+      "b": 949,
+      "note": "KATUP PRV"
+    },
+    {
+      "id": 14,
+      "name": "t14_prv_cutaway",
+      "a": 949,
+      "b": 1013,
+      "note": "PEGAS PENJAGA"
+    },
+    {
+      "id": 15,
+      "name": "t15_penthouse_sink",
+      "a": 1013,
+      "b": 1075,
+      "note": "KERAN PUNCAK"
+    },
+    {
+      "id": 16,
+      "name": "t16_shower_comfort",
+      "a": 1075,
+      "b": 1144,
+      "note": "SHOWER AMAN"
+    },
+    {
+      "id": 17,
+      "name": "t17_mep_full_room",
+      "a": 1144,
+      "b": 1206,
+      "note": "ISI LANTAI GELAP"
+    },
+    {
+      "id": 18,
+      "name": "t18_boundary_lowrise",
+      "a": 1206,
+      "b": 1281,
+      "note": "GEDUNG RENDAH"
+    },
+    {
+      "id": 19,
+      "name": "t19_boundary_lowrise_pipe",
+      "a": 1281,
+      "b": 1325,
+      "note": "CUKUP TOREN"
+    },
+    {
+      "id": 20,
+      "name": "t20_oh_jadi_tower",
+      "a": 1325,
+      "b": 1409,
+      "note": "CARI LANTAI GELAPNYA"
+    },
+    {
+      "id": 21,
+      "name": "t21_ab_poll_stage",
+      "a": 1409,
+      "b": 1517,
+      "note": "KAMU PILIH MANA?"
+    },
+    {
+      "id": 22,
+      "name": "t22_comment_wave",
+      "a": 1517,
+      "b": 1561,
+      "note": "TULIS DI KOMENTAR"
+    },
+    {
+      "id": 23,
+      "name": "t23_cta_white_stage",
+      "a": 1561,
+      "b": 1645,
+      "note": "TOMBOL PUTIH!"
+    }
+  ]
+}

@@ -1,14 +1,14 @@
 {
   "episode": "KT-R07",
   "slot_label": "MALAM_SHORT",
-  "video": "KT-R07_1080x1920_v6_master.mp4",
+  "video": "KT-R07_1080x1920_v7_master.mp4",
   "thumbnail": "KT-R07_thumbnail.jpg",
-  "drive_file_id": "1bBWjZv9efvDbOFXT2nltCC8GoUaUcdjj",
-  "size_bytes": 14751758,
-  "sha256": "65c3d92e38e5f68983e43220f72ee5a04d7d71aca591dfae8f970e34f0455acd",
-  "title": "Bantalan Karet Berlapis Baja yang Menyangga Jembatan Tol Ribuan Ton #Shorts",
-  "hook": "Saat truk kontainer melintasi tol layang, gelagar ribuan ton tak dicor mati ke pilar.",
-  "description": "Saat truk kontainer melintasi tol layang, gelagar ribuan ton tak dicor mati ke pilar. Semuanya duduk di blok karet setebal bantal! Siang terik membuat beton memuai panjang, malam dingin menyusutkannya beberapa senti. Jika dibaut kaku, kepala pilar langsung retak! Tiap truk lewat, ujung gelagar ikut melendut. Karet polos biasa pasti mekar dan robek! Mari belah Laminated Elastomeric Bearing. Di dalamnya berselang-seling pelat baja tipis. Karet dan baja dimasak di mesin vulkanisasi. Baja mengunci karet agar tak mekar ke samping, tapi lapis karetnya lentur bergeser saat muai! Tebal karetnya juga meredam ayunan gelagar. Teknisi rutin mengeceknya dari kolong pilar.\n\nBatas akurasi: jembatan cable-stayed raksasa memakai Pot Bearing berlapis teflon PTFE. Paduan baja-karet ini kuat memikul jalan tol.\n\nOh, jadi kue karet-baja ini cegah pilar retak!\n\nReferensi: Standar Bantalan Jembatan AASHTO LRFD Bridge Design Section 14 & SNI 3967.\n\nPertanyaan diskusi: Bagian jembatan mana yang paling gak nyangka kerjanya? (BANTALAN KARET BAJA vs JARI EXPANSION JOINT)\n\nTekan tombol putih di bawah agar mendapatkan hal-hal yang gak disangka setiap hari!\n\n#KnotTheory #InfrastrukturTersembunyi #CaraKerjaMesin #SainsSehariHari #Shorts",
+  "drive_file_id": "1RaR3Cb7N5711--IEVqFe690lEB4c0B0D",
+  "size_bytes": 14322316,
+  "sha256": "53839b5a2d0ce66ad3bd8ddf81c3854933f0f1f3b19c690dcc81a95ecd438461",
+  "title": "Jalan Tol yang Kamu Lewati Bergerak Setiap Hari — Ini yang Menahannya #Shorts",
+  "hook": "Jalan tol yang kamu lewati ini bergerak.",
+  "description": "Jalan tol yang kamu lewati ini bergerak. Siang terik, beton ribuan ton memanjang. Malam dingin, ia menyusut lagi. Tiap truk lewat, ujung gelagarnya melengkung. Kalau dibaut mati ke pilar, kepala pilarnya retak, terus menjalar. Jadi insinyur menyelipkan sesuatu di celah ini. Sebuah blok hitam, setebal bantal. Karet biasa? Ditindih ribuan ton, gepeng dan robek. Rahasianya ada di dalam. Pelat baja tipis dan karet, berselang-seling. Dimasak menyatu di mesin vulkanisasi. Pelat baja menahan karet agar tak mekar, tapi tetap bergeser saat beton memuai. Saat gelagar melengkung, bantal ini ikut miring. Jembatan bebas bergerak, pilarnya tetap utuh. Teknisi rutin memeriksanya dari kolong.\n\nBatas akurasi: Bentang raksasa butuh lebih dari karet. Mereka pakai bantalan pot baja berteflon.\n\nLain kali lewat kolong tol, cari blok hitam ini.\n\nReferensi: Standar Bantalan Jembatan AASHTO LRFD Bridge Design Section 14 & SNI 3967.\n\nPertanyaan diskusi: Bagian jembatan mana yang lebih jenius? (BANTALAN KARET BAJA vs SAMBUNGAN JARI BAJA)\n\nTekan tombol putih di bawah agar mendapatkan hal-hal yang gak disangka setiap hari!\n\n#KnotTheory #InfrastrukturTersembunyi #CaraKerjaMesin #SainsSehariHari #Shorts",
   "tags": [
     "Knot Theory",
     "elastomeric bearing",
@@ -25,12 +25,12 @@
   "containsSyntheticMedia": false,
   "defaultLanguage": "id",
   "defaultAudioLanguage": "id",
-  "first_comment": "Bagian jembatan mana yang paling gak nyangka kerjanya? (BANTALAN KARET BAJA vs JARI EXPANSION JOINT) — Tulis jawabanmu di komentar & tekan tombol putih di bawah ya!",
+  "first_comment": "Bagian jembatan mana yang lebih jenius? (BANTALAN KARET BAJA vs SAMBUNGAN JARI BAJA) — Tulis jawabanmu di komentar & tekan tombol putih di bawah ya!",
   "scheduledFor": "2026-12-02T20:30:00",
   "timezone": "Asia/Makassar",
   "render_provenance": {
     "engine": "ai-kids-studio-3d-cpp",
-    "entrypoint": "src/knot_v6_director.py",
+    "entrypoint": "src/knot_v7_director.py",
     "manifest": "upload/provenance/KT-R07.json"
   }
 }

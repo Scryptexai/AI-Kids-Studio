@@ -1,0 +1,165 @@
+{
+  "shots": [
+    {
+      "id": 1,
+      "name": "t01_cabin_seat_peek",
+      "a": 0,
+      "b": 52,
+      "note": "LIHAT BAWAH KACA"
+    },
+    {
+      "id": 2,
+      "name": "t02_middle_bleed_zoom",
+      "a": 52,
+      "b": 126,
+      "note": "SEKECIL UJUNG PENA"
+    },
+    {
+      "id": 3,
+      "name": "t03_jet_climb_clouds",
+      "a": 126,
+      "b": 193,
+      "note": "35.000 KAKI"
+    },
+    {
+      "id": 4,
+      "name": "t04_outside_vs_inside_p",
+      "a": 193,
+      "b": 260,
+      "note": "LUAR: -55°C"
+    },
+    {
+      "id": 5,
+      "name": "t05_cabin_pressure_high",
+      "a": 260,
+      "b": 352,
+      "note": "KABIN DIPOMPA"
+    },
+    {
+      "id": 6,
+      "name": "t06_fail_single_pane",
+      "a": 352,
+      "b": 448,
+      "note": "KALAU CUMA 1 KACA"
+    },
+    {
+      "id": 7,
+      "name": "t07_three_pane_exploded",
+      "a": 448,
+      "b": 526,
+      "note": "ADA TIGA KACA"
+    },
+    {
+      "id": 8,
+      "name": "t08_inner_scratch_pane",
+      "a": 526,
+      "b": 586,
+      "note": "YANG KAMU SENTUH"
+    },
+    {
+      "id": 9,
+      "name": "t09_middle_bleed_zoom",
+      "a": 586,
+      "b": 659,
+      "note": "SENGAJA DIBOR"
+    },
+    {
+      "id": 10,
+      "name": "t10_pressure_equalize_gap",
+      "a": 659,
+      "b": 742,
+      "note": "UDARA MENGALIR"
+    },
+    {
+      "id": 11,
+      "name": "t11_outer_carries_load",
+      "a": 742,
+      "b": 816,
+      "note": "KACA LUAR BEKERJA"
+    },
+    {
+      "id": 12,
+      "name": "t12_middle_fresh_reserve",
+      "a": 816,
+      "b": 892,
+      "note": "KACA TENGAH SIAGA"
+    },
+    {
+      "id": 13,
+      "name": "t13_outer_crack_failsafe",
+      "a": 892,
+      "b": 954,
+      "note": "KACA LUAR RETAK!"
+    },
+    {
+      "id": 14,
+      "name": "t14_outer_crack_failsafe",
+      "a": 954,
+      "b": 1048,
+      "note": "CADANGAN AMBIL ALIH"
+    },
+    {
+      "id": 15,
+      "name": "t15_anti_fog_frost_ring",
+      "a": 1048,
+      "b": 1103,
+      "note": "BONUS: ANTI EMBUN"
+    },
+    {
+      "id": 16,
+      "name": "t16_hangar_inspection",
+      "a": 1103,
+      "b": 1188,
+      "note": "CEK DI HANGGAR"
+    },
+    {
+      "id": 17,
+      "name": "t17_cockpit_interior_wide",
+      "a": 1188,
+      "b": 1245,
+      "note": "KACA KOKPIT"
+    },
+    {
+      "id": 18,
+      "name": "t18_cockpit_heated_glass",
+      "a": 1245,
+      "b": 1309,
+      "note": "KACA PILOT"
+    },
+    {
+      "id": 19,
+      "name": "t19_dreamliner_electro",
+      "a": 1309,
+      "b": 1380,
+      "note": "JENDELA REDUP ELEKTRIK"
+    },
+    {
+      "id": 20,
+      "name": "t20_split_recap",
+      "a": 1380,
+      "b": 1470,
+      "note": "LUBANG PENJAGA"
+    },
+    {
+      "id": 21,
+      "name": "t21_ab_poll_stage",
+      "a": 1470,
+      "b": 1579,
+      "note": "KAMU PILIH MANA?"
+    },
+    {
+      "id": 22,
+      "name": "t22_comment_wave",
+      "a": 1579,
+      "b": 1627,
+      "note": "TULIS DI KOMENTAR"
+    },
+    {
+      "id": 23,
+      "name": "t23_cta_white_stage",
+      "a": 1627,
+      "b": 1721,
+      "note": "TOMBOL PUTIH!"
+    }
+  ]
+}

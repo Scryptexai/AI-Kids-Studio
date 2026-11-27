@@ -309,56 +309,56 @@
       "quality_revision": "v5_cartoon_3d_short_phrase_locked_14lufs"
     },
     "KT-R07": {
-      "video": "KT-R07_1080x1920_v6_master.mp4",
+      "video": "KT-R07_1080x1920_v7_master.mp4",
       "thumbnail": "KT-R07_thumbnail.jpg",
-      "drive_file_id": "1bBWjZv9efvDbOFXT2nltCC8GoUaUcdjj",
-      "size_bytes": 14751758,
-      "sha256": "65c3d92e38e5f68983e43220f72ee5a04d7d71aca591dfae8f970e34f0455acd",
-      "duration_seconds": 54.85,
+      "drive_file_id": "1RaR3Cb7N5711--IEVqFe690lEB4c0B0D",
+      "size_bytes": 14322316,
+      "sha256": "53839b5a2d0ce66ad3bd8ddf81c3854933f0f1f3b19c690dcc81a95ecd438461",
+      "duration_seconds": 54.83,
       "resolution": "1080x1920",
       "slot": "MALAM_SHORT",
       "scheduledFor": "2026-12-02T20:30:00",
       "timezone": "Asia/Makassar",
-      "quality_revision": "v6_high_density_22shot_50plus_objects_14lufs"
+      "quality_revision": "v7_storytelling_20plus_shots_50plus_objects_14lufs"
     },
     "KT-R08": {
-      "video": "KT-R08_1080x1920_v6_master.mp4",
+      "video": "KT-R08_1080x1920_v7_master.mp4",
       "thumbnail": "KT-R08_thumbnail.jpg",
-      "drive_file_id": "1cLOEpdZL8nK-n7Z4YPBr7TD5Wt_sN5rf",
-      "size_bytes": 18119893,
-      "sha256": "b1a407f1eb371bab00047197a3996426d647f0e7c108451108021ce6afd4858e",
+      "drive_file_id": "14Y-JbhNhl72MKGVWBCjiIBzLOZ4gRvVN",
+      "size_bytes": 17731109,
+      "sha256": "32d12e4cbd6a1186158a7f21df6ac68ed7482b957cef2c076d25abe5aead055a",
       "duration_seconds": 54.85,
       "resolution": "1080x1920",
       "slot": "PAGI_SHORT",
       "scheduledFor": "2026-12-03T08:00:00",
       "timezone": "Asia/Makassar",
-      "quality_revision": "v6_high_density_22shot_50plus_objects_14lufs"
+      "quality_revision": "v7_storytelling_20plus_shots_50plus_objects_14lufs"
     },
     "KT-S15": {
-      "video": "KT-S15_1080x1920_v6_master.mp4",
+      "video": "KT-S15_1080x1920_v7_master.mp4",
       "thumbnail": "KT-S15_thumbnail.jpg",
-      "drive_file_id": "1GXruPtgpncm7YeGJjLTfLHfsZfZ_kjle",
-      "size_bytes": 14824973,
-      "sha256": "01884844a6fea9ec50485fc20fd19d01a2d44561daa8f48c020f345fb39db222",
-      "duration_seconds": 55.22,
+      "drive_file_id": "1-iQPH1paJ-_xwm8KiJZn7x2nYDxaLBDC",
+      "size_bytes": 14675259,
+      "sha256": "c026774631a919ba5fc21aa064f441554b5449f20a8449c0d395e16050527874",
+      "duration_seconds": 54.85,
       "resolution": "1080x1920",
       "slot": "SIANG_SHORT",
       "scheduledFor": "2026-12-03T12:30:00",
       "timezone": "Asia/Makassar",
-      "quality_revision": "v6_high_density_22shot_50plus_objects_14lufs"
+      "quality_revision": "v7_storytelling_20plus_shots_50plus_objects_14lufs"
     },
     "KT-S16": {
-      "video": "KT-S16_1080x1920_v6_master.mp4",
+      "video": "KT-S16_1080x1920_v7_master.mp4",
       "thumbnail": "KT-S16_thumbnail.jpg",
-      "drive_file_id": "17o_Bixi-tLlrKNi0MuNULO1ochOyHp2T",
-      "size_bytes": 12986531,
-      "sha256": "81e60aabce73b87ae49c6ab38657932db9a6ff98b26aa9ef111eb960925388d3",
-      "duration_seconds": 57.13,
+      "drive_file_id": "1Bv26U39lC9bXcxf_04QtTHAJehOTyc7X",
+      "size_bytes": 12544634,
+      "sha256": "8d1fb97acb724bb0ded1c8e463aff4b8903e68e16068ab2ec37693edcba6c4f6",
+      "duration_seconds": 57.36,
       "resolution": "1080x1920",
       "slot": "MALAM_SHORT",
       "scheduledFor": "2026-12-03T20:30:00",
       "timezone": "Asia/Makassar",
-      "quality_revision": "v6_high_density_22shot_50plus_objects_14lufs"
+      "quality_revision": "v7_storytelling_20plus_shots_50plus_objects_14lufs"
     }
   }
 }

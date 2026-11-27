@@ -1,0 +1,165 @@
+{
+  "shots": [
+    {
+      "id": 1,
+      "name": "t01_wide_establish",
+      "a": 0,
+      "b": 71,
+      "note": "TOL LAYANG"
+    },
+    {
+      "id": 2,
+      "name": "t02_heat_noon",
+      "a": 71,
+      "b": 151,
+      "note": "SIANG 38°C"
+    },
+    {
+      "id": 3,
+      "name": "t03_cold_night",
+      "a": 151,
+      "b": 216,
+      "note": "MALAM 18°C"
+    },
+    {
+      "id": 4,
+      "name": "t04_truck_deflect",
+      "a": 216,
+      "b": 297,
+      "note": "TRUK LEWAT"
+    },
+    {
+      "id": 5,
+      "name": "t05_fail_rigid",
+      "a": 297,
+      "b": 344,
+      "note": "KALAU DIBAUT MATI"
+    },
+    {
+      "id": 6,
+      "name": "t06_fail_rigid",
+      "a": 344,
+      "b": 406,
+      "note": "PILAR RETAK!"
+    },
+    {
+      "id": 7,
+      "name": "t07_dolly_reveal",
+      "a": 406,
+      "b": 476,
+      "note": "CELAH RAHASIA"
+    },
+    {
+      "id": 8,
+      "name": "t08_macro_zoom",
+      "a": 476,
+      "b": 539,
+      "note": "BLOK HITAM"
+    },
+    {
+      "id": 9,
+      "name": "t09_fail_raw_rubber",
+      "a": 539,
+      "b": 636,
+      "note": "KARET BIASA?"
+    },
+    {
+      "id": 10,
+      "name": "t10_cutaway_reveal",
+      "a": 636,
+      "b": 678,
+      "note": "KITA BELAH"
+    },
+    {
+      "id": 11,
+      "name": "t11_macro_layers",
+      "a": 678,
+      "b": 763,
+      "note": "BAJA + KARET"
+    },
+    {
+      "id": 12,
+      "name": "t12_factory_press",
+      "a": 763,
+      "b": 842,
+      "note": "DIMASAK MENYATU"
+    },
+    {
+      "id": 13,
+      "name": "t13_vertical_lock",
+      "a": 842,
+      "b": 902,
+      "note": "KAKU KE BAWAH"
+    },
+    {
+      "id": 14,
+      "name": "t14_horizontal_shear",
+      "a": 902,
+      "b": 960,
+      "note": "LENTUR KE SAMPING"
+    },
+    {
+      "id": 15,
+      "name": "t15_rotational_flex",
+      "a": 960,
+      "b": 1034,
+      "note": "IKUT MIRING"
+    },
+    {
+      "id": 16,
+      "name": "t16_oh_jadi_glide",
+      "a": 1034,
+      "b": 1103,
+      "note": "PILAR SELAMAT"
+    },
+    {
+      "id": 17,
+      "name": "t17_inspector_walk",
+      "a": 1103,
+      "b": 1171,
+      "note": "DICEK RUTIN"
+    },
+    {
+      "id": 18,
+      "name": "t18_boundary_cable_bridge",
+      "a": 1171,
+      "b": 1241,
+      "note": "BENTANG RAKSASA"
+    },
+    {
+      "id": 19,
+      "name": "t19_boundary_pot_ptfe",
+      "a": 1241,
+      "b": 1308,
+      "note": "POT BEARING"
+    },
+    {
+      "id": 20,
+      "name": "t20_split_recap",
+      "a": 1308,
+      "b": 1391,
+      "note": "CARI BLOK HITAMNYA"
+    },
+    {
+      "id": 21,
+      "name": "t21_ab_poll_stage",
+      "a": 1391,
+      "b": 1494,
+      "note": "KAMU PILIH MANA?"
+    },
+    {
+      "id": 22,
+      "name": "t22_comment_wave",
+      "a": 1494,
+      "b": 1540,
+      "note": "TULIS DI KOMENTAR"
+    },
+    {
+      "id": 23,
+      "name": "t23_cta_white_stage",
+      "a": 1540,
+      "b": 1645,
+      "note": "TOMBOL PUTIH!"
+    }
+  ]
+}

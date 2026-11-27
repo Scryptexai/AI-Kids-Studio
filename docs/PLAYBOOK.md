@@ -18,13 +18,34 @@ Setiap episode dalam *playbook* ini dipecah per segmen waktu (total durasi targe
 - **Pencahayaan:** Terang merata (*sunlight* + *ambient occlusion*), tanpa bayangan hitam pekat agar komponen mekanis terbaca jelas.
 - **Color-Coding:** Objek latar belakang menggunakan warna netral/pastel (abu-abu aspal, hijau daun kalem). Komponen yang sedang dijelaskan wajib diberi material **Emission / Highlight** warna kontras (kuning menyala, merah, atau biru neon).
 
-### Standar Kepadatan Ilustrasi V6 (WAJIB untuk semua konten baru)
+### Standar Naskah Storytelling V7 (WAJIB untuk semua konten baru, menggantikan struktur naskah V5/V6)
+
+Naskah ditulis sebagai **cerita**, bukan narasi dokumenter. Visual tetap mengikuti standar kepadatan V6 di bawah.
+
+| Aturan | Wajib |
+| :--- | :--- |
+| **3 detik pertama** | Shot 1 = satu kalimat lengkap yang langsung mengejutkan / berbahaya, **≤ 48 karakter (≤ 3 detik ucapan)**. Masuk di tengah aksi (*in medias res*). Dilarang: "Tahukah kamu", "Pernahkah kamu", "Di video ini", "Halo semua", pembukaan pelan. |
+| **Tokoh & taruhan** | Ada protagonis (mis. "Pak Darto", sopir truk) atau "kamu" yang mengalami langsung, dengan taruhan nyata (nyawa, gedung, pesawat). |
+| **Intensitas terus naik** | Bahaya → alternatif yang gagal satu per satu → pengungkapan rahasia → klimaks (detik paling menegangkan) → lega. Kalimat pendek, ritme makin rapat menjelang klimaks. |
+| **Tanpa "Oh, jadi ..."** | Kalimat sintesis "Oh, jadi ..." **dihapus** (terdengar norak dan tidak natural). Penutup memakai satu kalimat alami yang membawa penonton kembali ke dunia nyata: "Lain kali lewat …, cari …". |
+| **Batas akurasi** | Tetap ada, tetapi diucapkan natural di dalam cerita ("Tapi …"), bukan "Batas akurasi: …". Shot-nya diberi `boundary=True` sehingga HUD tetap menampilkan badge amber **BATAS AKURASI**. |
+| **Jumlah shot** | **20 shot adalah batas MINIMUM, bukan target.** Tambah shot sesuai kebutuhan cerita (V7: 22–24 shot). Satu adegan 3D boleh dipakai untuk beberapa ketukan cerita dengan jendela animasi `p` berbeda (sebelum/sesudah retak, dll.). |
+| **Panjang naskah** | ≤ 1.050 karakter agar VO yang dirapatkan (jeda 0,16 dtk, `atempo` ≤ 1,16) tetap < 58 detik. |
+| **Akhir video** | Penutup → pertanyaan A/B "Lebih jenius mana: X, atau Y?" → "Tulis jawabanmu di komentar." → "Tekan tombol putih, besok ada rahasia lain." |
+
+Pipeline V7:
+1. `src/knot_v7_story_scripts.py` — naskah cerita per shot (`scene` = adegan 3D V6, `p` = jendela animasi, `badge`, `ptr`, `boundary`, `closing`); `verify_story_scripts()` menolak hook > 48 karakter, frasa terlarang (termasuk "oh, jadi"), < 20 shot, < 50 objek, tanpa shot batas akurasi, atau penutup ≠ 1.
+2. `tools/prepare_v7_audio.py` — VO `voice-00` dari `assets/audio/v7_vo/`, timing shot, mix `-14.0 LUFS`, caption `--max-width 0.63`.
+3. `src/knot_v7_director.py` — memakai builder 3D V6 apa adanya dengan `scene_idx` + `p_range` per shot cerita.
+4. `tools/render_v7_batch.py` → `short_qa.py` → `tools/v7_density_qa.py`; cek 360px `tools/v7_phone_check.py`; manifest `tools/update_v7_upload_manifests.py` (deskripsi tanpa "Oh, jadi").
+
+### Standar Kepadatan Ilustrasi V6 (WAJIB untuk semua konten baru — visual)
 
 Setiap klausa narasi wajib punya shot sendiri, dan setiap kata benda / alat / konteks / mekanisme yang disebut wajib dibangun sebagai objek 3D bernama — tidak boleh ada narasi yang lewat tanpa ilustrasi.
 
 | Aturan | Short ~60 detik | Long Video |
 | :--- | :--- | :--- |
-| Jumlah shot minimum | **≥ 20 shot** (standar: 22, ~2,5 detik/shot) | proporsional: ≥ 20 shot per 60 detik |
+| Jumlah shot minimum | **≥ 20 shot — MINIMUM, bukan target** (V6: 22, V7: 22–24; tambah sesuai konteks) | proporsional: ≥ 20 shot per 60 detik |
 | Objek 3D bernama yang berbeda | **≥ 50 objek** per video (V6: 72–84) | proporsional: ≥ 50 per 60 detik |
 | Objek narasi per shot terlihat di layar | ≥ 85% (kamera auto-framing) | sama |
 | Objek per shot | ≥ 10 (shot close-up/studio diberi properti konteks yang relevan, prefix `ctx_`) | sama |
@@ -35,7 +56,7 @@ Pipeline V6:
 3. `src/knot_v6_objects.py` — `SceneObjectRegistry` + builder 3D per shot; `build_v6_shot_scene` gagal (assert) bila ada objek narasi yang tidak dibangun. `add_context_props` menambah properti konteks relevan pada shot yang < 10 objek.
 4. `src/knot_v6_director.py` — 14 sub-state animasi geometri per shot, kamera kontinu 30 fps dengan auto-framing (semua objek narasi muat di antara badge atas dan zona caption), callout pointer 3D→layar, kartu A/B, tombol putih.
 5. `tools/render_v6_batch.py` — render (maks 2 worker) → `short_qa.py` → `tools/v6_density_qa.py` (gerbang ≥ 20 shot, ≥ 50 objek, ≥ 85% objek narasi on-screen).
-6. Storyboard 22 shot (`output/qa/v6_storyboards/`) + cek 360px wajib dilihat sebelum unggah, lalu `tools/update_v6_upload_manifests.py`.
+6. Storyboard per shot (`output/qa/v6_storyboards/`) + cek 360px wajib dilihat sebelum unggah, lalu `tools/update_v6_upload_manifests.py`.
 
 ---
 

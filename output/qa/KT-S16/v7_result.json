@@ -1,0 +1,11 @@
+{
+  "episode_id": "KT-S16",
+  "master_mp4": "/home/user/AI-Kids-Studio/output/KT-S16_master.mp4",
+  "thumbnail_jpg": "/home/user/AI-Kids-Studio/upload/thumbs/KT-S16_thumbnail.jpg",
+  "duration_s": 57.356,
+  "total_frames": 1721,
+  "fps": 30,
+  "bytes": 12544634,
+  "sha256": "8d1fb97acb724bb0ded1c8e463aff4b8903e68e16068ab2ec37693edcba6c4f6",
+  "qa_headline": "SPECS 1080x1920 30/1 fps, 1720 frames, 57.356 s; audio: aac 48000 Hz 2ch | LOUDNESS I:         -14.0 LUFS | LRA:         1.8 LU | Peak:       -1.4 dBFS | SILENCES none | FRAMES 1720; black []; unplanned white []; frozen spans >=12f []"
+}

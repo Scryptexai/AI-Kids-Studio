@@ -1,0 +1,803 @@
+{
+  "episode_id": "KT-R08",
+  "duration_s": 54.848,
+  "fps": 30,
+  "total_frames": 1645,
+  "shot_count": 23,
+  "shots": [
+    {
+      "index": 0,
+      "id": "t01",
+      "recipe": "fail_pipe_burst",
+      "badge": "PIPA JEBOL!",
+      "text": "Pipa ini bisa jebol oleh airnya sendiri.",
+      "ptr": [
+        [
+          0.0,
+          0.72,
+          0.18
+        ],
+        "SAMBUNGAN PECAH!"
+      ],
+      "objects": [
+        "cast_iron_flange_elbow",
+        "ruptured_rubber_gasket",
+        "high_pressure_water_jet",
+        "ground_floor_kitchen_sink"
+      ],
+      "scene": "s06",
+      "scene_idx": 5,
+      "p_range": [
+        0.0,
+        1.0
+      ],
+      "boundary": false,
+      "closing": false,
+      "speech_start_s": 0.0,
+      "speech_end_s": 2.2,
+      "start_s": 0.0,
+      "end_s": 2.282,
+      "frame_a": 0,
+      "frame_b": 68
+    },
+    {
+      "index": 1,
+      "id": "t02",
+      "recipe": "wide_establish",
+      "badge": "GEDUNG 500 METER",
+      "text": "Di gedung lima ratus meter.",
+      "ptr": [
+        [
+          0.0,
+          3.1,
+          0.0
+        ],
+        "MENARA 500 METER"
+      ],
+      "objects": [
+        "sky_city_morning",
+        "skyscraper_90f_glass",
+        "neighbor_office_tower",
+        "downtown_avenue_asphalt",
+        "city_sedan_car",
+        "transit_city_bus",
+        "avenue_shade_trees",
+        "street_bollard_lamps"
+      ],
+      "scene": "s01",
+      "scene_idx": 0,
+      "p_range": [
+        0.0,
+        1.0
+      ],
+      "boundary": false,
+      "closing": false,
+      "speech_start_s": 2.364,
+      "speech_end_s": 3.653,
+      "start_s": 2.282,
+      "end_s": 3.737,
+      "frame_a": 68,
+      "frame_b": 112
+    },
+    {
+      "index": 2,
+      "id": "t03",
+      "recipe": "xray_500m_pipe",
+      "badge": "SATU PIPA LURUS",
+      "text": "Bayangkan satu pipa lurus, atap sampai dasar.",
+      "ptr": [
+        [
+          0.0,
+          1.85,
+          0.15
+        ],
+        "DARI ATAP KE DASAR"
+      ],
+      "objects": [
+        "xray_tower_shell",
+        "continuous_red_riser_500m",
+        "elevation_markers_100_500",
+        "hydrostatic_down_arrows"
+      ],
+      "scene": "s04",
+      "scene_idx": 3,
+      "p_range": [
+        0.0,
+        1.0
+      ],
+      "boundary": false,
+      "closing": false,
+      "speech_start_s": 3.822,
+      "speech_end_s": 6.417,
+      "start_s": 3.737,
+      "end_s": 6.503,
+      "frame_a": 112,
+      "frame_b": 195
+    },
+    {
+      "index": 3,
+      "id": "t04",
+      "recipe": "gauge_50bar",
+      "badge": "TIAP 10M = +1 BAR",
+      "text": "Tiap sepuluh meter, tekanan naik satu bar. Di dasar: lima puluh!",
+      "ptr": [
+        [
+          0.22,
+          0.85,
+          0.12
+        ],
+        "DI DASAR: 50 BAR!"
+      ],
+      "objects": [
+        "graduated_water_column",
+        "bourdon_gauge_50bar_red",
+        "pressure_scale_plaque"
+      ],
+      "scene": "s05",
+      "scene_idx": 4,
+      "p_range": [
+        0.0,
+        1.0
+      ],
+      "boundary": false,
+      "closing": false,
+      "speech_start_s": 6.589,
+      "speech_end_s": 10.291,
+      "start_s": 6.503,
+      "end_s": 10.373,
+      "frame_a": 195,
+      "frame_b": 311
+    },
+    {
+      "index": 4,
+      "id": "t05",
+      "recipe": "fail_pipe_burst",
+      "badge": "KERAN MENYEMBUR",
+      "text": "Sambungan pecah, keran lantai bawah menyembur.",
+      "ptr": [
+        [
+          0.0,
+          0.72,
+          0.18
+        ],
+        "KERAN BAWAH JEBOL"
+      ],
+      "objects": [
+        "cast_iron_flange_elbow",
+        "ruptured_rubber_gasket",
+        "high_pressure_water_jet",
+        "ground_floor_kitchen_sink"
+      ],
+      "scene": "s06",
+      "scene_idx": 5,
+      "p_range": [
+        0.5,
+        1.0
+      ],
+      "boundary": false,
+      "closing": false,
+      "speech_start_s": 10.455,
+      "speech_end_s": 13.297,
+      "start_s": 10.373,
+      "end_s": 13.383,
+      "frame_a": 311,
+      "frame_b": 401
+    },
+    {
+      "index": 5,
+      "id": "t06",
+      "recipe": "fail_pump_overload",
+      "badge": "POMPA DARI BAWAH?",
+      "text": "Pompa langsung dari bawah? Motornya terbakar.",
+      "ptr": [
+        [
+          0.0,
+          0.68,
+          0.15
+        ],
+        "MOTOR TERBAKAR!"
+      ],
+      "objects": [
+        "basement_pump_room",
+        "giant_overloaded_pump",
+        "electric_drive_motor",
+        "overheat_smoke_plume",
+        "alarm_control_cabinet"
+      ],
+      "scene": "s07",
+      "scene_idx": 6,
+      "p_range": [
+        0.0,
+        1.0
+      ],
+      "boundary": false,
+      "closing": false,
+      "speech_start_s": 13.469,
+      "speech_end_s": 15.69,
+      "start_s": 13.383,
+      "end_s": 15.779,
+      "frame_a": 401,
+      "frame_b": 473
+    },
+    {
+      "index": 6,
+      "id": "t07",
+      "recipe": "dolly_louver",
+      "badge": "LANTAI ANEH",
+      "text": "Karena itu, ada lantai aneh tanpa jendela.",
+      "ptr": [
+        [
+          0.0,
+          2.05,
+          0.42
+        ],
+        "LANTAI TANPA JENDELA"
+      ],
+      "objects": [
+        "louver_facade_band",
+        "curtain_wall_mullions",
+        "facade_cleaning_gondola"
+      ],
+      "scene": "s02",
+      "scene_idx": 1,
+      "p_range": [
+        0.0,
+        1.0
+      ],
+      "boundary": false,
+      "closing": false,
+      "speech_start_s": 15.868,
+      "speech_end_s": 18.134,
+      "start_s": 15.779,
+      "end_s": 18.216,
+      "frame_a": 473,
+      "frame_b": 546
+    },
+    {
+      "index": 7,
+      "id": "t08",
+      "recipe": "mech_floor_reveal",
+      "badge": "LANTAI MESIN",
+      "text": "Tiap tiga puluh lantai, ada lantai mesin.",
+      "ptr": [
+        [
+          0.0,
+          0.95,
+          0.0
+        ],
+        "TIAP 30 LANTAI"
+      ],
+      "objects": [
+        "mep_epoxy_floor_deck",
+        "overhead_pipe_trapeze",
+        "cable_ladder_tray",
+        "mep_technician_rig"
+      ],
+      "scene": "s08",
+      "scene_idx": 7,
+      "p_range": [
+        0.0,
+        1.0
+      ],
+      "boundary": false,
+      "closing": false,
+      "speech_start_s": 18.299,
+      "speech_end_s": 20.443,
+      "start_s": 18.216,
+      "end_s": 20.532,
+      "frame_a": 546,
+      "frame_b": 616
+    },
+    {
+      "index": 8,
+      "id": "t09",
+      "recipe": "relay_pump_z1",
+      "badge": "POMPA ESTAFET",
+      "text": "Pompa mengisi tangki terbuka: break tank.",
+      "ptr": [
+        [
+          -0.35,
+          0.65,
+          0.15
+        ],
+        "KE TANGKI TERBUKA"
+      ],
+      "objects": [
+        "booster_pump_skid_duplex",
+        "neoprene_vibration_pad",
+        "stainless_break_tank",
+        "zone1_rising_main_pipe"
+      ],
+      "scene": "s09",
+      "scene_idx": 8,
+      "p_range": [
+        0.0,
+        1.0
+      ],
+      "boundary": false,
+      "closing": false,
+      "speech_start_s": 20.622,
+      "speech_end_s": 23.304,
+      "start_s": 20.532,
+      "end_s": 23.304,
+      "frame_a": 616,
+      "frame_b": 699
+    },
+    {
+      "index": 9,
+      "id": "t10",
+      "recipe": "break_tank_cutaway",
+      "badge": "SENTUH UDARA BEBAS",
+      "text": "Permukaannya menyentuh udara bebas.",
+      "ptr": [
+        [
+          0.0,
+          0.82,
+          0.2
+        ],
+        "PERMUKAAN AIR TERBUKA"
+      ],
+      "objects": [
+        "brass_float_ball_valve",
+        "open_water_surface_wave",
+        "gooseneck_air_vent",
+        "overflow_drain_standpipe",
+        "level_sight_glass_tube"
+      ],
+      "scene": "s10",
+      "scene_idx": 9,
+      "p_range": [
+        0.0,
+        1.0
+      ],
+      "boundary": false,
+      "closing": false,
+      "speech_start_s": 23.304,
+      "speech_end_s": 24.827,
+      "start_s": 23.304,
+      "end_s": 24.912,
+      "frame_a": 699,
+      "frame_b": 747
+    },
+    {
+      "index": 10,
+      "id": "t11",
+      "recipe": "dual_gauge_reset",
+      "badge": "30 BAR → 0 BAR!",
+      "text": "Tekanan tiga puluh bar langsung kembali ke nol!",
+      "ptr": [
+        [
+          0.25,
+          0.72,
+          0.15
+        ],
+        "TEKANAN DIPUTUS!"
+      ],
+      "objects": [
+        "inlet_gauge_30bar",
+        "outlet_gauge_0bar_green",
+        "butterfly_shutoff_valve",
+        "swing_check_valve"
+      ],
+      "scene": "s11",
+      "scene_idx": 10,
+      "p_range": [
+        0.0,
+        1.0
+      ],
+      "boundary": false,
+      "closing": false,
+      "speech_start_s": 24.996,
+      "speech_end_s": 27.162,
+      "start_s": 24.912,
+      "end_s": 27.242,
+      "frame_a": 747,
+      "frame_b": 817
+    },
+    {
+      "index": 11,
+      "id": "t12",
+      "recipe": "zone2_relay_up",
+      "badge": "ESTAFET KE ATAS",
+      "text": "Pompa berikutnya mengestafet ke atas.",
+      "ptr": [
+        [
+          0.0,
+          1.45,
+          0.0
+        ],
+        "POMPA ZONA BERIKUTNYA"
+      ],
+      "objects": [
+        "vfd_inverter_panel",
+        "upper_break_tank_z2",
+        "rooftop_header_tank"
+      ],
+      "scene": "s12",
+      "scene_idx": 11,
+      "p_range": [
+        0.0,
+        1.0
+      ],
+      "boundary": false,
+      "closing": false,
+      "speech_start_s": 27.321,
+      "speech_end_s": 29.068,
+      "start_s": 27.242,
+      "end_s": 29.148,
+      "frame_a": 817,
+      "frame_b": 874
+    },
+    {
+      "index": 12,
+      "id": "t13",
+      "recipe": "prv_station",
+      "badge": "KATUP PRV",
+      "text": "Sebelum masuk unit, air lewat katup PRV.",
+      "ptr": [
+        [
+          0.0,
+          0.65,
+          0.18
+        ],
+        "PRESSURE REDUCING VALVE"
+      ],
+      "objects": [
+        "brass_prv_assembly",
+        "y_strainer_mesh_body",
+        "bypass_globe_loop",
+        "subzone_3bar_gauge"
+      ],
+      "scene": "s13",
+      "scene_idx": 12,
+      "p_range": [
+        0.0,
+        1.0
+      ],
+      "boundary": false,
+      "closing": false,
+      "speech_start_s": 29.227,
+      "speech_end_s": 31.544,
+      "start_s": 29.148,
+      "end_s": 31.631,
+      "frame_a": 874,
+      "frame_b": 949
+    },
+    {
+      "index": 13,
+      "id": "t14",
+      "recipe": "prv_cutaway",
+      "badge": "PEGAS PENJAGA",
+      "text": "Pegasnya menjaga tekanan tetap tiga bar.",
+      "ptr": [
+        [
+          0.0,
+          0.68,
+          0.2
+        ],
+        "TETAP 3 BAR"
+      ],
+      "objects": [
+        "prv_cutaway_spring",
+        "rubber_diaphragm_plate",
+        "throttling_valve_cone"
+      ],
+      "scene": "s14",
+      "scene_idx": 13,
+      "p_range": [
+        0.0,
+        1.0
+      ],
+      "boundary": false,
+      "closing": false,
+      "speech_start_s": 31.718,
+      "speech_end_s": 33.675,
+      "start_s": 31.631,
+      "end_s": 33.763,
+      "frame_a": 949,
+      "frame_b": 1013
+    },
+    {
+      "index": 14,
+      "id": "t15",
+      "recipe": "penthouse_sink",
+      "badge": "KERAN PUNCAK",
+      "text": "Keran di puncak mengalir lembut,",
+      "ptr": [
+        [
+          0.0,
+          0.92,
+          0.18
+        ],
+        "MENGALIR LEMBUT"
+      ],
+      "objects": [
+        "bathroom_tile_room",
+        "vanity_ceramic_sink",
+        "chrome_mixer_faucet",
+        "led_vanity_mirror",
+        "towel_holder_rack",
+        "resident_person_rig"
+      ],
+      "scene": "s03",
+      "scene_idx": 2,
+      "p_range": [
+        0.0,
+        1.0
+      ],
+      "boundary": false,
+      "closing": false,
+      "speech_start_s": 33.851,
+      "speech_end_s": 35.756,
+      "start_s": 33.763,
+      "end_s": 35.838,
+      "frame_a": 1013,
+      "frame_b": 1075
+    },
+    {
+      "index": 15,
+      "id": "t16",
+      "recipe": "shower_comfort",
+      "badge": "SHOWER AMAN",
+      "text": "dan shower di bawah tak menyembur.",
+      "ptr": [
+        [
+          0.0,
+          1.35,
+          0.12
+        ],
+        "SAMA NYAMAN"
+      ],
+      "objects": [
+        "glass_shower_booth",
+        "chrome_rain_showerhead",
+        "gentle_shower_streams"
+      ],
+      "scene": "s15",
+      "scene_idx": 14,
+      "p_range": [
+        0.0,
+        1.0
+      ],
+      "boundary": false,
+      "closing": false,
+      "speech_start_s": 35.92,
+      "speech_end_s": 38.031,
+      "start_s": 35.838,
+      "end_s": 38.117,
+      "frame_a": 1075,
+      "frame_b": 1144
+    },
+    {
+      "index": 16,
+      "id": "t17",
+      "recipe": "mep_full_room",
+      "badge": "ISI LANTAI GELAP",
+      "text": "Lantai itu juga menyimpan AC dan hidran.",
+      "ptr": [
+        [
+          0.35,
+          0.85,
+          0.0
+        ],
+        "MESIN AC & HIDRAN"
+      ],
+      "objects": [
+        "galvanized_ahu_ductwork",
+        "red_fire_jockey_pump"
+      ],
+      "scene": "s16",
+      "scene_idx": 15,
+      "p_range": [
+        0.0,
+        1.0
+      ],
+      "boundary": false,
+      "closing": false,
+      "speech_start_s": 38.204,
+      "speech_end_s": 40.13,
+      "start_s": 38.117,
+      "end_s": 40.215,
+      "frame_a": 1144,
+      "frame_b": 1206
+    },
+    {
+      "index": 17,
+      "id": "t18",
+      "recipe": "boundary_lowrise",
+      "badge": "GEDUNG RENDAH",
+      "text": "Tapi gedung di bawah delapan lantai",
+      "ptr": [
+        [
+          0.0,
+          1.65,
+          0.0
+        ],
+        "DI BAWAH 8 LANTAI"
+      ],
+      "objects": [
+        "lowrise_6f_apartment",
+        "rooftop_blue_water_toren",
+        "hydrophore_pressure_tank",
+        "parked_scooter_bike"
+      ],
+      "scene": "s17",
+      "scene_idx": 16,
+      "p_range": [
+        0.0,
+        1.0
+      ],
+      "boundary": true,
+      "closing": false,
+      "speech_start_s": 40.3,
+      "speech_end_s": 42.61,
+      "start_s": 40.215,
+      "end_s": 42.7,
+      "frame_a": 1206,
+      "frame_b": 1281
+    },
+    {
+      "index": 18,
+      "id": "t19",
+      "recipe": "boundary_lowrise_pipe",
+      "badge": "CUKUP TOREN",
+      "text": "cukup memakai toren di atap.",
+      "ptr": [
+        [
+          0.0,
+          2.15,
+          0.0
+        ],
+        "TOREN ATAP CUKUP"
+      ],
+      "objects": [
+        "simple_downfeed_pipe"
+      ],
+      "scene": "s18",
+      "scene_idx": 17,
+      "p_range": [
+        0.0,
+        1.0
+      ],
+      "boundary": true,
+      "closing": false,
+      "speech_start_s": 42.791,
+      "speech_end_s": 44.065,
+      "start_s": 42.7,
+      "end_s": 44.153,
+      "frame_a": 1281,
+      "frame_b": 1325
+    },
+    {
+      "index": 19,
+      "id": "t20",
+      "recipe": "oh_jadi_tower",
+      "badge": "CARI LANTAI GELAPNYA",
+      "text": "Lain kali lihat gedung tinggi, cari lantai gelap itu.",
+      "ptr": [
+        [
+          0.0,
+          1.95,
+          0.25
+        ],
+        "PEMUTUS TEKANAN AIR"
+      ],
+      "objects": [
+        "zoned_3tier_diagram_3d"
+      ],
+      "scene": "s19",
+      "scene_idx": 18,
+      "p_range": [
+        0.0,
+        1.0
+      ],
+      "boundary": false,
+      "closing": true,
+      "speech_start_s": 44.241,
+      "speech_end_s": 46.879,
+      "start_s": 44.153,
+      "end_s": 46.966,
+      "frame_a": 1325,
+      "frame_b": 1409
+    },
+    {
+      "index": 20,
+      "id": "t21",
+      "recipe": "ab_poll_stage",
+      "badge": "KAMU PILIH MANA?",
+      "text": "Lebih jenius mana: tangki pemutus, atau bola raksasa anti-angin?",
+      "ptr": [
+        [
+          0.0,
+          0.75,
+          0.0
+        ],
+        "A: BREAK TANK  vs  B: BOLA TMD"
+      ],
+      "objects": [
+        "poll_plinth_tank",
+        "poll_plinth_tmd_ball"
+      ],
+      "scene": "s20",
+      "scene_idx": 19,
+      "p_range": [
+        0.0,
+        1.0
+      ],
+      "boundary": false,
+      "closing": false,
+      "speech_start_s": 47.053,
+      "speech_end_s": 50.472,
+      "start_s": 46.966,
+      "end_s": 50.558,
+      "frame_a": 1409,
+      "frame_b": 1517
+    },
+    {
+      "index": 21,
+      "id": "t22",
+      "recipe": "comment_wave",
+      "badge": "TULIS DI KOMENTAR",
+      "text": "Tulis jawabanmu di komentar.",
+      "ptr": [
+        [
+          0.0,
+          1.15,
+          0.0
+        ],
+        "KOMEN A ATAU B DI BAWAH!"
+      ],
+      "objects": [
+        "mep_control_desk"
+      ],
+      "scene": "s21",
+      "scene_idx": 20,
+      "p_range": [
+        0.0,
+        1.0
+      ],
+      "boundary": false,
+      "closing": false,
+      "speech_start_s": 50.644,
+      "speech_end_s": 51.935,
+      "start_s": 50.558,
+      "end_s": 52.025,
+      "frame_a": 1517,
+      "frame_b": 1561
+    },
+    {
+      "index": 22,
+      "id": "t23",
+      "recipe": "cta_white_stage",
+      "badge": "TOMBOL PUTIH!",
+      "text": "Tekan tombol putih, besok ada rahasia lain.",
+      "ptr": [
+        [
+          0.0,
+          0.65,
+          0.0
+        ],
+        "TEKAN TOMBOL PUTIH!"
+      ],
+      "objects": [
+        "cta_stage_base",
+        "white_subscribe_3d_pill",
+        "click_hand_cursor_3d"
+      ],
+      "scene": "s22",
+      "scene_idx": 21,
+      "p_range": [
+        0.0,
+        1.0
+      ],
+      "boundary": false,
+      "closing": false,
+      "speech_start_s": 52.114,
+      "speech_end_s": 54.398,
+      "start_s": 52.025,
+      "end_s": 54.848,
+      "frame_a": 1561,
+      "frame_b": 1645
+    }
+  ]
+}

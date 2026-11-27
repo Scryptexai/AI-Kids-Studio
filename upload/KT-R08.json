@@ -1,14 +1,14 @@
 {
   "episode": "KT-R08",
   "slot_label": "PAGI_SHORT",
-  "video": "KT-R08_1080x1920_v6_master.mp4",
+  "video": "KT-R08_1080x1920_v7_master.mp4",
   "thumbnail": "KT-R08_thumbnail.jpg",
-  "drive_file_id": "1cLOEpdZL8nK-n7Z4YPBr7TD5Wt_sN5rf",
-  "size_bytes": 18119893,
-  "sha256": "b1a407f1eb371bab00047197a3996426d647f0e7c108451108021ce6afd4858e",
-  "title": "Kenapa Pipa Air Gedung Tinggi Tidak Boleh Tersambung Lurus dari Bawah ke Atas? #Shorts",
-  "hook": "Di gedung pencakar langit lima ratus meter, ada lantai kisi gelap tanpa kaca di tengah.",
-  "description": "Di gedung pencakar langit lima ratus meter, ada lantai kisi gelap tanpa kaca di tengah. Di puncak, air keran tetap mengalir lembut. Bayangkan satu pipa lurus dari atap ke dasar! Tiap sepuluh meter nambah satu—tembus lima puluh bar! Tekanan itu menjebol pipa dan keran bawah! Dipompa langsung dari bawah pun membakar motor. Maka tiap tiga puluh lantai ada ruang mesin. Air dipompa estafet ke tangki Break Tank. Di Break Tank terbuka, kolom air diputus! Menyentuh udara bebas, tekanan kembali nol bar! Pompa kedua lalu mendorongnya ke zona atas. Saat turun ke hunian, air melewati katup PRV. Pegas PRV menjaga tekanan stabil tiga bar. Shower lantai atas dan bawah pun sama nyaman! Ruang ini juga memuat mesin AHU dan hidran.\n\nBatas akurasi: gedung di bawah delapan lantai cukup memakai toren atap tanpa tangki tengah.\n\nOh, jadi lantai gelap itu pemutus tekanan air!\n\nReferensi: Standar Plambing Gedung Tinggi IPC / ASHRAE HVAC Applications Ch. 4 & SNI 8153.\n\nPertanyaan diskusi: Rahasia gedung tinggi mana yang paling mengejutkan? (TANGKI PEMUTUS TEKANAN vs BOLA RAKSASA ANTI-ANGIN)\n\nTekan tombol putih di bawah agar mendapatkan hal-hal yang gak disangka setiap hari!\n\n#KnotTheory #InfrastrukturTersembunyi #CaraKerjaMesin #SainsSehariHari #Shorts",
+  "drive_file_id": "14Y-JbhNhl72MKGVWBCjiIBzLOZ4gRvVN",
+  "size_bytes": 17731109,
+  "sha256": "32d12e4cbd6a1186158a7f21df6ac68ed7482b957cef2c076d25abe5aead055a",
+  "title": "Pipa Air Gedung 500 Meter Bisa Jebol oleh Airnya Sendiri — Ini Cara Mencegahnya #Shorts",
+  "hook": "Pipa ini bisa jebol oleh airnya sendiri.",
+  "description": "Pipa ini bisa jebol oleh airnya sendiri. Di gedung lima ratus meter. Bayangkan satu pipa lurus, atap sampai dasar. Tiap sepuluh meter, tekanan naik satu bar. Di dasar: lima puluh! Sambungan pecah, keran lantai bawah menyembur. Pompa langsung dari bawah? Motornya terbakar. Karena itu, ada lantai aneh tanpa jendela. Tiap tiga puluh lantai, ada lantai mesin. Pompa mengisi tangki terbuka: break tank. Permukaannya menyentuh udara bebas. Tekanan tiga puluh bar langsung kembali ke nol! Pompa berikutnya mengestafet ke atas. Sebelum masuk unit, air lewat katup PRV. Pegasnya menjaga tekanan tetap tiga bar. Keran di puncak mengalir lembut, dan shower di bawah tak menyembur. Lantai itu juga menyimpan AC dan hidran.\n\nBatas akurasi: Gedung di bawah delapan lantai cukup memakai toren di atap.\n\nLain kali lihat gedung tinggi, cari lantai gelap itu.\n\nReferensi: Standar Plambing Gedung Tinggi IPC / ASHRAE HVAC Applications Ch. 4 & SNI 8153.\n\nPertanyaan diskusi: Rahasia gedung tinggi mana yang lebih jenius? (TANGKI PEMUTUS TEKANAN vs BOLA RAKSASA ANTI-ANGIN)\n\nTekan tombol putih di bawah agar mendapatkan hal-hal yang gak disangka setiap hari!\n\n#KnotTheory #InfrastrukturTersembunyi #CaraKerjaMesin #SainsSehariHari #Shorts",
   "tags": [
     "Knot Theory",
     "gedung pencakar langit",
@@ -25,12 +25,12 @@
   "containsSyntheticMedia": false,
   "defaultLanguage": "id",
   "defaultAudioLanguage": "id",
-  "first_comment": "Rahasia gedung tinggi mana yang paling mengejutkan? (TANGKI PEMUTUS TEKANAN vs BOLA RAKSASA ANTI-ANGIN) — Tulis jawabanmu di komentar & tekan tombol putih di bawah ya!",
+  "first_comment": "Rahasia gedung tinggi mana yang lebih jenius? (TANGKI PEMUTUS TEKANAN vs BOLA RAKSASA ANTI-ANGIN) — Tulis jawabanmu di komentar & tekan tombol putih di bawah ya!",
   "scheduledFor": "2026-12-03T08:00:00",
   "timezone": "Asia/Makassar",
   "render_provenance": {
     "engine": "ai-kids-studio-3d-cpp",
-    "entrypoint": "src/knot_v6_director.py",
+    "entrypoint": "src/knot_v7_director.py",
     "manifest": "upload/provenance/KT-R08.json"
   }
 }

@@ -1,0 +1,805 @@
+{
+  "episode_id": "KT-R07",
+  "duration_s": 54.83,
+  "fps": 30,
+  "total_frames": 1645,
+  "shot_count": 23,
+  "shots": [
+    {
+      "index": 0,
+      "id": "t01",
+      "recipe": "wide_establish",
+      "badge": "TOL LAYANG",
+      "text": "Jalan tol yang kamu lewati ini bergerak.",
+      "ptr": [
+        [
+          0.0,
+          1.55,
+          0.0
+        ],
+        "GELAGAR RIBUAN TON"
+      ],
+      "objects": [
+        "sky_horizon_day",
+        "valley_river_channel",
+        "river_water_current",
+        "highway_deck_slab",
+        "asphalt_road_lanes",
+        "container_truck_18w",
+        "passenger_sedan_blue",
+        "highway_cobra_lamp",
+        "jersey_barrier_wall",
+        "roadside_pine_trees"
+      ],
+      "scene": "s01",
+      "scene_idx": 0,
+      "p_range": [
+        0.0,
+        1.0
+      ],
+      "boundary": false,
+      "closing": false,
+      "speech_start_s": 0.138,
+      "speech_end_s": 2.267,
+      "start_s": 0.0,
+      "end_s": 2.351,
+      "frame_a": 0,
+      "frame_b": 71
+    },
+    {
+      "index": 1,
+      "id": "t02",
+      "recipe": "heat_noon",
+      "badge": "SIANG 38°C",
+      "text": "Siang terik, beton ribuan ton memanjang.",
+      "ptr": [
+        [
+          0.15,
+          0.95,
+          0.0
+        ],
+        "BETON MEMANJANG"
+      ],
+      "objects": [
+        "sun_heat_orb_3d",
+        "thermometer_tower_hot",
+        "thermal_expansion_arrows",
+        "expansion_finger_joint"
+      ],
+      "scene": "s04",
+      "scene_idx": 3,
+      "p_range": [
+        0.0,
+        1.0
+      ],
+      "boundary": false,
+      "closing": false,
+      "speech_start_s": 2.434,
+      "speech_end_s": 4.959,
+      "start_s": 2.351,
+      "end_s": 5.046,
+      "frame_a": 71,
+      "frame_b": 151
+    },
+    {
+      "index": 2,
+      "id": "t03",
+      "recipe": "cold_night",
+      "badge": "MALAM 18°C",
+      "text": "Malam dingin, ia menyusut lagi.",
+      "ptr": [
+        [
+          -0.15,
+          0.95,
+          0.0
+        ],
+        "BETON MENYUSUT"
+      ],
+      "objects": [
+        "crescent_moon_3d",
+        "thermometer_tower_cold",
+        "contraction_arrows_blue",
+        "streetlight_night_glow"
+      ],
+      "scene": "s05",
+      "scene_idx": 4,
+      "p_range": [
+        0.0,
+        1.0
+      ],
+      "boundary": false,
+      "closing": false,
+      "speech_start_s": 5.133,
+      "speech_end_s": 7.121,
+      "start_s": 5.046,
+      "end_s": 7.204,
+      "frame_a": 151,
+      "frame_b": 216
+    },
+    {
+      "index": 3,
+      "id": "t04",
+      "recipe": "truck_deflect",
+      "badge": "TRUK LEWAT",
+      "text": "Tiap truk lewat, ujung gelagarnya melengkung.",
+      "ptr": [
+        [
+          0.0,
+          0.85,
+          0.0
+        ],
+        "UJUNG GELAGAR MELENGKUNG"
+      ],
+      "objects": [
+        "heavy_dump_truck_gravel",
+        "suvs_convoy_car",
+        "rotation_angle_arc_3d",
+        "pier_drainage_downspout"
+      ],
+      "scene": "s07",
+      "scene_idx": 6,
+      "p_range": [
+        0.0,
+        1.0
+      ],
+      "boundary": false,
+      "closing": false,
+      "speech_start_s": 7.287,
+      "speech_end_s": 9.808,
+      "start_s": 7.204,
+      "end_s": 9.896,
+      "frame_a": 216,
+      "frame_b": 297
+    },
+    {
+      "index": 4,
+      "id": "t05",
+      "recipe": "fail_rigid",
+      "badge": "KALAU DIBAUT MATI",
+      "text": "Kalau dibaut mati ke pilar,",
+      "ptr": [
+        [
+          0.0,
+          0.55,
+          0.15
+        ],
+        "KEPALA PILAR TERTARIK"
+      ],
+      "objects": [
+        "rigid_concrete_support_bad",
+        "spalling_crack_wedges",
+        "exposed_bent_rebar",
+        "falling_concrete_debris"
+      ],
+      "scene": "s06",
+      "scene_idx": 5,
+      "p_range": [
+        0.0,
+        0.5
+      ],
+      "boundary": false,
+      "closing": false,
+      "speech_start_s": 9.983,
+      "speech_end_s": 11.383,
+      "start_s": 9.896,
+      "end_s": 11.471,
+      "frame_a": 297,
+      "frame_b": 344
+    },
+    {
+      "index": 5,
+      "id": "t06",
+      "recipe": "fail_rigid",
+      "badge": "PILAR RETAK!",
+      "text": "kepala pilarnya retak, terus menjalar.",
+      "ptr": [
+        [
+          0.0,
+          0.55,
+          0.15
+        ],
+        "RETAK MENJALAR!"
+      ],
+      "objects": [
+        "rigid_concrete_support_bad",
+        "spalling_crack_wedges",
+        "exposed_bent_rebar",
+        "falling_concrete_debris"
+      ],
+      "scene": "s06",
+      "scene_idx": 5,
+      "p_range": [
+        0.5,
+        1.0
+      ],
+      "boundary": false,
+      "closing": false,
+      "speech_start_s": 11.56,
+      "speech_end_s": 13.438,
+      "start_s": 11.471,
+      "end_s": 13.523,
+      "frame_a": 344,
+      "frame_b": 406
+    },
+    {
+      "index": 6,
+      "id": "t07",
+      "recipe": "dolly_reveal",
+      "badge": "CELAH RAHASIA",
+      "text": "Jadi insinyur menyelipkan sesuatu di celah ini.",
+      "ptr": [
+        [
+          0.0,
+          0.58,
+          0.0
+        ],
+        "DI CELAH INI"
+      ],
+      "objects": [
+        "hammerhead_concrete_pier",
+        "pier_pile_footing",
+        "steel_box_girder",
+        "cross_diaphragm_brace",
+        "elastomeric_pad_whole",
+        "anchor_grout_plinth"
+      ],
+      "scene": "s02",
+      "scene_idx": 1,
+      "p_range": [
+        0.0,
+        1.0
+      ],
+      "boundary": false,
+      "closing": false,
+      "speech_start_s": 13.608,
+      "speech_end_s": 15.778,
+      "start_s": 13.523,
+      "end_s": 15.865,
+      "frame_a": 406,
+      "frame_b": 476
+    },
+    {
+      "index": 7,
+      "id": "t08",
+      "recipe": "macro_zoom",
+      "badge": "BLOK HITAM",
+      "text": "Sebuah blok hitam, setebal bantal.",
+      "ptr": [
+        [
+          0.0,
+          0.42,
+          0.0
+        ],
+        "SETEBAL BANTAL"
+      ],
+      "objects": [
+        "sole_plate_top",
+        "sole_plate_bottom",
+        "anchor_stud_bolts",
+        "bearing_serial_tag",
+        "underbridge_catwalk",
+        "bridge_inspector_human"
+      ],
+      "scene": "s03",
+      "scene_idx": 2,
+      "p_range": [
+        0.0,
+        1.0
+      ],
+      "boundary": false,
+      "closing": false,
+      "speech_start_s": 15.952,
+      "speech_end_s": 17.888,
+      "start_s": 15.865,
+      "end_s": 17.973,
+      "frame_a": 476,
+      "frame_b": 539
+    },
+    {
+      "index": 8,
+      "id": "t09",
+      "recipe": "fail_raw_rubber",
+      "badge": "KARET BIASA?",
+      "text": "Karet biasa? Ditindih ribuan ton, gepeng dan robek.",
+      "ptr": [
+        [
+          0.0,
+          0.36,
+          0.28
+        ],
+        "GEPENG & ROBEK!"
+      ],
+      "objects": [
+        "lab_compression_frame",
+        "hydraulic_ram_piston",
+        "raw_rubber_bulge_bad",
+        "sidewall_split_tear"
+      ],
+      "scene": "s08",
+      "scene_idx": 7,
+      "p_range": [
+        0.0,
+        1.0
+      ],
+      "boundary": false,
+      "closing": false,
+      "speech_start_s": 18.058,
+      "speech_end_s": 21.128,
+      "start_s": 17.973,
+      "end_s": 21.215,
+      "frame_a": 539,
+      "frame_b": 636
+    },
+    {
+      "index": 9,
+      "id": "t10",
+      "recipe": "cutaway_reveal",
+      "badge": "KITA BELAH",
+      "text": "Rahasianya ada di dalam.",
+      "ptr": [
+        [
+          0.0,
+          0.44,
+          0.18
+        ],
+        "BELAHAN BANTALAN"
+      ],
+      "objects": [
+        "elastomeric_pad_cutaway",
+        "laser_cut_plane_glow",
+        "inspection_spotlight_rig"
+      ],
+      "scene": "s09",
+      "scene_idx": 8,
+      "p_range": [
+        0.0,
+        1.0
+      ],
+      "boundary": false,
+      "closing": false,
+      "speech_start_s": 21.303,
+      "speech_end_s": 22.52,
+      "start_s": 21.215,
+      "end_s": 22.607,
+      "frame_a": 636,
+      "frame_b": 678
+    },
+    {
+      "index": 10,
+      "id": "t11",
+      "recipe": "macro_layers",
+      "badge": "BAJA + KARET",
+      "text": "Pelat baja tipis dan karet, berselang-seling.",
+      "ptr": [
+        [
+          0.0,
+          0.46,
+          0.22
+        ],
+        "BERSELANG-SELING"
+      ],
+      "objects": [
+        "neoprene_layer_stack",
+        "internal_steel_shims_6x",
+        "outer_ozone_rubber_cover"
+      ],
+      "scene": "s10",
+      "scene_idx": 9,
+      "p_range": [
+        0.0,
+        1.0
+      ],
+      "boundary": false,
+      "closing": false,
+      "speech_start_s": 22.694,
+      "speech_end_s": 25.342,
+      "start_s": 22.607,
+      "end_s": 25.425,
+      "frame_a": 678,
+      "frame_b": 763
+    },
+    {
+      "index": 11,
+      "id": "t12",
+      "recipe": "factory_press",
+      "badge": "DIMASAK MENYATU",
+      "text": "Dimasak menyatu di mesin vulkanisasi.",
+      "ptr": [
+        [
+          0.0,
+          0.72,
+          0.0
+        ],
+        "MESIN VULKANISASI"
+      ],
+      "objects": [
+        "vulcanizing_autoclave_press",
+        "steam_manifold_pipes",
+        "factory_pressure_gauge",
+        "factory_tech_worker"
+      ],
+      "scene": "s11",
+      "scene_idx": 10,
+      "p_range": [
+        0.0,
+        1.0
+      ],
+      "boundary": false,
+      "closing": false,
+      "speech_start_s": 25.509,
+      "speech_end_s": 27.969,
+      "start_s": 25.425,
+      "end_s": 28.053,
+      "frame_a": 763,
+      "frame_b": 842
+    },
+    {
+      "index": 12,
+      "id": "t13",
+      "recipe": "vertical_lock",
+      "badge": "KAKU KE BAWAH",
+      "text": "Pelat baja menahan karet agar tak mekar,",
+      "ptr": [
+        [
+          0.0,
+          0.48,
+          0.22
+        ],
+        "BAJA MENAHAN KARET"
+      ],
+      "objects": [
+        "vertical_load_arrows_red",
+        "tensile_shim_arrows_cyan",
+        "digital_load_cell_2000t"
+      ],
+      "scene": "s12",
+      "scene_idx": 11,
+      "p_range": [
+        0.0,
+        1.0
+      ],
+      "boundary": false,
+      "closing": false,
+      "speech_start_s": 28.138,
+      "speech_end_s": 29.976,
+      "start_s": 28.053,
+      "end_s": 30.059,
+      "frame_a": 842,
+      "frame_b": 902
+    },
+    {
+      "index": 13,
+      "id": "t14",
+      "recipe": "horizontal_shear",
+      "badge": "LENTUR KE SAMPING",
+      "text": "tapi tetap bergeser saat beton memuai.",
+      "ptr": [
+        [
+          0.18,
+          0.52,
+          0.15
+        ],
+        "BERGESER SAAT MEMUAI"
+      ],
+      "objects": [
+        "shear_parallelogram_stack",
+        "dial_micrometer_stand",
+        "console_dual_monitor"
+      ],
+      "scene": "s13",
+      "scene_idx": 12,
+      "p_range": [
+        0.0,
+        1.0
+      ],
+      "boundary": false,
+      "closing": false,
+      "speech_start_s": 30.143,
+      "speech_end_s": 31.928,
+      "start_s": 30.059,
+      "end_s": 32.013,
+      "frame_a": 902,
+      "frame_b": 960
+    },
+    {
+      "index": 14,
+      "id": "t15",
+      "recipe": "rotational_flex",
+      "badge": "IKUT MIRING",
+      "text": "Saat gelagar melengkung, bantal ini ikut miring.",
+      "ptr": [
+        [
+          -0.2,
+          0.5,
+          0.15
+        ],
+        "LENGKUNGAN DIREDAM"
+      ],
+      "objects": [
+        "oscilloscope_wave_rig",
+        "safety_mesh_guard",
+        "workzone_cone_pair"
+      ],
+      "scene": "s14",
+      "scene_idx": 13,
+      "p_range": [
+        0.0,
+        1.0
+      ],
+      "boundary": false,
+      "closing": false,
+      "speech_start_s": 32.097,
+      "speech_end_s": 34.393,
+      "start_s": 32.013,
+      "end_s": 34.478,
+      "frame_a": 960,
+      "frame_b": 1034
+    },
+    {
+      "index": 15,
+      "id": "t16",
+      "recipe": "oh_jadi_glide",
+      "badge": "PILAR SELAMAT",
+      "text": "Jembatan bebas bergerak, pilarnya tetap utuh.",
+      "ptr": [
+        [
+          0.0,
+          0.65,
+          0.0
+        ],
+        "BEBAS BERGERAK, TANPA RETAK"
+      ],
+      "objects": [
+        "overhead_highway_gantry"
+      ],
+      "scene": "s19",
+      "scene_idx": 18,
+      "p_range": [
+        0.0,
+        1.0
+      ],
+      "boundary": false,
+      "closing": false,
+      "speech_start_s": 34.563,
+      "speech_end_s": 36.675,
+      "start_s": 34.478,
+      "end_s": 36.758,
+      "frame_a": 1034,
+      "frame_b": 1103
+    },
+    {
+      "index": 16,
+      "id": "t17",
+      "recipe": "inspector_walk",
+      "badge": "DICEK RUTIN",
+      "text": "Teknisi rutin memeriksanya dari kolong.",
+      "ptr": [
+        [
+          -0.55,
+          0.85,
+          0.25
+        ],
+        "INSPEKSI DARI KOLONG"
+      ],
+      "objects": [
+        "flashlight_beam_cone",
+        "inspector_clipboard_caliper",
+        "surveying_total_station"
+      ],
+      "scene": "s15",
+      "scene_idx": 14,
+      "p_range": [
+        0.0,
+        1.0
+      ],
+      "boundary": false,
+      "closing": false,
+      "speech_start_s": 36.842,
+      "speech_end_s": 38.944,
+      "start_s": 36.758,
+      "end_s": 39.033,
+      "frame_a": 1103,
+      "frame_b": 1171
+    },
+    {
+      "index": 17,
+      "id": "t18",
+      "recipe": "boundary_cable_bridge",
+      "badge": "BENTANG RAKSASA",
+      "text": "Tapi bentang raksasa butuh lebih dari karet.",
+      "ptr": [
+        [
+          0.0,
+          2.4,
+          0.0
+        ],
+        "BUTUH LEBIH DARI KARET"
+      ],
+      "objects": [
+        "cable_stayed_a_pylon",
+        "fan_stay_cables_array",
+        "cargo_barge_ship"
+      ],
+      "scene": "s16",
+      "scene_idx": 15,
+      "p_range": [
+        0.0,
+        1.0
+      ],
+      "boundary": true,
+      "closing": false,
+      "speech_start_s": 39.122,
+      "speech_end_s": 41.291,
+      "start_s": 39.033,
+      "end_s": 41.376,
+      "frame_a": 1171,
+      "frame_b": 1241
+    },
+    {
+      "index": 18,
+      "id": "t19",
+      "recipe": "boundary_pot_ptfe",
+      "badge": "POT BEARING",
+      "text": "Mereka pakai bantalan pot baja berteflon.",
+      "ptr": [
+        [
+          0.0,
+          0.45,
+          0.18
+        ],
+        "POT BAJA + TEFLON"
+      ],
+      "objects": [
+        "ptfe_spherical_pot_bearing",
+        "stainless_slider_mirror",
+        "brass_sealing_ring"
+      ],
+      "scene": "s17",
+      "scene_idx": 16,
+      "p_range": [
+        0.0,
+        1.0
+      ],
+      "boundary": true,
+      "closing": false,
+      "speech_start_s": 41.461,
+      "speech_end_s": 43.516,
+      "start_s": 41.376,
+      "end_s": 43.602,
+      "frame_a": 1241,
+      "frame_b": 1308
+    },
+    {
+      "index": 19,
+      "id": "t20",
+      "recipe": "split_recap",
+      "badge": "CARI BLOK HITAMNYA",
+      "text": "Lain kali lewat kolong tol, cari blok hitam ini.",
+      "ptr": [
+        [
+          0.0,
+          0.55,
+          0.0
+        ],
+        "PENAHAN JALAN TOL"
+      ],
+      "objects": [
+        "city_skyline_backdrop",
+        "commuter_bus_green"
+      ],
+      "scene": "s18",
+      "scene_idx": 17,
+      "p_range": [
+        0.0,
+        1.0
+      ],
+      "boundary": false,
+      "closing": true,
+      "speech_start_s": 43.688,
+      "speech_end_s": 46.276,
+      "start_s": 43.602,
+      "end_s": 46.362,
+      "frame_a": 1308,
+      "frame_b": 1391
+    },
+    {
+      "index": 20,
+      "id": "t21",
+      "recipe": "ab_poll_stage",
+      "badge": "KAMU PILIH MANA?",
+      "text": "Lebih jenius mana: bantalan karet, atau sambungan jari baja?",
+      "ptr": [
+        [
+          0.0,
+          0.75,
+          0.0
+        ],
+        "A: KARET BAJA  vs  B: JARI BAJA"
+      ],
+      "objects": [
+        "poll_pedestal_left",
+        "poll_pedestal_right"
+      ],
+      "scene": "s20",
+      "scene_idx": 19,
+      "p_range": [
+        0.0,
+        1.0
+      ],
+      "boundary": false,
+      "closing": false,
+      "speech_start_s": 46.447,
+      "speech_end_s": 49.715,
+      "start_s": 46.362,
+      "end_s": 49.802,
+      "frame_a": 1391,
+      "frame_b": 1494
+    },
+    {
+      "index": 21,
+      "id": "t22",
+      "recipe": "comment_wave",
+      "badge": "TULIS DI KOMENTAR",
+      "text": "Tulis jawabanmu di komentar.",
+      "ptr": [
+        [
+          0.0,
+          1.15,
+          0.0
+        ],
+        "TULIS A ATAU B DI BAWAH!"
+      ],
+      "objects": [
+        "studio_truss_arch"
+      ],
+      "scene": "s21",
+      "scene_idx": 20,
+      "p_range": [
+        0.0,
+        1.0
+      ],
+      "boundary": false,
+      "closing": false,
+      "speech_start_s": 49.888,
+      "speech_end_s": 51.242,
+      "start_s": 49.802,
+      "end_s": 51.323,
+      "frame_a": 1494,
+      "frame_b": 1540
+    },
+    {
+      "index": 22,
+      "id": "t23",
+      "recipe": "cta_white_stage",
+      "badge": "TOMBOL PUTIH!",
+      "text": "Tekan tombol putih, besok ada rahasia lain.",
+      "ptr": [
+        [
+          0.0,
+          0.65,
+          0.0
+        ],
+        "TEKAN TOMBOL PUTIH!"
+      ],
+      "objects": [
+        "cta_plinth_3d",
+        "white_subscribe_button_3d",
+        "pointer_hand_3d"
+      ],
+      "scene": "s22",
+      "scene_idx": 21,
+      "p_range": [
+        0.0,
+        1.0
+      ],
+      "boundary": false,
+      "closing": false,
+      "speech_start_s": 51.404,
+      "speech_end_s": 54.257,
+      "start_s": 51.323,
+      "end_s": 54.83,
+      "frame_a": 1540,
+      "frame_b": 1645
+    }
+  ]
+}

@@ -1,0 +1,697 @@
+[
+  {
+    "episode_id": "KT-R07",
+    "shots": 23,
+    "unique_objects": 84,
+    "mean_coverage": 0.876,
+    "min_onscreen_ratio": 1.0,
+    "pass": true,
+    "fails": [],
+    "per_shot": [
+      {
+        "shot": "t01",
+        "objects_in_shot": 16,
+        "narrated": 10,
+        "onscreen_ratio": 1.0,
+        "coverage": 0.896
+      },
+      {
+        "shot": "t02",
+        "objects_in_shot": 18,
+        "narrated": 4,
+        "onscreen_ratio": 1.0,
+        "coverage": 1.0
+      },
+      {
+        "shot": "t03",
+        "objects_in_shot": 18,
+        "narrated": 4,
+        "onscreen_ratio": 1.0,
+        "coverage": 1.0
+      },
+      {
+        "shot": "t04",
+        "objects_in_shot": 18,
+        "narrated": 4,
+        "onscreen_ratio": 1.0,
+        "coverage": 1.0
+      },
+      {
+        "shot": "t05",
+        "objects_in_shot": 17,
+        "narrated": 4,
+        "onscreen_ratio": 1.0,
+        "coverage": 1.0
+      },
+      {
+        "shot": "t06",
+        "objects_in_shot": 17,
+        "narrated": 4,
+        "onscreen_ratio": 1.0,
+        "coverage": 1.0
+      },
+      {
+        "shot": "t07",
+        "objects_in_shot": 14,
+        "narrated": 6,
+        "onscreen_ratio": 1.0,
+        "coverage": 0.93
+      },
+      {
+        "shot": "t08",
+        "objects_in_shot": 20,
+        "narrated": 6,
+        "onscreen_ratio": 1.0,
+        "coverage": 1.0
+      },
+      {
+        "shot": "t09",
+        "objects_in_shot": 9,
+        "narrated": 4,
+        "onscreen_ratio": 1.0,
+        "coverage": 0.79
+      },
+      {
+        "shot": "t10",
+        "objects_in_shot": 10,
+        "narrated": 3,
+        "onscreen_ratio": 1.0,
+        "coverage": 0.751
+      },
+      {
+        "shot": "t11",
+        "objects_in_shot": 10,
+        "narrated": 3,
+        "onscreen_ratio": 1.0,
+        "coverage": 0.9
+      },
+      {
+        "shot": "t12",
+        "objects_in_shot": 9,
+        "narrated": 4,
+        "onscreen_ratio": 1.0,
+        "coverage": 0.887
+      },
+      {
+        "shot": "t13",
+        "objects_in_shot": 10,
+        "narrated": 3,
+        "onscreen_ratio": 1.0,
+        "coverage": 0.845
+      },
+      {
+        "shot": "t14",
+        "objects_in_shot": 10,
+        "narrated": 3,
+        "onscreen_ratio": 1.0,
+        "coverage": 0.726
+      },
+      {
+        "shot": "t15",
+        "objects_in_shot": 10,
+        "narrated": 3,
+        "onscreen_ratio": 1.0,
+        "coverage": 0.693
+      },
+      {
+        "shot": "t16",
+        "objects_in_shot": 17,
+        "narrated": 1,
+        "onscreen_ratio": 1.0,
+        "coverage": 1.0
+      },
+      {
+        "shot": "t17",
+        "objects_in_shot": 19,
+        "narrated": 3,
+        "onscreen_ratio": 1.0,
+        "coverage": 1.0
+      },
+      {
+        "shot": "t18",
+        "objects_in_shot": 10,
+        "narrated": 3,
+        "onscreen_ratio": 1.0,
+        "coverage": 0.907
+      },
+      {
+        "shot": "t19",
+        "objects_in_shot": 8,
+        "narrated": 3,
+        "onscreen_ratio": 1.0,
+        "coverage": 0.77
+      },
+      {
+        "shot": "t20",
+        "objects_in_shot": 16,
+        "narrated": 2,
+        "onscreen_ratio": 1.0,
+        "coverage": 1.0
+      },
+      {
+        "shot": "t21",
+        "objects_in_shot": 2,
+        "narrated": 2,
+        "onscreen_ratio": 1.0,
+        "coverage": 0.682
+      },
+      {
+        "shot": "t22",
+        "objects_in_shot": 6,
+        "narrated": 1,
+        "onscreen_ratio": 1.0,
+        "coverage": 0.665
+      },
+      {
+        "shot": "t23",
+        "objects_in_shot": 3,
+        "narrated": 3,
+        "onscreen_ratio": 1.0,
+        "coverage": 0.712
+      }
+    ]
+  },
+  {
+    "episode_id": "KT-R08",
+    "shots": 23,
+    "unique_objects": 82,
+    "mean_coverage": 0.793,
+    "min_onscreen_ratio": 1.0,
+    "pass": true,
+    "fails": [],
+    "per_shot": [
+      {
+        "shot": "t01",
+        "objects_in_shot": 9,
+        "narrated": 4,
+        "onscreen_ratio": 1.0,
+        "coverage": 0.811
+      },
+      {
+        "shot": "t02",
+        "objects_in_shot": 10,
+        "narrated": 8,
+        "onscreen_ratio": 1.0,
+        "coverage": 1.0
+      },
+      {
+        "shot": "t03",
+        "objects_in_shot": 9,
+        "narrated": 4,
+        "onscreen_ratio": 1.0,
+        "coverage": 0.826
+      },
+      {
+        "shot": "t04",
+        "objects_in_shot": 10,
+        "narrated": 3,
+        "onscreen_ratio": 1.0,
+        "coverage": 0.836
+      },
+      {
+        "shot": "t05",
+        "objects_in_shot": 9,
+        "narrated": 4,
+        "onscreen_ratio": 1.0,
+        "coverage": 0.816
+      },
+      {
+        "shot": "t06",
+        "objects_in_shot": 10,
+        "narrated": 5,
+        "onscreen_ratio": 1.0,
+        "coverage": 0.972
+      },
+      {
+        "shot": "t07",
+        "objects_in_shot": 11,
+        "narrated": 3,
+        "onscreen_ratio": 1.0,
+        "coverage": 1.0
+      },
+      {
+        "shot": "t08",
+        "objects_in_shot": 10,
+        "narrated": 4,
+        "onscreen_ratio": 1.0,
+        "coverage": 0.62
+      },
+      {
+        "shot": "t09",
+        "objects_in_shot": 10,
+        "narrated": 4,
+        "onscreen_ratio": 1.0,
+        "coverage": 0.723
+      },
+      {
+        "shot": "t10",
+        "objects_in_shot": 13,
+        "narrated": 5,
+        "onscreen_ratio": 1.0,
+        "coverage": 0.812
+      },
+      {
+        "shot": "t11",
+        "objects_in_shot": 12,
+        "narrated": 4,
+        "onscreen_ratio": 1.0,
+        "coverage": 0.727
+      },
+      {
+        "shot": "t12",
+        "objects_in_shot": 11,
+        "narrated": 3,
+        "onscreen_ratio": 1.0,
+        "coverage": 0.666
+      },
+      {
+        "shot": "t13",
+        "objects_in_shot": 10,
+        "narrated": 4,
+        "onscreen_ratio": 1.0,
+        "coverage": 0.777
+      },
+      {
+        "shot": "t14",
+        "objects_in_shot": 10,
+        "narrated": 3,
+        "onscreen_ratio": 1.0,
+        "coverage": 0.711
+      },
+      {
+        "shot": "t15",
+        "objects_in_shot": 10,
+        "narrated": 6,
+        "onscreen_ratio": 1.0,
+        "coverage": 0.705
+      },
+      {
+        "shot": "t16",
+        "objects_in_shot": 10,
+        "narrated": 3,
+        "onscreen_ratio": 1.0,
+        "coverage": 0.85
+      },
+      {
+        "shot": "t17",
+        "objects_in_shot": 10,
+        "narrated": 2,
+        "onscreen_ratio": 1.0,
+        "coverage": 0.665
+      },
+      {
+        "shot": "t18",
+        "objects_in_shot": 10,
+        "narrated": 4,
+        "onscreen_ratio": 1.0,
+        "coverage": 0.76
+      },
+      {
+        "shot": "t19",
+        "objects_in_shot": 10,
+        "narrated": 1,
+        "onscreen_ratio": 1.0,
+        "coverage": 0.902
+      },
+      {
+        "shot": "t20",
+        "objects_in_shot": 10,
+        "narrated": 1,
+        "onscreen_ratio": 1.0,
+        "coverage": 1.0
+      },
+      {
+        "shot": "t21",
+        "objects_in_shot": 2,
+        "narrated": 2,
+        "onscreen_ratio": 1.0,
+        "coverage": 0.689
+      },
+      {
+        "shot": "t22",
+        "objects_in_shot": 6,
+        "narrated": 1,
+        "onscreen_ratio": 1.0,
+        "coverage": 0.661
+      },
+      {
+        "shot": "t23",
+        "objects_in_shot": 3,
+        "narrated": 3,
+        "onscreen_ratio": 1.0,
+        "coverage": 0.712
+      }
+    ]
+  },
+  {
+    "episode_id": "KT-S15",
+    "shots": 24,
+    "unique_objects": 76,
+    "mean_coverage": 0.738,
+    "min_onscreen_ratio": 1.0,
+    "pass": true,
+    "fails": [],
+    "per_shot": [
+      {
+        "shot": "t01",
+        "objects_in_shot": 10,
+        "narrated": 6,
+        "onscreen_ratio": 1.0,
+        "coverage": 0.759
+      },
+      {
+        "shot": "t02",
+        "objects_in_shot": 10,
+        "narrated": 4,
+        "onscreen_ratio": 1.0,
+        "coverage": 0.794
+      },
+      {
+        "shot": "t03",
+        "objects_in_shot": 10,
+        "narrated": 4,
+        "onscreen_ratio": 1.0,
+        "coverage": 0.789
+      },
+      {
+        "shot": "t04",
+        "objects_in_shot": 10,
+        "narrated": 8,
+        "onscreen_ratio": 1.0,
+        "coverage": 0.685
+      },
+      {
+        "shot": "t05",
+        "objects_in_shot": 11,
+        "narrated": 4,
+        "onscreen_ratio": 1.0,
+        "coverage": 0.733
+      },
+      {
+        "shot": "t06",
+        "objects_in_shot": 10,
+        "narrated": 1,
+        "onscreen_ratio": 1.0,
+        "coverage": 0.764
+      },
+      {
+        "shot": "t07",
+        "objects_in_shot": 9,
+        "narrated": 3,
+        "onscreen_ratio": 1.0,
+        "coverage": 0.646
+      },
+      {
+        "shot": "t08",
+        "objects_in_shot": 9,
+        "narrated": 3,
+        "onscreen_ratio": 1.0,
+        "coverage": 0.655
+      },
+      {
+        "shot": "t09",
+        "objects_in_shot": 8,
+        "narrated": 3,
+        "onscreen_ratio": 1.0,
+        "coverage": 0.789
+      },
+      {
+        "shot": "t10",
+        "objects_in_shot": 9,
+        "narrated": 3,
+        "onscreen_ratio": 1.0,
+        "coverage": 0.708
+      },
+      {
+        "shot": "t11",
+        "objects_in_shot": 10,
+        "narrated": 3,
+        "onscreen_ratio": 1.0,
+        "coverage": 0.693
+      },
+      {
+        "shot": "t12",
+        "objects_in_shot": 10,
+        "narrated": 3,
+        "onscreen_ratio": 1.0,
+        "coverage": 0.827
+      },
+      {
+        "shot": "t13",
+        "objects_in_shot": 10,
+        "narrated": 3,
+        "onscreen_ratio": 1.0,
+        "coverage": 0.674
+      },
+      {
+        "shot": "t14",
+        "objects_in_shot": 10,
+        "narrated": 3,
+        "onscreen_ratio": 1.0,
+        "coverage": 0.735
+      },
+      {
+        "shot": "t15",
+        "objects_in_shot": 10,
+        "narrated": 3,
+        "onscreen_ratio": 1.0,
+        "coverage": 0.751
+      },
+      {
+        "shot": "t16",
+        "objects_in_shot": 10,
+        "narrated": 3,
+        "onscreen_ratio": 1.0,
+        "coverage": 0.763
+      },
+      {
+        "shot": "t17",
+        "objects_in_shot": 11,
+        "narrated": 5,
+        "onscreen_ratio": 1.0,
+        "coverage": 0.684
+      },
+      {
+        "shot": "t18",
+        "objects_in_shot": 14,
+        "narrated": 3,
+        "onscreen_ratio": 1.0,
+        "coverage": 0.749
+      },
+      {
+        "shot": "t19",
+        "objects_in_shot": 7,
+        "narrated": 2,
+        "onscreen_ratio": 1.0,
+        "coverage": 0.655
+      },
+      {
+        "shot": "t20",
+        "objects_in_shot": 10,
+        "narrated": 3,
+        "onscreen_ratio": 1.0,
+        "coverage": 0.928
+      },
+      {
+        "shot": "t21",
+        "objects_in_shot": 10,
+        "narrated": 1,
+        "onscreen_ratio": 1.0,
+        "coverage": 0.806
+      },
+      {
+        "shot": "t22",
+        "objects_in_shot": 2,
+        "narrated": 2,
+        "onscreen_ratio": 1.0,
+        "coverage": 0.691
+      },
+      {
+        "shot": "t23",
+        "objects_in_shot": 7,
+        "narrated": 2,
+        "onscreen_ratio": 1.0,
+        "coverage": 0.73
+      },
+      {
+        "shot": "t24",
+        "objects_in_shot": 3,
+        "narrated": 3,
+        "onscreen_ratio": 1.0,
+        "coverage": 0.713
+      }
+    ]
+  },
+  {
+    "episode_id": "KT-S16",
+    "shots": 23,
+    "unique_objects": 71,
+    "mean_coverage": 0.659,
+    "min_onscreen_ratio": 1.0,
+    "pass": true,
+    "fails": [],
+    "per_shot": [
+      {
+        "shot": "t01",
+        "objects_in_shot": 10,
+        "narrated": 8,
+        "onscreen_ratio": 1.0,
+        "coverage": 0.123
+      },
+      {
+        "shot": "t02",
+        "objects_in_shot": 10,
+        "narrated": 3,
+        "onscreen_ratio": 1.0,
+        "coverage": 0.757
+      },
+      {
+        "shot": "t03",
+        "objects_in_shot": 10,
+        "narrated": 6,
+        "onscreen_ratio": 1.0,
+        "coverage": 0.612
+      },
+      {
+        "shot": "t04",
+        "objects_in_shot": 10,
+        "narrated": 3,
+        "onscreen_ratio": 1.0,
+        "coverage": 0.72
+      },
+      {
+        "shot": "t05",
+        "objects_in_shot": 10,
+        "narrated": 4,
+        "onscreen_ratio": 1.0,
+        "coverage": 0.67
+      },
+      {
+        "shot": "t06",
+        "objects_in_shot": 8,
+        "narrated": 3,
+        "onscreen_ratio": 1.0,
+        "coverage": 0.653
+      },
+      {
+        "shot": "t07",
+        "objects_in_shot": 10,
+        "narrated": 5,
+        "onscreen_ratio": 1.0,
+        "coverage": 0.632
+      },
+      {
+        "shot": "t08",
+        "objects_in_shot": 10,
+        "narrated": 2,
+        "onscreen_ratio": 1.0,
+        "coverage": 0.677
+      },
+      {
+        "shot": "t09",
+        "objects_in_shot": 10,
+        "narrated": 3,
+        "onscreen_ratio": 1.0,
+        "coverage": 0.761
+      },
+      {
+        "shot": "t10",
+        "objects_in_shot": 10,
+        "narrated": 2,
+        "onscreen_ratio": 1.0,
+        "coverage": 0.715
+      },
+      {
+        "shot": "t11",
+        "objects_in_shot": 10,
+        "narrated": 2,
+        "onscreen_ratio": 1.0,
+        "coverage": 0.706
+      },
+      {
+        "shot": "t12",
+        "objects_in_shot": 10,
+        "narrated": 2,
+        "onscreen_ratio": 1.0,
+        "coverage": 0.689
+      },
+      {
+        "shot": "t13",
+        "objects_in_shot": 10,
+        "narrated": 3,
+        "onscreen_ratio": 1.0,
+        "coverage": 0.72
+      },
+      {
+        "shot": "t14",
+        "objects_in_shot": 10,
+        "narrated": 3,
+        "onscreen_ratio": 1.0,
+        "coverage": 0.692
+      },
+      {
+        "shot": "t15",
+        "objects_in_shot": 10,
+        "narrated": 2,
+        "onscreen_ratio": 1.0,
+        "coverage": 0.704
+      },
+      {
+        "shot": "t16",
+        "objects_in_shot": 9,
+        "narrated": 4,
+        "onscreen_ratio": 1.0,
+        "coverage": 0.991
+      },
+      {
+        "shot": "t17",
+        "objects_in_shot": 9,
+        "narrated": 4,
+        "onscreen_ratio": 1.0,
+        "coverage": 0.133
+      },
+      {
+        "shot": "t18",
+        "objects_in_shot": 8,
+        "narrated": 3,
+        "onscreen_ratio": 1.0,
+        "coverage": 0.748
+      },
+      {
+        "shot": "t19",
+        "objects_in_shot": 10,
+        "narrated": 2,
+        "onscreen_ratio": 1.0,
+        "coverage": 0.738
+      },
+      {
+        "shot": "t20",
+        "objects_in_shot": 10,
+        "narrated": 1,
+        "onscreen_ratio": 1.0,
+        "coverage": 0.616
+      },
+      {
+        "shot": "t21",
+        "objects_in_shot": 2,
+        "narrated": 2,
+        "onscreen_ratio": 1.0,
+        "coverage": 0.687
+      },
+      {
+        "shot": "t22",
+        "objects_in_shot": 7,
+        "narrated": 2,
+        "onscreen_ratio": 1.0,
+        "coverage": 0.709
+      },
+      {
+        "shot": "t23",
+        "objects_in_shot": 3,
+        "narrated": 3,
+        "onscreen_ratio": 1.0,
+        "coverage": 0.711
+      }
+    ]
+  }
+]

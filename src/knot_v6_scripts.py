@@ -5,8 +5,12 @@ Hard V6 Standards enforced on every ~55-58s Short:
   1. >= 20 distinct camera shots per video (22-23 shots, ~2.4s per shot, 6-8 crisp words/shot).
   2. >= 50 distinct named multi-part 3D objects per video (every spoken noun illustrated).
   3. Total spoken length ~840-920 chars (~52-57s natural `voice-00` pace, strictly < 59.0s Shorts cap).
-  4. Mandatory Knot Theory structure: Hook -> Naive Failure Simulation -> Engineering Cutaway ->
-     Real-World Context -> Batas Akurasi -> "Oh, jadi..." Synthesis -> A/B Question -> White-Button CTA.
+  4. V6 structure: Hook -> Naive Failure Simulation -> Engineering Cutaway -> Real-World Context ->
+     Batas Akurasi -> Synthesis -> A/B Question -> White-Button CTA.
+
+SUPERSEDED for narration by V7 (`src/knot_v7_story_scripts.py`): storytelling scripts, 3-second hook,
+rising intensity, NO "Oh, jadi ..." line, 20 shots = minimum. The 3D scene builders keyed by these V6
+shots (`src/knot_v6_objects.py`) are still the visual source for V7.
 """
 
 from __future__ import annotations

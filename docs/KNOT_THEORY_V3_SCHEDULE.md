@@ -11,7 +11,7 @@ Dokumen ini memadukan **14 Ide Shorts Terkuat + 8 Cadangan** dari `Knot_Theory_V
 | **1. Pagi** | `08:00` | `07:00` | **Short (9:16)** | 40–52 dtk | *Commute Hook* — Hidden Infrastructure / Safety Engineering |
 | **2. Siang** | `12:30` | `11:30` | **Short (9:16)** | 40–52 dtk | *Lunch Break Peak* — Bukti Cutaway Visual Cepat |
 | **3. Sore** | `16:30` | `15:30` | **Long Video (16:9)** | **10–20 mnt** | *Watch-Hours Engine* (Target 8.000 jam YPP 2027, topik di luar 28 ide PDF) |
-| **4. Malam** | `20:30` | `19:30` | **Short (9:16)** | 40–52 dtk | *Prime-Time Engagement* — Kontra-intuitif `'Oh, jadi begitu!'` |
+| **4. Malam** | `20:30` | `19:30` | **Short (9:16)** | 40–52 dtk | *Prime-Time Engagement* — Kontra-intuitif, cerita bertensi (V7: tanpa kalimat "Oh, jadi") |
 
 ---
 
@@ -68,3 +68,14 @@ Dokumen ini memadukan **14 Ide Shorts Terkuat + 8 Cadangan** dari `Knot_Theory_V
 | `KT-R08` (V6, menggantikan V4) | 2026-12-03 08:00 | Lantai mekanikal break tank & PRV gedung tinggi | 22 | 82 | `1cLOEpdZL8nK-n7Z4YPBr7TD5Wt_sN5rf` |
 | `KT-S15` (baru) | 2026-12-03 12:30 | Jalur penyelamat truk rem blong (kerikil bulat) | 22 | 76 | `1GXruPtgpncm7YeGJjLTfLHfsZfZ_kjle` |
 | `KT-S16` (baru) | 2026-12-03 20:30 | Lubang kecil (bleed hole) jendela pesawat | 22 | 72 | `17o_Bixi-tLlrKNi0MuNULO1ochOyHp2T` |
+
+## Batch V7 — Naskah Storytelling (menggantikan V6 di slot yang sama)
+
+Visual V6 dipertahankan; naskah ditulis ulang sebagai cerita (hook ≤ 3 detik, intensitas naik, tanpa "Oh, jadi", batas akurasi diucapkan natural + badge HUD amber). 20 shot = minimum.
+
+| Episode | Slot (WITA) | Hook 3 detik | Shot / Objek 3D | Durasi | Drive ID |
+| :--- | :--- | :--- | :---: | :---: | :--- |
+| `KT-R07` | 2026-12-02 20:30 | "Jalan tol yang kamu lewati ini bergerak." | 23 / 84 | 54,8 s | `1RaR3Cb7N5711--IEVqFe690lEB4c0B0D` |
+| `KT-R08` | 2026-12-03 08:00 | "Pipa ini bisa jebol oleh airnya sendiri." | 23 / 82 | 54,8 s | `14Y-JbhNhl72MKGVWBCjiIBzLOZ4gRvVN` |
+| `KT-S15` | 2026-12-03 12:30 | "Pak Darto injak rem. Kosong!" | 24 / 76 | 54,8 s | `1-iQPH1paJ-_xwm8KiJZn7x2nYDxaLBDC` |
+| `KT-S16` | 2026-12-03 20:30 | "Ada lubang di jendela pesawatmu." | 23 / 71 | 57,4 s | `1Bv26U39lC9bXcxf_04QtTHAJehOTyc7X` |

@@ -100,7 +100,7 @@ class V6OverlayArtist:
         acc = self.acc
         badge = shot.get("badge") or shot.get("Badge") or ""
         recipe = shot.get("recipe", "")
-        is_boundary = shot["text"].lower().startswith("batas akurasi")
+        is_boundary = bool(shot.get("boundary")) or shot["text"].lower().startswith("batas akurasi")
 
         # 1) Header: hook banner on shot 1, step badge + progress afterwards.
         if idx == 0:
