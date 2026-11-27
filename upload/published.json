@@ -23,13 +23,13 @@
     "scheduled_for": "2026-11-27T16:30:00",
     "sha256": "ad3f2963fb755b83fde94db0ff07dfe61f10c7649b97eccf5a56cd62be92f465",
     "slot": "SORE_LONG",
-    "status": "scheduled",
+    "status": "published",
     "superseded_post_id": null,
     "timezone": "Asia/Makassar",
     "title": "Bagaimana Pesawat, Kereta Cepat, dan Kapal Raksasa Berhenti Tanpa Kampas Habis Terbakar?",
     "uploaded_at": "2026-11-26T01:27:08Z",
     "video_url_in_zernio": "https://media.zernio.com/temp/1795656421087_9f168b4b646572d9_KT-L02_1920x1080_master.mp4",
-    "youtube_url": null
+    "youtube_url": "https://www.youtube.com/watch?v=r9AVNDyvbnw"
   },
   "KT-L03": {
     "drive_file_id": "1pQ1rlJKI6RtcUG9mU3UPUIYRboWJdIQz",
@@ -144,35 +144,35 @@
     "youtube_url": null
   },
   "KT-R07": {
-    "drive_file_id": "1403dVkW3x2bvpyrSUYbcupdIaQ2ySp-6",
+    "drive_file_id": "1bBWjZv9efvDbOFXT2nltCC8GoUaUcdjj",
     "episode": "KT-R07",
-    "idempotency_key": "aiks-kt-r07-1506c961f8b8edc7520cd31314db43ef",
-    "post_id": "6b07a91e70fdeada4079e0f4",
+    "idempotency_key": "aiks-kt-r07-a2e00a58d1bf73f2122f3abe2a0bc906",
+    "post_id": "6b0949ef62e948fae3588a9d",
     "scheduled_for": "2026-12-02T20:30:00",
-    "sha256": "d602510122f4fdfb06bcd7bf7ab9374a8e473bf0f95c7d3a6d8cd57aec392c0e",
+    "sha256": "65c3d92e38e5f68983e43220f72ee5a04d7d71aca591dfae8f970e34f0455acd",
     "slot": "MALAM_SHORT",
     "status": "scheduled",
-    "superseded_post_id": null,
+    "superseded_post_id": "6b07a91e70fdeada4079e0f4",
     "timezone": "Asia/Makassar",
-    "title": "Bantalan Karet Berlapis Baja yang Menyangga Jembatan Ribuan Ton #Shorts",
-    "uploaded_at": "2026-11-26T03:35:59Z",
-    "video_url_in_zernio": "https://media.zernio.com/temp/1795664156771_ca6cd8947c7664dc_KT-R07_1080x1920_master.mp4",
+    "title": "Bantalan Karet Berlapis Baja yang Menyangga Jembatan Tol Ribuan Ton #Shorts",
+    "uploaded_at": "2026-11-27T09:14:24Z",
+    "video_url_in_zernio": "https://media.zernio.com/temp/1795770861251_396b4eabb19e64d1_KT-R07_1080x1920_v6_master.mp4",
     "youtube_url": null
   },
   "KT-R08": {
-    "drive_file_id": "1_ppSNrFBTnwLAEZQ10sTKlKcA5kstXjV",
+    "drive_file_id": "1cLOEpdZL8nK-n7Z4YPBr7TD5Wt_sN5rf",
     "episode": "KT-R08",
-    "idempotency_key": "aiks-kt-r08-87317ba63509b6cf32dcc10ada3f3c2f",
-    "post_id": "6b07a921211355f67b2978bb",
+    "idempotency_key": "aiks-kt-r08-0a11fb9a9c02bee78ca9d39d1a8a93d3",
+    "post_id": "6b0949f362e948fae3588ab2",
     "scheduled_for": "2026-12-03T08:00:00",
-    "sha256": "2f5afb816605533a4705ae94767bcb0482bd63cbe966eca270cc871759661721",
+    "sha256": "b1a407f1eb371bab00047197a3996426d647f0e7c108451108021ce6afd4858e",
     "slot": "PAGI_SHORT",
     "status": "scheduled",
-    "superseded_post_id": null,
+    "superseded_post_id": "6b07a921211355f67b2978bb",
     "timezone": "Asia/Makassar",
-    "title": "Kenapa Pipa Air Gedung Tinggi Tidak Boleh Tersambung Lurus dari Atas ke Bawah? #Shorts",
-    "uploaded_at": "2026-11-26T03:36:02Z",
-    "video_url_in_zernio": "https://media.zernio.com/temp/1795664160050_53111652676c51f3_KT-R08_1080x1920_master.mp4",
+    "title": "Kenapa Pipa Air Gedung Tinggi Tidak Boleh Tersambung Lurus dari Bawah ke Atas? #Shorts",
+    "uploaded_at": "2026-11-27T09:14:28Z",
+    "video_url_in_zernio": "https://media.zernio.com/temp/1795770865313_ebd7695fea2bb575_KT-R08_1080x1920_v6_master.mp4",
     "youtube_url": null
   },
   "KT-S01": {
@@ -231,13 +231,13 @@
     "scheduled_for": "2026-11-27T08:00:00",
     "sha256": "e94be1367541623cc5e7eed16ee3e7cb397ae8b48739109cc5ccb9cd9a1d090a",
     "slot": "PAGI_SHORT",
-    "status": "scheduled",
+    "status": "published",
     "superseded_post_id": "6b06f2391e1543178cfad34a",
     "timezone": "Asia/Makassar",
     "title": "Sabuk Pengaman Mobil Sengaja Mengalah Sedikit Saat Tabrakan #Shorts",
     "uploaded_at": "2026-11-25T17:25:57Z",
     "video_url_in_zernio": "https://media.zernio.com/temp/1795627553394_734e81f305b0a0d2_KT-S04_1080x1920_master.mp4",
-    "youtube_url": null
+    "youtube_url": "https://www.youtube.com/watch?v=Fkd2awc-Es8"
   },
   "KT-S05": {
     "drive_file_id": "1D7mqDg3EB4htxBXBszPcxb-v8JA4w0Pq",
@@ -247,13 +247,13 @@
     "scheduled_for": "2026-11-27T12:30:00",
     "sha256": "aa30bf4f5b73492b572e5a54a8c28228b88bfcfbe506fb0f0052921d11105c43",
     "slot": "SIANG_SHORT",
-    "status": "scheduled",
+    "status": "published",
     "superseded_post_id": "6b06f23d29f2f1241e9851a1",
     "timezone": "Asia/Makassar",
     "title": "Toilet Kamar Tamu Bau Setelah Lama Kosong? Bukan Pipanya yang Rusak #Shorts",
     "uploaded_at": "2026-11-25T17:26:02Z",
     "video_url_in_zernio": "https://media.zernio.com/temp/1795627558884_b9c19b9d496cfa3a_KT-S05_1080x1920_master.mp4",
-    "youtube_url": null
+    "youtube_url": "https://www.youtube.com/watch?v=T205O0IFm_w"
   },
   "KT-S06": {
     "drive_file_id": "1piUjRyrjRFAlKW6Ru0oNFmqGyRmqsPMW",
@@ -397,6 +397,38 @@
     "title": "Roda Pesawat Punya Sumbat Logam yang Sengaja Dirancang Meleleh #Shorts",
     "uploaded_at": "2026-11-26T16:11:04Z",
     "video_url_in_zernio": "https://media.zernio.com/temp/1795709460716_bc74c887977bdc0f_KT-S14_1080x1920_v5_master.mp4",
+    "youtube_url": null
+  },
+  "KT-S15": {
+    "drive_file_id": "1GXruPtgpncm7YeGJjLTfLHfsZfZ_kjle",
+    "episode": "KT-S15",
+    "idempotency_key": "aiks-kt-s15-276ac50faf5b3da32e24f613bbc000a0",
+    "post_id": "6b0949f74041e7bf7bdda99a",
+    "scheduled_for": "2026-12-03T12:30:00",
+    "sha256": "01884844a6fea9ec50485fc20fd19d01a2d44561daa8f48c020f345fb39db222",
+    "slot": "SIANG_SHORT",
+    "status": "scheduled",
+    "superseded_post_id": null,
+    "timezone": "Asia/Makassar",
+    "title": "Kenapa Jalur Penyelamat Truk Rem Blong Diisi Kerikil Bulat Dalam, Bukan Pasir? #Shorts",
+    "uploaded_at": "2026-11-27T09:14:32Z",
+    "video_url_in_zernio": "https://media.zernio.com/temp/1795770869261_a4771fcf787ea241_KT-S15_1080x1920_v6_master.mp4",
+    "youtube_url": null
+  },
+  "KT-S16": {
+    "drive_file_id": "17o_Bixi-tLlrKNi0MuNULO1ochOyHp2T",
+    "episode": "KT-S16",
+    "idempotency_key": "aiks-kt-s16-19292ba74d63a2bb63eb015580a67aac",
+    "post_id": "6b0949fb4041e7bf7bdda9b2",
+    "scheduled_for": "2026-12-03T20:30:00",
+    "sha256": "81e60aabce73b87ae49c6ab38657932db9a6ff98b26aa9ef111eb960925388d3",
+    "slot": "MALAM_SHORT",
+    "status": "scheduled",
+    "superseded_post_id": null,
+    "timezone": "Asia/Makassar",
+    "title": "Kenapa Lubang Kecil di Jendela Pesawat Justru Menyelamatkan Kaca Utama? #Shorts",
+    "uploaded_at": "2026-11-27T09:14:36Z",
+    "video_url_in_zernio": "https://media.zernio.com/temp/1795770873312_b4c416705d109437_KT-S16_1080x1920_v6_master.mp4",
     "youtube_url": null
   }
 }
